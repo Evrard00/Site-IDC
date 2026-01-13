@@ -1,0 +1,20 @@
+[
+  {
+    "label": "📱 Responsive",
+    "type": "shell",
+    "command": "echo 'Mobile-first approach: test with F12 Toggle Device Toolbar'",
+    "group": "test"
+  },
+  {
+    "label": "🔍 Check HTML",
+    "type": "shell",
+    "command": "echo 'Validate HTML at https://validator.w3.org/'",
+    "group": "test"
+  },
+  {
+    "label": "⚡ Performance",
+    "type": "shell",
+    "command": "echo 'Test with Google Lighthouse (F12 > Lighthouse)'",
+    "group": "test"
+  }
+]

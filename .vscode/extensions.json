@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ritwickdey.liveserver",
+    "bradlc.vscode-tailwindcss",
+    "firefox-devtools.vscode-firefox-debug",
+    "github.copilot"
+  ]
+}

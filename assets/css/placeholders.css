@@ -1,0 +1,395 @@
+/* Placeholders d'images - Styles pour images temporaires avec couleurs IDC */
+
+/* ===== PLACEHOLDER GÉNÉRAL ===== */
+.placeholder {
+    background: linear-gradient(135deg, #e8f3f1 0%, #f5faf9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7db891;
+    font-size: 14px;
+    font-weight: 500;
+    overflow: hidden;
+    position: relative;
+}
+
+.placeholder::after {
+    content: '📷 Image à venir';
+    position: absolute;
+}
+
+/* ===== PLACEHOLDER HERO ===== */
+.placeholder-hero {
+    background: linear-gradient(135deg, #1b7d3a 0%, #ff6600 100%);
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .placeholder-hero {
+        height: 250px;
+    }
+}
+
+/* ===== PLACEHOLDER CARD ===== */
+.placeholder-card {
+    background: linear-gradient(135deg, #f5f9f8 0%, #e8f3f1 100%);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7db891;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* ===== PLACEHOLDER PRODUIT ===== */
+.placeholder-product {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+/* ===== PLACEHOLDER AVATAR ===== */
+.placeholder-avatar {
+    background: linear-gradient(135deg, #0066cc 0%, #00ccff 100%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+}
+
+.placeholder-avatar.small {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+.placeholder-avatar.large {
+    width: 120px;
+    height: 120px;
+    font-size: 48px;
+}
+
+/* ===== PLACEHOLDER SECTION ===== */
+.placeholder-section {
+    background: linear-gradient(90deg, #f5f5f5 0%, #f9f9f9 50%, #f5f5f5 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ===== PLACEHOLDER RECTANGLE ===== */
+.placeholder-rect {
+    background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    border-radius: 4px;
+}
+
+.placeholder-rect.square {
+    aspect-ratio: 1;
+}
+
+.placeholder-rect.tall {
+    aspect-ratio: 9 / 16;
+}
+
+.placeholder-rect.wide {
+    aspect-ratio: 21 / 9;
+}
+
+/* ===== PLACEHOLDER COLORÉS ===== */
+.placeholder-blue {
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-orange {
+    background: linear-gradient(135deg, #ff6600 0%, #e55100 100%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-green {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-purple {
+    background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-pink {
+    background: linear-gradient(135deg, #e83e8c 0%, #c7297a 100%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.placeholder-cyan {
+    background: linear-gradient(135deg, #17a2b8 0%, #0c5460 100%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== PLACEHOLDER AVEC ICÔNE ===== */
+.placeholder-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.placeholder-icon::before {
+    font-size: 48px;
+}
+
+.placeholder-icon.image::before {
+    content: '🖼️';
+}
+
+.placeholder-icon.video::before {
+    content: '🎬';
+}
+
+.placeholder-icon.gallery::before {
+    content: '🗂️';
+}
+
+.placeholder-icon.chart::before {
+    content: '📊';
+}
+
+.placeholder-icon.map::before {
+    content: '🗺️';
+}
+
+.placeholder-icon.profile::before {
+    content: '👤';
+}
+
+.placeholder-icon.team::before {
+    content: '👥';
+}
+
+/* ===== PLACEHOLDER POUR IMG TAG ===== */
+img.placeholder-img {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    color: #999;
+    display: block;
+    object-fit: cover;
+}
+
+/* ===== SKELETON LOADER (Animation) ===== */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        #f5f5f5 25%,
+        #e0e0e0 50%,
+        #f5f5f5 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton.small {
+    height: 20px;
+    border-radius: 4px;
+}
+
+.skeleton.medium {
+    height: 40px;
+    border-radius: 4px;
+}
+
+.skeleton.large {
+    height: 80px;
+    border-radius: 4px;
+}
+
+/* ===== PLACEHOLDER POUR IMAGES DANS CARDS ===== */
+.product-image.placeholder,
+.card-image.placeholder {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e5e5e5 100%);
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 14px;
+    border-radius: 4px 4px 0 0;
+}
+
+/* ===== PLACEHOLDER POUR HERO IMAGE ===== */
+.hero-image.placeholder {
+    background: linear-gradient(135deg, #0066cc 0%, #ff6600 100%);
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+@media (max-width: 768px) {
+    .hero-image.placeholder {
+        min-height: 250px;
+        font-size: 20px;
+    }
+}
+
+/* ===== PLACEHOLDER POUR SECTION IMAGE ===== */
+.section-image.placeholder {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+/* ===== PLACEHOLDER AVEC TEXTE PERSONNALISÉ ===== */
+.placeholder[data-text]::after {
+    content: attr(data-text);
+}
+
+/* ===== RESPONSIVE PLACEHOLDERS ===== */
+@media (max-width: 576px) {
+    .placeholder-hero {
+        height: 200px;
+        font-size: 18px;
+    }
+    
+    .placeholder-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .placeholder-rect {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* ===== PLACEHOLDER POUR BACKGROUND IMAGE ===== */
+.bg-placeholder {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* ===== PLACEHOLDER POUR SVG ===== */
+.placeholder-svg {
+    background: linear-gradient(135deg, #f0f0f0 0%, #e5e5e5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* ===== PLACEHOLDER AVEC PULSE ===== */
+.placeholder.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ===== PLACEHOLDER AVEC FADE ===== */
+.placeholder.fade {
+    animation: fade 2s infinite;
+}
+
+@keyframes fade {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ===== UTILITAIRES ===== */
+.placeholder-text {
+    display: inline-block;
+    background: linear-gradient(90deg, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    color: transparent;
+    border-radius: 4px;
+}
+
+.placeholder-line {
+    height: 12px;
+    background: linear-gradient(90deg, #e8e8e8 0%, #f5f5f5 50%, #e8e8e8 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    border-radius: 2px;
+    margin-bottom: 12px;
+}
+
+.placeholder-line.short {
+    width: 60%;
+}
+
+.placeholder-line.medium {
+    width: 80%;
+}
+
+.placeholder-line.full {
+    width: 100%;
+}
