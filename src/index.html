@@ -768,6 +768,151 @@
             display: none;
         }
 
+        /* À PROPOS */
+        .section-apropos {
+            background: transparent;
+            padding: 80px 0;
+        }
+
+        .section-apropos .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section-apropos h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(36px, 5.5vw, 54px);
+            font-weight: 700;
+            color: #0F6B32;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .apropos-intro {
+            font-size: 16px;
+            color: #4F4F4F;
+            line-height: 1.8;
+            margin: 0 auto 60px;
+            max-width: 800px;
+        }
+
+        .apropos-values {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 80px;
+            text-align: left;
+        }
+
+        .apropos-value {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .apropos-value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #E36A13 0%, #FF8C42 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            flex-shrink: 0;
+        }
+
+        .apropos-value-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0B0B0B;
+            margin-bottom: 12px;
+        }
+
+        .apropos-value-content p {
+            font-size: 15px;
+            color: #4F4F4F;
+            line-height: 1.7;
+        }
+
+        .apropos-stats-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .apropos-stat {
+            text-align: center;
+        }
+
+        .apropos-stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #E36A13;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .apropos-stat-label {
+            font-size: 13px;
+            color: #4F4F4F;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .apropos-values {
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+
+            .apropos-value-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .apropos-stats-wrapper {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .apropos-values {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-bottom: 60px;
+            }
+
+            .apropos-value {
+                gap: 15px;
+            }
+
+            .apropos-value-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .apropos-value-content h3 {
+                font-size: 18px;
+            }
+
+            .apropos-stats-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .apropos-stat-number {
+                font-size: 32px;
+            }
+        }
+
         /* POURQUOI CHOISIR IDC */
         .section-pourquoi {
             background-color: transparent;
@@ -995,38 +1140,123 @@
             }
         }
 
-        /* TÉMOIGNAGES */
-        .section-temoignages {
-            background-color: #F4F4F4;
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0B0B0B 0%, #1A1A1A 100%);
+            color: #F4F4F4;
+            padding: 60px 20px 30px;
+            margin-top: 80px;
         }
 
-        .temoignages-grid {
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
-            margin-top: 50px;
+            margin-bottom: 40px;
         }
 
-        .temoignage-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #0F6B32;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .temoignage-card .quote {
-            font-size: 15px;
-            color: #4F4F4F;
-            font-style: italic;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .temoignage-card .author {
+        .footer-section h3 {
             font-family: 'Poppins', sans-serif;
-            color: #0F6B32;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #B0B0B0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #E36A13;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #E36A13;
+            margin-bottom: 15px;
+        }
+
+        .footer-description {
+            font-size: 14px;
+            color: #B0B0B0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(227, 106, 19, 0.2);
+            border-radius: 50%;
+            color: #E36A13;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: #E36A13;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #808080;
+        }
+
+        footer .footer-bottom p {
+            margin: 10px 0;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: #808080;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links a:hover {
+            color: #E36A13;
         }
 
         /* RESPONSIVE */
@@ -1168,9 +1398,9 @@
                 gap: 20px;
             }
 
-            .temoignages-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            footer .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
             }
 
             nav {
@@ -1284,7 +1514,7 @@
             
             <nav id="navbar" class="header-nav">
                 <a href="#accueil">Accueil</a>
-                <a href="#qui-sommes-nous">Qui sommes-nous</a>
+                <a href="#apropos">Qui sommes-nous</a>
                 <div class="nav-item">
                     <a href="#activites">Nos activités <span class="dropdown-arrow">▼</span></a>
                     <div class="submenu">
@@ -1420,6 +1650,59 @@
         </div>
     </section>
 
+    <!-- À PROPOS DE IDC -->
+    <section class="section-apropos" id="apropos">
+        <div class="container">
+            <h2>À propos de IDC</h2>
+            <p class="apropos-intro">
+                Fondée en 2003, IDC (Ivoirienne de Distribution Carburants) est aujourd'hui un acteur majeur de la distribution d'énergie en Côte d'Ivoire. Notre mission : fournir des solutions énergétiques fiables et sécurisées à nos clients, tout en respectant les normes de qualité et de sécurité les plus strictes.
+            </p>
+
+            <div class="apropos-values">
+                <div class="apropos-value">
+                    <div class="apropos-value-icon">👁️</div>
+                    <div class="apropos-value-content">
+                        <h3>Vision</h3>
+                        <p>Être le partenaire énergétique le plus fiable pour entreprises et particuliers en Côte d'Ivoire.</p>
+                    </div>
+                </div>
+                <div class="apropos-value">
+                    <div class="apropos-value-icon">🎯</div>
+                    <div class="apropos-value-content">
+                        <h3>Mission</h3>
+                        <p>Distribuer carburants, gaz et lubrifiants avec professionnalisme et proximité.</p>
+                    </div>
+                </div>
+                <div class="apropos-value">
+                    <div class="apropos-value-icon">⭐</div>
+                    <div class="apropos-value-content">
+                        <h3>Valeurs</h3>
+                        <p>Fiabilité, sécurité, transparence et innovation au cœur de nos opérations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="apropos-stats-wrapper">
+                <div class="apropos-stat">
+                    <div class="apropos-stat-number">20+</div>
+                    <div class="apropos-stat-label">Années d'expérience</div>
+                </div>
+                <div class="apropos-stat">
+                    <div class="apropos-stat-number">50+</div>
+                    <div class="apropos-stat-label">Stations en Côte d'Ivoire</div>
+                </div>
+                <div class="apropos-stat">
+                    <div class="apropos-stat-number">100K+</div>
+                    <div class="apropos-stat-label">Clients satisfaits</div>
+                </div>
+                <div class="apropos-stat">
+                    <div class="apropos-stat-number">24/7</div>
+                    <div class="apropos-stat-label">Service client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- POURQUOI CHOISIR IDC -->
     <section class="section-pourquoi" id="pourquoi">
         <div class="container">
@@ -1474,22 +1757,63 @@
         </div>
     </section>
 
-    <!-- TÉMOIGNAGES -->
-    <section class="section-temoignages" id="temoignages">
-        <div class="container">
-            <h2>Témoignages clients</h2>
-            <div class="temoignages-grid">
-                <div class="temoignage-card">
-                    <p class="quote">"Grâce à IDC, notre flotte est toujours approvisionnée à temps. Une vraie fiabilité !"</p>
-                    <p class="author">– Entreprise X</p>
-                </div>
-                <div class="temoignage-card">
-                    <p class="quote">"Le service client est réactif et professionnel. Je recommande IDC !"</p>
-                    <p class="author">– Client particulier</p>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">IDC</div>
+                <p class="footer-description">Ivoirienne d'Hydrocarbures - Votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook">f</a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter">𝕏</a>
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">in</a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">📷</a>
                 </div>
             </div>
+
+            <div class="footer-section">
+                <h3>Nos activités</h3>
+                <ul>
+                    <li><a href="#carburants">Carburants</a></li>
+                    <li><a href="#gaz">Gaz butane</a></li>
+                    <li><a href="#lubrifiants">Lubrifiants</a></li>
+                    <li><a href="#tpe">Carte TPE</a></li>
+                    <li><a href="#stations">Stations & services</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Nos stations</a></li>
+                    <li><a href="#">IDC E-Shop</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">📧 contact@idc.ci</a></li>
+                    <li><a href="https://wa.me/22520210000" target="_blank">💬 WhatsApp</a></li>
+                    <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
+                </ul>
+            </div>
         </div>
-    </section>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Mentions légales</a>
+                <a href="#">Cookies</a>
+            </div>
+            <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
+        </div>
+    </footer>
 
     <script>
         // Stations data
