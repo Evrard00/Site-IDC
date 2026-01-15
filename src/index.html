@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -879,37 +881,118 @@
             }
         }
 
-        /* CHIFFRES CLÉS */
-        .section-chiffres {
-            background-color: #FFFFFF;
+        /* STATIONS IDC */
+        .section-stations {
+            background-color: transparent;
+            padding: 80px 0;
         }
 
-        .chiffres-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .chiffre-card {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #F4F4F4 0%, #FFFFFF 100%);
-            border-radius: 12px;
-            border-top: 4px solid #E36A13;
-        }
-
-        .chiffre-card .number {
+        .section-stations h2 {
             font-family: 'Poppins', sans-serif;
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
-            color: #E36A13;
-            margin-bottom: 10px;
+            color: #0F6B32;
+            margin-bottom: 12px;
+            text-align: center;
         }
 
-        .chiffre-card p {
+        .section-subtitle {
+            font-size: 16px;
             color: #4F4F4F;
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stations-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .stations-map {
+            width: 100%;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .station-info {
+            background: linear-gradient(135deg, #F5EFE7 0%, #F9F5F0 100%);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(227, 106, 19, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .station-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0F6B32;
+            margin: 0 0 16px 0;
+        }
+
+        .station-info p {
+            font-size: 14px;
+            color: #4F4F4F;
+            margin: 0 0 12px 0;
+            line-height: 1.6;
+        }
+
+        .station-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .station-detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .station-detail-label {
             font-weight: 600;
+            color: #0F6B32;
+            min-width: 100px;
+            font-size: 13px;
+        }
+
+        .station-detail-value {
+            color: #4F4F4F;
+            font-size: 13px;
+        }
+
+        @media (max-width: 1024px) {
+            .stations-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .stations-map {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-stations h2 {
+                font-size: 32px;
+            }
+
+            .stations-map {
+                height: 350px;
+            }
+
+            .station-info {
+                padding: 24px;
+            }
         }
 
         /* TÉMOIGNAGES */
@@ -1262,8 +1345,8 @@
         <div class="container">
             <h3 style="color: #0B0B0B; margin-bottom: 30px; text-align: center; font-size: 28px; font-weight: 700;">Comment pouvons-nous vous aider ?</h3>
             <div class="raccourcis-grid">
-                <a href="#recherche" class="raccourci-btn">
-                    <span class="raccourci-icon">🔍</span>
+                <a href="#stations" class="raccourci-btn">
+                    <span class="raccourci-icon">📍</span>
                     <span class="raccourci-text">Trouver une station</span>
                 </a>
                 <a href="#eshop" class="raccourci-btn">
@@ -1375,22 +1458,17 @@
         </div>
     </section>
 
-    <!-- CHIFFRES CLÉS -->
-    <section class="section-chiffres" id="chiffres">
+    <!-- STATIONS IDC -->
+    <section class="section-stations" id="stations">
         <div class="container">
-            <h2>Chiffres clés</h2>
-            <div class="chiffres-grid">
-                <div class="chiffre-card">
-                    <div class="number">20+</div>
-                    <p>ans d'expérience</p>
-                </div>
-                <div class="chiffre-card">
-                    <div class="number">50+</div>
-                    <p>stations dans tout le pays</p>
-                </div>
-                <div class="chiffre-card">
-                    <div class="number">10K+</div>
-                    <p>clients professionnels satisfaits</p>
+            <h2>Nos stations dans toute la Côte d'Ivoire</h2>
+            <p class="section-subtitle">Découvrez nos 50+ stations réparties dans tout le pays pour vous servir au mieux.</p>
+            
+            <div class="stations-wrapper">
+                <div id="map" class="stations-map"></div>
+                <div class="station-info" id="stationInfo">
+                    <h3>Sélectionnez une station</h3>
+                    <p>Cliquez sur une localisation sur la carte pour voir les détails.</p>
                 </div>
             </div>
         </div>
@@ -1412,6 +1490,67 @@
             </div>
         </div>
     </section>
+
+    <script>
+        // Stations data
+        const stations = [
+            { name: 'Station Abidjan Centre', lat: 5.3364, lng: -4.0383, address: 'Boulevard de la République', phone: '+225 20 21 00 00', hours: '24h/24' },
+            { name: 'Station Treichville', lat: 5.3200, lng: -4.0100, address: 'Rue de Commerce', phone: '+225 20 22 00 00', hours: '24h/24' },
+            { name: 'Station Plateau', lat: 5.3450, lng: -4.0050, address: 'Avenue Chardy', phone: '+225 20 23 00 00', hours: '06h-22h' },
+            { name: 'Station Yopougon', lat: 5.3550, lng: -4.1200, address: 'Boulevard Giscard d\'Estaing', phone: '+225 20 24 00 00', hours: '24h/24' },
+            { name: 'Station Cocody', lat: 5.3800, lng: -3.9700, address: 'Rue du Docteur Jamot', phone: '+225 20 25 00 00', hours: '06h-23h' },
+            { name: 'Station Marcory', lat: 5.3150, lng: -3.9600, address: 'Route de Bassam', phone: '+225 20 26 00 00', hours: '24h/24' },
+            { name: 'Station Koumassi', lat: 5.2800, lng: -4.0300, address: 'Rue de la Paix', phone: '+225 20 27 00 00', hours: '06h-21h' },
+            { name: 'Station Adjamé', lat: 5.3900, lng: -4.0500, address: 'Avenue de la République', phone: '+225 20 28 00 00', hours: '24h/24' },
+            { name: 'Station Yamoussoukro', lat: 6.8271, lng: -5.2893, address: 'Boulevard de la Paix', phone: '+225 30 64 00 00', hours: '06h-22h' },
+            { name: 'Station Bouaké', lat: 7.6977, lng: -5.0303, address: 'Rue du Commerce', phone: '+225 31 63 00 00', hours: '06h-22h' },
+            { name: 'Station San Pédro', lat: 4.7467, lng: -6.6289, address: 'Port Autonome', phone: '+225 34 77 00 00', hours: '24h/24' },
+            { name: 'Station Daloa', lat: 6.8783, lng: -6.4497, address: 'Boulevard de l\'Indépendance', phone: '+225 32 76 00 00', hours: '06h-22h' }
+        ];
+
+        // Initialize map
+        const map = L.map('map').setView([7.0, -5.5], 7);
+
+        // Add tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Custom icon for stations
+        const stationIcon = L.icon({
+            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAzMiA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHN0eWxlPiAuYSB7IGZpbGw6ICNFMzZBMTM7IH0gPC9zdHlsZT4KPHN0eWxlPiAuYiB7IGZpbGw6IHdoaXRlOyB9IDwvc3R5bGU+Cjxwb2x5Z29uIGNsYXNzPSJhIiBwb2ludHM9IjE2LDAgMzIsMzIgMTYsNDggMCwzMiIgLz4KPGNPCG1lIGNsYXNzPSJiIiBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgLz4KPC9zdmc+',
+            iconSize: [32, 48],
+            iconAnchor: [16, 48],
+            popupAnchor: [0, -48]
+        });
+
+        // Add markers for each station
+        stations.forEach(station => {
+            const marker = L.marker([station.lat, station.lng], { icon: stationIcon }).addTo(map);
+            
+            marker.addEventListener('click', () => {
+                const infoDiv = document.getElementById('stationInfo');
+                infoDiv.innerHTML = `
+                    <h3>${station.name}</h3>
+                    <div class="station-details">
+                        <div class="station-detail-item">
+                            <span class="station-detail-label">📍 Adresse:</span>
+                            <span class="station-detail-value">${station.address}</span>
+                        </div>
+                        <div class="station-detail-item">
+                            <span class="station-detail-label">📞 Téléphone:</span>
+                            <span class="station-detail-value">${station.phone}</span>
+                        </div>
+                        <div class="station-detail-item">
+                            <span class="station-detail-label">⏰ Horaires:</span>
+                            <span class="station-detail-value">${station.hours}</span>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+
         // Menu burger
         const menuBurger = document.getElementById('menuBurger');
         const navbar = document.getElementById('navbar');
