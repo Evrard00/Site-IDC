@@ -25,7 +25,7 @@
             font-family: 'Inter', sans-serif;
             color: #4F4F4F;
             line-height: 1.6;
-            background: linear-gradient(135deg, #F7F9F7 0%, #F5F8F6 50%, #F8F5F7 100%);
+            background: #E8E8E5;
             min-height: 100vh;
         }
 
@@ -38,29 +38,37 @@
 
         /* HEADER */
         header {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            background: #E8E8E5;
             position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
+            border: none;
+            border-radius: 0;
+            width: 100%;
+            box-shadow: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        header.scrolled {
+            top: 20px;
+            left: 20px;
+            right: 20px;
             width: calc(100% - 40px);
-            max-width: 1320px;
+            border-radius: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         }
 
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
+            padding: 12px 40px;
             gap: 50px;
-            max-width: 100%;
+            max-width: 1320px;
             margin: 0 auto;
-            padding-left: 40px;
-            padding-right: 40px;
         }
 
         .header-left {
@@ -89,7 +97,7 @@
         }
 
         .header-nav a {
-            color: rgba(255, 255, 255, 0.75);
+            color: #0B0B0B;
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
@@ -125,14 +133,14 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: rgba(20, 20, 20, 0.95);
-            backdrop-filter: blur(10px);
+            background: #FFFFFF;
             min-width: 220px;
             border-radius: 6px;
             padding: 12px 0;
             margin-top: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             z-index: 999;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
 
         .nav-item:hover .submenu {
@@ -142,7 +150,7 @@
         .submenu a {
             display: block;
             padding: 10px 18px;
-            color: rgba(255, 255, 255, 0.75);
+            color: #0B0B0B;
             font-size: 13px;
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
@@ -161,7 +169,7 @@
         }
 
         .header-login {
-            color: rgba(255, 255, 255, 0.75);
+            color: #0B0B0B;
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
@@ -200,7 +208,7 @@
         }
 
         .header-search svg {
-            stroke: rgba(255, 255, 255, 0.75);
+            stroke: #0B0B0B;
             width: 20px;
             height: 20px;
         }
@@ -218,7 +226,7 @@
         .menu-burger span {
             width: 24px;
             height: 2.5px;
-            background-color: white;
+            background-color: #0B0B0B;
             border-radius: 2px;
             transition: all 0.3s ease;
         }
@@ -238,11 +246,13 @@
         /* HERO SECTION */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(15, 107, 50, 0.45) 50%, rgba(0, 0, 0, 0.4) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(15, 107, 50, 0.15) 50%, rgba(0, 0, 0, 0.15) 100%), url('../assets/images/hero3.jpg') center/cover no-repeat;
             background-attachment: fixed;
             display: flex;
             position: relative;
             overflow: hidden;
+            border-radius: 32px 32px 0 0;
+            margin-top: 80px;
         }
 
         .hero .container {
@@ -250,7 +260,7 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
-            padding-top: 110px;
+            padding-top: 60px;
             max-width: 1200px;
             margin: 0 auto;
             padding-left: 40px;
@@ -301,7 +311,7 @@
 
         .hero-stats {
             position: absolute;
-            bottom: 60px;
+            bottom: 90px;
             right: max(40px, calc((100% - 1200px) / 2 + 40px));
             display: flex;
             gap: 80px;
@@ -2006,6 +2016,16 @@
         // Menu burger
         const menuBurger = document.getElementById('menuBurger');
         const navbar = document.getElementById('navbar');
+        const header = document.querySelector('header');
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
         menuBurger.addEventListener('click', () => {
             menuBurger.classList.toggle('active');

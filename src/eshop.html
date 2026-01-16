@@ -9,6 +9,9 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="../assets/css/shared.css">
+    
     <style>
         * {
             margin: 0;
@@ -621,15 +624,27 @@
     <header>
         <div class="container">
             <div class="header-left">
-                <img src="../assets/images/logo.png" alt="IDC Logo" class="logo">
+                <div class="logo">
+                    <img src="../assets/images/logo.png" alt="IDC Logo">
+                </div>
             </div>
-            <nav class="header-nav" id="navbar">
+            
+            <nav id="navbar" class="header-nav">
                 <a href="index.html">Accueil</a>
                 <a href="index.html#apropos">Qui sommes-nous</a>
-                <a href="index.html#activites">Nos activités</a>
-                <a href="eshop.html" class="active">E-Shop</a>
-                <a href="index.html#contact">Contact</a>
+                <div class="nav-item">
+                    <a href="index.html#activites">Nos activités <span class="dropdown-arrow">▼</span></a>
+                    <div class="submenu">
+                        <a href="index.html#carburants">Carburants</a>
+                        <a href="index.html#gaz">Gaz butane</a>
+                        <a href="index.html#lubrifiants">Lubrifiants</a>
+                        <a href="index.html#carte-tpe">Carte TPE (B2B)</a>
+                        <a href="index.html#stations">Stations & services</a>
+                    </div>
+                </div>
+                <a href="eshop.html">IDC E-Shop</a>
             </nav>
+
             <div class="header-right">
                 <a href="#" class="header-login">Mon espace</a>
                 <button class="btn btn-primary btn-sm">Nous contacter</button>
@@ -638,11 +653,11 @@
                         <path d="M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </button>
-                <button class="menu-burger" id="menuBurger">
+                <div class="menu-burger" id="menuBurger">
                     <span></span>
                     <span></span>
                     <span></span>
-                </button>
+                </div>
             </div>
         </div>
     </header>
@@ -832,44 +847,59 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>À propos</h3>
-                    <a href="#">Qui sommes-nous</a>
-                    <a href="#">Nos activités</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Carrières</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Boutique</h3>
-                    <a href="#">Catégories</a>
-                    <a href="#">Produits populaires</a>
-                    <a href="#">Offres spéciales</a>
-                    <a href="#">Suivi de commande</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <a href="#">FAQ</a>
-                    <a href="#">Livraison</a>
-                    <a href="#">Retours</a>
-                    <a href="#">Nous contacter</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Légal</h3>
-                    <a href="#">Conditions d'utilisation</a>
-                    <a href="#">Politique de confidentialité</a>
-                    <a href="#">Mentions légales</a>
-                    <a href="#">Cookies</a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">IDC</div>
+                <p class="footer-description">Ivoirienne d'Hydrocarbures - Votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook">f</a>
+                    <a href="https://www.twitter.com" target="_blank" title="Twitter">𝕏</a>
+                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">in</a>
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">📷</a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>&copy; 2024 IDC - Ivoirienne de Distribution Carburants. Tous droits réservés.</p>
+            <div class="footer-section">
+                <h3>Nos activités</h3>
+                <ul>
+                    <li><a href="index.html#carburants">Carburants</a></li>
+                    <li><a href="index.html#gaz">Gaz butane</a></li>
+                    <li><a href="index.html#lubrifiants">Lubrifiants</a></li>
+                    <li><a href="index.html#tpe">Carte TPE</a></li>
+                    <li><a href="index.html#stations">Stations & services</a></li>
+                </ul>
             </div>
+
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="index.html#apropos">À propos</a></li>
+                    <li><a href="index.html#stations">Nos stations</a></li>
+                    <li><a href="eshop.html">IDC E-Shop</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">📧 contact@idc.ci</a></li>
+                    <li><a href="https://wa.me/22520210000" target="_blank">💬 WhatsApp</a></li>
+                    <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Mentions légales</a>
+                <a href="#">Cookies</a>
+            </div>
+            <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
         </div>
     </footer>
 
@@ -877,10 +907,28 @@
         // Menu burger
         const menuBurger = document.getElementById('menuBurger');
         const navbar = document.getElementById('navbar');
+        const header = document.querySelector('header');
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
 
         menuBurger.addEventListener('click', () => {
             menuBurger.classList.toggle('active');
             navbar.classList.toggle('active');
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBurger.classList.remove('active');
+                navbar.classList.remove('active');
+            });
         });
 
         // Smooth scroll
