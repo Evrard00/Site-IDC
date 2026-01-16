@@ -238,7 +238,7 @@
         /* HERO SECTION */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(15, 107, 50, 0.45) 50%, rgba(0, 0, 0, 0.4) 100%), url('../assets/images/hero2.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(15, 107, 50, 0.45) 50%, rgba(0, 0, 0, 0.4) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
             background-attachment: fixed;
             display: flex;
             position: relative;
@@ -648,12 +648,14 @@
         .service-card {
             background: #FFFFFF;
             border-radius: 14px;
-            overflow: hidden;
+            overflow: auto;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
             transition: all 0.3s ease;
             position: relative;
             display: flex;
             flex-direction: column;
+            height: fit-content;
+            max-height: 600px;
         }
 
         .service-card:hover {
@@ -751,12 +753,93 @@
             background-color: #E36A13;
             border-radius: 50%;
             color: white;
+            border: none;
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
             transition: all 0.3s ease;
             flex-shrink: 0;
             margin-left: 10px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .service-icon-btn:hover {
+            background-color: #d45d0a;
+            transform: scale(1.1);
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            padding: 0 14px;
+            border-top: 1px solid #f0f0f0;
+            color: #4F4F4F;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .service-details.expanded {
+            max-height: 300px;
+            padding: 16px 14px;
+        }
+
+        .service-icon-btn.expanded {
+            transform: rotate(180deg);
+        }
+
+        .service-icon-btn.active {
+            transform: rotate(180deg);
+            background-color: #0F6B32;
+        }
+
+        .service-details {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 14px;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #F4F4F4;
+        }
+
+        .service-details.active {
+            max-height: 500px;
+            padding: 16px 14px;
+        }
+
+        .service-details p {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #4F4F4F;
+            margin: 0 0 12px 0;
+            line-height: 1.6;
+        }
+
+        .service-details ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .service-details ul li {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #0F6B32;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-details ul li:before {
+            content: '✓';
+            color: #E36A13;
+            font-weight: 700;
+            margin-right: 4px;
         }
 
         .service-icon-btn:hover {
@@ -1525,7 +1608,7 @@
                         <a href="#stations">Stations & services</a>
                     </div>
                 </div>
-                <a href="#eshop">IDC E-Shop</a>
+                <a href="eshop.html">IDC E-Shop</a>
             </nav>
 
             <div class="header-right">
@@ -1607,7 +1690,16 @@
                     <div class="service-image service-image-1"></div>
                     <div class="service-info">
                         <h3>Carburants</h3>
-                        <a href="#carburants" class="service-icon-btn">→</a>
+                        <button class="service-icon-btn" data-service="carburants">↓</button>
+                    </div>
+                    <div class="service-details">
+                        <p>IDC propose une gamme complète de carburants pour tous types de véhicules et besoins professionnels. Notre priorité : assurer qualité, disponibilité et sécurité.</p>
+                        <ul>
+                            <li>Essence 95 et 98</li>
+                            <li>Diesel premium</li>
+                            <li>Disponibilité 24/7</li>
+                            <li>Normes internationales</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1616,7 +1708,16 @@
                     <div class="service-image service-image-2"></div>
                     <div class="service-info">
                         <h3>Gaz butane</h3>
-                        <a href="#gaz" class="service-icon-btn">→</a>
+                        <button class="service-icon-btn" data-service="gaz">↓</button>
+                    </div>
+                    <div class="service-details">
+                        <p>Nous distribuons du gaz butane pour les particuliers et entreprises, dans des emballages sécurisés et conformes aux normes locales. IDC garantit un approvisionnement fiable et rapide.</p>
+                        <ul>
+                            <li>Bouteilles de 3kg, 6kg, 12kg</li>
+                            <li>Recharge rapide</li>
+                            <li>Prix compétitifs</li>
+                            <li>Conformité aux normes</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1625,7 +1726,16 @@
                     <div class="service-image service-image-4"></div>
                     <div class="service-info">
                         <h3>Carte TPE (B2B)</h3>
-                        <a href="#carte-tpe" class="service-icon-btn">→</a>
+                        <button class="service-icon-btn" data-service="carte-tpe">↓</button>
+                    </div>
+                    <div class="service-details">
+                        <p>La Carte TPE IDC est la solution idéale pour gérer votre consommation de carburant en entreprise.</p>
+                        <ul>
+                            <li>Paiement simplifié et sécurisé</li>
+                            <li>Gestion centralisée des véhicules</li>
+                            <li>Suivi en temps réel des dépenses</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: 12px; display: inline-block; font-size: 12px;">Demander une carte</a>
                     </div>
                 </div>
 
@@ -1634,7 +1744,16 @@
                     <div class="service-image service-image-3"></div>
                     <div class="service-info">
                         <h3>Lubrifiants</h3>
-                        <a href="#lubrifiants" class="service-icon-btn">→</a>
+                        <button class="service-icon-btn" data-service="lubrifiants">↓</button>
+                    </div>
+                    <div class="service-details">
+                        <p>Nos lubrifiants sont conçus pour protéger vos moteurs et prolonger leur durée de vie. IDC propose des produits pour véhicules légers, utilitaires et industriels, adaptés à chaque usage.</p>
+                        <ul>
+                            <li>Huiles moteur premium</li>
+                            <li>Fluides transmission</li>
+                            <li>Lubrifiants industriels</li>
+                            <li>Garantie de qualité</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1643,7 +1762,16 @@
                     <div class="service-image service-image-5"></div>
                     <div class="service-info">
                         <h3>Stations</h3>
-                        <a href="#stations" class="service-icon-btn">→</a>
+                        <button class="service-icon-btn" data-service="stations">↓</button>
+                    </div>
+                    <div class="service-details">
+                        <p>Nos stations sont réparties dans tout le pays pour vous garantir proximité et efficacité. Chaque station propose :</p>
+                        <ul>
+                            <li>Carburants de qualité</li>
+                            <li>Lubrifiants et accessoires</li>
+                            <li>Boutique Shop & Go</li>
+                            <li>Service rapide et professionnel</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -1903,6 +2031,31 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Service card expansion/collapse functionality
+        document.querySelectorAll('.service-icon-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const serviceCard = this.closest('.service-card');
+                const serviceDetails = serviceCard.querySelector('.service-details');
+                
+                // Toggle expanded class on button
+                this.classList.toggle('expanded');
+                
+                // Toggle expanded class on details
+                serviceDetails.classList.toggle('expanded');
+                
+                // Close other open cards
+                document.querySelectorAll('.service-card').forEach(card => {
+                    if (card !== serviceCard) {
+                        const otherBtn = card.querySelector('.service-icon-btn');
+                        const otherDetails = card.querySelector('.service-details');
+                        otherBtn.classList.remove('expanded');
+                        otherDetails.classList.remove('expanded');
+                    }
+                });
             });
         });
     </script>

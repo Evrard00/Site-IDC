@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop IDC - Boutique en ligne | Carburants, Lubrifiants, Accessoires</title>
+    <meta name="description" content="Boutique en ligne IDC - Achetez lubrifiants, accessoires auto, produits d'entretien et gaz domestique">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0B0B0B;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        :root {
+            --color-primary: #E36A13;
+            --color-secondary: #0F6B32;
+            --color-dark: #0B0B0B;
+            --color-text: #4F4F4F;
+            --color-light: #F4F4F4;
+            --color-white: #FFFFFF;
+            --color-border: #E5E5E5;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            width: calc(100% - 40px);
+            max-width: 1320px;
+            background: rgba(11, 11, 11, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 40px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .header-nav a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header-nav a:hover,
+        .header-nav a.active {
+            color: var(--color-primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .header-login {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header-login:hover {
+            color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d45d0a;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(227, 106, 19, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-secondary:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 11px 32px !important;
+            font-size: 14px !important;
+            border-radius: 16px !important;
+            font-weight: 600 !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        .header-search {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-search svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+        }
+
+        .menu-burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .menu-burger span {
+            width: 24px;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        /* HERO E-SHOP */
+        .hero-eshop {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(15, 107, 50, 0.45) 50%, rgba(0, 0, 0, 0.4) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            min-height: 70vh;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            margin-top: 100px;
+        }
+
+        .hero-eshop .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 120px 40px;
+            max-width: 1320px;
+            margin: 0 auto;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-eshop h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(42px, 7vw, 64px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-eshop .hero-accent {
+            color: var(--color-primary);
+        }
+
+        .hero-eshop p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            max-width: 600px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta .btn {
+            font-size: 16px;
+            padding: 16px 40px;
+        }
+
+        /* SECTION CONTAINER */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-secondary);
+        }
+
+        section > .container > p:first-of-type {
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* CATÉGORIES */
+        .section-categories {
+            background-color: var(--color-light);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .category-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #E36A13, #0F6B32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        .category-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .category-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+
+        .category-info p {
+            font-size: 14px;
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .category-card .btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        /* PRODUITS POPULAIRES */
+        .section-products {
+            background-color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #F4F4F4, #E5E5E5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #CCC;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-dark);
+        }
+
+        .product-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .product-rating {
+            font-size: 12px;
+            color: var(--color-text);
+        }
+
+        .product-card .btn {
+            margin-top: 12px;
+            width: 100%;
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 13px;
+        }
+
+        /* AVANTAGES */
+        .section-advantages {
+            background-color: var(--color-light);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 50px;
+        }
+
+        .advantage-card {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .advantage-icon {
+            font-size: 48px;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .advantage-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+
+        .advantage-card p {
+            font-size: 14px;
+            color: var(--color-text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* CTA SECTION */
+        .section-cta {
+            background: linear-gradient(135deg, var(--color-secondary), #0F5629);
+            color: white;
+            text-align: center;
+        }
+
+        .section-cta h2 {
+            color: white;
+        }
+
+        .section-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-cta .btn {
+            margin-top: 32px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--color-primary);
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .hero-eshop .container {
+                padding: 80px 30px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                padding: 12px 20px;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .menu-burger {
+                display: flex;
+            }
+
+            .hero-eshop .container {
+                padding: 60px 20px;
+            }
+
+            .hero-eshop h1 {
+                font-size: 32px;
+            }
+
+            .hero-eshop p {
+                font-size: 16px;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-eshop .container {
+                padding: 40px 16px;
+                justify-content: flex-start;
+            }
+
+            .hero-eshop h1 {
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+
+            .hero-eshop p {
+                font-size: 14px;
+                margin-bottom: 24px;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                padding: 14px 20px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <img src="../assets/images/logo.png" alt="IDC Logo" class="logo">
+            </div>
+            <nav class="header-nav" id="navbar">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#apropos">Qui sommes-nous</a>
+                <a href="index.html#activites">Nos activités</a>
+                <a href="eshop.html" class="active">E-Shop</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="header-login">Mon espace</a>
+                <button class="btn btn-primary btn-sm">Nous contacter</button>
+                <button class="header-search">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19a8 8 0 100-16 8 8 0 000 16zM21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="menu-burger" id="menuBurger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO E-SHOP -->
+    <section class="hero-eshop">
+        <div class="container">
+            <h1>Votre <span class="hero-accent">boutique en ligne</span> IDC</h1>
+            <p>Découvrez nos lubrifiants, accessoires auto et produits d'entretien. Livraison rapide partout en Côte d'Ivoire.</p>
+            <div class="hero-cta">
+                <a href="#categories" class="btn btn-primary">Explorer les catégories</a>
+                <a href="#" class="btn btn-secondary">Voir le panier</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÉGORIES -->
+    <section class="section-categories" id="categories">
+        <div class="container">
+            <h2>Catégories principales</h2>
+            <p>Parcourez nos collections organisées pour trouver exactement ce dont vous avez besoin.</p>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-image">🛢️</div>
+                    <div class="category-info">
+                        <h3>Lubrifiants</h3>
+                        <p>Huiles moteur, fluides transmission et lubrifiants spécialisés</p>
+                        <span class="btn btn-primary btn-sm">Voir plus</span>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">🧼</div>
+                    <div class="category-info">
+                        <h3>Produits d'entretien</h3>
+                        <p>Nettoyants, détergents et produits de maintenance auto</p>
+                        <span class="btn btn-primary btn-sm">Voir plus</span>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">🔧</div>
+                    <div class="category-info">
+                        <h3>Accessoires auto</h3>
+                        <p>Pièces de rechange, outils et accessoires automobiles</p>
+                        <span class="btn btn-primary btn-sm">Voir plus</span>
+                    </div>
+                </a>
+
+                <a href="#" class="category-card">
+                    <div class="category-image">🔥</div>
+                    <div class="category-info">
+                        <h3>Gaz domestique</h3>
+                        <p>Bouteilles de gaz butane pour particuliers et entreprises</p>
+                        <span class="btn btn-primary btn-sm">Voir plus</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUITS POPULAIRES -->
+    <section class="section-products">
+        <div class="container">
+            <h2>Produits populaires</h2>
+            <p>Découvrez nos bestsellers et promotions du moment.</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">🛢️</div>
+                    <div class="product-info">
+                        <div class="product-name">Huile moteur Premium 5W-40</div>
+                        <div class="product-price">12 500 F</div>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (124)</div>
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧼</div>
+                    <div class="product-info">
+                        <div class="product-name">Nettoyant moteur concentré</div>
+                        <div class="product-price">4 500 F</div>
+                        <div class="product-rating">⭐⭐⭐⭐ (87)</div>
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🧴</div>
+                    <div class="product-info">
+                        <div class="product-name">Liquide de refroidissement</div>
+                        <div class="product-price">6 500 F</div>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (156)</div>
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🛞</div>
+                    <div class="product-info">
+                        <div class="product-name">Pneu 185/65R15 All-season</div>
+                        <div class="product-price">35 000 F</div>
+                        <div class="product-rating">⭐⭐⭐⭐ (92)</div>
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🔋</div>
+                    <div class="product-info">
+                        <div class="product-name">Batterie 60Ah démarrage</div>
+                        <div class="product-price">45 000 F</div>
+                        <div class="product-rating">⭐⭐⭐⭐⭐ (201)</div>
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">💨</div>
+                    <div class="product-info">
+                        <div class="product-name">Filtre à air haute performance</div>
+                        <div class="product-price">8 500 F</div>
+                        <div class="product-rating">⭐⭐⭐⭐ (68)</div>
+                        <button class="btn btn-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AVANTAGES IDC -->
+    <section class="section-advantages">
+        <div class="container">
+            <h2>Pourquoi acheter chez IDC</h2>
+            <p>Découvrez les avantages qui font de notre boutique le meilleur choix.</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">✓</div>
+                    <h3>Produits certifiés</h3>
+                    <p>Tous nos produits sont authentiques et conformes aux normes internationales.</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">🚚</div>
+                    <h3>Livraison rapide</h3>
+                    <p>Livraison en 24-48h à Abidjan et dans les principales villes de Côte d'Ivoire.</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">💳</div>
+                    <h3>Paiement sécurisé</h3>
+                    <p>Payez en toute confiance avec nos modes de paiement sécurisés et fiables.</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">📞</div>
+                    <h3>Support client</h3>
+                    <p>Notre équipe est disponible 24/7 pour répondre à vos questions et vous assister.</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">♻️</div>
+                    <h3>Garantie étendue</h3>
+                    <p>Bénéficiez de garanties étendues sur la plupart de nos produits.</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">⭐</div>
+                    <h3>Meilleur prix</h3>
+                    <p>Profitez de nos tarifs compétitifs et de nos offres promotionnelles régulières.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-cta">
+        <div class="container">
+            <h2>Vous avez besoin d'aide ?</h2>
+            <p>Contactez notre équipe pour des conseils personnalisés ou pour commander en gros.</p>
+            <a href="#" class="btn btn-primary">Nous contacter</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <a href="#">Qui sommes-nous</a>
+                    <a href="#">Nos activités</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Carrières</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Boutique</h3>
+                    <a href="#">Catégories</a>
+                    <a href="#">Produits populaires</a>
+                    <a href="#">Offres spéciales</a>
+                    <a href="#">Suivi de commande</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="#">FAQ</a>
+                    <a href="#">Livraison</a>
+                    <a href="#">Retours</a>
+                    <a href="#">Nous contacter</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Légal</h3>
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 IDC - Ivoirienne de Distribution Carburants. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu burger
+        const menuBurger = document.getElementById('menuBurger');
+        const navbar = document.getElementById('navbar');
+
+        menuBurger.addEventListener('click', () => {
+            menuBurger.classList.toggle('active');
+            navbar.classList.toggle('active');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
