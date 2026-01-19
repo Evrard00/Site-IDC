@@ -33,9 +33,9 @@
             --color-border: #E5E5E5;
         }
 
+        /* HEADER */
         header {
-            background: #FFFFFF;
-            backdrop-filter: blur(10px);
+            background: #E8E8E5;
             position: fixed;
             top: 0;
             left: 0;
@@ -62,14 +62,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 40px;
+            padding: 12px 40px;
             gap: 50px;
             max-width: 1320px;
             margin: 0 auto;
         }
 
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
         .header-left {
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
         }
 
         .logo img {
@@ -90,12 +104,67 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
+            letter-spacing: 0.2px;
             transition: color 0.3s ease;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
         }
 
         .header-nav a:hover,
         .header-nav a.active {
             color: var(--color-primary);
+        }
+
+        .dropdown-arrow {
+            display: inline-block;
+            font-size: 10px;
+            margin-left: 6px;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Submenu */
+        .nav-item {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #FFFFFF;
+            min-width: 220px;
+            border-radius: 6px;
+            padding: 12px 0;
+            margin-top: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 999;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-item:hover .submenu {
+            display: block;
+        }
+
+        .submenu a {
+            display: block;
+            padding: 10px 20px;
+            color: #0B0B0B;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .submenu a:hover {
+            background: var(--color-light);
+            color: var(--color-primary);
+            padding-left: 24px;
         }
 
         .header-right {
@@ -141,10 +210,9 @@
             box-shadow: 0 8px 16px rgba(227, 106, 19, 0.3);
         }
 
-        .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 40px;
+        .btn-sm {
+            padding: 10px 16px;
+            font-size: 13px;
         }
 
         .hero-eshop {
@@ -155,7 +223,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 32px 32px 0 0;
-            margin-top: 72px;
+            margin-top: 64px;
         }
 
         .hero-eshop .container {
@@ -189,157 +257,242 @@
         }
 
         section {
-            padding: 60px 0;
+            padding: 80px 0;
+        }
+
+        section:first-of-type {
+            padding-top: 40px;
         }
 
         .section-title {
             font-family: 'Poppins', sans-serif;
-            font-size: 42px;
+            font-size: 48px;
             font-weight: 700;
             color: var(--color-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
         .section-subtitle {
-            font-size: 16px;
+            font-size: 17px;
             color: var(--color-text);
-            max-width: 700px;
-            line-height: 1.6;
-            margin-bottom: 32px;
+            max-width: 800px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+            font-weight: 500;
         }
 
         .filters-wrapper {
             position: sticky;
-            top: 72px;
+            top: 64px;
             background: white;
-            padding: 20px 0;
+            padding: 24px 0;
             z-index: 100;
-            border-bottom: 1px solid var(--color-border);
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
 
         .filters-container {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             overflow-x: auto;
-            padding-bottom: 8px;
+            padding-bottom: 12px;
+            align-items: center;
         }
 
         .filters-container::-webkit-scrollbar {
-            height: 4px;
+            height: 6px;
+        }
+
+        .filters-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 3px;
         }
 
         .filters-container::-webkit-scrollbar-thumb {
             background: var(--color-primary);
-            border-radius: 4px;
+            border-radius: 3px;
+        }
+
+        .filters-container::-webkit-scrollbar-thumb:hover {
+            background: #d45d0a;
         }
 
         .filter-btn {
             padding: 10px 20px;
-            border: 2px solid var(--color-primary);
-            background: white;
-            color: var(--color-primary);
-            border-radius: 24px;
+            border: 2px solid transparent;
+            background: transparent;
+            color: var(--color-dark);
+            border-radius: 20px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
             cursor: pointer;
             white-space: nowrap;
             font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             flex-shrink: 0;
+            position: relative;
         }
 
-        .filter-btn:first-child,
-        .filter-btn.active {
-            background: var(--color-primary);
-            color: white;
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: transparent;
+            transition: background 0.25s ease;
         }
 
         .filter-btn:hover {
+            color: var(--color-primary);
+        }
+
+        .filter-btn:hover::after {
             background: var(--color-primary);
-            color: white;
+        }
+
+        .filter-btn.active {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .filter-btn.active::after {
+            background: var(--color-primary);
         }
 
         .reassurance-box {
-            background: var(--color-light);
-            border-left: 4px solid var(--color-primary);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            font-size: 14px;
-            color: var(--color-text);
-            line-height: 1.6;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #d45d0a 100%);
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(227, 106, 19, 0.2);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 24px;
+            align-items: center;
         }
 
-        .reassurance-box strong {
-            color: var(--color-dark);
-            font-weight: 600;
+        .reassurance-icon {
+            font-size: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .reassurance-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .reassurance-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.95;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 32px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            margin-bottom: 80px;
         }
 
         .product-card {
             background: white;
             border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .product-card:hover {
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
             border-color: var(--color-primary);
-            transform: translateY(-4px);
+            transform: translateY(-6px);
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
         }
 
         .product-icon {
-            font-size: 44px;
-            margin-bottom: 16px;
-            height: 50px;
+            font-size: 48px;
+            margin-bottom: 20px;
+            height: 56px;
             display: flex;
             align-items: center;
         }
 
         .product-name {
             font-family: 'Poppins', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--color-secondary);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .product-category {
-            font-size: 12px;
-            color: var(--color-text);
-            margin-bottom: 14px;
-            font-weight: 500;
+            font-size: 13px;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .product-details {
-            font-size: 13px;
+            font-size: 14px;
             color: var(--color-text);
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin-bottom: 24px;
+            line-height: 1.8;
             flex-grow: 1;
         }
 
         .product-details strong {
             color: var(--color-dark);
-            font-weight: 600;
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .product-details strong:first-child {
+            margin-top: 0;
         }
 
         .product-card .btn {
             width: 100%;
             text-align: center;
-            padding: 11px 16px;
-            font-size: 13px;
+            padding: 13px 20px;
+            font-size: 14px;
+            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
+            border: none;
+        }
+
+        .product-card .btn:hover {
+            background: linear-gradient(135deg, #d45d0a, #c04d08);
+            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
         }
 
         footer {
@@ -451,6 +604,24 @@
             section {
                 padding: 40px 0;
             }
+
+            .reassurance-box {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 28px;
+            }
+
+            .reassurance-icon {
+                font-size: 48px;
+            }
+
+            .reassurance-content h3 {
+                font-size: 18px;
+            }
+
+            .reassurance-content p {
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -495,6 +666,22 @@
             section {
                 padding: 30px 0;
             }
+
+            .reassurance-box {
+                padding: 20px;
+            }
+
+            .reassurance-icon {
+                font-size: 40px;
+            }
+
+            .reassurance-content h3 {
+                font-size: 16px;
+            }
+
+            .reassurance-content p {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -502,20 +689,30 @@
     <header>
         <div class="container">
             <div class="header-left">
-                <a href="index.html" class="logo">
+                <div class="logo">
                     <img src="../assets/images/logo.png" alt="IDC Logo">
-                </a>
+                </div>
             </div>
-            <nav class="header-nav" id="navbar">
+            
+            <nav id="navbar" class="header-nav">
                 <a href="index.html">Accueil</a>
                 <a href="index.html#apropos">Qui sommes-nous</a>
-                <a href="index.html#activites">Nos activités</a>
-                <a href="eshop.html" class="active">E-Shop</a>
-                <a href="index.html#contact">Contact</a>
+                <div class="nav-item">
+                    <a href="index.html#activites">Nos activités <span class="dropdown-arrow">▼</span></a>
+                    <div class="submenu">
+                        <a href="index.html#carburants">Carburants</a>
+                        <a href="index.html#gaz">Gaz butane</a>
+                        <a href="index.html#lubrifiants">Lubrifiants</a>
+                        <a href="index.html#carte-tpe">Carte TPE (B2B)</a>
+                        <a href="index.html#stations">Stations & services</a>
+                    </div>
+                </div>
+                <a href="eshop.html" class="active">IDC E-Shop</a>
             </nav>
+
             <div class="header-right">
-                <a href="#" class="header-login">Mon espace</a>
-                <button class="btn btn-primary">Nous contacter</button>
+                <a href="#login" class="btn btn-primary btn-sm">Mon espace</a>
+                <a href="#contact" class="header-login">Nous contacter</a>
             </div>
         </div>
     </header>
@@ -533,7 +730,11 @@
             <p class="section-subtitle">Une gamme complète de lubrifiants professionnels pour véhicules, industries et équipements.</p>
 
             <div class="reassurance-box">
-                <strong>📋 Comment ça marche ?</strong> Sélectionnez vos lubrifiants et envoyez votre demande. Nos équipes vous contacteront rapidement pour finaliser votre commande.
+                <div class="reassurance-icon">📋</div>
+                <div class="reassurance-content">
+                    <h3>Comment ça marche ?</h3>
+                    <p>Sélectionnez vos lubrifiants et envoyez votre demande. Nos équipes vous contacteront rapidement pour finaliser votre commande.</p>
+                </div>
             </div>
 
             <div class="filters-wrapper">
@@ -688,26 +889,63 @@
 
         const filterBtns = document.querySelectorAll('.filter-btn');
         const productCards = document.querySelectorAll('.product-card');
+        let lastClickedBtn = null;
+        let lastClickTime = 0;
 
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (e) => {
+                const currentTime = Date.now();
+                const isDoubleClick = lastClickedBtn === btn && (currentTime - lastClickTime) < 300;
+                
                 const filter = btn.getAttribute('data-filter');
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+                const allBtn = document.querySelector('[data-filter="all"]');
 
-                productCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
+                if (isDoubleClick) {
+                    // Double click: déselectionner le filtre
+                    btn.classList.remove('active');
+                    allBtn.classList.add('active');
+                    
+                    // Afficher tous les produits
+                    productCards.forEach(card => {
                         card.style.display = 'flex';
+                    });
+                } else {
+                    // Single click: sélectionner le filtre
+                    if (filter === 'all') {
+                        // Si on clique sur "Tous", déselectionner les autres
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        productCards.forEach(card => {
+                            card.style.display = 'flex';
+                        });
                     } else {
-                        card.style.display = 'none';
+                        // Si on clique sur un autre filtre, déselectionner "Tous"
+                        allBtn.classList.remove('active');
+                        filterBtns.forEach(b => {
+                            if (b !== btn) b.classList.remove('active');
+                        });
+                        btn.classList.add('active');
+                        
+                        // Filtrer les produits
+                        productCards.forEach(card => {
+                            const category = card.getAttribute('data-category');
+                            if (category === filter) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
                     }
-                });
+                }
+
+                lastClickedBtn = btn;
+                lastClickTime = currentTime;
             });
         });
 
         document.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
                 const product = this.getAttribute('data-product');
                 if (product) {
                     alert(`Demande de devis enregistrée pour: ${product}\n\nNos équipes vous contacteront dans les 24h.`);
