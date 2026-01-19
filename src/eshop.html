@@ -19,7 +19,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #0B0B0B;
-            background-color: #FFFFFF;
+            background-color: #E8E8E5;
             line-height: 1.6;
         }
 
@@ -218,31 +218,38 @@
         .hero-eshop {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(15, 107, 50, 0.15) 50%, rgba(0, 0, 0, 0.15) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
             background-attachment: fixed;
-            min-height: 60vh;
+            height: 100vh;
             display: flex;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             border-radius: 32px 32px 0 0;
-            margin-top: 64px;
+            margin-top: 72px;
         }
 
         .hero-eshop .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-start;
-            padding: 100px 40px;
+            padding-top: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+            position: relative;
             z-index: 2;
+            width: 100%;
             color: white;
         }
 
         .hero-eshop h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: clamp(36px, 6vw, 56px);
+            font-size: clamp(36px, 5.5vw, 54px);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 16px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+            margin: 0 0 20px 0;
+            letter-spacing: -0.5px;
+            max-width: 900px;
         }
 
         .hero-eshop .hero-accent {
@@ -250,10 +257,14 @@
         }
 
         .hero-eshop p {
-            font-size: 16px;
-            max-width: 500px;
+            font-size: 18px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            margin: 0 0 32px 0;
+            max-width: 650px;
+            letter-spacing: 0.3px;
         }
 
         section {
@@ -285,7 +296,7 @@
         .filters-wrapper {
             position: sticky;
             top: 64px;
-            background: white;
+            background: #E8E8E5;
             padding: 24px 0;
             z-index: 100;
             margin-bottom: 48px;
@@ -552,7 +563,9 @@
             }
 
             .hero-eshop .container {
-                padding: 80px 30px;
+                padding-top: 50px;
+                padding-left: 30px;
+                padding-right: 30px;
             }
         }
 
@@ -565,16 +578,24 @@
                 display: none;
             }
 
+            .hero-eshop {
+                margin-top: 56px;
+            }
+
             .hero-eshop .container {
-                padding: 60px 20px;
+                padding-top: 50px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             .hero-eshop h1 {
                 font-size: 28px;
+                margin-bottom: 16px;
             }
 
             .hero-eshop p {
-                font-size: 14px;
+                font-size: 16px;
+                margin-bottom: 24px;
             }
 
             .filters-wrapper {
@@ -630,16 +651,24 @@
                 gap: 20px;
             }
 
+            .hero-eshop {
+                margin-top: 50px;
+            }
+
             .hero-eshop .container {
-                padding: 40px 16px;
+                padding-top: 40px;
+                padding-left: 16px;
+                padding-right: 16px;
             }
 
             .hero-eshop h1 {
                 font-size: 24px;
+                margin-bottom: 12px;
             }
 
             .hero-eshop p {
-                font-size: 13px;
+                font-size: 14px;
+                margin-bottom: 20px;
             }
 
             .filters-wrapper {
