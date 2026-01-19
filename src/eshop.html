@@ -418,8 +418,7 @@
             background: white;
             border: 1px solid var(--color-border);
             border-radius: 16px;
-            padding: 28px;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 0;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -432,20 +431,55 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 0;
             background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
             opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
-        .product-card:hover {
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
-            border-color: var(--color-primary);
-            transform: translateY(-6px);
+        .product-favorite {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 10;
+            font-size: 24px;
+            cursor: pointer;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .product-card:hover::before {
-            opacity: 1;
+        .product-favorite:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(227, 106, 19, 0.2);
+        }
+
+        .product-favorite.active {
+            color: #FFD700;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .product-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .product-icon {
@@ -492,18 +526,48 @@
             margin-top: 0;
         }
 
+        .product-actions {
+            display: flex;
+            gap: 12px;
+        }
+
         .product-card .btn {
-            width: 100%;
+            flex: 1;
             text-align: center;
-            padding: 13px 20px;
+            padding: 13px 16px;
             font-size: 14px;
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
             border: none;
         }
 
-        .product-card .btn:hover {
+        .btn-devis {
+            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
+            color: white;
+        }
+
+        .btn-devis:hover {
             background: linear-gradient(135deg, #d45d0a, #c04d08);
             box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
+        }
+
+        .btn-cart {
+            background: white;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            padding: 11px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex: 0 0 auto;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cart:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: none;
         }
 
         footer {
@@ -784,91 +848,157 @@
 
             <div class="products-grid" id="productsGrid">
                 <div class="product-card" data-category="moteur">
-                    <div class="product-icon">🛢️</div>
-                    <div class="product-name">Rubia TIR</div>
-                    <div class="product-category">Huile moteur diesel</div>
-                    <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules diesel & flottes</div>
-                    <button class="btn btn-primary" data-product="Rubia TIR">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🛢️</div>
+                    <div class="product-content">
+                        <div class="product-name">Rubia TIR</div>
+                        <div class="product-category">Huile moteur diesel</div>
+                        <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules diesel & flottes</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Rubia TIR">Demander un devis</button>
+                            <button class="btn-cart" data-product="Rubia TIR" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="moteur">
-                    <div class="product-icon">🛢️</div>
-                    <div class="product-name">Tellus S2 MA</div>
-                    <div class="product-category">Huile moteur essence</div>
-                    <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules essence & légers</div>
-                    <button class="btn btn-primary" data-product="Tellus S2 MA">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🛢️</div>
+                    <div class="product-content">
+                        <div class="product-name">Tellus S2 MA</div>
+                        <div class="product-category">Huile moteur essence</div>
+                        <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules essence & légers</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Tellus S2 MA">Demander un devis</button>
+                            <button class="btn-cart" data-product="Tellus S2 MA" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="moteur">
-                    <div class="product-icon">🛢️</div>
-                    <div class="product-name">Helix Ultra</div>
-                    <div class="product-category">Huile moteur synthétique</div>
-                    <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Moteurs haute performance</div>
-                    <button class="btn btn-primary" data-product="Helix Ultra">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🛢️</div>
+                    <div class="product-content">
+                        <div class="product-name">Helix Ultra</div>
+                        <div class="product-category">Huile moteur synthétique</div>
+                        <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Moteurs haute performance</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Helix Ultra">Demander un devis</button>
+                            <button class="btn-cart" data-product="Helix Ultra" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="hydraulique">
-                    <div class="product-icon">⚙️</div>
-                    <div class="product-name">Tellus S2 MA 46</div>
-                    <div class="product-category">Huile hydraulique ISO 46</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes hydrauliques industriels</div>
-                    <button class="btn btn-primary" data-product="Tellus S2 MA 46">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">⚙️</div>
+                    <div class="product-content">
+                        <div class="product-name">Tellus S2 MA 46</div>
+                        <div class="product-category">Huile hydraulique ISO 46</div>
+                        <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes hydrauliques industriels</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Tellus S2 MA 46">Demander un devis</button>
+                            <button class="btn-cart" data-product="Tellus S2 MA 46" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="hydraulique">
-                    <div class="product-icon">⚙️</div>
-                    <div class="product-name">Tellus S2 MA 32</div>
-                    <div class="product-category">Huile hydraulique ISO 32</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes de précision légère</div>
-                    <button class="btn btn-primary" data-product="Tellus S2 MA 32">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">⚙️</div>
+                    <div class="product-content">
+                        <div class="product-name">Tellus S2 MA 32</div>
+                        <div class="product-category">Huile hydraulique ISO 32</div>
+                        <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes de précision légère</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Tellus S2 MA 32">Demander un devis</button>
+                            <button class="btn-cart" data-product="Tellus S2 MA 32" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="industrielle">
-                    <div class="product-icon">🏭</div>
-                    <div class="product-name">Tellus S2 VX</div>
-                    <div class="product-category">Huile industrielle multi-usage</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Équipements industriels</div>
-                    <button class="btn btn-primary" data-product="Tellus S2 VX">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🏭</div>
+                    <div class="product-content">
+                        <div class="product-name">Tellus S2 VX</div>
+                        <div class="product-category">Huile industrielle multi-usage</div>
+                        <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Équipements industriels</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Tellus S2 VX">Demander un devis</button>
+                            <button class="btn-cart" data-product="Tellus S2 VX" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="industrielle">
-                    <div class="product-icon">🏭</div>
-                    <div class="product-name">Houghton Hydrolubric</div>
-                    <div class="product-category">Fluide de coupe & usinage</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Machines de précision</div>
-                    <button class="btn btn-primary" data-product="Houghton Hydrolubric">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🏭</div>
+                    <div class="product-content">
+                        <div class="product-name">Houghton Hydrolubric</div>
+                        <div class="product-category">Fluide de coupe & usinage</div>
+                        <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Machines de précision</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Houghton Hydrolubric">Demander un devis</button>
+                            <button class="btn-cart" data-product="Houghton Hydrolubric" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="graisse">
-                    <div class="product-icon">🧈</div>
-                    <div class="product-name">Graisse Lithium</div>
-                    <div class="product-category">Graisse polyvalente</div>
-                    <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Paliers, roulements</div>
-                    <button class="btn btn-primary" data-product="Graisse Lithium">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🧈</div>
+                    <div class="product-content">
+                        <div class="product-name">Graisse Lithium</div>
+                        <div class="product-category">Graisse polyvalente</div>
+                        <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Paliers, roulements</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Graisse Lithium">Demander un devis</button>
+                            <button class="btn-cart" data-product="Graisse Lithium" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="graisse">
-                    <div class="product-icon">🧈</div>
-                    <div class="product-name">Graisse Molybdène</div>
-                    <div class="product-category">Graisse extrême pression</div>
-                    <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Chaînes, engrenages</div>
-                    <button class="btn btn-primary" data-product="Graisse Molybdène">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🧈</div>
+                    <div class="product-content">
+                        <div class="product-name">Graisse Molybdène</div>
+                        <div class="product-category">Graisse extrême pression</div>
+                        <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Chaînes, engrenages</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Graisse Molybdène">Demander un devis</button>
+                            <button class="btn-cart" data-product="Graisse Molybdène" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="transmission">
-                    <div class="product-icon">🔧</div>
-                    <div class="product-name">Gear Oil 75W-90</div>
-                    <div class="product-category">Huile transmission & pont</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Boîtes manuelles</div>
-                    <button class="btn btn-primary" data-product="Gear Oil 75W-90">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🔧</div>
+                    <div class="product-content">
+                        <div class="product-name">Gear Oil 75W-90</div>
+                        <div class="product-category">Huile transmission & pont</div>
+                        <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Boîtes manuelles</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Gear Oil 75W-90">Demander un devis</button>
+                            <button class="btn-cart" data-product="Gear Oil 75W-90" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card" data-category="transmission">
-                    <div class="product-icon">🔧</div>
-                    <div class="product-name">Fluide ATF</div>
-                    <div class="product-category">Fluide transmission auto</div>
-                    <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Boîtes automatiques</div>
-                    <button class="btn btn-primary" data-product="Fluide ATF">Demander un devis</button>
+                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                    <div class="product-image">🔧</div>
+                    <div class="product-content">
+                        <div class="product-name">Fluide ATF</div>
+                        <div class="product-category">Fluide transmission auto</div>
+                        <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Boîtes automatiques</div>
+                        <div class="product-actions">
+                            <button class="btn btn-devis" data-product="Fluide ATF">Demander un devis</button>
+                            <button class="btn-cart" data-product="Fluide ATF" title="Ajouter au panier">🛒</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -912,6 +1042,11 @@
     </footer>
 
     <script>
+        // Variables globales
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Header scroll animation
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
@@ -921,6 +1056,7 @@
             }
         });
 
+        // Filtrage des produits
         const filterBtns = document.querySelectorAll('.filter-btn');
         const productCards = document.querySelectorAll('.product-card');
         let lastClickedBtn = null;
@@ -935,32 +1071,25 @@
                 const allBtn = document.querySelector('[data-filter="all"]');
 
                 if (isDoubleClick) {
-                    // Double click: déselectionner le filtre
                     btn.classList.remove('active');
                     allBtn.classList.add('active');
-                    
-                    // Afficher tous les produits
                     productCards.forEach(card => {
                         card.style.display = 'flex';
                     });
                 } else {
-                    // Single click: sélectionner le filtre
                     if (filter === 'all') {
-                        // Si on clique sur "Tous", déselectionner les autres
                         filterBtns.forEach(b => b.classList.remove('active'));
                         btn.classList.add('active');
                         productCards.forEach(card => {
                             card.style.display = 'flex';
                         });
                     } else {
-                        // Si on clique sur un autre filtre, déselectionner "Tous"
                         allBtn.classList.remove('active');
                         filterBtns.forEach(b => {
                             if (b !== btn) b.classList.remove('active');
                         });
                         btn.classList.add('active');
                         
-                        // Filtrer les produits
                         productCards.forEach(card => {
                             const category = card.getAttribute('data-category');
                             if (category === filter) {
@@ -977,7 +1106,49 @@
             });
         });
 
-        document.querySelectorAll('.btn-primary').forEach(btn => {
+        // Gestion des favoris
+        document.querySelectorAll('.product-favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                
+                if (this.classList.contains('active')) {
+                    this.textContent = '★';
+                    const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+                    if (!favorites.includes(productName)) {
+                        favorites.push(productName);
+                    }
+                } else {
+                    this.textContent = '☆';
+                    const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+                    favorites = favorites.filter(fav => fav !== productName);
+                }
+                
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+            });
+        });
+
+        // Gestion du panier
+        document.querySelectorAll('.btn-cart').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const product = this.getAttribute('data-product');
+                const productName = this.closest('.product-card').querySelector('.product-name').textContent;
+                
+                const existingItem = cart.find(item => item.name === productName);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name: productName, quantity: 1 });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert(`${productName} ajouté au panier!`);
+            });
+        });
+
+        // Boutons devis
+        document.querySelectorAll('.btn-devis').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const product = this.getAttribute('data-product');
