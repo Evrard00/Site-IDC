@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Shop IDC - Boutique Lubrifiants Professionnels B2B</title>
-    <meta name="description" content="Boutique en ligne IDC - Lubrifiants professionnels B2B pour véhicules, industries et équipements. Demande de devis.">
+    <title>Nos Lubrifiants - IDC | Huiles Moteur, Hydrauliques et Industrielles</title>
+    <meta name="description" content="Gamme complète de lubrifiants professionnels IDC pour véhicules, industries et équipements.">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #0B0B0B;
-            background-color: #E8E8E5;
+            background-color: #FFFFFF;
             line-height: 1.6;
         }
 
@@ -66,12 +66,6 @@
             gap: 50px;
             max-width: 1320px;
             margin: 0 auto;
-        }
-
-        .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 40px;
         }
 
         .header-left {
@@ -158,7 +152,6 @@
             text-decoration: none;
             font-size: 13px;
             transition: all 0.3s ease;
-            white-space: nowrap;
             font-family: 'Inter', sans-serif;
         }
 
@@ -179,6 +172,7 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 14px;
+            font-family: 'Inter', sans-serif;
             transition: color 0.3s ease;
         }
 
@@ -188,7 +182,7 @@
 
         .btn {
             display: inline-block;
-            padding: 11px 32px;
+            padding: 12px 24px;
             border-radius: 16px;
             text-decoration: none;
             border: none;
@@ -213,245 +207,143 @@
         .btn-sm {
             padding: 11px 32px !important;
             font-size: 14px !important;
+            border-radius: 16px !important;
+            font-weight: 600 !important;
+            font-family: 'Poppins', sans-serif !important;
         }
 
-        .hero-eshop {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(15, 107, 50, 0.15) 50%, rgba(0, 0, 0, 0.15) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
-            background-attachment: fixed;
-            height: 50vh;
-            display: flex;
-            position: relative;
-            overflow: visible;
-            border-radius: 32px 32px 0 0;
-            margin-top: 72px;
-        }
-
-        .hero-eshop .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding-top: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 40px;
-            padding-right: 40px;
-            position: relative;
-            z-index: 2;
-            width: 100%;
+        .btn-secondary {
+            background-color: transparent;
             color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
         }
 
-        .hero-eshop h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(36px, 5.5vw, 54px);
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0 0 20px 0;
-            letter-spacing: -0.5px;
-            max-width: 900px;
+        /* CONTAINER */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
-        .hero-eshop .hero-accent {
-            color: var(--color-primary);
+        /* PAGE INTRO */
+        .page-intro {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            background-color: #FFFFFF;
         }
 
-        .hero-eshop p {
-            font-size: 18px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            margin: 0 0 32px 0;
-            max-width: 650px;
-            letter-spacing: 0.3px;
-        }
-
-        section {
-            padding: 80px 0;
-        }
-
-        section:first-of-type {
-            padding-top: 40px;
-        }
-
-        .section-title {
+        .page-intro h1 {
             font-family: 'Poppins', sans-serif;
             font-size: 48px;
             font-weight: 700;
             color: var(--color-secondary);
             margin-bottom: 16px;
-            letter-spacing: -0.5px;
         }
 
-        .section-subtitle {
-            font-size: 17px;
+        .page-intro p {
+            font-size: 16px;
             color: var(--color-text);
-            max-width: 800px;
-            line-height: 1.7;
-            margin-bottom: 48px;
-            font-weight: 500;
+            max-width: 700px;
+            line-height: 1.6;
         }
 
+        /* FILTRES */
         .filters-wrapper {
             position: sticky;
-            top: 64px;
-            background: #E8E8E5;
-            padding: 24px 0;
+            top: 72px;
+            background: white;
+            padding: 20px 0;
             z-index: 100;
-            margin-bottom: 48px;
+            border-bottom: 1px solid var(--color-border);
+            margin-bottom: 40px;
         }
 
         .filters-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             overflow-x: auto;
-            padding-bottom: 12px;
-            align-items: center;
+            padding-bottom: 8px;
         }
 
         .filters-container::-webkit-scrollbar {
-            height: 6px;
+            height: 4px;
         }
 
         .filters-container::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 3px;
+            background: var(--color-light);
         }
 
         .filters-container::-webkit-scrollbar-thumb {
             background: var(--color-primary);
-            border-radius: 3px;
-        }
-
-        .filters-container::-webkit-scrollbar-thumb:hover {
-            background: #d45d0a;
+            border-radius: 4px;
         }
 
         .filter-btn {
             padding: 10px 20px;
-            border: 2px solid transparent;
-            background: transparent;
-            color: var(--color-dark);
-            border-radius: 20px;
+            border: 2px solid var(--color-primary);
+            background: white;
+            color: var(--color-primary);
+            border-radius: 24px;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
             white-space: nowrap;
             font-family: 'Poppins', sans-serif;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             flex-shrink: 0;
-            position: relative;
         }
 
-        .filter-btn::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: transparent;
-            transition: background 0.25s ease;
-        }
-
-        .filter-btn:hover {
-            color: var(--color-primary);
-        }
-
-        .filter-btn:hover::after {
+        .filter-btn:first-child {
             background: var(--color-primary);
+            color: white;
+        }
+
+        .filter-btn:first-child.active {
+            background: var(--color-primary);
+            color: white;
         }
 
         .filter-btn.active {
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-
-        .filter-btn.active::after {
             background: var(--color-primary);
-        }
-
-        .reassurance-box {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #d45d0a 100%);
-            padding: 40px;
-            border-radius: 16px;
-            margin-bottom: 48px;
-            color: white;
-            box-shadow: 0 8px 32px rgba(227, 106, 19, 0.2);
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .reassurance-icon {
-            font-size: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .reassurance-content h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
             color: white;
         }
 
-        .reassurance-content p {
-            font-size: 15px;
-            line-height: 1.7;
-            opacity: 0.95;
+        .filter-btn:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        /* PRODUITS GRILLE */
+        .products-section {
+            padding-bottom: 80px;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
-            margin-bottom: 80px;
+            gap: 32px;
         }
 
         .product-card {
             background: white;
             border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 28px;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-            opacity: 0;
-            transition: opacity 0.3s ease;
         }
 
         .product-card:hover {
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             border-color: var(--color-primary);
-            transform: translateY(-6px);
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
+            transform: translateY(-4px);
         }
 
         .product-icon {
             font-size: 48px;
-            margin-bottom: 20px;
-            height: 56px;
+            margin-bottom: 16px;
+            height: 60px;
             display: flex;
             align-items: center;
         }
@@ -466,50 +358,59 @@
 
         .product-category {
             font-size: 13px;
-            color: var(--color-primary);
+            color: var(--color-text);
             margin-bottom: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
-        .product-details {
-            font-size: 14px;
+        .product-formats {
+            font-size: 13px;
+            color: var(--color-text);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+
+        .product-formats strong {
+            color: var(--color-dark);
+            font-weight: 600;
+        }
+
+        .product-usage {
+            font-size: 13px;
             color: var(--color-text);
             margin-bottom: 24px;
-            line-height: 1.8;
+            line-height: 1.6;
             flex-grow: 1;
         }
 
-        .product-details strong {
+        .product-usage strong {
             color: var(--color-dark);
-            font-weight: 700;
-            display: block;
-            margin-top: 10px;
-        }
-
-        .product-details strong:first-child {
-            margin-top: 0;
+            font-weight: 600;
         }
 
         .product-card .btn {
             width: 100%;
             text-align: center;
-            padding: 13px 20px;
-            font-size: 14px;
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
-            border: none;
+            padding: 12px 16px;
         }
 
-        .product-card .btn:hover {
-            background: linear-gradient(135deg, #d45d0a, #c04d08);
-            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
+        /* EMPTY STATE */
+        .no-products {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--color-text);
         }
 
+        .no-products p {
+            font-size: 16px;
+        }
+
+        /* FOOTER */
         footer {
             background-color: var(--color-dark);
             color: white;
             padding: 60px 0 20px;
+            margin-top: 80px;
         }
 
         .footer-content {
@@ -548,6 +449,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             header .container {
                 padding: 12px 30px;
@@ -558,14 +460,8 @@
             }
 
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
                 gap: 24px;
-            }
-
-            .hero-eshop .container {
-                padding-top: 50px;
-                padding-left: 30px;
-                padding-right: 30px;
             }
         }
 
@@ -578,30 +474,27 @@
                 display: none;
             }
 
-            .hero-eshop {
-                margin-top: 56px;
+            .page-intro {
+                padding-top: 80px;
+                padding-bottom: 40px;
             }
 
-            .hero-eshop .container {
-                padding-top: 50px;
-                padding-left: 20px;
-                padding-right: 20px;
+            .page-intro h1 {
+                font-size: 32px;
             }
 
-            .hero-eshop h1 {
-                font-size: 28px;
-                margin-bottom: 16px;
-            }
-
-            .hero-eshop p {
-                font-size: 16px;
-                margin-bottom: 24px;
+            .page-intro p {
+                font-size: 14px;
             }
 
             .filters-wrapper {
                 top: 56px;
                 padding: 16px 0;
                 margin-bottom: 30px;
+            }
+
+            .filters-container {
+                gap: 10px;
             }
 
             .filter-btn {
@@ -618,30 +511,8 @@
                 padding: 0 20px;
             }
 
-            .section-title {
-                font-size: 32px;
-            }
-
-            section {
-                padding: 40px 0;
-            }
-
-            .reassurance-box {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                padding: 28px;
-            }
-
-            .reassurance-icon {
-                font-size: 48px;
-            }
-
-            .reassurance-content h3 {
-                font-size: 18px;
-            }
-
-            .reassurance-content p {
-                font-size: 14px;
+            .product-card {
+                padding: 20px;
             }
         }
 
@@ -651,29 +522,23 @@
                 gap: 20px;
             }
 
-            .hero-eshop {
-                margin-top: 50px;
+            .page-intro {
+                padding-top: 70px;
+                padding-bottom: 30px;
             }
 
-            .hero-eshop .container {
-                padding-top: 40px;
-                padding-left: 16px;
-                padding-right: 16px;
-            }
-
-            .hero-eshop h1 {
+            .page-intro h1 {
                 font-size: 24px;
-                margin-bottom: 12px;
             }
 
-            .hero-eshop p {
-                font-size: 14px;
-                margin-bottom: 20px;
+            .page-intro p {
+                font-size: 13px;
             }
 
             .filters-wrapper {
                 top: 50px;
                 padding: 12px 0;
+                margin-bottom: 20px;
             }
 
             .product-card {
@@ -681,40 +546,17 @@
             }
 
             .product-name {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .container {
                 padding: 0 16px;
             }
-
-            .section-title {
-                font-size: 24px;
-            }
-
-            section {
-                padding: 30px 0;
-            }
-
-            .reassurance-box {
-                padding: 20px;
-            }
-
-            .reassurance-icon {
-                font-size: 40px;
-            }
-
-            .reassurance-content h3 {
-                font-size: 16px;
-            }
-
-            .reassurance-content p {
-                font-size: 13px;
-            }
         }
     </style>
 </head>
 <body>
+    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-left">
@@ -736,12 +578,12 @@
                         <a href="index.html#stations">Stations &amp; services</a>
                     </div>
                 </div>
-                <a href="eshop.html" class="active">IDC E-Shop</a>
+                <a href="eshop.html">IDC E-Shop</a>
             </nav>
 
             <div class="header-right">
                 <a href="#login" class="btn btn-primary btn-sm">Mon espace</a>
-                <a href="index.html#contact" class="header-login">Nous contacter</a>
+                <a href="#contact" class="header-login">Nous contacter</a>
                 <div class="menu-burger" id="menuBurger">
                     <span></span>
                     <span></span>
@@ -751,43 +593,39 @@
         </div>
     </header>
 
-    <section class="hero-eshop">
+    <!-- PAGE INTRO -->
+    <section class="page-intro">
         <div class="container">
-            <h1>Boutique <span class="hero-accent">lubrifiants</span> IDC</h1>
-            <p>Sélectionnez vos produits et envoyez une demande. Nos équipes vous contacteront rapidement.</p>
+            <h1>Nos lubrifiants</h1>
+            <p>Sélectionnez vos lubrifiants et envoyez une demande. Nos équipes vous contacteront pour les prix et modalités.</p>
         </div>
     </section>
 
-    <section>
+    <!-- FILTRES STICKY -->
+    <div class="filters-wrapper">
         <div class="container">
-            <h2 class="section-title">Nos lubrifiants</h2>
-            <p class="section-subtitle">Une gamme complète de lubrifiants professionnels pour véhicules, industries et équipements.</p>
-
-            <div class="reassurance-box">
-                <div class="reassurance-icon">📋</div>
-                <div class="reassurance-content">
-                    <h3>Comment ça marche ?</h3>
-                    <p>Sélectionnez vos lubrifiants et envoyez votre demande. Nos équipes vous contacteront rapidement pour finaliser votre commande.</p>
-                </div>
+            <div class="filters-container">
+                <button class="filter-btn active" data-filter="all">Tous les produits</button>
+                <button class="filter-btn" data-filter="moteur">Huiles moteur</button>
+                <button class="filter-btn" data-filter="hydraulique">Huiles hydrauliques</button>
+                <button class="filter-btn" data-filter="industrielle">Huiles industrielles</button>
+                <button class="filter-btn" data-filter="graisse">Graisses</button>
+                <button class="filter-btn" data-filter="transmission">Transmission & pont</button>
             </div>
+        </div>
+    </div>
 
-            <div class="filters-wrapper">
-                <div class="filters-container">
-                    <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="moteur">Huiles moteur</button>
-                    <button class="filter-btn" data-filter="hydraulique">Huiles hydrauliques</button>
-                    <button class="filter-btn" data-filter="industrielle">Huiles industrielles</button>
-                    <button class="filter-btn" data-filter="graisse">Graisses</button>
-                    <button class="filter-btn" data-filter="transmission">Transmission & pont</button>
-                </div>
-            </div>
-
+    <!-- PRODUITS -->
+    <section class="products-section">
+        <div class="container">
             <div class="products-grid" id="productsGrid">
+                <!-- Huiles moteur -->
                 <div class="product-card" data-category="moteur">
                     <div class="product-icon">🛢️</div>
                     <div class="product-name">Rubia TIR</div>
                     <div class="product-category">Huile moteur diesel</div>
-                    <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules diesel & flottes</div>
+                    <div class="product-formats"><strong>Formats :</strong> 5L · 20L · 208L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Véhicules diesel & flottes</div>
                     <button class="btn btn-primary" data-product="Rubia TIR">Demander un devis</button>
                 </div>
 
@@ -795,7 +633,8 @@
                     <div class="product-icon">🛢️</div>
                     <div class="product-name">Tellus S2 MA</div>
                     <div class="product-category">Huile moteur essence</div>
-                    <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules essence & légers</div>
+                    <div class="product-formats"><strong>Formats :</strong> 5L · 20L · 208L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Véhicules essence & légers</div>
                     <button class="btn btn-primary" data-product="Tellus S2 MA">Demander un devis</button>
                 </div>
 
@@ -803,15 +642,18 @@
                     <div class="product-icon">🛢️</div>
                     <div class="product-name">Helix Ultra</div>
                     <div class="product-category">Huile moteur synthétique</div>
-                    <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Moteurs haute performance</div>
+                    <div class="product-formats"><strong>Formats :</strong> 1L · 5L · 20L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Moteurs modernes haute performance</div>
                     <button class="btn btn-primary" data-product="Helix Ultra">Demander un devis</button>
                 </div>
 
+                <!-- Huiles hydrauliques -->
                 <div class="product-card" data-category="hydraulique">
                     <div class="product-icon">⚙️</div>
                     <div class="product-name">Tellus S2 MA 46</div>
                     <div class="product-category">Huile hydraulique ISO 46</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes hydrauliques industriels</div>
+                    <div class="product-formats"><strong>Formats :</strong> 20L · 208L · 1000L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Systèmes hydrauliques industriels</div>
                     <button class="btn btn-primary" data-product="Tellus S2 MA 46">Demander un devis</button>
                 </div>
 
@@ -819,15 +661,18 @@
                     <div class="product-icon">⚙️</div>
                     <div class="product-name">Tellus S2 MA 32</div>
                     <div class="product-category">Huile hydraulique ISO 32</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes de précision légère</div>
+                    <div class="product-formats"><strong>Formats :</strong> 20L · 208L · 1000L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Systèmes de précision légère</div>
                     <button class="btn btn-primary" data-product="Tellus S2 MA 32">Demander un devis</button>
                 </div>
 
+                <!-- Huiles industrielles -->
                 <div class="product-card" data-category="industrielle">
                     <div class="product-icon">🏭</div>
                     <div class="product-name">Tellus S2 VX</div>
                     <div class="product-category">Huile industrielle multi-usage</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Équipements industriels</div>
+                    <div class="product-formats"><strong>Formats :</strong> 20L · 208L · 1000L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Équipements industriels divers</div>
                     <button class="btn btn-primary" data-product="Tellus S2 VX">Demander un devis</button>
                 </div>
 
@@ -835,15 +680,18 @@
                     <div class="product-icon">🏭</div>
                     <div class="product-name">Houghton Hydrolubric</div>
                     <div class="product-category">Fluide de coupe & usinage</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Machines de précision</div>
+                    <div class="product-formats"><strong>Formats :</strong> 20L · 208L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Machines de précision & usinage</div>
                     <button class="btn btn-primary" data-product="Houghton Hydrolubric">Demander un devis</button>
                 </div>
 
+                <!-- Graisses -->
                 <div class="product-card" data-category="graisse">
                     <div class="product-icon">🧈</div>
                     <div class="product-name">Graisse Lithium</div>
                     <div class="product-category">Graisse polyvalente</div>
-                    <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Paliers, roulements</div>
+                    <div class="product-formats"><strong>Formats :</strong> 0.5kg · 5kg · 25kg</div>
+                    <div class="product-usage"><strong>Usage :</strong> Paliers, roulements généraux</div>
                     <button class="btn btn-primary" data-product="Graisse Lithium">Demander un devis</button>
                 </div>
 
@@ -851,42 +699,47 @@
                     <div class="product-icon">🧈</div>
                     <div class="product-name">Graisse Molybdène</div>
                     <div class="product-category">Graisse extrême pression</div>
-                    <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Chaînes, engrenages</div>
+                    <div class="product-formats"><strong>Formats :</strong> 0.5kg · 5kg · 25kg</div>
+                    <div class="product-usage"><strong>Usage :</strong> Chaînes, engrenages haute charge</div>
                     <button class="btn btn-primary" data-product="Graisse Molybdène">Demander un devis</button>
                 </div>
 
+                <!-- Transmission & pont -->
                 <div class="product-card" data-category="transmission">
                     <div class="product-icon">🔧</div>
                     <div class="product-name">Gear Oil 75W-90</div>
-                    <div class="product-category">Huile transmission & pont</div>
-                    <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Boîtes manuelles</div>
+                    <div class="product-category">Huile de transmission & pont</div>
+                    <div class="product-formats"><strong>Formats :</strong> 20L · 208L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Boîtes de vitesse manuelles</div>
                     <button class="btn btn-primary" data-product="Gear Oil 75W-90">Demander un devis</button>
                 </div>
 
                 <div class="product-card" data-category="transmission">
                     <div class="product-icon">🔧</div>
                     <div class="product-name">Fluide ATF</div>
-                    <div class="product-category">Fluide transmission auto</div>
-                    <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Boîtes automatiques</div>
+                    <div class="product-category">Fluide transmission automatique</div>
+                    <div class="product-formats"><strong>Formats :</strong> 1L · 5L · 20L</div>
+                    <div class="product-usage"><strong>Usage :</strong> Boîtes de vitesse automatiques</div>
                     <button class="btn btn-primary" data-product="Fluide ATF">Demander un devis</button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>À propos</h3>
-                    <a href="index.html#apropos">Qui sommes-nous</a>
-                    <a href="index.html#activites">Nos activités</a>
+                    <a href="#">Qui sommes-nous</a>
+                    <a href="#">Nos activités</a>
                     <a href="#">Blog</a>
                 </div>
 
                 <div class="footer-section">
-                    <h3>Boutique</h3>
-                    <a href="eshop.html">Lubrifiants</a>
+                    <h3>Produits</h3>
+                    <a href="#">Lubrifiants</a>
                     <a href="#">Carburants</a>
                     <a href="#">Gaz</a>
                 </div>
@@ -894,8 +747,8 @@
                 <div class="footer-section">
                     <h3>Support</h3>
                     <a href="#">FAQ</a>
-                    <a href="index.html#contact">Nous contacter</a>
-                    <a href="#">Demande de devis</a>
+                    <a href="#">Nous contacter</a>
+                    <a href="#">Devis</a>
                 </div>
 
                 <div class="footer-section">
@@ -912,6 +765,7 @@
     </footer>
 
     <script>
+        // Header scroll effect
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) {
@@ -921,68 +775,36 @@
             }
         });
 
+        // Filters functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const productCards = document.querySelectorAll('.product-card');
-        let lastClickedBtn = null;
-        let lastClickTime = 0;
 
         filterBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const currentTime = Date.now();
-                const isDoubleClick = lastClickedBtn === btn && (currentTime - lastClickTime) < 300;
-                
+            btn.addEventListener('click', () => {
                 const filter = btn.getAttribute('data-filter');
-                const allBtn = document.querySelector('[data-filter="all"]');
 
-                if (isDoubleClick) {
-                    // Double click: déselectionner le filtre
-                    btn.classList.remove('active');
-                    allBtn.classList.add('active');
-                    
-                    // Afficher tous les produits
-                    productCards.forEach(card => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter products
+                productCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
                         card.style.display = 'flex';
-                    });
-                } else {
-                    // Single click: sélectionner le filtre
-                    if (filter === 'all') {
-                        // Si on clique sur "Tous", déselectionner les autres
-                        filterBtns.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        productCards.forEach(card => {
-                            card.style.display = 'flex';
-                        });
                     } else {
-                        // Si on clique sur un autre filtre, déselectionner "Tous"
-                        allBtn.classList.remove('active');
-                        filterBtns.forEach(b => {
-                            if (b !== btn) b.classList.remove('active');
-                        });
-                        btn.classList.add('active');
-                        
-                        // Filtrer les produits
-                        productCards.forEach(card => {
-                            const category = card.getAttribute('data-category');
-                            if (category === filter) {
-                                card.style.display = 'flex';
-                            } else {
-                                card.style.display = 'none';
-                            }
-                        });
+                        card.style.display = 'none';
                     }
-                }
-
-                lastClickedBtn = btn;
-                lastClickTime = currentTime;
+                });
             });
         });
 
+        // Devis button functionality
         document.querySelectorAll('.btn-primary').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
+            btn.addEventListener('click', function() {
                 const product = this.getAttribute('data-product');
                 if (product) {
-                    alert(`Demande de devis enregistrée pour: ${product}\n\nNos équipes vous contacteront dans les 24h.`);
+                    alert(`Demande de devis pour: ${product}\n\nNos équipes vous contacteront dans les 24h.`);
                 }
             });
         });
