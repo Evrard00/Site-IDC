@@ -225,26 +225,66 @@
             padding: 0 40px;
         }
 
-        /* PAGE INTRO */
+        /* PAGE INTRO - HERO */
         .page-intro {
-            padding-top: 120px;
-            padding-bottom: 60px;
-            background-color: #FFFFFF;
+            padding-top: 72px;
+            padding-bottom: 80px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(15, 107, 50, 0.2) 50%, rgba(0, 0, 0, 0.3) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
+            background-attachment: fixed;
+            color: white;
+            border-radius: 32px 32px 0 0;
         }
 
         .page-intro h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 48px;
+            font-size: clamp(36px, 7vw, 56px);
             font-weight: 700;
-            color: var(--color-secondary);
+            color: white;
             margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .page-intro h1 .highlight {
+            color: var(--color-primary);
         }
 
         .page-intro p {
-            font-size: 16px;
-            color: var(--color-text);
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
             max-width: 700px;
             line-height: 1.6;
+        }
+
+        /* SECTION COMMENT ÇA MARCHE */
+        .how-it-works {
+            background: var(--color-primary);
+            padding: 60px 40px;
+            margin: 0 40px 60px 40px;
+            border-radius: 16px;
+            color: white;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .how-it-works-icon {
+            font-size: 56px;
+            flex-shrink: 0;
+        }
+
+        .how-it-works-content h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .how-it-works-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 0;
         }
 
         /* FILTRES */
@@ -570,6 +610,30 @@
             }
 
             .page-intro h1 {
+                font-size: 28px;
+            }
+
+            .page-intro p {
+                font-size: 14px;
+            }
+
+            .how-it-works {
+                margin: 0 20px 40px 20px;
+                padding: 40px 20px;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .how-it-works-icon {
+                font-size: 48px;
+            }
+
+            .how-it-works-content h2 {
+                font-size: 20px;
+            }
+
+            .page-intro h1 {
                 font-size: 32px;
             }
 
@@ -687,7 +751,7 @@
     <section class="page-intro">
         <div class="container">
             <h1>Nos lubrifiants</h1>
-            <p>Sélectionnez vos lubrifiants et envoyez une demande. Nos équipes vous contacteront pour les prix et modalités.</p>
+            <p>Une gamme complète de lubrifiants professionnels pour véhicules, industries et équipements.</p>
         </div>
     </section>
 
