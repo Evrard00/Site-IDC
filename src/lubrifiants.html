@@ -279,38 +279,30 @@
         }
 
         .filter-btn {
-            padding: 10px 20px;
-            border: 2px solid var(--color-primary);
-            background: white;
-            color: var(--color-primary);
-            border-radius: 24px;
-            font-weight: 600;
-            font-size: 14px;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            color: var(--color-text);
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 13px;
             cursor: pointer;
             white-space: nowrap;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             transition: all 0.3s ease;
             flex-shrink: 0;
         }
 
-        .filter-btn:first-child {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .filter-btn:first-child.active {
-            background: var(--color-primary);
-            color: white;
+        .filter-btn:hover {
+            color: var(--color-primary);
+            border-bottom-color: rgba(227, 106, 19, 0.3);
         }
 
         .filter-btn.active {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .filter-btn:hover {
-            background: var(--color-primary);
-            color: white;
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+            font-weight: 600;
         }
 
         .product-actions {
@@ -596,7 +588,7 @@
             }
 
             .filter-btn {
-                padding: 9px 16px;
+                padding: 8px 12px;
                 font-size: 12px;
             }
 
@@ -1002,8 +994,10 @@
             btn.addEventListener('click', () => {
                 const filter = btn.getAttribute('data-filter');
 
-                // Update active button
+                // Remove active from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active to clicked button
                 btn.classList.add('active');
 
                 // Filter products
@@ -1018,8 +1012,13 @@
             });
 
             // Double-click to deselect
-            btn.addEventListener('dblclick', () => {
-                btn.classList.remove('active');
+            btn.addEventListener('dblclick', (e) => {
+                e.preventDefault();
+                
+                // Remove active from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Show all products
                 productCards.forEach(card => {
                     card.style.display = 'flex';
                 });
