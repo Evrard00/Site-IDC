@@ -7,7 +7,7 @@ import http.server
 import socketserver
 import os
 
-PORT = 8001
+PORT = 8000
 BIND_ADDRESS = '127.0.0.1'
 
 class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -22,11 +22,23 @@ class NoCacheHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     
     def do_GET(self):
         """Gérer les requêtes GET"""
-        if self.path == '/':
-            self.path = '/src/index.html'
+        # Rediriger la racine vers src/index.html
+        if self.path == '/' or self.path == '':
+            self.send_response(301)
+            self.send_header('Location', '/src/index.html')
+            self.end_headers()
+            return
         return super().do_GET()
+    
+    def end_headers(self):
+        """Désactiver le listing des répertoires et ajouter les headers"""
+        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+        self.send_header('Pragma', 'no-cache')
+        self.send_header('Expires', '0')
+        super().end_headers()
 
-# Créer le serveur
+# Changer le répertoire de travail vers le répertoire du script
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 with socketserver.TCPServer((BIND_ADDRESS, PORT), NoCacheHTTPRequestHandler) as httpd:
     print(f"✅ Serveur lancé sur http://{BIND_ADDRESS}:{PORT}")
     print(f"📂 Répertoire racine: {os.getcwd()}")
