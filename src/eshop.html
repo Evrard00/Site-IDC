@@ -582,6 +582,482 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* PANIER - CART ICON */
+        .cart-icon-btn {
+            position: relative;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            padding: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cart-icon-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* DRAWER */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid var(--color-border);
+            background: #FAFAFA;
+        }
+
+        .cart-drawer-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .close-drawer {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--color-dark);
+        }
+
+        .cart-drawer-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+
+        .cart-drawer-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .cart-drawer-content::-webkit-scrollbar-track {
+            background: var(--color-light);
+        }
+
+        .cart-drawer-content::-webkit-scrollbar-thumb {
+            background: var(--color-primary);
+            border-radius: 3px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--color-text);
+        }
+
+        .cart-empty p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .cart-item {
+            background: var(--color-light);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--color-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            color: var(--color-dark);
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .cart-item-category {
+            font-size: 12px;
+            color: var(--color-text);
+            margin-bottom: 6px;
+        }
+
+        .cart-item-format {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .cart-item-remove {
+            background: white;
+            border: 1px solid #ddd;
+            color: #d32f2f;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        .cart-item-remove:hover {
+            background: #d32f2f;
+            color: white;
+            border-color: #d32f2f;
+        }
+
+        .cart-drawer-footer {
+            padding: 20px 24px;
+            border-top: 1px solid var(--color-border);
+            background: #FAFAFA;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-devis-panier {
+            width: 100%;
+            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            font-size: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-devis-panier:hover {
+            background: linear-gradient(135deg, #d45d0a, #c04d08);
+            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
+        }
+
+        .btn-devis-panier:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .cart-message {
+            font-size: 11px;
+            color: var(--color-text);
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* TOAST NOTIFICATIONS */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            background: var(--color-dark);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            z-index: 3000;
+            animation: slideInUp 0.4s ease, slideOutDown 0.4s ease 2.6s forwards;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .toast.success {
+            background: var(--color-secondary);
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutDown {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+
+        /* DRAWER OVERLAY */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+            z-index: 1999;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cart-overlay.open {
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* MODAL FORMULAIRE */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            padding: 32px 32px 24px;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--color-dark);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: var(--color-text);
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-body {
+            padding: 32px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--color-dark);
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .modal-footer {
+            padding: 32px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            gap: 12px;
+            background: #FAFAFA;
+        }
+
+        .btn-cancel,
+        .btn-submit {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cancel {
+            background: var(--color-light);
+            color: var(--color-dark);
+        }
+
+        .btn-cancel:hover {
+            background: #ddd;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
+        }
+
+        .confirmation-message {
+            text-align: center;
+            padding: 60px 32px;
+        }
+
+        .confirmation-message .icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .confirmation-message h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .confirmation-message p {
+            font-size: 15px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        /* RESPONSIVE DRAWER */
+        @media (max-width: 768px) {
+            .cart-drawer {
+                width: 100%;
+                right: -100%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                max-height: 100vh;
+                border-radius: 16px 16px 0 0;
+            }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             header .container {
@@ -739,6 +1215,10 @@
             </nav>
 
             <div class="header-right">
+                <button id="cartBtn" class="cart-icon-btn" title="Voir le panier">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
                 <a href="#login" class="btn btn-primary btn-sm">Mon espace</a>
                 <a href="#contact" class="header-login">Nous contacter</a>
                 <div class="menu-burger" id="menuBurger">
@@ -1092,5 +1572,380 @@
             });
         });
     </script>
-</body>
-</html>
+
+    <!-- CART DRAWER -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h2>Panier de devis</h2>
+            <button class="close-drawer" id="closeDrawer">&times;</button>
+        </div>
+        <div class="cart-drawer-content" id="cartContent">
+            <div class="cart-empty">
+                <p>Votre panier est vide</p>
+            </div>
+        </div>
+        <div class="cart-drawer-footer">
+            <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Demander un devis</button>
+            <p class="cart-message">💡 Les prix ne sont pas affichés. Un commercial IDC vous contactera pour les conditions et modalités.</p>
+        </div>
+    </div>
+
+    <!-- MODAL FORMULAIRE DEVIS -->
+    <div class="modal-overlay" id="quoteModal">
+        <div class="modal-content" id="modalContent">
+            <!-- Contenu injecté par JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // ==================== GESTION DU PANIER COMPLET ====================
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let formStep = 'form'; // 'form' ou 'confirmation'
+
+        // Produits mapping avec leurs catégories
+        const productData = {
+            'Rubia TIR': { category: 'Huile moteur diesel', formats: ['5L', '20L', '208L'] },
+            'Tellus S2 MA': { category: 'Huile hydraulique général', formats: ['5L', '20L', '208L'] },
+            'Helix Ultra': { category: 'Huile moteur essence', formats: ['5L', '20L', '208L'] },
+            'Tellus S2 MA 46': { category: 'Huile hydraulique 46', formats: ['5L', '20L', '208L'] },
+            'Tellus S2 MA 32': { category: 'Huile hydraulique 32', formats: ['5L', '20L', '208L'] },
+            'Tellus S2 VX': { category: 'Huile hydraulique VX', formats: ['5L', '20L', '208L'] },
+            'Houghton Hydrolubric': { category: 'Huile industrielle', formats: ['5L', '20L', '208L'] },
+            'Graisse Lithium': { category: 'Graisse multi-usages', formats: ['1kg', '5kg', '25kg'] },
+            'Graisse Molybdène': { category: 'Graisse haute performance', formats: ['1kg', '5kg', '25kg'] },
+            'Gear Oil 75W-90': { category: 'Huile transmission', formats: ['5L', '20L', '208L'] },
+            'Fluide ATF': { category: 'Fluide transmission auto', formats: ['1L', '5L', '20L'] }
+        };
+
+        // Mise à jour du badge
+        function updateCartBadge() {
+            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartBadge').textContent = total;
+        }
+
+        // Affichage du panier
+        function renderCart() {
+            const cartContent = document.getElementById('cartContent');
+            
+            if (cart.length === 0) {
+                cartContent.innerHTML = '<div class="cart-empty"><p>🛒 Votre panier est vide</p></div>';
+                document.getElementById('sendQuoteBtn').disabled = true;
+                return;
+            }
+
+            let html = '';
+            cart.forEach((item, index) => {
+                const info = productData[item.name] || {};
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-category">${info.category || ''}</div>
+                            <div class="cart-item-format">Format: ${item.format || 'Non spécifié'}</div>
+                            <div class="cart-item-qty">Quantité: ${item.quantity}</div>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${index})">Supprimer</button>
+                    </div>
+                `;
+            });
+
+            cartContent.innerHTML = html;
+            document.getElementById('sendQuoteBtn').disabled = false;
+        }
+
+        // Suppression du panier
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            renderCart();
+            showToast('Produit supprimé du panier', 'success');
+        }
+
+        // Toggle drawer
+        function toggleCart() {
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartOverlay');
+            drawer.classList.toggle('open');
+            overlay.classList.toggle('open');
+            renderCart();
+        }
+
+        // Ajouter au panier avec format
+        function addToCart(productName, format = null) {
+            let cartItem = cart.find(item => item.name === productName && item.format === format);
+            
+            if (cartItem) {
+                cartItem.quantity++;
+            } else {
+                const info = productData[productName] || {};
+                const defaultFormat = format || (info.formats ? info.formats[0] : '5L');
+                cart.push({ 
+                    name: productName, 
+                    quantity: 1, 
+                    format: defaultFormat
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartBadge();
+            showToast(`✅ ${productName} ajouté au panier`, 'success');
+            
+            // Ouvrir le drawer après 800ms
+            setTimeout(() => {
+                const drawer = document.getElementById('cartDrawer');
+                const overlay = document.getElementById('cartOverlay');
+                if (!drawer.classList.contains('open')) {
+                    drawer.classList.add('open');
+                    overlay.classList.add('open');
+                    renderCart();
+                }
+            }, 800);
+        }
+
+        // Toast notifications
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => toast.remove(), 3200);
+        }
+
+        // Ouverture du formulaire de devis
+        function openQuoteForm() {
+            if (cart.length === 0) {
+                showToast('Veuillez ajouter des produits au panier', 'info');
+                return;
+            }
+            
+            formStep = 'form';
+            renderQuoteForm();
+            document.getElementById('quoteModal').classList.add('open');
+        }
+
+        // Rendu du formulaire
+        function renderQuoteForm() {
+            const modalContent = document.getElementById('modalContent');
+            
+            if (formStep === 'form') {
+                modalContent.innerHTML = `
+                    <div class="modal-header">
+                        <h2>📋 Demande de devis</h2>
+                        <button class="modal-close" onclick="closeQuoteForm()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="quoteForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="company">Nom entreprise *</label>
+                                    <input type="text" id="company" name="company" required placeholder="IDC SARL">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contact">Nom contact *</label>
+                                    <input type="text" id="contact" name="contact" required placeholder="Jean Dupont">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Téléphone *</label>
+                                    <input type="tel" id="phone" name="phone" required placeholder="+243 123 456 789">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required placeholder="contact@idclubrifiants.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group full">
+                                <label for="location">Localisation *</label>
+                                <input type="text" id="location" name="location" required placeholder="Province, Ville">
+                            </div>
+                            
+                            <div class="form-group full">
+                                <label for="message">Message commercial</label>
+                                <textarea id="message" name="message" placeholder="Volume requis, fréquence de livraison, urgences..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel" onclick="closeQuoteForm()">Annuler</button>
+                        <button class="btn-submit" onclick="submitQuote()">Envoyer la demande</button>
+                    </div>
+                `;
+            } else if (formStep === 'confirmation') {
+                modalContent.innerHTML = `
+                    <div class="confirmation-message">
+                        <div class="icon">✅</div>
+                        <h2>Merci !</h2>
+                        <p>Votre demande de devis a été envoyée avec succès.</p>
+                        <p>Un commercial IDC vous contactera sous peu pour discuter des conditions et modalités de paiement.</p>
+                        <br>
+                        <button class="btn-submit" onclick="closeQuoteForm()" style="width: 200px; margin: 0 auto;">Fermer</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Envoi du formulaire
+        function submitQuote() {
+            const form = document.getElementById('quoteForm');
+            
+            // Validation simple
+            if (!form.checkValidity()) {
+                showToast('Veuillez remplir tous les champs obligatoires', 'info');
+                form.reportValidity();
+                return;
+            }
+            
+            // Récupération des données
+            const formData = {
+                company: document.getElementById('company').value,
+                contact: document.getElementById('contact').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                location: document.getElementById('location').value,
+                message: document.getElementById('message').value,
+                products: cart,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Sauvegarde dans localStorage pour démonstration
+            localStorage.setItem('lastQuote', JSON.stringify(formData));
+            
+            // Log pour débogage
+            console.log('Demande de devis:', formData);
+            
+            // Afficher la confirmation
+            formStep = 'confirmation';
+            renderQuoteForm();
+            
+            // Vider le panier après confirmation
+            setTimeout(() => {
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartBadge();
+            }, 2000);
+        }
+
+        // Fermeture du formulaire
+        function closeQuoteForm() {
+            document.getElementById('quoteModal').classList.remove('open');
+            document.getElementById('cartDrawer').classList.remove('open');
+            document.getElementById('cartOverlay').classList.remove('open');
+        }
+
+        // Event listeners
+        document.getElementById('cartBtn').addEventListener('click', toggleCart);
+        document.getElementById('closeDrawer').addEventListener('click', toggleCart);
+        document.getElementById('cartOverlay').addEventListener('click', toggleCart);
+        document.getElementById('sendQuoteBtn').addEventListener('click', openQuoteForm);
+
+        // Fermeture au clic sur X modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeQuoteForm();
+            }
+        });
+
+        // Initialisation
+        updateCartBadge();
+
+        // ==================== COMPATIBILITÉ AVEC ANCIENS BOUTONS ====================
+        // Initialisation: Update favorite buttons UI
+        document.querySelectorAll('.product-favorite').forEach(btn => {
+            const card = btn.closest('.product-card');
+            const productName = card.querySelector('.product-name').textContent;
+            
+            if (favorites.includes(productName)) {
+                btn.classList.add('active');
+                btn.textContent = '★';
+            }
+        });
+
+        // Favorite button functionality
+        document.querySelectorAll('.product-favorite').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.product-card');
+                const productName = card.querySelector('.product-name').textContent;
+                
+                this.classList.toggle('active');
+                
+                if (this.classList.contains('active')) {
+                    this.textContent = '★';
+                    if (!favorites.includes(productName)) {
+                        favorites.push(productName);
+                    }
+                } else {
+                    this.textContent = '☆';
+                    favorites = favorites.filter(fav => fav !== productName);
+                }
+                
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+            });
+        });
+
+        // Cart button functionality - NOUVELLE IMPLÉMENTATION
+        document.querySelectorAll('.btn-cart').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productName = this.getAttribute('data-product');
+                addToCart(productName);
+            });
+        });
+
+        // Devis button functionality
+        document.querySelectorAll('.btn-devis').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productName = this.getAttribute('data-product');
+                addToCart(productName);
+                setTimeout(() => openQuoteForm(), 800);
+            });
+        });
+
+        // Filters functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+
+                // Remove active from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active to clicked button
+                btn.classList.add('active');
+
+                // Filter products
+                productCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+
+            // Double-click to deselect
+            btn.addEventListener('dblclick', (e) => {
+                e.preventDefault();
+                
+                // Remove active from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Show all products
+                productCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+            });
+        });
+    </script>
