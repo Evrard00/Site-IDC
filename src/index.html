@@ -771,11 +771,12 @@
             margin-left: 10px;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
+            transform: rotate(180deg);
         }
 
         .service-icon-btn:hover {
             background-color: #d45d0a;
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(180deg);
         }
 
         .service-details {
@@ -840,7 +841,12 @@
 
         .service-icon-btn:hover {
             background-color: #C95E10;
-            transform: scale(1.12) rotate(45deg);
+            transform: scale(1.12) rotate(180deg);
+        }
+
+        .service-icon-btn.active {
+            transform: rotate(0deg);
+            background-color: #0F6B32;
         }
 
         .activites-content {
