@@ -650,9 +650,9 @@
         .services-masonry {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 20px;
             margin: 50px 0;
-            auto-rows: auto;
+            auto-rows: 1fr;
         }
 
         .service-card {
@@ -664,8 +664,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            height: fit-content;
-            max-height: 600px;
+            height: 100%;
         }
 
         .service-card:hover {
@@ -705,7 +704,7 @@
         }
 
         .service-card-3 .service-image {
-            height: 320px;
+            height: 400px;
         }
 
         .service-image-1 {
