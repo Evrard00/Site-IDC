@@ -779,41 +779,27 @@
         }
 
         .service-details {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: auto;
+            background: linear-gradient(180deg, rgba(244, 244, 244, 0.98), #F4F4F4);
+            backdrop-filter: blur(4px);
+            padding: 0 14px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease;
-            padding: 0 14px;
-            border-top: 1px solid #f0f0f0;
+            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.4s ease;
             color: #4F4F4F;
             font-size: 14px;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-        }
-
-        .service-details.expanded {
-            max-height: 300px;
-            padding: 16px 14px;
-        }
-
-        .service-icon-btn.expanded {
-            transform: rotate(180deg);
-        }
-
-        .service-icon-btn.active {
-            transform: rotate(180deg);
-            background-color: #0F6B32;
-        }
-
-        .service-details {
-            max-height: 0;
-            overflow: hidden;
-            padding: 0 14px;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-            background-color: #F4F4F4;
+            z-index: 10;
+            border-radius: 14px;
         }
 
         .service-details.active {
-            max-height: 500px;
+            max-height: 600px;
             padding: 16px 14px;
         }
 
@@ -823,6 +809,7 @@
             color: #4F4F4F;
             margin: 0 0 12px 0;
             line-height: 1.6;
+        }
         }
 
         .service-details ul {
@@ -1607,16 +1594,7 @@
             <nav id="navbar" class="header-nav">
                 <a href="#accueil">Accueil</a>
                 <a href="#apropos">Qui sommes-nous</a>
-                <div class="nav-item">
-                    <a href="#activites">Nos activités <span class="dropdown-arrow">▼</span></a>
-                    <div class="submenu">
-                        <a href="#carburants">Carburants</a>
-                        <a href="#gaz">Gaz butane</a>
-                        <a href="#lubrifiants">Lubrifiants</a>
-                        <a href="#carte-tpe">Carte TPE (B2B)</a>
-                        <a href="#stations">Stations &amp; services</a>
-                    </div>
-                </div>
+                <a href="#activites">Nos services</a>
                 <a href="eshop.html">IDC E-Shop</a>
             </nav>
 
@@ -2060,19 +2038,19 @@
                 const serviceCard = this.closest('.service-card');
                 const serviceDetails = serviceCard.querySelector('.service-details');
                 
-                // Toggle expanded class on button
-                this.classList.toggle('expanded');
+                // Toggle active class on button
+                this.classList.toggle('active');
                 
-                // Toggle expanded class on details
-                serviceDetails.classList.toggle('expanded');
+                // Toggle active class on details
+                serviceDetails.classList.toggle('active');
                 
                 // Close other open cards
                 document.querySelectorAll('.service-card').forEach(card => {
                     if (card !== serviceCard) {
                         const otherBtn = card.querySelector('.service-icon-btn');
                         const otherDetails = card.querySelector('.service-details');
-                        otherBtn.classList.remove('expanded');
-                        otherDetails.classList.remove('expanded');
+                        otherBtn.classList.remove('active');
+                        otherDetails.classList.remove('active');
                     }
                 });
             });
