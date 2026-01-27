@@ -803,19 +803,19 @@
             border-radius: 8px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
             z-index: 3000;
-            animation: slideInUp 0.4s ease, slideOutDown 0.4s ease 2.6s forwards;
             font-size: 14px;
             font-weight: 500;
             font-family: 'Inter', sans-serif;
+            animation: toastSlideIn 0.3s ease forwards;
         }
 
         .toast.success {
             background: var(--color-secondary);
         }
 
-        @keyframes slideInUp {
+        @keyframes toastSlideIn {
             from {
-                transform: translateY(100%);
+                transform: translateY(120px);
                 opacity: 0;
             }
             to {
@@ -824,13 +824,13 @@
             }
         }
 
-        @keyframes slideOutDown {
+        @keyframes toastSlideOut {
             from {
                 transform: translateY(0);
                 opacity: 1;
             }
             to {
-                transform: translateY(100%);
+                transform: translateY(120px);
                 opacity: 0;
             }
         }
@@ -1505,34 +1505,6 @@
             });
         });
 
-        // Cart button functionality
-        document.querySelectorAll('.btn-cart').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productName = this.getAttribute('data-product');
-                
-                // Find or create cart item
-                let cartItem = cart.find(item => item.name === productName);
-                if (cartItem) {
-                    cartItem.quantity++;
-                } else {
-                    cart.push({ name: productName, quantity: 1 });
-                }
-                
-                localStorage.setItem('cart', JSON.stringify(cart));
-                alert(`${productName} ajouté au panier!`);
-            });
-        });
-
-        // Devis button functionality
-        document.querySelectorAll('.btn-devis').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productName = this.getAttribute('data-product');
-                alert(`Demande de devis pour: ${productName}\n\nNos équipes vous contacteront dans les 24h.`);
-            });
-        });
-
         // Filters functionality
         const filterBtns = document.querySelectorAll('.filter-btn');
         const productCards = document.querySelectorAll('.product-card');
@@ -1622,8 +1594,14 @@
 
         // Mise à jour du badge
         function updateCartBadge() {
+            const badge = document.getElementById('cartBadge');
             const total = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartBadge').textContent = total;
+            if (badge) {
+                badge.textContent = total;
+                console.log('Badge mis à jour:', total);
+            } else {
+                console.error('Élément #cartBadge non trouvé');
+            }
         }
 
         // Affichage du panier
@@ -1713,7 +1691,14 @@
             toast.textContent = message;
             document.body.appendChild(toast);
             
-            setTimeout(() => toast.remove(), 3200);
+            // Trigger animation
+            setTimeout(() => {
+                toast.style.animation = 'toastSlideOut 0.3s ease forwards';
+            }, 2700);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
         }
 
         // Ouverture du formulaire de devis
@@ -1857,95 +1842,105 @@
         updateCartBadge();
 
         // ==================== COMPATIBILITÉ AVEC ANCIENS BOUTONS ====================
-        // Initialisation: Update favorite buttons UI
-        document.querySelectorAll('.product-favorite').forEach(btn => {
-            const card = btn.closest('.product-card');
-            const productName = card.querySelector('.product-name').textContent;
-            
-            if (favorites.includes(productName)) {
-                btn.classList.add('active');
-                btn.textContent = '★';
-            }
-        });
-
-        // Favorite button functionality
-        document.querySelectorAll('.product-favorite').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const card = this.closest('.product-card');
+        // Attendre que le DOM soit prêt
+        function initializeCartListeners() {
+            // Initialisation: Update favorite buttons UI
+            document.querySelectorAll('.product-favorite').forEach(btn => {
+                const card = btn.closest('.product-card');
                 const productName = card.querySelector('.product-name').textContent;
                 
-                this.classList.toggle('active');
-                
-                if (this.classList.contains('active')) {
-                    this.textContent = '★';
-                    if (!favorites.includes(productName)) {
-                        favorites.push(productName);
-                    }
-                } else {
-                    this.textContent = '☆';
-                    favorites = favorites.filter(fav => fav !== productName);
+                if (favorites.includes(productName)) {
+                    btn.classList.add('active');
+                    btn.textContent = '★';
                 }
-                
-                localStorage.setItem('favorites', JSON.stringify(favorites));
             });
-        });
 
-        // Cart button functionality - NOUVELLE IMPLÉMENTATION
-        document.querySelectorAll('.btn-cart').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productName = this.getAttribute('data-product');
-                addToCart(productName);
-            });
-        });
-
-        // Devis button functionality
-        document.querySelectorAll('.btn-devis').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productName = this.getAttribute('data-product');
-                addToCart(productName);
-                setTimeout(() => openQuoteForm(), 800);
-            });
-        });
-
-        // Filters functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.getAttribute('data-filter');
-
-                // Remove active from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active to clicked button
-                btn.classList.add('active');
-
-                // Filter products
-                productCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        card.style.display = 'flex';
+            // Favorite button functionality
+            document.querySelectorAll('.product-favorite').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const card = this.closest('.product-card');
+                    const productName = card.querySelector('.product-name').textContent;
+                    
+                    this.classList.toggle('active');
+                    
+                    if (this.classList.contains('active')) {
+                        this.textContent = '★';
+                        if (!favorites.includes(productName)) {
+                            favorites.push(productName);
+                        }
                     } else {
-                        card.style.display = 'none';
+                        this.textContent = '☆';
+                        favorites = favorites.filter(fav => fav !== productName);
                     }
+                    
+                    localStorage.setItem('favorites', JSON.stringify(favorites));
                 });
             });
 
-            // Double-click to deselect
-            btn.addEventListener('dblclick', (e) => {
-                e.preventDefault();
-                
-                // Remove active from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // Show all products
-                productCards.forEach(card => {
-                    card.style.display = 'flex';
+            // Cart button functionality - NOUVELLE IMPLÉMENTATION
+            document.querySelectorAll('.btn-cart').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const productName = this.getAttribute('data-product');
+                    addToCart(productName);
                 });
             });
-        });
+
+            // Devis button functionality
+            document.querySelectorAll('.btn-devis').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const productName = this.getAttribute('data-product');
+                    addToCart(productName);
+                    setTimeout(() => openQuoteForm(), 800);
+                });
+            });
+
+            // Filters functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Remove active from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active to clicked button
+                    btn.classList.add('active');
+
+                    // Filter products
+                    productCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if (filter === 'all' || category === filter) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+
+                // Double-click to deselect
+                btn.addEventListener('dblclick', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove active from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Show all products
+                    productCards.forEach(card => {
+                        card.style.display = 'flex';
+                    });
+                });
+            });
+        }
+
+        // Appeler la fonction au chargement du DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeCartListeners);
+        } else {
+            initializeCartListeners();
+        }
     </script>
