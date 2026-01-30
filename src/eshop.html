@@ -575,6 +575,96 @@
             font-size: 16px;
         }
 
+        /* NOTIFICATIONS/TOAST */
+        .notification-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 400px;
+            pointer-events: none;
+        }
+
+        .notification {
+            background: white;
+            border-left: 4px solid var(--color-primary);
+            border-radius: 8px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--color-dark);
+            animation: slideInRight 0.3s ease forwards;
+            pointer-events: auto;
+        }
+
+        .notification.success {
+            border-left-color: #0F6B32;
+        }
+
+        .notification.error {
+            border-left-color: #E74C3C;
+        }
+
+        .notification.info {
+            border-left-color: var(--color-primary);
+        }
+
+        .notification-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .notification-message {
+            flex: 1;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-text);
+            font-size: 18px;
+            padding: 0;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .notification-close:hover {
+            opacity: 1;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+        }
+
+        .notification.removing {
+            animation: slideOutRight 0.3s ease forwards;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--color-dark);
@@ -1512,6 +1602,9 @@
     </style>
 </head>
 <body>
+    <!-- NOTIFICATION CONTAINER -->
+    <div class="notification-container" id="notificationContainer"></div>
+
     <!-- HEADER -->
     <header>
         <div class="container">
@@ -2112,21 +2205,55 @@
             }, 800);
         }
 
-        // Toast notifications
+        // Toast notifications améliorées
+        function showNotification(message, type = 'info') {
+            const container = document.getElementById('notificationContainer');
+            
+            // Vérifier que le conteneur existe
+            if (!container) {
+                console.error('Conteneur de notification non trouvé!');
+                return;
+            }
+            
+            // Icônes par type
+            const icons = {
+                success: '✅',
+                error: '❌',
+                info: 'ℹ️',
+                warning: '⚠️'
+            };
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span class="notification-icon">${icons[type]}</span>
+                <span class="notification-message">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.classList.add('removing'); setTimeout(() => this.parentElement.remove(), 300)">×</button>
+            `;
+            
+            container.appendChild(notification);
+            
+            // Auto-remove après 4 secondes
+            const timeout = setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.classList.add('removing');
+                    setTimeout(() => {
+                        if (notification.parentElement) {
+                            notification.remove();
+                        }
+                    }, 300);
+                }
+            }, 4000);
+            
+            // Garder une référence du timeout pour pouvoir l'annuler
+            notification.dataset.timeout = timeout;
+            
+            return notification;
+        }
+
+        // Alias pour compatibilité
         function showToast(message, type = 'info') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            
-            // Trigger animation
-            setTimeout(() => {
-                toast.style.animation = 'toastSlideOut 0.3s ease forwards';
-            }, 2700);
-            
-            setTimeout(() => {
-                toast.remove();
-            }, 3000);
+            return showNotification(message, type);
         }
 
         // Ouverture du formulaire de devis
@@ -2328,6 +2455,11 @@
                     } else {
                         this.textContent = '☆';
                         favorites = favorites.filter(fav => fav !== productName);
+                        showNotification(`❌ ${productName} supprimé des favoris`, 'info');
+                    }
+                    
+                    if (this.classList.contains('active')) {
+                        showNotification(`⭐ ${productName} ajouté aux favoris`, 'success');
                     }
                     
                     localStorage.setItem('favorites', JSON.stringify(favorites));

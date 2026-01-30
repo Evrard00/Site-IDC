@@ -454,6 +454,15 @@
                 height: 40px;
                 right: -20px;
             }
+
+            .raccourcis-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .raccourcis-image {
+                max-width: 300px;
+            }
         }
 
         /* WHATSAPP BUTTON */
@@ -595,40 +604,61 @@
 
         /* RACCOURCIS */
         .section-raccourcis {
-            background: #F4F4F4;
-            padding: 40px 0;
-            border-top: 1px solid #E5E5E5;
-            border-bottom: 1px solid #E5E5E5;
+            background: #FFFFFF;
+            padding: 60px 0;
+        }
+
+        .raccourcis-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: stretch;
+        }
+
+        .raccourcis-image-wrapper {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .raccourcis-content h3 {
+            color: #0B0B0B;
+            margin-bottom: 32px;
+            font-size: 28px;
+            font-weight: 700;
         }
 
         .raccourcis-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            height: fit-content;
         }
 
         .raccourci-btn {
             background: white;
             border: 1px solid #E5E5E5;
-            border-radius: 10px;
-            padding: 24px 16px;
+            border-radius: 12px;
+            padding: 18px 16px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
             transition: all 0.3s ease;
             color: #0B0B0B;
+            text-align: center;
         }
 
         .raccourci-btn:hover {
             background: #FFFFFF;
             border-color: #E36A13;
-            box-shadow: 0 4px 12px rgba(227, 106, 19, 0.12);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(227, 106, 19, 0.15);
+            transform: translateY(-4px);
         }
 
         .raccourci-icon {
-            font-size: 28px;
+            font-size: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -637,7 +667,17 @@
 
         .raccourci-text {
             font-family: 'Poppins', sans-serif;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .raccourcis-image {
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 16px;
+        }
             font-weight: 600;
             text-align: left;
         }
@@ -1649,24 +1689,31 @@
     <!-- SECTION RACCOURCIS -->
     <section class="section-raccourcis" id="raccourcis">
         <div class="container">
-            <h3 style="color: #0B0B0B; margin-bottom: 30px; text-align: center; font-size: 28px; font-weight: 700;">Comment pouvons-nous vous aider ?</h3>
-            <div class="raccourcis-grid">
-                <a href="#stations" class="raccourci-btn">
-                    <span class="raccourci-icon">📍</span>
-                    <span class="raccourci-text">Trouver une station</span>
-                </a>
-                <a href="#eshop" class="raccourci-btn">
-                    <span class="raccourci-icon">💳</span>
-                    <span class="raccourci-text">Carte TPE</span>
-                </a>
-                <a href="#contact" class="raccourci-btn">
-                    <span class="raccourci-icon">📞</span>
-                    <span class="raccourci-text">Nous contacter</span>
-                </a>
-                <a href="#carriere" class="raccourci-btn">
-                    <span class="raccourci-icon">💼</span>
-                    <span class="raccourci-text">Trouver un job</span>
-                </a>
+            <div class="raccourcis-wrapper">
+                <div class="raccourcis-content">
+                    <h3>Comment pouvons-nous vous aider ?</h3>
+                    <div class="raccourcis-grid">
+                        <a href="#stations" class="raccourci-btn">
+                            <span class="raccourci-icon">📍</span>
+                            <span class="raccourci-text">Trouver une station</span>
+                        </a>
+                        <a href="#eshop" class="raccourci-btn">
+                            <span class="raccourci-icon">💳</span>
+                            <span class="raccourci-text">Carte TPE</span>
+                        </a>
+                        <a href="#contact" class="raccourci-btn">
+                            <span class="raccourci-icon">📞</span>
+                            <span class="raccourci-text">Nous contacter</span>
+                        </a>
+                        <a href="#carriere" class="raccourci-btn">
+                            <span class="raccourci-icon">💼</span>
+                            <span class="raccourci-text">Trouver un job</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="raccourcis-image-wrapper">
+                    <img src="../assets/images/2ans.png" alt="20 ans d'expérience IDC" class="raccourcis-image">
+                </div>
             </div>
         </div>
     </section>
