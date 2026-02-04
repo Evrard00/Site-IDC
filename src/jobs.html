@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trouver un Job - IDC | Rejoignez notre équipe</title>
+    <meta name="description" content="Rejoignez IDC, un acteur dynamique du secteur de l'énergie. Consultez nos offres d'emploi et postulez maintenant.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0B0B0B;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        :root {
+            --color-primary: #E36A13;
+            --color-secondary: #0F6B32;
+            --color-dark: #0B0B0B;
+            --color-text: #4F4F4F;
+            --color-light: #F4F4F4;
+            --color-white: #FFFFFF;
+            --color-border: #E5E5E5;
+        }
+
+        /* HEADER */
+        header {
+            background: #FFFFFF;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border: none;
+            border-radius: 0;
+            width: 100%;
+            box-shadow: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        header.scrolled {
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            width: calc(100% - 40px);
+            border-radius: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            gap: 50px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-nav a {
+            color: #0B0B0B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header-nav a:hover,
+        .header-nav a.active {
+            color: var(--color-primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .header-login {
+            color: #0B0B0B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .header-login:hover {
+            color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d45d0a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(227, 106, 19, 0.3);
+        }
+
+        .btn-sm {
+            padding: 11px 32px !important;
+            font-size: 14px !important;
+            border-radius: 16px !important;
+            font-weight: 600 !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* PAGE INTRO */
+        .page-intro {
+            padding-top: 120px;
+            padding-bottom: 20px;
+            background-color: #FFFFFF;
+            text-align: center;
+        }
+
+        .page-intro h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+        }
+
+        .page-intro p {
+            font-size: 16px;
+            color: var(--color-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* POURQUOI REJOINDRE */
+        .section-why-join {
+            padding: 40px 0;
+            background-color: #FFFFFF;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .why-card {
+            background: white;
+            border: 2px solid var(--color-border);
+            border-radius: 14px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .why-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .why-icon {
+            font-size: 28px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+        }
+
+        .why-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-dark);
+            line-height: 1.5;
+        }
+
+        /* PROFILS RECHERCHÉS */
+        .section-profiles {
+            padding: 40px 0;
+            background-color: #FFFFFF;
+        }
+
+        .profiles-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profiles-intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profiles-intro p {
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .profiles-list {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .profiles-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profiles-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 16px;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profiles-list li:last-child {
+            border-bottom: none;
+        }
+
+        .profiles-list li:before {
+            content: '▸';
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .profiles-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--color-text);
+            margin-top: 24px;
+            font-style: italic;
+        }
+
+        /* COMMENT POSTULER */
+        .section-how-apply {
+            padding: 40px 0;
+            background-color: #FFFFFF;
+        }
+
+        .how-apply-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-apply-content p {
+            font-size: 16px;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* FORMULAIRE DE CANDIDATURE */
+        .section-form {
+            padding: 40px 0;
+            background-color: var(--color-light);
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-intro h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+        }
+
+        .form-intro p {
+            font-size: 16px;
+            color: var(--color-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-wrapper {
+            background: white;
+            border-radius: 14px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-wrapper form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-wrapper form .form-group:nth-child(n+5) {
+            grid-column: 1 / -1;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--color-dark);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group.half {
+            width: auto;
+            display: block;
+        }
+
+        .form-group.half:nth-child(odd) {
+            margin-right: 0;
+        }
+
+        .form-file-label {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-file-input {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px dashed var(--color-border);
+            border-radius: 8px;
+            background-color: #FAFAFA;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        .form-file-input:hover {
+            border-color: var(--color-primary);
+            background-color: rgba(227, 106, 19, 0.05);
+        }
+
+        .required::after {
+            content: " *";
+            color: var(--color-primary);
+        }
+
+        .form-submit {
+            margin-top: 0;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .form-submit .btn {
+            width: 100%;
+            padding: 14px 32px;
+        }
+
+        .form-reassurance {
+            text-align: center;
+            font-size: 13px;
+            color: var(--color-text);
+            margin-top: 16px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0B0B0B 0%, #1A1A1A 100%);
+            color: #F4F4F4;
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+        }
+
+        footer .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #B0B0B0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #E36A13;
+        }
+
+        footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #808080;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            header .container {
+                padding: 12px 30px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-wrapper {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                padding: 12px 20px;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .page-intro {
+                padding-top: 80px;
+                padding-bottom: 20px;
+            }
+
+            .page-intro h1 {
+                font-size: 32px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+
+            .why-grid {
+                gap: 16px;
+            }
+
+            .why-card {
+                padding: 24px;
+            }
+
+            .form-wrapper {
+                padding: 24px;
+            }
+
+            .form-wrapper form {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .container {
+                padding: 12px 16px;
+                gap: 20px;
+            }
+
+            .page-intro {
+                padding-top: 70px;
+                padding-bottom: 15px;
+            }
+
+            .page-intro h1 {
+                font-size: 24px;
+            }
+
+            .page-intro p {
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .form-wrapper {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="../assets/images/logo.png" alt="IDC Logo">
+                </div>
+            </div>
+            
+            <nav id="navbar" class="header-nav">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#apropos">Qui sommes-nous</a>
+                <a href="index.html#activites">Nos services</a>
+                <a href="eshop.html">IDC E-Shop</a>
+            </nav>
+
+            <div class="header-right">
+                <a href="#login" class="btn btn-primary btn-sm">Mon espace</a>
+                <a href="contact.html" class="header-login">Nous contacter</a>
+                <div class="menu-burger" id="menuBurger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE INTRO -->
+    <section class="page-intro">
+        <div class="container">
+            <h1>Trouver un job chez IDC</h1>
+            <p>Vous souhaitez rejoindre un acteur dynamique du secteur de l'énergie ? IDC recrute régulièrement des profils engagés pour accompagner son développement.</p>
+        </div>
+    </section>
+
+    <!-- POURQUOI REJOINDRE IDC -->
+    <section class="section-why-join">
+        <div class="container">
+            <h2 class="section-title">Pourquoi rejoindre IDC ?</h2>
+            
+            <div class="why-grid">
+                <div class="why-card">
+                    <span class="why-icon">✓</span>
+                    <span class="why-text">Un environnement professionnel structuré</span>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">✓</span>
+                    <span class="why-text">Des opportunités dans le secteur de l'énergie</span>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">✓</span>
+                    <span class="why-text">Des missions utiles et concrètes</span>
+                </div>
+
+                <div class="why-card">
+                    <span class="why-icon">✓</span>
+                    <span class="why-text">Une équipe engagée et en croissance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFILS RECHERCHÉS -->
+    <section class="section-profiles">
+        <div class="container">
+            <div class="profiles-content">
+                <h2 class="section-title">Profils régulièrement recherchés</h2>
+                
+                <div class="profiles-intro">
+                    <p>Selon nos besoins, nous recrutons notamment :</p>
+                </div>
+
+                <div class="profiles-list">
+                    <ul>
+                        <li>Opérateurs de station-service</li>
+                        <li>Chauffeurs / logisticiens</li>
+                        <li>Commerciaux terrain</li>
+                        <li>Techniciens</li>
+                        <li>Profils administratifs</li>
+                    </ul>
+                </div>
+
+                <div class="profiles-note">
+                    💡 Cette liste est non exhaustive. D'autres profils peuvent nous intéresser.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENT POSTULER -->
+    <section class="section-how-apply">
+        <div class="container">
+            <div class="how-apply-content">
+                <h2 class="section-title">Comment postuler ?</h2>
+                <p>Pour postuler, merci de remplir le formulaire ci-dessous et de joindre votre CV. Nos équipes étudieront votre candidature avec attention.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE CANDIDATURE -->
+    <section class="section-form">
+        <div class="container">
+            <div class="form-intro">
+                <h2>Formulaire de candidature</h2>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="applicationForm">
+                    <div class="form-group half">
+                        <label for="nom" class="required">Nom & prénom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="telephone" class="required">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="poste">Poste recherché</label>
+                        <input type="text" id="poste" name="poste" placeholder="Ex: Chauffeur logistique">
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="localisation">Localisation</label>
+                        <input type="text" id="localisation" name="localisation" placeholder="Ville/région">
+                    </div>
+
+                    <div class="form-group half">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message (optionnel)</label>
+                        <textarea id="message" name="message" placeholder="Parlez-nous de votre expérience, vos motivations..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-file-label required">Joindre votre CV</label>
+                        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" class="form-file-input" required>
+                        <small style="display: block; margin-top: 8px; color: #999; font-size: 12px;">PDF ou Word uniquement</small>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
+                        <div class="form-reassurance">Les candidatures sont traitées de manière confidentielle.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Entreprise</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#apropos">Qui sommes-nous</a></li>
+                    <li><a href="index.html#activites">Nos services</a></li>
+                    <li><a href="jobs.html">Carrière</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Produits</h3>
+                <ul>
+                    <li><a href="eshop.html">E-Shop IDC</a></li>
+                    <li><a href="lubrifiants.html">Catalogue lubrifiants</a></li>
+                    <li><a href="#">Carburants</a></li>
+                    <li><a href="#">Gaz domestique</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li>Abidjan, Côte d'Ivoire</li>
+                    <li>Lun - Ven | 8h - 16h</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 IDC - Tous droits réservés. | Carburants • Gaz • Lubrifiants • Solutions B2B</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animation pour le header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu burger
+        const menuBurger = document.getElementById('menuBurger');
+        const navbar = document.getElementById('navbar');
+        
+        if (menuBurger) {
+            menuBurger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navbar.classList.toggle('active');
+            });
+        }
+
+        // Gestion du formulaire
+        const applicationForm = document.getElementById('applicationForm');
+        if (applicationForm) {
+            applicationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre candidature!\nSi votre profil correspond à nos besoins, nous vous contacterons rapidement.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
