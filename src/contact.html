@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous Contacter - IDC | Devis, Informations et Support</title>
+    <meta name="description" content="Contactez IDC pour un devis, des informations sur nos produits ou pour toute question. Notre équipe est à votre disposition.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0B0B0B;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        :root {
+            --color-primary: #E36A13;
+            --color-secondary: #0F6B32;
+            --color-dark: #0B0B0B;
+            --color-text: #4F4F4F;
+            --color-light: #F4F4F4;
+            --color-white: #FFFFFF;
+            --color-border: #E5E5E5;
+        }
+
+        /* HEADER */
+        header {
+            background: #FFFFFF;
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border: none;
+            border-radius: 0;
+            width: 100%;
+            box-shadow: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        header.scrolled {
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            width: calc(100% - 40px);
+            border-radius: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            gap: 50px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-nav a {
+            color: #0B0B0B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .header-nav a:hover,
+        .header-nav a.active {
+            color: var(--color-primary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .header-login {
+            color: #0B0B0B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .header-login:hover {
+            color: var(--color-primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d45d0a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(227, 106, 19, 0.3);
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* PAGE INTRO */
+        .page-intro {
+            padding-top: 120px;
+            padding-bottom: 60px;
+            background-color: #FFFFFF;
+            text-align: center;
+        }
+
+        .page-intro h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+        }
+
+        .page-intro p {
+            font-size: 16px;
+            color: var(--color-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* OPTIONS DE CONTACT */
+        .section-contact-options {
+            padding: 80px 0;
+            background-color: #FFFFFF;
+        }
+
+        .contact-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 50px;
+        }
+
+        .contact-option-card {
+            background: white;
+            border: 2px solid var(--color-border);
+            border-radius: 14px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-option-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .contact-option-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .contact-option-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 12px;
+        }
+
+        .contact-option-card p {
+            font-size: 14px;
+            color: var(--color-text);
+            margin-bottom: 24px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .contact-option-card .btn {
+            align-self: flex-start;
+        }
+
+        /* FORMULAIRE */
+        .section-form {
+            padding: 80px 0;
+            background-color: var(--color-light);
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .form-intro h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+        }
+
+        .form-intro p {
+            font-size: 16px;
+            color: var(--color-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-wrapper {
+            background: white;
+            border-radius: 14px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--color-dark);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group.half {
+            width: calc(50% - 12px);
+            display: inline-block;
+        }
+
+        .form-group.half:nth-child(odd) {
+            margin-right: 24px;
+        }
+
+        .required::after {
+            content: " *";
+            color: var(--color-primary);
+        }
+
+        .form-submit {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .form-submit .btn {
+            width: 100%;
+            padding: 14px 32px;
+        }
+
+        .form-reassurance {
+            text-align: center;
+            font-size: 13px;
+            color: var(--color-text);
+            margin-top: 16px;
+        }
+
+        /* COORDONNÉES */
+        .section-coordinates {
+            padding: 80px 0;
+            background-color: #FFFFFF;
+        }
+
+        .coordinates-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .coordinates-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .coordinates-intro h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: 16px;
+        }
+
+        .coordinates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .coordinate-item {
+            background: var(--color-light);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .coordinate-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .coordinate-label {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 8px;
+        }
+
+        .coordinate-value {
+            font-size: 14px;
+            color: var(--color-text);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--color-primary);
+        }
+
+        .footer-section a {
+            display: block;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            header .container {
+                padding: 12px 30px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .form-wrapper {
+                padding: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                padding: 12px 20px;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .page-intro {
+                padding-top: 80px;
+                padding-bottom: 40px;
+            }
+
+            .page-intro h1 {
+                font-size: 32px;
+            }
+
+            .page-intro p {
+                font-size: 14px;
+            }
+
+            .contact-options-grid {
+                gap: 24px;
+            }
+
+            .form-group.half {
+                width: 100%;
+                display: block;
+            }
+
+            .form-group.half:nth-child(odd) {
+                margin-right: 0;
+            }
+
+            .form-wrapper {
+                padding: 24px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .section-contact-options,
+            .section-form,
+            .section-coordinates {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .container {
+                padding: 12px 16px;
+                gap: 20px;
+            }
+
+            .page-intro {
+                padding-top: 70px;
+                padding-bottom: 30px;
+            }
+
+            .page-intro h1 {
+                font-size: 24px;
+            }
+
+            .page-intro p {
+                font-size: 13px;
+            }
+
+            .form-wrapper {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .contact-option-card {
+                padding: 20px;
+            }
+
+            .form-intro h2,
+            .coordinates-intro h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="../assets/images/logo.png" alt="IDC Logo">
+                </a>
+            </div>
+            <nav class="header-nav" id="navbar">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#apropos">Qui sommes-nous</a>
+                <a href="index.html#activites">Nos activités</a>
+                <a href="eshop.html">E-Shop</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+            <div class="header-right">
+                <a href="#" class="header-login">Mon espace</a>
+                <button class="btn btn-primary">Nous contacter</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE INTRO -->
+    <section class="page-intro">
+        <div class="container">
+            <h1>Contactez IDC</h1>
+            <p>Une question, une demande de devis ou un besoin spécifique ? Nos équipes sont à votre disposition pour vous accompagner.</p>
+        </div>
+    </section>
+
+    <!-- OPTIONS DE CONTACT -->
+    <section class="section-contact-options">
+        <div class="container">
+            <div class="contact-options-grid">
+                <div class="contact-option-card">
+                    <div class="contact-option-icon">💼</div>
+                    <h3>Demande commerciale</h3>
+                    <p>Besoin d'un devis ou d'informations sur nos produits ? Contactez notre équipe commerciale pour une réponse adaptée à vos besoins.</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('sujet').value = 'Demande de devis'; document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Faire une demande</button>
+                </div>
+
+                <div class="contact-option-card">
+                    <div class="contact-option-icon">⛽</div>
+                    <h3>Stations & services</h3>
+                    <p>Une question liée à nos stations-service ou à nos services ? Nous sommes à votre écoute.</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('sujet').value = 'Stations & services'; document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Nous contacter</button>
+                </div>
+
+                <div class="contact-option-card">
+                    <div class="contact-option-icon">🤝</div>
+                    <h3>Autres demandes</h3>
+                    <p>Partenariat, information générale ou assistance ? Envoyez-nous votre message, nous vous répondrons rapidement.</p>
+                    <button class="btn btn-primary" onclick="document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Envoyer un message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE CONTACT -->
+    <section class="section-form">
+        <div class="container">
+            <div class="form-intro">
+                <h2>Formulaire de contact</h2>
+                <p>Merci de remplir le formulaire ci-dessous. Un membre de l'équipe IDC vous contactera dans les plus brefs délais.</p>
+            </div>
+
+            <div class="form-wrapper">
+                <form id="contactForm">
+                    <div class="form-group half">
+                        <label for="nom" class="required">Nom & prénom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="entreprise">Entreprise</label>
+                        <input type="text" id="entreprise" name="entreprise">
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="telephone" class="required">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+
+                    <div class="form-group half">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sujet" class="required">Objet de la demande</label>
+                        <select id="sujet" name="sujet" required>
+                            <option value="">-- Sélectionnez un objet --</option>
+                            <option value="Demande de devis">Demande de devis</option>
+                            <option value="Information produits">Information produits</option>
+                            <option value="Stations & services">Stations & services</option>
+                            <option value="Carte TPE">Carte TPE</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="required">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                        <div class="form-reassurance">Vos informations sont traitées de manière confidentielle.</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- COORDONNÉES -->
+    <section class="section-coordinates">
+        <div class="container">
+            <div class="coordinates-wrapper">
+                <div class="coordinates-intro">
+                    <h2>Nos coordonnées</h2>
+                </div>
+
+                <div class="coordinates-grid">
+                    <div class="coordinate-item">
+                        <div class="coordinate-icon">📍</div>
+                        <div class="coordinate-label">Adresse</div>
+                        <div class="coordinate-value">Abidjan, Côte d'Ivoire</div>
+                    </div>
+
+                    <div class="coordinate-item">
+                        <div class="coordinate-icon">📞</div>
+                        <div class="coordinate-label">Téléphone</div>
+                        <div class="coordinate-value">+225 20 21 00 00</div>
+                    </div>
+
+                    <div class="coordinate-item">
+                        <div class="coordinate-icon">📧</div>
+                        <div class="coordinate-label">Email</div>
+                        <div class="coordinate-value">contact@idc.ci</div>
+                    </div>
+
+                    <div class="coordinate-item">
+                        <div class="coordinate-icon">🕒</div>
+                        <div class="coordinate-label">Horaires</div>
+                        <div class="coordinate-value">Lun - Ven | 8h - 16h</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <a href="#">Qui sommes-nous</a>
+                    <a href="#">Nos activités</a>
+                    <a href="#">Blog</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Produits</h3>
+                    <a href="#">Lubrifiants</a>
+                    <a href="#">Carburants</a>
+                    <a href="#">Gaz</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Devis</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Légal</h3>
+                    <a href="#">Conditions d'utilisation</a>
+                    <a href="#">Politique de confidentialité</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 IDC - Ivoirienne de Distribution Carburants. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Formulaire
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons dans les plus brefs délais.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
