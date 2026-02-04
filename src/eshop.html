@@ -423,9 +423,19 @@
             transition: all 0.3s ease;
         }
 
+        .btn-cart svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
         .btn-cart:hover {
             background: var(--color-primary);
             color: white;
+        }
+
+        .btn-cart:hover svg {
+            stroke: white;
         }
 
         /* PRODUITS GRILLE */
@@ -506,11 +516,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
             opacity: 0;
             transition: all 0.3s ease;
             cursor: pointer;
             z-index: 5;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--color-primary);
+            stroke: currentColor;
+        }
+
+        .eye-icon {
+            width: 40px;
+            height: 40px;
+            color: white;
+            stroke: currentColor;
         }
 
         .product-image:hover .product-eye-icon {
@@ -1825,8 +1848,8 @@
                         <div class="product-category">Huile moteur diesel</div>
                         <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules diesel & flottes</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Rubia TIR">Demander un devis</button>
-                            <button class="btn-cart" data-product="Rubia TIR" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Rubia TIR">Commander</button>
+                            <button class="btn-cart" data-product="Rubia TIR" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1842,8 +1865,8 @@
                         <div class="product-category">Huile moteur essence</div>
                         <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules essence & légers</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 MA">Demander un devis</button>
-                            <button class="btn-cart" data-product="Tellus S2 MA" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Tellus S2 MA">Commander</button>
+                            <button class="btn-cart" data-product="Tellus S2 MA" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1859,8 +1882,8 @@
                         <div class="product-category">Huile moteur synthétique</div>
                         <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Moteurs modernes haute performance</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Helix Ultra">Demander un devis</button>
-                            <button class="btn-cart" data-product="Helix Ultra" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Helix Ultra">Commander</button>
+                            <button class="btn-cart" data-product="Helix Ultra" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1877,8 +1900,8 @@
                         <div class="product-category">Huile hydraulique ISO 46</div>
                         <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes hydrauliques industriels</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 MA 46">Demander un devis</button>
-                            <button class="btn-cart" data-product="Tellus S2 MA 46" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Tellus S2 MA 46">Commander</button>
+                            <button class="btn-cart" data-product="Tellus S2 MA 46" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1894,8 +1917,8 @@
                         <div class="product-category">Huile hydraulique ISO 32</div>
                         <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes de précision légère</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 MA 32">Demander un devis</button>
-                            <button class="btn-cart" data-product="Tellus S2 MA 32" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Tellus S2 MA 32">Commander</button>
+                            <button class="btn-cart" data-product="Tellus S2 MA 32" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1912,8 +1935,8 @@
                         <div class="product-category">Huile industrielle multi-usage</div>
                         <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Équipements industriels divers</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 VX">Demander un devis</button>
-                            <button class="btn-cart" data-product="Tellus S2 VX" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Tellus S2 VX">Commander</button>
+                            <button class="btn-cart" data-product="Tellus S2 VX" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1929,8 +1952,8 @@
                         <div class="product-category">Fluide de coupe & usinage</div>
                         <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Machines de précision & usinage</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Houghton Hydrolubric">Demander un devis</button>
-                            <button class="btn-cart" data-product="Houghton Hydrolubric" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Houghton Hydrolubric">Commander</button>
+                            <button class="btn-cart" data-product="Houghton Hydrolubric" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1947,8 +1970,8 @@
                         <div class="product-category">Graisse polyvalente</div>
                         <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Paliers, roulements généraux</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Graisse Lithium">Demander un devis</button>
-                            <button class="btn-cart" data-product="Graisse Lithium" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Graisse Lithium">Commander</button>
+                            <button class="btn-cart" data-product="Graisse Lithium" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1964,8 +1987,8 @@
                         <div class="product-category">Graisse extrême pression</div>
                         <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Chaînes, engrenages haute charge</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Graisse Molybdène">Demander un devis</button>
-                            <button class="btn-cart" data-product="Graisse Molybdène" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Graisse Molybdène">Commander</button>
+                            <button class="btn-cart" data-product="Graisse Molybdène" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1974,16 +1997,16 @@
                 <div class="product-card" data-category="transmission">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
                     <div class="product-image">
-                        🔧
-                        <div class="product-eye-icon" data-product="Gear Oil 75W-90">👁️</div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h12M6 18h12M8 4h8c1 0 2 1 2 2v12c0 1-1 2-2 2H8c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/></svg>
+                        <div class="product-eye-icon" data-product="Gear Oil 75W-90"><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
                     </div>
                     <div class="product-content">
                         <div class="product-name">Gear Oil 75W-90</div>
                         <div class="product-category">Huile de transmission & pont</div>
                         <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Boîtes de vitesse manuelles</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Gear Oil 75W-90">Demander un devis</button>
-                            <button class="btn-cart" data-product="Gear Oil 75W-90" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Gear Oil 75W-90">Commander</button>
+                            <button class="btn-cart" data-product="Gear Oil 75W-90" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -1991,16 +2014,16 @@
                 <div class="product-card" data-category="transmission">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
                     <div class="product-image">
-                        🔧
-                        <div class="product-eye-icon" data-product="Fluide ATF">👁️</div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h12M6 18h12M8 4h8c1 0 2 1 2 2v12c0 1-1 2-2 2H8c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/></svg>
+                        <div class="product-eye-icon" data-product="Fluide ATF"><svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
                     </div>
                     <div class="product-content">
                         <div class="product-name">Fluide ATF</div>
                         <div class="product-category">Fluide transmission automatique</div>
                         <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Boîtes de vitesse automatiques</div>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Fluide ATF">Demander un devis</button>
-                            <button class="btn-cart" data-product="Fluide ATF" title="Ajouter au panier">🛒</button>
+                            <button class="btn btn-devis" data-product="Fluide ATF">Commander</button>
+                            <button class="btn-cart" data-product="Fluide ATF" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -2218,7 +2241,7 @@
                         </div>
                     </div>
                     <div class="product-details-footer">
-                        <button class="btn btn-primary" onclick="document.querySelector('.product-details-modal').remove(); document.querySelector('[data-product=\\\'${productName}\\\']').closest('.product-card').querySelector('.btn-devis').click();">Demander un devis</button>
+                        <button class="btn btn-primary" onclick="document.querySelector('.product-details-modal').remove(); document.querySelector('[data-product=\\\'${productName}\\\']').closest('.product-card').querySelector('.btn-devis').click();">Commander</button>
                     </div>
                 </div>
             `;
