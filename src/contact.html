@@ -122,6 +122,14 @@
             color: var(--color-primary);
         }
 
+        .btn-sm {
+            padding: 11px 32px !important;
+            font-size: 14px !important;
+            border-radius: 16px !important;
+            font-weight: 600 !important;
+            font-family: 'Poppins', sans-serif !important;
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -156,7 +164,7 @@
         /* PAGE INTRO */
         .page-intro {
             padding-top: 120px;
-            padding-bottom: 60px;
+            padding-bottom: 30px;
             background-color: #FFFFFF;
             text-align: center;
         }
@@ -179,7 +187,7 @@
 
         /* OPTIONS DE CONTACT */
         .section-contact-options {
-            padding: 80px 0;
+            padding: 40px 0;
             background-color: #FFFFFF;
         }
 
@@ -187,7 +195,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         .contact-option-card {
@@ -266,8 +274,18 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
         }
 
+        .form-wrapper form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-wrapper form .form-group:nth-child(n+5) {
+            grid-column: 1 / -1;
+        }
+
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 0;
         }
 
         .form-group label {
@@ -306,12 +324,12 @@
         }
 
         .form-group.half {
-            width: calc(50% - 12px);
-            display: inline-block;
+            width: auto;
+            display: block;
         }
 
         .form-group.half:nth-child(odd) {
-            margin-right: 24px;
+            margin-right: 0;
         }
 
         .required::after {
@@ -322,6 +340,7 @@
         .form-submit {
             margin-top: 32px;
             text-align: center;
+            grid-column: 1 / -1;
         }
 
         .form-submit .btn {
@@ -543,20 +562,26 @@
     <header>
         <div class="container">
             <div class="header-left">
-                <a href="index.html" class="logo">
+                <div class="logo">
                     <img src="../assets/images/logo.png" alt="IDC Logo">
-                </a>
+                </div>
             </div>
-            <nav class="header-nav" id="navbar">
+            
+            <nav id="navbar" class="header-nav">
                 <a href="index.html">Accueil</a>
                 <a href="index.html#apropos">Qui sommes-nous</a>
-                <a href="index.html#activites">Nos activités</a>
-                <a href="eshop.html">E-Shop</a>
-                <a href="contact.html" class="active">Contact</a>
+                <a href="index.html#activites">Nos services</a>
+                <a href="eshop.html">IDC E-Shop</a>
             </nav>
+
             <div class="header-right">
-                <a href="#" class="header-login">Mon espace</a>
-                <button class="btn btn-primary">Nous contacter</button>
+                <a href="#login" class="btn btn-primary btn-sm">Mon espace</a>
+                <a href="contact.html" class="header-login">Nous contacter</a>
+                <div class="menu-burger" id="menuBurger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
@@ -574,21 +599,18 @@
         <div class="container">
             <div class="contact-options-grid">
                 <div class="contact-option-card">
-                    <div class="contact-option-icon">💼</div>
                     <h3>Demande commerciale</h3>
                     <p>Besoin d'un devis ou d'informations sur nos produits ? Contactez notre équipe commerciale pour une réponse adaptée à vos besoins.</p>
                     <button class="btn btn-primary" onclick="document.getElementById('sujet').value = 'Demande de devis'; document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Faire une demande</button>
                 </div>
 
                 <div class="contact-option-card">
-                    <div class="contact-option-icon">⛽</div>
                     <h3>Stations & services</h3>
                     <p>Une question liée à nos stations-service ou à nos services ? Nous sommes à votre écoute.</p>
                     <button class="btn btn-primary" onclick="document.getElementById('sujet').value = 'Stations & services'; document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Nous contacter</button>
                 </div>
 
                 <div class="contact-option-card">
-                    <div class="contact-option-icon">🤝</div>
                     <h3>Autres demandes</h3>
                     <p>Partenariat, information générale ou assistance ? Envoyez-nous votre message, nous vous répondrons rapidement.</p>
                     <button class="btn btn-primary" onclick="document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Envoyer un message</button>
