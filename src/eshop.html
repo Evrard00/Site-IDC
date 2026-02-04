@@ -487,6 +487,143 @@
             justify-content: center;
             font-size: 64px;
             border-bottom: 1px solid var(--color-border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .product-image:hover {
+            background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
+        }
+
+        .product-eye-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 5;
+        }
+
+        .product-image:hover .product-eye-icon {
+            opacity: 1;
+        }
+
+        /* ==================== MODAL DÉTAILS PRODUIT ==================== */
+        .product-details-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .product-details-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+        }
+
+        .product-details-content {
+            position: relative;
+            background: #ffffff;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-details-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .product-details-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0B0B0B;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .product-details-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #4F4F4F;
+            transition: color 0.2s ease;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-details-close:hover {
+            color: #E36A13;
+        }
+
+        .product-details-body {
+            padding: 24px;
+        }
+
+        .product-details-item {
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #4F4F4F;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .product-details-item strong {
+            color: #0B0B0B;
+            font-weight: 600;
+            display: inline-block;
+            min-width: 140px;
+        }
+
+        .product-details-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            gap: 12px;
+        }
+
+        .product-details-footer .btn {
+            flex: 1;
         }
 
         .product-content {
@@ -1679,7 +1816,10 @@
                 <!-- Huiles moteur -->
                 <div class="product-card" data-category="moteur">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🛢️</div>
+                    <div class="product-image">
+                        🛢️
+                        <div class="product-eye-icon" data-product="Rubia TIR">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Rubia TIR</div>
                         <div class="product-category">Huile moteur diesel</div>
@@ -1693,7 +1833,10 @@
 
                 <div class="product-card" data-category="moteur">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🛢️</div>
+                    <div class="product-image">
+                        🛢️
+                        <div class="product-eye-icon" data-product="Tellus S2 MA">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Tellus S2 MA</div>
                         <div class="product-category">Huile moteur essence</div>
@@ -1707,7 +1850,10 @@
 
                 <div class="product-card" data-category="moteur">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🛢️</div>
+                    <div class="product-image">
+                        🛢️
+                        <div class="product-eye-icon" data-product="Helix Ultra">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Helix Ultra</div>
                         <div class="product-category">Huile moteur synthétique</div>
@@ -1722,7 +1868,10 @@
                 <!-- Huiles hydrauliques -->
                 <div class="product-card" data-category="hydraulique">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">⚙️</div>
+                    <div class="product-image">
+                        ⚙️
+                        <div class="product-eye-icon" data-product="Tellus S2 MA 46">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Tellus S2 MA 46</div>
                         <div class="product-category">Huile hydraulique ISO 46</div>
@@ -1736,7 +1885,10 @@
 
                 <div class="product-card" data-category="hydraulique">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">⚙️</div>
+                    <div class="product-image">
+                        ⚙️
+                        <div class="product-eye-icon" data-product="Tellus S2 MA 32">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Tellus S2 MA 32</div>
                         <div class="product-category">Huile hydraulique ISO 32</div>
@@ -1749,6 +1901,9 @@
                 </div>
 
                 <!-- Huiles industrielles -->
+                        🏭
+                        <div class="product-eye-icon" data-product="Tellus S2 VX">👁️</div>
+                    
                 <div class="product-card" data-category="industrielle">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
                     <div class="product-image">🏭</div>
@@ -1765,7 +1920,10 @@
 
                 <div class="product-card" data-category="industrielle">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🏭</div>
+                    <div class="product-image">
+                        🏭
+                        <div class="product-eye-icon" data-product="Houghton Hydrolubric">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Houghton Hydrolubric</div>
                         <div class="product-category">Fluide de coupe & usinage</div>
@@ -1780,7 +1938,10 @@
                 <!-- Graisses -->
                 <div class="product-card" data-category="graisse">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🧈</div>
+                    <div class="product-image">
+                        🧈
+                        <div class="product-eye-icon" data-product="Graisse Lithium">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Graisse Lithium</div>
                         <div class="product-category">Graisse polyvalente</div>
@@ -1794,7 +1955,10 @@
 
                 <div class="product-card" data-category="graisse">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🧈</div>
+                    <div class="product-image">
+                        🧈
+                        <div class="product-eye-icon" data-product="Graisse Molybdène">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Graisse Molybdène</div>
                         <div class="product-category">Graisse extrême pression</div>
@@ -1809,7 +1973,10 @@
                 <!-- Transmission & pont -->
                 <div class="product-card" data-category="transmission">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🔧</div>
+                    <div class="product-image">
+                        🔧
+                        <div class="product-eye-icon" data-product="Gear Oil 75W-90">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Gear Oil 75W-90</div>
                         <div class="product-category">Huile de transmission & pont</div>
@@ -1823,7 +1990,10 @@
 
                 <div class="product-card" data-category="transmission">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🔧</div>
+                    <div class="product-image">
+                        🔧
+                        <div class="product-eye-icon" data-product="Fluide ATF">👁️</div>
+                    </div>
                     <div class="product-content">
                         <div class="product-name">Fluide ATF</div>
                         <div class="product-category">Fluide transmission automatique</div>
@@ -2009,18 +2179,65 @@
 
         // Produits mapping avec leurs catégories
         const productData = {
-            'Rubia TIR': { category: 'Huile moteur diesel', formats: ['5L', '20L', '208L'] },
-            'Tellus S2 MA': { category: 'Huile hydraulique général', formats: ['5L', '20L', '208L'] },
-            'Helix Ultra': { category: 'Huile moteur essence', formats: ['5L', '20L', '208L'] },
-            'Tellus S2 MA 46': { category: 'Huile hydraulique 46', formats: ['5L', '20L', '208L'] },
-            'Tellus S2 MA 32': { category: 'Huile hydraulique 32', formats: ['5L', '20L', '208L'] },
-            'Tellus S2 VX': { category: 'Huile hydraulique VX', formats: ['5L', '20L', '208L'] },
-            'Houghton Hydrolubric': { category: 'Huile industrielle', formats: ['5L', '20L', '208L'] },
-            'Graisse Lithium': { category: 'Graisse multi-usages', formats: ['1kg', '5kg', '25kg'] },
-            'Graisse Molybdène': { category: 'Graisse haute performance', formats: ['1kg', '5kg', '25kg'] },
-            'Gear Oil 75W-90': { category: 'Huile transmission', formats: ['5L', '20L', '208L'] },
-            'Fluide ATF': { category: 'Fluide transmission auto', formats: ['1L', '5L', '20L'] }
+            'Rubia TIR': { category: 'Huile moteur diesel', formats: ['5L', '20L', '208L'], usage: 'Véhicules diesel & flottes' },
+            'Tellus S2 MA': { category: 'Huile hydraulique général', formats: ['5L', '20L', '208L'], usage: 'Véhicules essence & légers' },
+            'Helix Ultra': { category: 'Huile moteur essence', formats: ['5L', '20L', '208L'], usage: 'Moteurs essence modernes' },
+            'Tellus S2 MA 46': { category: 'Huile hydraulique 46', formats: ['20L', '208L', '1000L'], usage: 'Systèmes hydrauliques industriels' },
+            'Tellus S2 MA 32': { category: 'Huile hydraulique 32', formats: ['20L', '208L', '1000L'], usage: 'Systèmes de précision légère' },
+            'Tellus S2 VX': { category: 'Huile hydraulique VX', formats: ['20L', '208L', '1000L'], usage: 'Équipements industriels divers' },
+            'Houghton Hydrolubric': { category: 'Huile industrielle', formats: ['20L', '208L'], usage: 'Machines de précision & usinage' },
+            'Graisse Lithium': { category: 'Graisse multi-usages', formats: ['0.5kg', '5kg', '25kg'], usage: 'Paliers, roulements généraux' },
+            'Graisse Molybdène': { category: 'Graisse haute performance', formats: ['0.5kg', '5kg', '25kg'], usage: 'Chaînes, engrenages haute charge' },
+            'Gear Oil 75W-90': { category: 'Huile transmission', formats: ['20L', '208L'], usage: 'Boîtes de vitesse manuelles' },
+            'Fluide ATF': { category: 'Fluide transmission auto', formats: ['1L', '5L', '20L'], usage: 'Boîtes de vitesse automatiques' }
         };
+
+        // ==================== MODAL DÉTAILS PRODUIT ====================
+        function showProductDetails(productName) {
+            const product = productData[productName];
+            if (!product) return;
+
+            const modal = document.createElement('div');
+            modal.className = 'product-details-modal';
+            modal.innerHTML = `
+                <div class="product-details-overlay"></div>
+                <div class="product-details-content">
+                    <div class="product-details-header">
+                        <h2>${productName}</h2>
+                        <button class="product-details-close">&times;</button>
+                    </div>
+                    <div class="product-details-body">
+                        <div class="product-details-item">
+                            <strong>Catégorie :</strong> ${product.category}
+                        </div>
+                        <div class="product-details-item">
+                            <strong>Usage :</strong> ${product.usage}
+                        </div>
+                        <div class="product-details-item">
+                            <strong>Formats disponibles :</strong> ${product.formats.join(', ')}
+                        </div>
+                    </div>
+                    <div class="product-details-footer">
+                        <button class="btn btn-primary" onclick="document.querySelector('.product-details-modal').remove(); document.querySelector('[data-product=\\\'${productName}\\\']').closest('.product-card').querySelector('.btn-devis').click();">Demander un devis</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            modal.querySelector('.product-details-close').addEventListener('click', () => modal.remove());
+            modal.querySelector('.product-details-overlay').addEventListener('click', () => modal.remove());
+        }
+
+        // Ajouter les event listeners aux icônes d'oeil
+        document.querySelectorAll('.product-eye-icon').forEach(eye => {
+            eye.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const productName = eye.getAttribute('data-product');
+                showProductDetails(productName);
+            });
+        });
+
 
         // Mise à jour du badge
         function updateCartBadge() {
