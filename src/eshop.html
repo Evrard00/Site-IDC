@@ -2003,8 +2003,8 @@
     <script>
         // ==================== GESTION DU PANIER COMPLET ====================
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        cart = JSON.parse(localStorage.getItem('cart')) || [];
+        favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         let formStep = 'form'; // 'form' ou 'confirmation'
 
         // Produits mapping avec leurs catégories
