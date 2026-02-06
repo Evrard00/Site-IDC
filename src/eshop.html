@@ -1994,7 +1994,7 @@
                     <span class="cart-icon">🛒</span>
                     <span class="cart-badge" id="cartBadge">0</span>
                 </button>
-                <a href="#login" class="btn btn-primary btn-sm">Mon espace</a>
+                <a href="login.html" class="btn btn-primary btn-sm">Mon espace</a>
                 <a href="contact.html" class="header-login">Nous contacter</a>
                 <div class="menu-burger" id="menuBurger">
                     <span></span>
@@ -2418,7 +2418,7 @@
             <div class="cart-reassurance">
                 <p>💡 <strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contactera pour définir les tarifs et modalités de paiement.</p>
             </div>
-            <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Demander un devis</button>
+            <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Commander</button>
             <div class="cart-footer-links">
                 <a href="#contact" class="cart-footer-link">📞 Besoin d'aide ?</a>
                 <a href="#" class="cart-footer-link">🏢 Commande entreprise</a>
@@ -2523,7 +2523,7 @@
                     <div class="cart-empty">
                         <div class="cart-empty-icon">📦</div>
                         <h3>Votre panier est vide</h3>
-                        <p>Sélectionnez des lubrifiants pour demander un devis.</p>
+                        <p>Sélectionnez des lubrifiants pour commander.</p>
                         <button class="btn-view-products" onclick="closeCartAndScroll()">Voir les produits</button>
                     </div>
                 `;
@@ -2674,16 +2674,18 @@
             updateCartBadge();
             showToast(`✅ ${productName} ajouté au panier`, 'success');
             
-            // Ouvrir le drawer après 800ms
-            setTimeout(() => {
-                const drawer = document.getElementById('cartDrawer');
-                const overlay = document.getElementById('cartOverlay');
-                if (!drawer.classList.contains('open')) {
-                    drawer.classList.add('open');
-                    overlay.classList.add('open');
-                    renderCart();
-                }
-            }, 800);
+            // Ouvrir le drawer et mettre à jour le contenu
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartOverlay');
+            
+            // Ouvrir si pas déjà ouvert
+            if (!drawer.classList.contains('open')) {
+                drawer.classList.add('open');
+                overlay.classList.add('open');
+            }
+            
+            // Toujours rafraîchir le contenu du panier
+            renderCart();
         }
 
         // Toast notifications améliorées
@@ -3010,11 +3012,13 @@
                 });
             }
             if (clearCartBtn) clearCartBtn.addEventListener('click', clearCart);
-            if (cartOverlay) {
-                cartOverlay.addEventListener('click', function(e) {
-                    toggleCart();
-                });
-            }
+            // Overlay ne ferme plus le panier - seulement le bouton X
+            // Si vous voulez que le clic sur l'overlay ferme le panier, décommentez la ligne suivante:
+            // if (cartOverlay) {
+            //     cartOverlay.addEventListener('click', function(e) {
+            //         toggleCart();
+            //     });
+            // }
             if (sendQuoteBtn) sendQuoteBtn.addEventListener('click', openQuoteForm);
 
             // Fermeture au clic sur X modal
@@ -3085,7 +3089,6 @@
                     e.stopPropagation();
                     const productName = this.getAttribute('data-product');
                     addToCart(productName);
-                    setTimeout(() => openQuoteForm(), 800);
                 });
             });
 

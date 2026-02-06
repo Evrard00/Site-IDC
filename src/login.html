@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mon espace - Connexion à votre compte IDC">
+    <title>Mon espace - IDC</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #0B0B0B;
+            background-color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        :root {
+            --color-primary: #E36A13;
+            --color-secondary: #0F6B32;
+            --color-dark: #0B0B0B;
+            --color-text: #4F4F4F;
+            --color-light: #F4F4F4;
+            --color-white: #FFFFFF;
+            --color-border: #E5E5E5;
+        }
+
+        /* HEADER */
+        header {
+            background: #E8E8E5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            border: none;
+            border-radius: 0;
+            width: 100%;
+            box-shadow: none;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        header.scrolled {
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            width: calc(100% - 40px);
+            border-radius: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 40px;
+            gap: 50px;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-nav a {
+            color: #0B0B0B;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .header-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(227, 106, 19, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .header-login {
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: color 0.3s ease;
+        }
+
+        .header-login:hover {
+            color: var(--color-primary);
+        }
+
+        .menu-burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-burger span {
+            width: 24px;
+            height: 2px;
+            background: #0B0B0B;
+            transition: all 0.3s ease;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        /* LOGIN PAGE */
+        .login-page {
+            margin-top: 72px;
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(243, 244, 246, 0.5) 0%, rgba(255, 255, 255, 1) 100%);
+        }
+
+        .login-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* LOGIN FORM */
+        .login-form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .login-form-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--color-dark);
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 12px;
+        }
+
+        .login-form-subtitle {
+            font-size: 16px;
+            color: var(--color-text);
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--color-dark);
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input {
+            padding: 12px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
+        }
+
+        .form-remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .form-remember input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-primary);
+        }
+
+        .form-remember label {
+            cursor: pointer;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+        }
+
+        .btn-login {
+            padding: 12px 24px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            box-shadow: 0 8px 24px rgba(227, 106, 19, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .login-message {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .login-message.show {
+            display: block;
+        }
+
+        .login-message.error {
+            background: #fef5f5;
+            color: #d32f2f;
+            border: 1px solid #ffcdd2;
+        }
+
+        .login-message.success {
+            background: #f1f8f4;
+            color: #0F6B32;
+            border: 1px solid #c8e6c9;
+        }
+
+        /* REQUEST ACCOUNT SECTION */
+        .request-account-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .request-card {
+            background: white;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .request-card.featured {
+            background: linear-gradient(135deg, rgba(227, 106, 19, 0.05) 0%, rgba(15, 107, 50, 0.05) 100%);
+            border-color: var(--color-primary);
+            border-width: 2px;
+        }
+
+        .request-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-dark);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .request-card .icon {
+            font-size: 28px;
+        }
+
+        .request-card p {
+            font-size: 14px;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .request-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .request-card li {
+            font-size: 14px;
+            color: var(--color-text);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .request-card li:before {
+            content: "✓";
+            color: var(--color-secondary);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .btn-request {
+            padding: 12px 24px;
+            background: var(--color-secondary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-request:hover {
+            box-shadow: 0 8px 24px rgba(15, 107, 50, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-request-secondary {
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-request-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            box-shadow: 0 8px 24px rgba(227, 106, 19, 0.3);
+        }
+
+        /* LOGGED IN VIEW */
+        .logged-in-view {
+            display: none;
+            text-align: center;
+        }
+
+        .logged-in-view.show {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .welcome-icon {
+            font-size: 64px;
+        }
+
+        .logged-in-view h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-secondary);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logged-in-view p {
+            font-size: 16px;
+            color: var(--color-text);
+        }
+
+        .btn-logout {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            color: var(--color-dark);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background: var(--color-light);
+            border-color: var(--color-dark);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            header .container {
+                padding: 12px 30px;
+            }
+
+            .container {
+                padding: 0 30px;
+            }
+
+            .login-page {
+                padding: 40px 30px;
+            }
+
+            .login-wrapper {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                padding: 12px 20px;
+                gap: 20px;
+            }
+
+            .header-nav {
+                display: none;
+            }
+
+            .menu-burger {
+                display: flex;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .login-page {
+                padding: 40px 20px;
+                margin-top: 56px;
+                min-height: calc(100vh - 56px);
+            }
+
+            .login-wrapper {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .login-form-section h1 {
+                font-size: 24px;
+            }
+
+            .request-card {
+                padding: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header .container {
+                padding: 12px 16px;
+                gap: 12px;
+            }
+
+            .login-page {
+                padding: 24px 16px;
+                margin-top: 56px;
+            }
+
+            .login-form-section h1 {
+                font-size: 20px;
+            }
+
+            .login-form-section .login-form-subtitle {
+                font-size: 14px;
+            }
+
+            .request-card {
+                padding: 20px;
+            }
+
+            .request-card h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="../assets/images/logo.png" alt="IDC Logo">
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#apropos">Qui sommes-nous</a>
+                <a href="index.html#activites">Nos services</a>
+                <a href="eshop.html">IDC E-Shop</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <div class="header-right">
+                <a href="eshop.html" class="btn btn-primary btn-sm">IDC E-Shop</a>
+                <a href="contact.html" class="header-login">Nous contacter</a>
+                <div class="menu-burger" id="menuBurger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- LOGIN PAGE -->
+    <div class="login-page">
+        <div class="login-wrapper">
+            <!-- LOGIN FORM -->
+            <div class="login-form-section">
+                <div id="loginForm" class="login-form">
+                    <h1>Mon espace</h1>
+                    <p class="login-form-subtitle">Connectez-vous à votre compte IDC pour accéder à vos outils professionnels.</p>
+                    
+                    <form id="form" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-remember">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Se souvenir de moi</label>
+                        </div>
+
+                        <button type="submit" class="btn-login">Se connecter</button>
+
+                        <div id="loginMessage" class="login-message"></div>
+                    </form>
+                </div>
+
+                <!-- LOGGED IN VIEW -->
+                <div id="loggedInView" class="logged-in-view">
+                    <div class="welcome-icon">👤</div>
+                    <h2 id="welcomeUser">Bienvenue !</h2>
+                    <p id="userEmail"></p>
+                    <button class="btn-logout" onclick="handleLogout()">Se déconnecter</button>
+                </div>
+            </div>
+
+            <!-- REQUEST ACCOUNT SECTION -->
+            <div class="request-account-section">
+                <div class="request-card featured">
+                    <h2>
+                        <span class="icon">🔐</span>
+                        Pas encore de compte ?
+                    </h2>
+                    <p>Nos comptes utilisateurs sont créés par notre équipe administrative après validation de votre demande. C'est notre façon de garantir la sécurité et la qualité de nos services.</p>
+                    
+                    <ul>
+                        <li>Accès sécurisé à votre espace professionnel</li>
+                        <li>Gestion de vos devis et commandes</li>
+                        <li>Suivi de vos livraisons</li>
+                        <li>Conditions tarifaires personnalisées</li>
+                    </ul>
+
+                    <button class="btn-request" onclick="scrollToContactForm()">Demander un compte</button>
+                </div>
+
+                <div class="request-card">
+                    <h2>
+                        <span class="icon">❓</span>
+                        Comment ça marche ?
+                    </h2>
+                    <p>Simple et rapide :</p>
+                    
+                    <ul>
+                        <li>Remplissez le formulaire de demande</li>
+                        <li>Notre équipe examine votre requête</li>
+                        <li>Nous créons votre compte et vous l'envoyons par email</li>
+                        <li>Vous pouvez alors vous connecter directement</li>
+                    </ul>
+
+                    <a href="contact.html" class="btn-request-secondary">Contacter notre équipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        const form = document.getElementById('form');
+        const loginForm = document.getElementById('loginForm');
+        const loggedInView = document.getElementById('loggedInView');
+        const loginMessage = document.getElementById('loginMessage');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const rememberCheckbox = document.getElementById('remember');
+
+        // Comptes de démo pour tester (à remplacer par une vraie API)
+        const demoAccounts = {
+            'demo@idc.ci': { password: 'demo123', name: 'Demo Client' },
+            'contact@idc.ci': { password: 'admin123', name: 'Admin IDC' }
+        };
+
+        // Vérifier si un utilisateur est déjà connecté
+        function checkLoggedIn() {
+            const loggedIn = localStorage.getItem('loggedInUser');
+            if (loggedIn) {
+                // Rediriger vers le dashboard
+                window.location.href = 'dashboard.html';
+            }
+        }
+
+        // Gérer la connexion
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            
+            // Validation simple
+            if (!email || !password) {
+                showMessage('Veuillez remplir tous les champs', 'error');
+                return;
+            }
+
+            // Vérifier les credentials
+            if (demoAccounts[email] && demoAccounts[email].password === password) {
+                // Connexion réussie
+                const user = {
+                    email: email,
+                    name: demoAccounts[email].name,
+                    loggedInAt: new Date().toISOString()
+                };
+
+                // Sauvegarder en localStorage si "Se souvenir de moi" est coché
+                if (rememberCheckbox.checked) {
+                    localStorage.setItem('loggedInUser', JSON.stringify(user));
+                } else {
+                    // Sauvegarder temporairement même sans "se souvenir"
+                    localStorage.setItem('loggedInUser', JSON.stringify(user));
+                }
+
+                showMessage('✅ Connexion réussie !', 'success');
+                
+                // Rediriger vers le dashboard
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 800);
+            } else {
+                showMessage('❌ Email ou mot de passe incorrect', 'error');
+            }
+        }
+
+        // Afficher le message
+        function showMessage(message, type) {
+            loginMessage.textContent = message;
+            loginMessage.className = `login-message show ${type}`;
+            
+            if (type === 'error') {
+                setTimeout(() => {
+                    loginMessage.classList.remove('show');
+                }, 4000);
+            }
+        }
+
+        // Afficher la vue connectée
+        function displayLoggedInView(user) {
+            loginForm.style.display = 'none';
+            loggedInView.classList.add('show');
+            document.getElementById('welcomeUser').textContent = `Bienvenue ${user.name} ! 👋`;
+            document.getElementById('userEmail').textContent = user.email;
+        }
+
+        // Déconnexion
+        function handleLogout() {
+            localStorage.removeItem('loggedInUser');
+            loggedInView.classList.remove('show');
+            loginForm.style.display = 'block';
+            form.reset();
+            loginMessage.classList.remove('show');
+        }
+
+        // Scroll vers le formulaire de contact
+        function scrollToContactForm() {
+            window.location.href = 'contact.html#form';
+        }
+
+        // Vérifier l'état de connexion au chargement
+        document.addEventListener('DOMContentLoaded', checkLoggedIn);
+    </script>
+</body>
+</html>
