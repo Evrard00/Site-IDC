@@ -529,7 +529,7 @@
                         <span class="sidebar-link-icon">📞</span>
                         <span>Support</span>
                     </a>
-                    <a href="login.html" class="sidebar-link" style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 12px;">
+                    <a href="#" class="sidebar-link" onclick="handleLogout(); return false;" style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 12px;">
                         <span class="sidebar-link-icon">🚪</span>
                         <span>Se déconnecter</span>
                     </a>
@@ -837,6 +837,12 @@
                 userNameEl.textContent = currentUser.name;
                 userEmailEl.textContent = currentUser.email;
             }
+        }
+
+        // Déconnexion
+        function handleLogout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
         }
 
         // Initialiser au chargement

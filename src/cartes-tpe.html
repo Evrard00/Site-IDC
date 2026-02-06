@@ -594,7 +594,7 @@
                         <span class="sidebar-link-icon">📞</span>
                         <span>Support</span>
                     </a>
-                    <a href="login.html" class="sidebar-link" style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 12px;">
+                    <a href="#" class="sidebar-link" onclick="handleLogout(); return false;" style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 12px;">
                         <span class="sidebar-link-icon">🚪</span>
                         <span>Se déconnecter</span>
                     </a>
@@ -907,12 +907,41 @@
     </div>
 
     <script>
+        // Variables globales
+        let currentUser = null;
+
         // Vérifier l'authentification
         function checkAuth() {
             const loggedIn = localStorage.getItem('loggedInUser');
             if (!loggedIn) {
                 window.location.href = 'login.html';
+                return;
             }
+            
+            currentUser = JSON.parse(loggedIn);
+            
+            const userAvatar = document.querySelector('.user-avatar');
+            const userNameEl = document.querySelector('.user-info h4');
+            const userEmailEl = document.querySelector('.user-info p');
+            
+            if (userAvatar && userNameEl && userEmailEl) {
+                const initials = currentUser.name
+                    .split(' ')
+                    .map(word => word.charAt(0))
+                    .join('')
+                    .toUpperCase()
+                    .substring(0, 2);
+                
+                userAvatar.textContent = initials;
+                userNameEl.textContent = currentUser.name;
+                userEmailEl.textContent = currentUser.email;
+            }
+        }
+
+        // Déconnexion
+        function handleLogout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'login.html';
         }
 
         // Initialiser au chargement
