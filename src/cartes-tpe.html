@@ -56,10 +56,15 @@
         }
 
         .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            display: block;
             margin-bottom: 40px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .sidebar-logo:hover {
+            opacity: 0.8;
         }
 
         .sidebar-logo img {
@@ -549,13 +554,9 @@
     <div class="dashboard-wrapper">
         <!-- SIDEBAR -->
         <aside class="sidebar">
-            <div class="sidebar-logo">
+            <a href="index.html" class="sidebar-logo">
                 <img src="../assets/images/logo.png" alt="IDC Logo">
-                <div class="sidebar-logo-text">
-                    <h3>IDC</h3>
-                    <p>Mon espace</p>
-                </div>
-            </div>
+            </a>
 
             <div class="sidebar-section">
                 <p class="sidebar-section-label">NAVIGATION</p>
