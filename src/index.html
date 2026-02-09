@@ -81,6 +81,13 @@
             display: flex;
             align-items: center;
             gap: 0;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
         }
 
         .logo img {
@@ -1637,9 +1644,9 @@
     <header>
         <div class="container">
             <div class="header-left">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <img src="../assets/images/logo.png" alt="IDC Logo">
-                </div>
+                </a>
             </div>
             
             <nav id="navbar" class="header-nav">
@@ -1948,10 +1955,10 @@
             <div class="footer-section">
                 <h3>Nos activités</h3>
                 <ul>
-                    <li><a href="#carburants">Carburants</a></li>
-                    <li><a href="#gaz">Gaz butane</a></li>
-                    <li><a href="#lubrifiants">Lubrifiants</a></li>
-                    <li><a href="#tpe">Carte TPE</a></li>
+                    <li><a href="#activites">Carburants</a></li>
+                    <li><a href="#activites">Gaz butane</a></li>
+                    <li><a href="#activites">Lubrifiants</a></li>
+                    <li><a href="#activites">Carte TPE</a></li>
                     <li><a href="#stations">Stations & services</a></li>
                 </ul>
             </div>
@@ -1959,11 +1966,11 @@
             <div class="footer-section">
                 <h3>Ressources</h3>
                 <ul>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Nos stations</a></li>
-                    <li><a href="#">IDC E-Shop</a></li>
-                    <li><a href="jobs.html">Carrières</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="#apropos">À propos de nous</a></li>
+                    <li><a href="#stations">Trouver une station</a></li>
+                    <li><a href="eshop.html">Boutique en ligne</a></li>
+                    <li><a href="jobs.html">Rejoignez notre équipe</a></li>
+                    <li><a href="contact.html">Nous contacter</a></li>
                 </ul>
             </div>
 
@@ -1981,9 +1988,12 @@
         <div class="footer-bottom">
             <div class="footer-links">
                 <a href="#">Politique de confidentialité</a>
+                <span>•</span>
                 <a href="#">Conditions d'utilisation</a>
+                <span>•</span>
                 <a href="#">Mentions légales</a>
-                <a href="#">Cookies</a>
+                <span>•</span>
+                <a href="#">Gestion des cookies</a>
             </div>
             <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
         </div>

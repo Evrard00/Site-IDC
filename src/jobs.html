@@ -75,6 +75,19 @@
             align-items: center;
         }
 
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
         .logo img {
             height: 48px;
             width: auto;
@@ -619,9 +632,9 @@
     <header>
         <div class="container">
             <div class="header-left">
-                <div class="logo">
+                <a href="index.html" class="logo">
                     <img src="../assets/images/logo.png" alt="IDC Logo">
-                </div>
+                </a>
             </div>
             
             <nav id="navbar" class="header-nav">
