@@ -659,6 +659,18 @@
             flex: 1;
         }
 
+        .product-details-footer .btn-secondary {
+            background-color: #f5f5f5;
+            color: var(--color-dark);
+            border: 1px solid var(--color-border);
+        }
+
+        .product-details-footer .btn-secondary:hover {
+            background-color: #efefef;
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
         .product-content {
             padding: 24px;
             display: flex;
@@ -1994,7 +2006,6 @@
                 <a href="index.html#apropos">Qui sommes-nous</a>
                 <a href="index.html#activites">Nos services</a>
                 <a href="eshop.html">IDC E-Shop</a>
-                <a href="jobs.html">Carrière</a>
             </nav>
 
             <div class="header-right">
@@ -2486,6 +2497,49 @@
             'Fluide ATF': { category: 'Fluide transmission auto', formats: ['1L', '5L', '20L'], usage: 'Boîtes de vitesse automatiques' }
         };
 
+        // Fonction pour télécharger la fiche technique
+        function downloadProductSheet(productName) {
+            const product = productData[productName];
+            if (!product) return;
+
+            // Créer le contenu de la fiche technique
+            const sheetContent = `
+FICHE TECHNIQUE - IDC
+${'='.repeat(60)}
+
+PRODUIT: ${productName}
+CATÉGORIE: ${product.category}
+
+DESCRIPTION:
+- Usage principal: ${product.usage}
+- Formats disponibles: ${product.formats.join(', ')}
+
+AVANTAGES:
+- Qualité supérieure conforme aux normes internationales
+- Performance optimale pour toutes conditions
+- Respectueux de l'environnement
+- Compatibilité étendue
+
+SPÉCIFICATIONS TECHNIQUES:
+Consulter la documentation complète auprès de notre service client
+Téléphone: +225 20 21 00 00
+Email: contact@idc.ci
+
+${'='.repeat(60)}
+Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
+            `;
+
+            // Créer un blob et un lien de téléchargement
+            const blob = new Blob([sheetContent], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Fiche_Technique_${productName.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+        }
+
         // ==================== MODAL DÉTAILS PRODUIT ====================
         function showProductDetails(productName) {
             const product = productData[productName];
@@ -2512,6 +2566,7 @@
                         </div>
                     </div>
                     <div class="product-details-footer">
+                        <button class="btn btn-secondary" onclick="downloadProductSheet('${productName}');">Fiche technique</button>
                         <button class="btn btn-primary" onclick="document.querySelector('.product-details-modal').remove(); document.querySelector('[data-product=\\\'${productName}\\\']').closest('.product-card').querySelector('.btn-devis').click();">Commander</button>
                     </div>
                 </div>
