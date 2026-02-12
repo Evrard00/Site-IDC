@@ -4,7 +4,7 @@
   "description": "Site IDC - Ivoirienne d'Hydrocarbures",
   "scripts": {
     "dev": "python serve.py",
-    "build": "echo 'Static site - no build needed'"
+    "build": "node build.js"
   },
   "keywords": ["idc", "carburants", "hydrocarbures"],
   "author": "IDC",
