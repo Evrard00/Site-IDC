@@ -1,0 +1,12 @@
+{
+  "name": "site-idc",
+  "version": "1.0.0",
+  "description": "Site IDC - Ivoirienne d'Hydrocarbures",
+  "scripts": {
+    "dev": "python serve.py",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["idc", "carburants", "hydrocarbures"],
+  "author": "IDC",
+  "license": "ISC"
+}
