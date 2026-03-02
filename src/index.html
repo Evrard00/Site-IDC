@@ -482,50 +482,6 @@
             }
         }
 
-        /* WHATSAPP BUTTON */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background-color: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            z-index: 999;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #20BA5A;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
-        }
-
-        .whatsapp-btn img {
-            width: 28px;
-            height: 28px;
-        }
-
-        @media (max-width: 768px) {
-            .whatsapp-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 56px;
-                height: 56px;
-            }
-
-            .whatsapp-btn img {
-                width: 26px;
-                height: 26px;
-            }
-        }
-
         @media (max-width: 480px) {
             .hero {
                 height: 100vh;
@@ -746,6 +702,10 @@
             grid-column: 2;
         }
 
+        .service-card-6 {
+            grid-column: 3;
+        }
+
         .service-image {
             width: 100%;
             height: 160px;
@@ -784,6 +744,12 @@
         }
 
         .service-image-5 {
+            background-image: url('../assets/images/station.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-image-6 {
             background-image: url('../assets/images/station.jpg');
             background-size: cover;
             background-position: center;
@@ -1822,8 +1788,25 @@
                         <ul>
                             <li>Carburants de qualité</li>
                             <li>Lubrifiants et accessoires</li>
-                            <li>Boutique Shop & Go</li>
                             <li>Service rapide et professionnel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 6: Shop & Go (taille normale) -->
+                <div class="service-card service-card-6">
+                    <div class="service-image service-image-6"></div>
+                    <div class="service-info">
+                        <h3>Shop & Go</h3>
+                        <button class="service-icon-btn" data-service="shop-go">↓</button>
+                    </div>
+                    <div class="service-details">
+                        <p>Shop & Go est notre boutique intégrée dans nos stations pour vos besoins du quotidien : snacks, boissons, accessoires automobiles et produits d'entretien.</p>
+                        <ul>
+                            <li>Produits de qualité</li>
+                            <li>Prix compétitifs</li>
+                            <li>Service rapide</li>
+                            <li>Disponible 24/7</li>
                         </ul>
                     </div>
                 </div>
@@ -1979,7 +1962,6 @@
                 <ul>
                     <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
                     <li><a href="mailto:contact@idc.ci">📧 contact@idc.ci</a></li>
-                    <li><a href="https://wa.me/22520210000" target="_blank">💬 WhatsApp</a></li>
                     <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
@@ -2126,10 +2108,7 @@
         });
     </script>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/22500000000" target="_blank" class="whatsapp-btn" title="Contactez-nous sur WhatsApp">
-        <img src="../assets/images/whatsapp.png" alt="WhatsApp" width="24" height="24">
-    </a>
+
 
     <script src="../assets/js/footer-loader.js"></script>
 </body>
