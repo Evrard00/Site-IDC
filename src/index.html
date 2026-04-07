@@ -1616,16 +1616,16 @@
             </div>
             
             <nav id="navbar" class="header-nav">
-                <a href="index.html">Accueil</a>
-                <a href="about.html">À propos</a>
-                <a href="services.html">Services</a>
-                <a href="news.html">Actualités</a>
+                <a href="#accueil">Accueil</a>
+                <a href="#apropos">À propos</a>
+                <a href="#activites">Services</a>
+                <a href="actualites.html">Actualités</a>
                 <a href="eshop.html">IDC e-shop</a>
+                <a href="login.html">Espace client</a>
+                <a href="contact.html">Nous contacter</a>
             </nav>
 
             <div class="header-right">
-                <a href="client.html" class="btn btn-primary btn-sm">Espace client</a>
-                <a href="contact.html" class="header-login">Nous contacter</a>
                 <div class="menu-burger" id="menuBurger">
                     <span></span>
                     <span></span>
@@ -1824,21 +1824,21 @@
 
             <div class="apropos-values">
                 <div class="apropos-value">
-                    <img src="assets/images/icon-eye.svg" alt="Vision" class="apropos-value-icon" />
+                    <div class="apropos-value-icon">👁️</div>
                     <div class="apropos-value-content">
                         <h3>Vision</h3>
                         <p>Être le partenaire énergétique le plus fiable pour entreprises et particuliers en Côte d'Ivoire.</p>
                     </div>
                 </div>
                 <div class="apropos-value">
-                    <img src="assets/images/icon-target.svg" alt="Mission" class="apropos-value-icon" />
+                    <div class="apropos-value-icon">🎯</div>
                     <div class="apropos-value-content">
                         <h3>Mission</h3>
                         <p>Distribuer carburants, gaz et lubrifiants avec professionnalisme et proximité.</p>
                     </div>
                 </div>
                 <div class="apropos-value">
-                    <img src="assets/images/icon-star.svg" alt="Valeurs" class="apropos-value-icon" />
+                    <div class="apropos-value-icon">⭐</div>
                     <div class="apropos-value-content">
                         <h3>Valeurs</h3>
                         <p>Fiabilité, sécurité, transparence et innovation au cœur de nos opérations.</p>
@@ -1960,8 +1960,8 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000"><img src="assets/images/icon-phone.svg" alt="" class="footer-icon" /> +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><img src="assets/images/icon-email.svg" alt="" class="footer-icon" /> contact@idc.ci</a></li>
+                    <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">📧 contact@idc.ci</a></li>
                     <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
@@ -2029,7 +2029,7 @@
                             <span class="station-detail-value">${station.address}</span>
                         </div>
                         <div class="station-detail-item">
-                            <span class="station-detail-label"><img src="assets/images/icon-phone.svg" alt="" class="footer-icon" /> Téléphone:</span>
+                            <span class="station-detail-label">📞 Téléphone:</span>
                             <span class="station-detail-value">${station.phone}</span>
                         </div>
                         <div class="station-detail-item">
@@ -2092,9 +2092,9 @@
                 // Toggle active class on button
                 this.classList.toggle('active');
                 
-                // Change button text between ↓ and ×
+                // Change button text between ↓ and ↑
                 if (this.classList.contains('active')) {
-                    this.textContent = '×';
+                    this.textContent = '↑';
                 } else {
                     this.textContent = '↓';
                 }

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Actualités IDC - Découvrez les dernières nouveautés, promotions et événements du réseau IDC">
+    <title>Actualités | IDC - Ivoirienne d'Hydrocarbures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #E36A13;
+            --color-secondary: #0F6B32;
+            --color-dark: #0B0B0B;
+            --color-text: #4F4F4F;
+            --color-light: #F4F4F4;
+            --color-white: #FFFFFF;
+            --color-border: #E5E5E5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background: var(--color-light);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(36px, 5vw, 54px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* NEWS SECTION */
+        .news-section {
+            padding: 80px 0;
+        }
+
+        .news-container {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 40px;
+        }
+
+        /* NEWS GRID */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(227, 106, 19, 0.12);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #E8E8E5, #F4F4F4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .news-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(227, 106, 19, 0.1);
+            color: var(--color-primary);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .news-date {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .news-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .news-card p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .news-card a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .news-card a:hover {
+            gap: 12px;
+        }
+
+        /* SIDEBAR */
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-box {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .sidebar-box h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 16px;
+        }
+
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            margin-bottom: 8px;
+        }
+
+        .filter-item:hover {
+            background: rgba(227, 106, 19, 0.05);
+        }
+
+        .filter-item input {
+            cursor: pointer;
+        }
+
+        .filter-item label {
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* BTN */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: #d45d0a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(227, 106, 19, 0.05);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 16px;
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn {
+            margin: 0 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                padding: 80px 0 40px;
+                margin-top: 70px;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .news-section {
+                padding: 40px 0;
+            }
+
+            .cta-section {
+                margin: 40px 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../assets/css/shared.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-left">
+                <a href="index.html" class="logo">
+                    <img src="../assets/images/logo.png" alt="IDC Logo">
+                </a>
+            </div>
+            
+            <nav id="navbar" class="header-nav">
+                <a href="index.html">Accueil</a>
+                <a href="index.html#apropos">À propos</a>
+                <a href="index.html#activites">Services</a>
+                <a href="actualites.html" class="active">Actualités</a>
+                <a href="eshop.html">IDC e-shop</a>
+                <a href="login.html">Espace client</a>
+                <a href="contact.html">Nous contacter</a>
+            </nav>
+
+            <div class="header-right">
+                <div class="menu-burger" id="menuBurger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Actualités IDC</h1>
+            <p>Toutes les nouveautés du réseau, promotions et événements en un seul endroit.</p>
+        </div>
+    </section>
+
+    <!-- NEWS SECTION -->
+    <section class="news-section">
+        <div class="container">
+            <div class="news-container">
+                <!-- NEWS GRID -->
+                <div class="news-grid">
+                    <!-- News 1 -->
+                    <div class="news-card">
+                        <div class="news-image">🎉</div>
+                        <div class="news-content">
+                            <span class="news-badge">Promotion</span>
+                            <p class="news-date">7 avril 2026</p>
+                            <h3>-20% sur les lubrifiants sélectionnés</h3>
+                            <p>Profitez de notre promotion exclusive sur une gamme de lubrifiants premium ce mois-ci.</p>
+                            <a href="#">Découvrir →</a>
+                        </div>
+                    </div>
+
+                    <!-- News 2 -->
+                    <div class="news-card">
+                        <div class="news-image">🆕</div>
+                        <div class="news-content">
+                            <span class="news-badge">Nouveauté</span>
+                            <p class="news-date">31 mars 2026</p>
+                            <h3>Nouvelle interface Espace Client</h3>
+                            <p>Découvrez notre nouvelle interface client plus intuitive et facile à utiliser.</p>
+                            <a href="#">En savoir plus →</a>
+                        </div>
+                    </div>
+
+                    <!-- News 3 -->
+                    <div class="news-card">
+                        <div class="news-image">💳</div>
+                        <div class="news-content">
+                            <span class="news-badge">Service</span>
+                            <p class="news-date">25 mars 2026</p>
+                            <h3>Commandez votre carte TPE directement</h3>
+                            <p>Simplifiez votre gestion de carburant avec notre carte TPE. Commandez depuis votre espace client.</p>
+                            <a href="tpe.html">Demander une carte →</a>
+                        </div>
+                    </div>
+
+                    <!-- News 4 -->
+                    <div class="news-card">
+                        <div class="news-image">📍</div>
+                        <div class="news-content">
+                            <span class="news-badge">Événement</span>
+                            <p class="news-date">15 avril 2026</p>
+                            <h3>Forum des Chefs de Stations IDC 2026</h3>
+                            <p>Rejoignez-nous pour notre grand forum annuel. Inscriptions ouvertes dès maintenant !</p>
+                            <a href="contact.html">S'inscrire →</a>
+                        </div>
+                    </div>
+
+                    <!-- News 5 -->
+                    <div class="news-card">
+                        <div class="news-image">💡</div>
+                        <div class="news-content">
+                            <span class="news-badge">Conseil</span>
+                            <p class="news-date">20 mars 2026</p>
+                            <h3>Optimisez la consommation de carburant</h3>
+                            <p>Découvrez nos conseils pour réduire les dépenses en carburant de votre flotte.</p>
+                            <a href="#">Lire l'article →</a>
+                        </div>
+                    </div>
+
+                    <!-- News 6 -->
+                    <div class="news-card">
+                        <div class="news-image">🏪</div>
+                        <div class="news-content">
+                            <span class="news-badge">Shop & Go</span>
+                            <p class="news-date">10 mars 2026</p>
+                            <h3>Shop & Go : votre boutique aux stations</h3>
+                            <p>Retrouvez tous les produits essentiels dans nos boutiques Shop & Go intégrées aux stations.</p>
+                            <a href="index.html#activites">Découvrir →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIDEBAR -->
+                <aside class="news-sidebar">
+                    <div class="sidebar-box">
+                        <h4>Filtrer par catégorie</h4>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-nouveaute" checked>
+                            <label for="filter-nouveaute">Nouveauté</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-promo" checked>
+                            <label for="filter-promo">Promotion</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-event" checked>
+                            <label for="filter-event">Événement</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-conseil" checked>
+                            <label for="filter-conseil">Conseil</label>
+                        </div>
+                        <div class="filter-item">
+                            <input type="checkbox" id="filter-service" checked>
+                            <label for="filter-service">Service</label>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-box">
+                        <h4>Newsletter IDC</h4>
+                        <p style="font-size: 14px; margin-bottom: 16px;">Recevez nos actualités directement dans votre boîte mail.</p>
+                        <form style="display: flex; flex-direction: column; gap: 12px;">
+                            <input type="email" placeholder="votre@email.com" style="padding: 10px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 14px;">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">S'abonner</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Découvrez nos services</h2>
+            <p>Rejoignez les milliers de clients IDC qui font confiance à notre réseau pour leurs besoins en carburants et services.</p>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <a href="eshop.html" class="btn btn-primary">Accéder à IDC e-shop</a>
+                <a href="contact.html" class="btn btn-secondary">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer></footer>
+
+    <script>
+        // Menu burger
+        const menuBurger = document.getElementById('menuBurger');
+        const navbar = document.getElementById('navbar');
+        
+        if (menuBurger) {
+            menuBurger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navbar.classList.toggle('active');
+            });
+        }
+    </script>
+
+    <script src="../assets/js/footer-loader.js"></script>
+</body>
+</html>

@@ -1,35 +1,5 @@
 /* SHARED HEADER AND FOOTER STYLES */
 
-/* SVG Icon styles */
-.footer-icon,
-.status-icon {
-    width: 1em;
-    height: 1em;
-    display: inline-block;
-    vertical-align: -0.125em;
-    stroke: currentColor;
-    color: inherit;
-}
-
-.apropos-value-icon {
-    display: inline-block;
-}
-
-.apropos-value-icon img {
-    width: 48px;
-    height: 48px;
-    stroke: #E36A13;
-    color: #E36A13;
-}
-
-.sidebar-link-icon img,
-.sidebar-link-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    color: inherit;
-}
-
 /* HEADER */
 header {
     background: #E8E8E5;
