@@ -2127,7 +2127,7 @@
                 <div class="product-card" data-category="hydraulique">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
                     <div class="product-image">
-                        ⚙️
+                        <img src="../assets/images/icon-settings.svg" alt="" />
                         <div class="product-eye-icon" data-product="Tellus S2 MA 46">
                             <img src="../assets/images/show.png" alt="Voir plus">
                             <span class="eye-tooltip">Voir plus</span>
@@ -2147,7 +2147,7 @@
                 <div class="product-card" data-category="hydraulique">
                     <button class="product-favorite" title="Ajouter aux favoris">☆</button>
                     <div class="product-image">
-                        ⚙️
+                        <img src="../assets/images/icon-settings.svg" alt="" />
                         <div class="product-eye-icon" data-product="Tellus S2 MA 32">
                             <img src="../assets/images/show.png" alt="Voir plus">
                             <span class="eye-tooltip">Voir plus</span>
@@ -2329,8 +2329,8 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci">📧 contact@idc.ci</a></li>
+                    <li><a href="tel:+22520210000"><img src="../assets/images/icon-phone.svg" alt="" /> +225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci"><img src="../assets/images/icon-email.svg" alt="" /> contact@idc.ci</a></li>
                     <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
@@ -2461,8 +2461,8 @@
             </div>
             <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Commander</button>
             <div class="cart-footer-links">
-                <a href="#contact" class="cart-footer-link">📞 Besoin d'aide ?</a>
-                <a href="#" class="cart-footer-link">🏢 Commande entreprise</a>
+                <a href="#contact" class="cart-footer-link"><img src="../assets/images/icon-phone.svg" alt="" /> Besoin d'aide ?</a>
+                <a href="#" class="cart-footer-link"><img src="../assets/images/icon-briefcase.svg" alt="" /> Commande entreprise</a>
             </div>
         </div>
     </div>
@@ -2865,7 +2865,7 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
                 
                 modalContent.innerHTML = `
                     <div class="modal-header">
-                        <h2>📋 Demande de devis</h2>
+                        <h2><img src="../assets/images/icon-list.svg" alt="" /> Demande de devis</h2>
                         <button class="modal-close" onclick="closeQuoteForm()">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -3152,7 +3152,7 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
                     }
                     
                     if (this.classList.contains('active')) {
-                        showNotification(`⭐ ${productName} ajouté aux favoris`, 'success');
+                        showNotification(`<img src="../assets/images/icon-star.svg" alt="" /> ${productName} ajouté aux favoris`, 'success');
                     }
                     
                     localStorage.setItem('favorites', JSON.stringify(favorites));
