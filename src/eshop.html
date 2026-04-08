@@ -2629,7 +2629,7 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
             if (cart.length === 0) {
                 cartContent.innerHTML = `
                     <div class="cart-empty">
-                        <div class="cart-empty-icon">📦</div>
+                        <div class="cart-empty-icon"><span class="material-symbols-outlined" style="font-size: 64px; color: #E36A13;">package</span></div>
                         <h3>Votre panier est vide</h3>
                         <p>Sélectionnez des lubrifiants pour commander.</p>
                         <button class="btn-view-products" onclick="closeCartAndScroll()">Voir les produits</button>
@@ -2811,7 +2811,7 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
                 success: '✅',
                 error: '❌',
                 info: 'ℹ️',
-                warning: '⚠️'
+                warning: '<span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 4px; color: #E36A13;">warning</span>'
             };
             
             const notification = document.createElement('div');

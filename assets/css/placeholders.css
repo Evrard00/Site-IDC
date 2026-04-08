@@ -14,7 +14,7 @@
 }
 
 .placeholder::after {
-    content: '📷 Image à venir';
+    content: '<span class="material-symbols-outlined" style="font-size: 24px;">image</span> Image à venir';
     position: absolute;
 }
 
@@ -178,7 +178,7 @@
 }
 
 .placeholder-icon.video::before {
-    content: '🎬';
+    content: '<span class="material-symbols-outlined" style="font-size: 24px;">movies</span>';
 }
 
 .placeholder-icon.gallery::before {
