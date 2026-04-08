@@ -8,6 +8,9 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <link rel="stylesheet" href="../assets/css/icons.css">
     
     <style>
         * {
@@ -31,6 +34,25 @@
             --color-light: #F4F4F4;
             --color-white: #FFFFFF;
             --color-border: #E5E5E5;
+        }
+
+        /* Material Symbols Icons */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-flex;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            vertical-align: middle;
+            vertical-align: -0.125em;
         }
 
         /* HEADER */
@@ -2330,9 +2352,9 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000"><img src="../assets/images/icon-phone.svg" alt="" /> +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><img src="../assets/images/icon-email.svg" alt="" /> contact@idc.ci</a></li>
-                    <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
+                    <li><a href="tel:+22520210000"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">phone</span> +225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">mail</span> contact@idc.ci</a></li>
+                    <li><a href="#"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">location_on</span> Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
@@ -2445,11 +2467,11 @@
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-drawer-header">
             <div class="cart-drawer-title-group">
-                <h2>🛒 Panier</h2>
+                <h2><span class="material-symbols-outlined" style="font-size: 28px; margin-right: 8px; vertical-align: -2px;">shopping_cart</span>Panier</h2>
                 <p class="cart-drawer-subtitle">Demande de devis</p>
             </div>
             <div class="cart-drawer-actions">
-                <button class="cart-clear-btn" id="clearCartBtn" title="Vider le panier">🗑️</button>
+                <button class="cart-clear-btn" id="clearCartBtn" title="Vider le panier"><span class="material-symbols-outlined">delete</span></button>
                 <button class="close-drawer" id="closeDrawer">&times;</button>
             </div>
         </div>
@@ -2458,11 +2480,11 @@
         </div>
         <div class="cart-drawer-footer">
             <div class="cart-reassurance">
-                <p>💡 <strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contactera pour définir les tarifs et modalités de paiement.</p>
+                <p><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">lightbulb</span> <strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contactera pour définir les tarifs et modalités de paiement.</p>
             </div>
             <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Commander</button>
             <div class="cart-footer-links">
-                <a href="#contact" class="cart-footer-link"><img src="../assets/images/icon-phone.svg" alt="" /> Besoin d'aide ?</a>
+                <a href="#contact" class="cart-footer-link"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">phone</span> Besoin d'aide ?</a>
                 <a href="#" class="cart-footer-link"><img src="../assets/images/icon-briefcase.svg" alt="" /> Commande entreprise</a>
             </div>
         </div>

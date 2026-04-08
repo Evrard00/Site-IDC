@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <style>
@@ -34,6 +36,24 @@
             margin: 0 auto;
             padding: 0 40px;
             width: 100%;
+        }
+
+        /* Material Symbols Icons */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-flex;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            vertical-align: middle;
         }
 
         /* HEADER */
@@ -250,7 +270,7 @@
         /* HERO SECTION */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(15, 107, 50, 0.15) 50%, rgba(0, 0, 0, 0.15) 100%), url('../assets/images/h.JPG') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(15, 107, 50, 0.3) 50%, rgba(0, 0, 0, 0.4) 100%), url('../assets/images/h.JPG') center/cover no-repeat;
             background-attachment: fixed;
             display: flex;
             position: relative;
@@ -293,6 +313,8 @@
 
         .hero-accent {
             color: #E36A13;
+            text-shadow: 0 0 20px rgba(227, 106, 19, 0.6), 0 0 40px rgba(227, 106, 19, 0.3);
+            font-weight: 700;
         }
 
         .hero p {
@@ -1673,19 +1695,19 @@
                     <h3>Comment pouvons-nous vous aider ?</h3>
                     <div class="raccourcis-grid">
                         <a href="#stations" class="raccourci-btn">
-                            <img src="../assets/images/location.png" alt="Station" class="raccourci-icon">
+                            <span class="material-symbols-outlined raccourci-icon" style="font-size: 48px;">location_on</span>
                             <span class="raccourci-text">Trouver une station</span>
                         </a>
                         <a href="tpe.html" class="raccourci-btn">
-                            <img src="../assets/images/carte.png" alt="Carte TPE" class="raccourci-icon">
+                            <span class="material-symbols-outlined raccourci-icon" style="font-size: 48px;">credit_card</span>
                             <span class="raccourci-text">Carte TPE</span>
                         </a>
                         <a href="contact.html" class="raccourci-btn">
-                            <img src="../assets/images/phone.png" alt="Contact" class="raccourci-icon">
+                            <span class="material-symbols-outlined raccourci-icon" style="font-size: 48px;">phone</span>
                             <span class="raccourci-text">Nous contacter</span>
                         </a>
                         <a href="jobs.html" class="raccourci-btn">
-                            <img src="../assets/images/job.png" alt="Job" class="raccourci-icon">
+                            <span class="material-symbols-outlined raccourci-icon" style="font-size: 48px;">work</span>
                             <span class="raccourci-text">Trouver un job</span>
                         </a>
                     </div>
@@ -1709,7 +1731,7 @@
                     <div class="service-image service-image-1"></div>
                     <div class="service-info">
                         <h3>Carburants</h3>
-                        <button class="service-icon-btn" data-service="carburants">↓</button>
+                        <button class="service-icon-btn" data-service="carburants"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
                     </div>
                     <div class="service-details">
                         <p>IDC propose une gamme complète de carburants pour tous types de véhicules et besoins professionnels. Notre priorité : assurer qualité, disponibilité et sécurité.</p>
@@ -1727,7 +1749,7 @@
                     <div class="service-image service-image-2"></div>
                     <div class="service-info">
                         <h3>Gaz butane</h3>
-                        <button class="service-icon-btn" data-service="gaz">↓</button>
+                        <button class="service-icon-btn" data-service="gaz"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
                     </div>
                     <div class="service-details">
                         <p>Nous distribuons du gaz butane pour les particuliers et entreprises, dans des emballages sécurisés et conformes aux normes locales. IDC garantit un approvisionnement fiable et rapide.</p>
@@ -1745,7 +1767,7 @@
                     <div class="service-image service-image-4"></div>
                     <div class="service-info">
                         <h3>Carte TPE (B2B)</h3>
-                        <button class="service-icon-btn" data-service="carte-tpe">↓</button>
+                        <button class="service-icon-btn" data-service="carte-tpe"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
                     </div>
                     <div class="service-details">
                         <p>La Carte TPE IDC est la solution idéale pour gérer votre consommation de carburant en entreprise.</p>
@@ -1763,7 +1785,7 @@
                     <div class="service-image service-image-3"></div>
                     <div class="service-info">
                         <h3>Lubrifiants</h3>
-                        <button class="service-icon-btn" data-service="lubrifiants">↓</button>
+                        <button class="service-icon-btn" data-service="lubrifiants"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
                     </div>
                     <div class="service-details">
                         <p>Nos lubrifiants sont conçus pour protéger vos moteurs et prolonger leur durée de vie. IDC propose des produits pour véhicules légers, utilitaires et industriels, adaptés à chaque usage.</p>
@@ -1781,7 +1803,7 @@
                     <div class="service-image service-image-5"></div>
                     <div class="service-info">
                         <h3>Stations</h3>
-                        <button class="service-icon-btn" data-service="stations">↓</button>
+                        <button class="service-icon-btn" data-service="stations"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
                     </div>
                     <div class="service-details">
                         <p>Nos stations sont réparties dans tout le pays pour vous garantir proximité et efficacité. Chaque station propose :</p>
@@ -1798,7 +1820,7 @@
                     <div class="service-image service-image-6"></div>
                     <div class="service-info">
                         <h3>Shop & Go</h3>
-                        <button class="service-icon-btn" data-service="shop-go">↓</button>
+                        <button class="service-icon-btn" data-service="shop-go"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
                     </div>
                     <div class="service-details">
                         <p>Shop & Go est notre boutique intégrée dans nos stations pour vos besoins du quotidien : snacks, boissons, accessoires automobiles et produits d'entretien.</p>
@@ -1824,21 +1846,27 @@
 
             <div class="apropos-values">
                 <div class="apropos-value">
-                    <div class="apropos-value-icon">👁️</div>
+                    <div class="apropos-value-icon">
+                        <span class="material-symbols-outlined icon-primary-l">visibility</span>
+                    </div>
                     <div class="apropos-value-content">
                         <h3>Vision</h3>
                         <p>Être le partenaire énergétique le plus fiable pour entreprises et particuliers en Côte d'Ivoire.</p>
                     </div>
                 </div>
                 <div class="apropos-value">
-                    <div class="apropos-value-icon">🎯</div>
+                    <div class="apropos-value-icon">
+                        <span class="material-symbols-outlined icon-primary-l">target</span>
+                    </div>
                     <div class="apropos-value-content">
                         <h3>Mission</h3>
                         <p>Distribuer carburants, gaz et lubrifiants avec professionnalisme et proximité.</p>
                     </div>
                 </div>
                 <div class="apropos-value">
-                    <div class="apropos-value-icon">⭐</div>
+                    <div class="apropos-value-icon">
+                        <span class="material-symbols-outlined icon-primary-l">star</span>
+                    </div>
                     <div class="apropos-value-content">
                         <h3>Valeurs</h3>
                         <p>Fiabilité, sécurité, transparence et innovation au cœur de nos opérations.</p>
@@ -1879,13 +1907,17 @@
                             <div class="card-number">01</div>
                             <h3>Fiabilité</h3>
                             <p>Des produits certifiés et sécurisés pour votre tranquillité.</p>
-                            <div class="pourquoi-icon">🔒</div>
+                            <div class="pourquoi-icon">
+                                <span class="material-symbols-outlined icon-primary-l">lock</span>
+                            </div>
                         </div>
                         <div class="pourquoi-card">
                             <div class="card-number">02</div>
                             <h3>Expertise locale</h3>
                             <p>Plus de 20 ans d'expérience au service des Ivoiriens.</p>
-                            <div class="pourquoi-icon">🌍</div>
+                            <div class="pourquoi-icon">
+                                <span class="material-symbols-outlined icon-primary-l">public</span>
+                            </div>
                         </div>
                         <div class="pourquoi-card">
                             <div class="card-number">03</div>
@@ -2092,11 +2124,11 @@
                 // Toggle active class on button
                 this.classList.toggle('active');
                 
-                // Change button text between ↓ and ↑
+                // Change button icon between expand_more and expand_less
                 if (this.classList.contains('active')) {
-                    this.textContent = '↑';
+                    this.innerHTML = '<span class="material-symbols-outlined icon-primary icon-m">expand_less</span>';
                 } else {
-                    this.textContent = '↓';
+                    this.innerHTML = '<span class="material-symbols-outlined icon-primary icon-m">expand_more</span>';
                 }
                 
                 // Toggle active class on details
@@ -2108,7 +2140,7 @@
                         const otherBtn = card.querySelector('.service-icon-btn');
                         const otherDetails = card.querySelector('.service-details');
                         otherBtn.classList.remove('active');
-                        otherBtn.textContent = '↓';
+                        otherBtn.innerHTML = '<span class="material-symbols-outlined icon-primary icon-m">expand_more</span>';
                         otherDetails.classList.remove('active');
                     }
                 });

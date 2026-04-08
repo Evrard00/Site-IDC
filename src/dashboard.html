@@ -8,6 +8,9 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <link rel="stylesheet" href="../assets/css/icons.css">
     
     <style>
         * {
@@ -138,6 +141,24 @@
         .sidebar-link-icon {
             font-size: 18px;
             flex-shrink: 0;
+        }
+
+        /* Material Symbols Icons */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-flex;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            vertical-align: middle;
         }
 
         /* MAIN CONTENT */
@@ -498,19 +519,19 @@
                 <p class="sidebar-section-label">NAVIGATION</p>
                 <nav class="sidebar-nav">
                     <a href="dashboard.html" class="sidebar-link active">
-                        <span class="sidebar-link-icon">📊</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">dashboard</span></span>
                         <span>Tableau de bord</span>
                     </a>
                     <a href="purchases.html" class="sidebar-link">
-                        <span class="sidebar-link-icon">📋</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">receipt_long</span></span>
                         <span>Achats professionnels</span>
                     </a>
                     <a href="cartes-tpe.html" class="sidebar-link">
-                        <span class="sidebar-link-icon">💳</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">credit_card</span></span>
                         <span>Cartes TPE</span>
                     </a>
                     <a href="#" class="sidebar-link">
-                        <span class="sidebar-link-icon">📈</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">trending_up</span></span>
                         <span>Rapports & consommations</span>
                     </a>
                 </nav>
@@ -520,19 +541,19 @@
                 <p class="sidebar-section-label">COMPTE</p>
                 <nav class="sidebar-nav">
                     <a href="#" class="sidebar-link" onclick="navigateTo('company')">
-                        <span class="sidebar-link-icon">🏢</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">business</span></span>
                         <span>Mon entreprise</span>
                     </a>
                     <a href="#" class="sidebar-link" onclick="navigateTo('settings')">
-                        <span class="sidebar-link-icon">⚙️</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">settings</span></span>
                         <span>Paramètres</span>
                     </a>
                     <a href="#" class="sidebar-link" onclick="navigateTo('support')">
-                        <span class="sidebar-link-icon">📞</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">phone</span></span>
                         <span>Support</span>
                     </a>
                     <a href="#" class="sidebar-link" onclick="handleLogout(); return false;" style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 12px;">
-                        <span class="sidebar-link-icon">🚪</span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">exit_to_app</span></span>
                         <span>Se déconnecter</span>
                     </a>
                 </nav>
