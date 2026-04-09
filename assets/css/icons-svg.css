@@ -1,0 +1,32 @@
+/* ==========================================
+   SVG ICONS MAPPING - IDC
+   Remplace les Material Symbols par des SVG locaux
+   ========================================== */
+
+.icon-svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.icon-svg svg {
+    height: 1em;
+    width: 1em;
+    display: inherit;
+}
+
+/* Tailles */
+.icon-svg.icon-xs { font-size: 12px; }
+.icon-svg.icon-s { font-size: 16px; }
+.icon-svg.icon-m { font-size: 24px; }
+.icon-svg.icon-l { font-size: 32px; }
+.icon-svg.icon-xl { font-size: 48px; }
+
+/* Couleurs */
+.icon-svg.icon-primary svg { color: #E36A13; }
+.icon-svg.icon-secondary svg { color: #0F6B32; }
+.icon-svg.icon-dark svg { color: #0B0B0B; }
+.icon-svg.icon-light svg { color: #F4F4F4; }
+.icon-svg.icon-neutral svg { color: #4F4F4F; }

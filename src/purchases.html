@@ -464,6 +464,8 @@
         }
     </style>
     <link rel="stylesheet" href="../../assets/css/shared.css">
+    <link rel="stylesheet" href="../assets/css/icons-svg.css">
+    <!-- SVG Icons CSS loaded -->
 </head>
 <body>
     <div class="dashboard-wrapper">
@@ -477,19 +479,19 @@
                 <p class="sidebar-section-label">NAVIGATION</p>
                 <nav class="sidebar-nav">
                     <a href="dashboard.html" class="sidebar-link">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-grid.svg" alt="" /></span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">dashboard</span></span>
                         <span>Tableau de bord</span>
                     </a>
                     <a href="purchases.html" class="sidebar-link active">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-list.svg" alt="" /></span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">receipt_long</span></span>
                         <span>Achats professionnels</span>
                     </a>
                     <a href="cartes-tpe.html" class="sidebar-link">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-credit-card.svg" alt="" /></span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">credit_card</span></span>
                         <span>Cartes TPE</span>
                     </a>
                     <a href="#" class="sidebar-link">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-trending-up.svg" alt="" /></span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">trending_up</span></span>
                         <span>Rapports & consommations</span>
                     </a>
                 </nav>
@@ -498,20 +500,20 @@
             <div class="sidebar-section">
                 <p class="sidebar-section-label">COMPTE</p>
                 <nav class="sidebar-nav">
-                    <a href="#" class="sidebar-link">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-briefcase.svg" alt="" /></span>
+                    <a href="#" class="sidebar-link" onclick="navigateTo('company')">
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">business</span></span>
                         <span>Mon entreprise</span>
                     </a>
-                    <a href="#" class="sidebar-link">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-settings.svg" alt="" /></span>
+                    <a href="#" class="sidebar-link" onclick="navigateTo('settings')">
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">settings</span></span>
                         <span>Paramètres</span>
                     </a>
-                    <a href="#" class="sidebar-link">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-phone.svg" alt="" /></span>
+                    <a href="#" class="sidebar-link" onclick="navigateTo('support')">
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">phone</span></span>
                         <span>Support</span>
                     </a>
                     <a href="#" class="sidebar-link" onclick="handleLogout(); return false;" style="margin-top: 12px; border-top: 1px solid var(--color-border); padding-top: 12px;">
-                        <span class="sidebar-link-icon"><img src="../assets/images/icon-door.svg" alt="" /></span>
+                        <span class="sidebar-link-icon"><span class="material-symbols-outlined">exit_to_app</span></span>
                         <span>Se déconnecter</span>
                     </a>
                 </nav>
@@ -580,7 +582,7 @@
                         <h3>Total des demandes</h3>
                         <div class="stat-value">18</div>
                     </div>
-                    <div class="stat-icon">📝</div>
+                    <div class="stat-icon"><span class="material-symbols-outlined icon-neutral icon-m">receipt</span></div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-info">
@@ -594,14 +596,14 @@
                         <h3>En attente</h3>
                         <div class="stat-value">3</div>
                     </div>
-                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-icon"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 4px;">info</span></div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-info">
                         <h3>Volume total</h3>
                         <div class="stat-value">2.450 L</div>
                     </div>
-                    <div class="stat-icon"><span class="material-symbols-outlined icon-primary-l">package</span></div>
+                    <div class="stat-icon"><span class="material-symbols-outlined icon-primary icon-l">package</span></div>
                 </div>
             </div>
 
@@ -649,7 +651,7 @@
                                 <td>Fluide ATF × 1, Gear Oil 75W-90 × 1</td>
                                 <td>45 L</td>
                                 <td>450.000 FCFA</td>
-                                <td><span class="status-badge pending">⏱️ En attente</span></td>
+                                <td><span class="status-badge pending"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 4px;">schedule</span> En attente</span></td>
                                 <td>04/02/2026</td>
                                 <td>Adama K.</td>
                                 <td><a href="#" class="action-btn">Relancer</a></td>
@@ -669,7 +671,7 @@
                                 <td>Houghton Hydrolubric × 1</td>
                                 <td>208 L</td>
                                 <td>1.240.000 FCFA</td>
-                                <td><span class="status-badge pending">⏱️ Négociation</span></td>
+                                <td><span class="status-badge pending"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 4px;">schedule</span> Négociation</span></td>
                                 <td>06/02/2026</td>
                                 <td>Adama K.</td>
                                 <td><a href="#" class="action-btn">Contacter</a></td>
@@ -737,5 +739,8 @@
     </script>
 
     <script src="../../assets/js/footer-loader.js"></script>
+
+    <script src="../assets/js/icon-loader.js"></script>
+    <!-- SVG Icon Loader loaded -->
 </body>
 </html>

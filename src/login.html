@@ -376,11 +376,12 @@
         }
 
         .request-card li:before {
-            content: '<span class="material-symbols-outlined" style="color: #0F6B32; font-size: 16px;">done</span>';
-            color: var(--color-secondary);
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px;
+            display: none;
+        }
+
+        .request-card li span.material-symbols-outlined {
+            margin-right: 8px;
+            vertical-align: middle;
         }
 
         .btn-request {
@@ -559,6 +560,8 @@
         }
     </style>
     <link rel="stylesheet" href="../assets/css/shared.css">
+    <link rel="stylesheet" href="../assets/css/icons-svg.css">
+    <!-- SVG Icons CSS loaded -->
 </head>
 <body>
     <!-- HEADER -->
@@ -623,7 +626,7 @@
 
                 <!-- LOGGED IN VIEW -->
                 <div id="loggedInView" class="logged-in-view">
-                    <div class="welcome-icon">👤</div>
+                    <div class="welcome-icon"><span class="material-symbols-outlined icon-neutral icon-m">person</span></div>
                     <h2 id="welcomeUser">Bienvenue !</h2>
                     <p id="userEmail"></p>
                     <button class="btn-logout" onclick="handleLogout()">Se déconnecter</button>
@@ -640,10 +643,10 @@
                     <p>Nos comptes utilisateurs sont créés par notre équipe administrative après validation de votre demande. C'est notre façon de garantir la sécurité et la qualité de nos services.</p>
                     
                     <ul>
-                        <li>Accès sécurisé à votre espace professionnel</li>
-                        <li>Gestion de vos devis et commandes</li>
-                        <li>Suivi de vos livraisons</li>
-                        <li>Conditions tarifaires personnalisées</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Accès sécurisé à votre espace professionnel</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Gestion de vos devis et commandes</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Suivi de vos livraisons</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Conditions tarifaires personnalisées</li>
                     </ul>
 
                     <button class="btn-request" onclick="scrollToContactForm()">Demander un compte</button>
@@ -651,16 +654,16 @@
 
                 <div class="request-card">
                     <h2>
-                        <span class="material-symbols-outlined icon-primary-m">help_outline</span>
+                        <span class="material-symbols-outlined icon-primary icon-m">help_outline</span>
                         Comment ça marche ?
                     </h2>
                     <p>Simple et rapide :</p>
                     
                     <ul>
-                        <li>Remplissez le formulaire de demande</li>
-                        <li>Notre équipe examine votre requête</li>
-                        <li>Nous créons votre compte et vous l'envoyons par email</li>
-                        <li>Vous pouvez alors vous connecter directement</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Remplissez le formulaire de demande</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Notre équipe examine votre requête</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Nous créons votre compte et vous l'envoyons par email</li>
+                        <li><span class="material-symbols-outlined icon-success icon-s">done</span> Vous pouvez alors vous connecter directement</li>
                     </ul>
 
                     <a href="contact.html" class="btn-request-secondary">Contacter notre équipe</a>
@@ -774,5 +777,8 @@
     </script>
 
     <script src="../assets/js/footer-loader.js"><\/script>
+
+    <script src="../assets/js/icon-loader.js"></script>
+    <!-- SVG Icon Loader loaded -->
 </body>
 </html>

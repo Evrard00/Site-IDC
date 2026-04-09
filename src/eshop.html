@@ -2009,6 +2009,8 @@
         }
     </style>
     <link rel="stylesheet" href="../assets/css/shared.css">
+    <link rel="stylesheet" href="../assets/css/icons-svg.css">
+    <!-- SVG Icons CSS loaded -->
 </head>
 <body>
     <!-- NOTIFICATION CONTAINER -->
@@ -2352,9 +2354,9 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">phone</span> +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">mail</span> contact@idc.ci</a></li>
-                    <li><a href="#"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">location_on</span> Abidjan, Côte d'Ivoire</a></li>
+                    <li><a href="tel:+22520210000"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">phone</span> +225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">mail</span> contact@idc.ci</a></li>
+                    <li><a href="#"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">location_on</span> Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
@@ -2467,7 +2469,7 @@
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-drawer-header">
             <div class="cart-drawer-title-group">
-                <h2><span class="material-symbols-outlined" style="font-size: 28px; margin-right: 8px; vertical-align: -2px;">shopping_cart</span>Panier</h2>
+                <h2><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 8px;">margin-right: 8px; vertical-align: -2px;</span>Panier</h2>
                 <p class="cart-drawer-subtitle">Demande de devis</p>
             </div>
             <div class="cart-drawer-actions">
@@ -2480,11 +2482,11 @@
         </div>
         <div class="cart-drawer-footer">
             <div class="cart-reassurance">
-                <p><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">lightbulb</span> <strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contactera pour définir les tarifs et modalités de paiement.</p>
+                <p><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">info</span> <strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contactera pour définir les tarifs et modalités de paiement.</p>
             </div>
             <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Commander</button>
             <div class="cart-footer-links">
-                <a href="#contact" class="cart-footer-link"><span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 8px;">phone</span> Besoin d'aide ?</a>
+                <a href="#contact" class="cart-footer-link"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">help_outline</span> Besoin d'aide ?</a>
                 <a href="#" class="cart-footer-link"><img src="../assets/images/icon-briefcase.svg" alt="" /> Commande entreprise</a>
             </div>
         </div>
@@ -2629,7 +2631,7 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
             if (cart.length === 0) {
                 cartContent.innerHTML = `
                     <div class="cart-empty">
-                        <div class="cart-empty-icon"><span class="material-symbols-outlined" style="font-size: 64px; color: #E36A13;">package</span></div>
+                        <div class="cart-empty-icon"><span class="material-symbols-outlined icon-primary icon-xl">delete</span></div>
                         <h3>Votre panier est vide</h3>
                         <p>Sélectionnez des lubrifiants pour commander.</p>
                         <button class="btn-view-products" onclick="closeCartAndScroll()">Voir les produits</button>
@@ -2811,7 +2813,7 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
                 success: '✅',
                 error: '❌',
                 info: 'ℹ️',
-                warning: '<span class="material-symbols-outlined" style="font-size: 20px; vertical-align: -4px; margin-right: 4px; color: #E36A13;">warning</span>'
+                warning: '<span class="material-symbols-outlined icon-neutral" style=" margin-right: 4px;">margin-right: 4px;</span>'
             };
             
             const notification = document.createElement('div');
@@ -3253,5 +3255,8 @@ Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
     </script>
 
     <script src="../assets/js/footer-loader.js"></script>
+
+    <script src="../assets/js/icon-loader.js"></script>
+    <!-- SVG Icon Loader loaded -->
 </body>
 </html>
