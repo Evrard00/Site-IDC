@@ -82,11 +82,23 @@ Elles ont chacune coûté un défaut avant d'être écrites.
   ne jouent jamais sur l'opacité.
 - **`prefers-reduced-motion`** coupe les transitions, jamais les comportements.
 - **L'élément focalisé n'est jamais masqué** par l'en-tête escamotable (2.4.11).
-- **De 320 à 1440 px sans débordement horizontal.** Mesurer sur
-  `document.body.scrollWidth`, pas sur `documentElement` : un conteneur qui défile
-  gonfle le second sans que la page bouge.
+- **De 320 à 2560 px sans défilement horizontal**, vérifié par un saut réel :
+  `window.scrollTo({ left: 9999, behavior: 'instant' })` puis lecture de
+  `scrollX`. Le `scroll-behavior: smooth` posé sur `html` rend `scrollTo()`
+  animé — lire `scrollX` juste après renvoie l'ancienne valeur et fait conclure
+  à tort qu'aucune page ne déborde. C'est ainsi qu'un pied de page débordant
+  sur les treize pages est passé inaperçu.
+- **Aucune grille en `1fr` qui puisse tomber sous son contenu.** Une colonne
+  `1fr` ne descend pas sous sa largeur de min-content : les quatre colonnes du
+  pied restaient à 531 px et sortaient de l'écran entre 431 et 530 px. Soit
+  `minmax(0, 1fr)`, soit un palier qui réduit le nombre de colonnes.
 - **Un `<dialog>` pour toute fenêtre modale** : piège de focus, Échap et fond
-  inerte viennent gratuitement.
+  inerte viennent gratuitement. **Ne jamais poser `display` en dehors de l'état
+  ouvert** : cela annule la règle `dialog:not([open]) { display: none }` du
+  navigateur. Le panneau reste alors dans le flux — garé hors écran, ou masqué
+  par le seul `opacity: 0` d'une requête de mouvement, donc pleinement visible
+  sous `prefers-reduced-motion` — et ses commandes restent dans l'ordre de
+  tabulation. L'e-shop en comptait seize, invisibles et pourtant atteignables.
 
 ## Build
 
