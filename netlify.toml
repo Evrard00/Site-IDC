@@ -9,7 +9,11 @@
 # correspond, ce qui est le comportement attendu.
 
 [context.production.environment]
-  NODE_VERSION = "18"
+  # build.js emploie fs.readdirSync({ recursive: true }), apparu en 18.17 :
+  # « 18 » laisse Netlify choisir dans la branche 18.x, et une version
+  # antérieure ignorerait l'option en silence au lieu d'échouer. Node 20 est
+  # la version LTS courante et lève le doute.
+  NODE_VERSION = "20"
 
 [[headers]]
   for = "/assets/*"
