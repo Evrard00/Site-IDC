@@ -8,11 +8,16 @@
 # page valide. Netlify sert 404.html de lui-même quand aucun fichier ne
 # correspond, ce qui est le comportement attendu.
 
-[context.production.environment]
+[build.environment]
   # build.js emploie fs.readdirSync({ recursive: true }), apparu en 18.17 :
   # « 18 » laisse Netlify choisir dans la branche 18.x, et une version
-  # antérieure ignorerait l'option en silence au lieu d'échouer. Node 20 est
-  # la version LTS courante et lève le doute.
+  # antérieure ignorerait l'option en silence — le site partirait amputé de
+  # ses images sans que la construction échoue. Node 20 lève le doute.
+  #
+  # Déclaré ici et non sous [context.production.environment] : ce dernier ne
+  # s'applique qu'à la branche de production. Les déploiements de branche —
+  # refonte-v2 aujourd'hui — n'en héritent pas et retomberaient sur la
+  # version par défaut de Netlify.
   NODE_VERSION = "20"
 
 [[headers]]
