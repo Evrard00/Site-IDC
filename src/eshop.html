@@ -143,8 +143,16 @@
            bouton au panneau. Il glisse maintenant depuis le bord droit, dans
            les deux sens. Là où allow-discrete n'existe pas, l'affichage reste
            instantané — c'est le comportement d'avant, pas une régression. */
+        /* display: flex n'appartient qu'à l'état ouvert. Posé sans condition,
+           il annulait la règle dialog:not([open]) { display: none } du
+           navigateur : le tiroir restait dans la page, garé hors écran à
+           droite, et l'e-shop défilait horizontalement de 420 px à toute
+           largeur. C'est aussi ce que la transition display allow-discrete
+           ci-dessous attend : elle n'a de sens que si l'état fermé est
+           bien display: none. */
         .drawer { margin: 0 0 0 auto; height: 100%; max-height: 100%; width: min(420px, 100%);
-                  display: flex; flex-direction: column; }
+                  flex-direction: column; }
+        .drawer[open] { display: flex; }
 
         @media (prefers-reduced-motion: no-preference) {
             .drawer {
@@ -211,8 +219,15 @@
         .cart-empty svg { width: 38px; height: 38px; color: var(--ink-3); }
         .cart-empty p { font-size: var(--t-sm); color: var(--ink-2); }
 
+        /* Même piège que pour le tiroir : display: flex hors de l'état ouvert
+           annule dialog:not([open]) { display: none }. Les deux modales
+           fermées tenaient leur place dans le flux, masquées par le seul
+           opacity: 0 de la requête de mouvement — donc pleinement visibles
+           dès que prefers-reduced-motion est actif, soit près de 1 000 px de
+           fiche produit et de formulaire déversés au milieu du catalogue. */
         .modal { margin: auto; width: min(760px, calc(100% - 32px)); max-height: calc(100vh - 48px);
-                 border-radius: var(--r-lg); display: flex; flex-direction: column; }
+                 border-radius: var(--r-lg); flex-direction: column; }
+        .modal[open] { display: flex; }
         .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 16px;
                       padding: 22px 26px; border-bottom: 1px solid var(--rule-2); }
         .modal-head h2 { font-size: 24px; }
