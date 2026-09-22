@@ -259,7 +259,14 @@
             </div>
 
             <div class="form-card">
-                <form id="tpeForm" onsubmit="handleFormSubmit(event)">
+                <form id="tpeForm" novalidate name="carte-tpe" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="carte-tpe">
+                    <p hidden>
+                        <label>Ne pas remplir si vous êtes humain :
+                            <input name="bot-field" tabindex="-1" autocomplete="off">
+                        </label>
+                    </p>
+
                     <div class="form-grid">
                         <div class="field">
                             <label for="t-fullname">Nom &amp; prénom <span class="req">*</span></label>
@@ -294,6 +301,7 @@
                         <button class="btn" type="submit">Envoyer ma demande <span class="ar" aria-hidden="true">→</span></button>
                         <span class="note">Un commercial IDC vous contactera pour finaliser votre dossier.</span>
                     </div>
+                    <p class="form-msg" id="tpeMsg" role="status" aria-live="polite"></p>
                 </form>
             </div>
 
@@ -359,31 +367,49 @@
     <script src="./_tete.js" defer></script>
 
 <script>
-function handleFormSubmit(event) {
-            event.preventDefault();
-            
-            const formData = {
-                fullname: document.querySelector('input[name="fullname"]').value,
-                company: document.querySelector('input[name="company"]').value,
-                phone: document.querySelector('input[name="phone"]').value,
-                email: document.querySelector('input[name="email"]').value,
-                city: document.querySelector('input[name="city"]').value,
-                vehicles: document.querySelector('input[name="vehicles"]').value,
-                message: document.querySelector('textarea[name="message"]').value,
-                timestamp: new Date().toLocaleString('fr-FR')
-            };
+(function () {
+    'use strict';
+    var form = document.getElementById('tpeForm');
+    var msg  = document.getElementById('tpeMsg');
+    if (!form || !msg) { return; }
 
-            // Sauvegarder dans localStorage
-            let tpeRequests = JSON.parse(localStorage.getItem('idc-tpe-demandes')) || [];
-            tpeRequests.push(formData);
-            localStorage.setItem('idc-tpe-demandes', JSON.stringify(tpeRequests));
-
-            // Afficher un message de succès
-            alert('Votre demande a été enregistrée avec succès!\n\nUn commercial IDC vous contactera très rapidement aux coordonnées fournies.');
-
-            // Réinitialiser le formulaire
-            document.getElementById('tpeForm').reset();
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var manquants = [];
+        form.querySelectorAll('[required]').forEach(function (ch) {
+            var ok = ch.value.trim() !== '' &&
+                     (ch.type !== 'email' || /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(ch.value.trim()));
+            ch.setAttribute('aria-invalid', ok ? 'false' : 'true');
+            if (!ok) { manquants.push(ch); }
+        });
+        if (manquants.length) {
+            msg.removeAttribute('data-ok');
+            msg.setAttribute('data-err', '');
+            msg.textContent = 'Merci de remplir les champs obligatoires.';
+            manquants[0].focus();
+            return;
         }
+
+        var bouton = e.submitter || form.querySelector('[type=submit]');
+        var libelle = bouton ? bouton.innerHTML : '';
+        if (bouton) { bouton.disabled = true; bouton.textContent = 'Envoi…'; }
+        msg.removeAttribute('data-err');
+        msg.removeAttribute('data-ok');
+        msg.textContent = '';
+
+        window.idcEnvoyer(form).then(function () {
+            msg.setAttribute('data-ok', '');
+            msg.textContent = 'Demande envoyée. Un commercial IDC vous contacte aux coordonnées fournies.';
+            form.reset();
+        }).catch(function () {
+            msg.setAttribute('data-err', '');
+            msg.textContent = "L'envoi n'a pas abouti. Réessayez, ou joignez-nous "
+                            + 'au +225 20 21 00 00 ou à contact@idc.ci.';
+        }).then(function () {
+            if (bouton) { bouton.disabled = false; bouton.innerHTML = libelle; }
+        });
+    });
+})();
 </script>
 
 </body>

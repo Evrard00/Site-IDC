@@ -183,7 +183,14 @@
             </div>
 
             <div class="form-card">
-                <form id="applicationForm" novalidate>
+                <form id="applicationForm" novalidate name="candidature" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
+                    <input type="hidden" name="form-name" value="candidature">
+                    <p hidden>
+                        <label>Ne pas remplir si vous êtes humain :
+                            <input name="bot-field" tabindex="-1" autocomplete="off">
+                        </label>
+                    </p>
+
                     <div class="form-grid">
                         <div class="field">
                             <label for="j-nom">Nom &amp; prénom <span class="req">*</span></label>
@@ -283,6 +290,29 @@
 <script>
 (function () {
     'use strict';
+
+    // Envoi réel vers Netlify Forms. Le bouton passe en attente, et le
+    // message final dit la vérité : « envoyé » seulement si la requête est
+    // passée, une erreur exploitable sinon — avec le numéro et l'adresse,
+    // pour que la demande ne se perde pas.
+    function envoyer(form, msg, bouton, succes, extras) {
+        var libelle = bouton ? bouton.innerHTML : '';
+        if (bouton) { bouton.disabled = true; bouton.textContent = 'Envoi…'; }
+        msg.removeAttribute('data-err');
+        msg.removeAttribute('data-ok');
+        msg.textContent = '';
+        window.idcEnvoyer(form, extras).then(function () {
+            msg.setAttribute('data-ok', '');
+            msg.textContent = succes;
+            form.reset();
+        }).catch(function () {
+            msg.setAttribute('data-err', '');
+            msg.textContent = "L'envoi n'a pas abouti. Réessayez, ou joignez-nous "
+                            + 'au +225 20 21 00 00 ou à contact@idc.ci.';
+        }).then(function () {
+            if (bouton) { bouton.disabled = false; bouton.innerHTML = libelle; }
+        });
+    }
     var form = document.getElementById('applicationForm');
     var msg  = document.getElementById('jobMsg');
     if (!form) return;
@@ -301,9 +331,8 @@
             manquants[0].focus();
             return;
         }
-        msg.textContent = 'Candidature enregistrée. Nous revenons vers vous si votre profil correspond à un besoin en cours.';
-        msg.removeAttribute('data-err'); msg.setAttribute('data-ok', '');
-        form.reset();
+        envoyer(form, msg, e.submitter || form.querySelector('[type=submit]'),
+                'Candidature envoyée. Nous revenons vers vous si votre profil correspond à un besoin en cours.');
     });
 })();
 </script>

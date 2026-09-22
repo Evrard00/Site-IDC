@@ -160,7 +160,14 @@
             </div>
 
             <div class="form-card">
-                <form id="contactForm" novalidate>
+                <form id="contactForm" novalidate name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p hidden>
+                        <label>Ne pas remplir si vous êtes humain :
+                            <input name="bot-field" tabindex="-1" autocomplete="off">
+                        </label>
+                    </p>
+
                     <div class="form-grid">
                         <div class="field">
                             <label for="nom">Nom &amp; prénom <span class="req">*</span></label>
@@ -279,6 +286,29 @@
 (function () {
     'use strict';
 
+    // Envoi réel vers Netlify Forms. Le bouton passe en attente, et le
+    // message final dit la vérité : « envoyé » seulement si la requête est
+    // passée, une erreur exploitable sinon — avec le numéro et l'adresse,
+    // pour que la demande ne se perde pas.
+    function envoyer(form, msg, bouton, succes, extras) {
+        var libelle = bouton ? bouton.innerHTML : '';
+        if (bouton) { bouton.disabled = true; bouton.textContent = 'Envoi…'; }
+        msg.removeAttribute('data-err');
+        msg.removeAttribute('data-ok');
+        msg.textContent = '';
+        window.idcEnvoyer(form, extras).then(function () {
+            msg.setAttribute('data-ok', '');
+            msg.textContent = succes;
+            form.reset();
+        }).catch(function () {
+            msg.setAttribute('data-err', '');
+            msg.textContent = "L'envoi n'a pas abouti. Réessayez, ou joignez-nous "
+                            + 'au +225 20 21 00 00 ou à contact@idc.ci.';
+        }).then(function () {
+            if (bouton) { bouton.disabled = false; bouton.innerHTML = libelle; }
+        });
+    }
+
     // ── les cartes présélectionnent l'objet puis mènent au formulaire ──
     var sujet = document.getElementById('sujet');
     document.querySelectorAll('.options .card').forEach(function (c) {
@@ -329,9 +359,8 @@
                 manquants[0].focus();
                 return;
             }
-            msg.textContent = 'Message enregistré. Un commercial IDC vous recontacte sous 48 heures.';
-            msg.removeAttribute('data-err'); msg.setAttribute('data-ok', '');
-            form.reset();
+            envoyer(form, msg, e.submitter || form.querySelector('[type=submit]'),
+                    'Message envoyé. Un commercial IDC vous recontacte sous 48 heures.');
         });
     }
 })();

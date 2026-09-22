@@ -245,7 +245,14 @@
 
                     <div class="aside-box">
                         <h2 id="t-nl">Newsletter IDC</h2>
-                        <form class="nl-form" id="nlForm" novalidate aria-labelledby="t-nl">
+                        <form class="nl-form" id="nlForm" novalidate aria-labelledby="t-nl" name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="newsletter">
+                    <p hidden>
+                        <label>Ne pas remplir si vous êtes humain :
+                            <input name="bot-field" tabindex="-1" autocomplete="off">
+                        </label>
+                    </p>
+
                             <p>Les nouveautés du réseau, dans votre boîte mail.</p>
                             <div class="field">
                                 <label for="nl-email">Votre adresse e-mail</label>
@@ -333,6 +340,29 @@
 (function () {
     'use strict';
 
+    // Envoi réel vers Netlify Forms. Le bouton passe en attente, et le
+    // message final dit la vérité : « envoyé » seulement si la requête est
+    // passée, une erreur exploitable sinon — avec le numéro et l'adresse,
+    // pour que la demande ne se perde pas.
+    function envoyer(form, msg, bouton, succes, extras) {
+        var libelle = bouton ? bouton.innerHTML : '';
+        if (bouton) { bouton.disabled = true; bouton.textContent = 'Envoi…'; }
+        msg.removeAttribute('data-err');
+        msg.removeAttribute('data-ok');
+        msg.textContent = '';
+        window.idcEnvoyer(form, extras).then(function () {
+            msg.setAttribute('data-ok', '');
+            msg.textContent = succes;
+            form.reset();
+        }).catch(function () {
+            msg.setAttribute('data-err', '');
+            msg.textContent = "L'envoi n'a pas abouti. Réessayez, ou joignez-nous "
+                            + 'au +225 20 21 00 00 ou à contact@idc.ci.';
+        }).then(function () {
+            if (bouton) { bouton.disabled = false; bouton.innerHTML = libelle; }
+        });
+    }
+
     // ── filtrage par catégorie ───────────────────────────────────────
     // Les cases existaient déjà dans l'ancienne page mais n'étaient
     // reliées à rien : cocher ou décocher ne changeait pas l'affichage.
@@ -377,9 +407,8 @@
                 champ.focus();
                 return;
             }
-            msg.setAttribute('data-ok', '');
-            msg.textContent = 'Inscription enregistrée. À bientôt !';
-            form.reset();
+            envoyer(form, msg, form.querySelector('[type=submit]'),
+                    'Inscription enregistrée. À bientôt !');
             champ.setAttribute('aria-invalid', 'false');
         });
     }

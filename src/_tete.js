@@ -108,3 +108,35 @@
     mesurer();
     majTete();
 })();
+
+/* ══════════════════════════════════════════════════════════════════
+   ENVOI DES FORMULAIRES — Netlify Forms
+   Les formulaires du site sont validés et annoncés en JavaScript, donc
+   soumis à la main. Netlify attend un POST vers « / » contenant le champ
+   form-name. Sans pièce jointe on encode en formulaire URL ; avec, on
+   laisse le navigateur composer le multipart.
+
+   La fonction renvoie une promesse et ne masque jamais un échec : si
+   l'envoi ne passe pas, l'appelant affiche une erreur au lieu d'un faux
+   « message envoyé ».
+   ══════════════════════════════════════════════════════════════════ */
+window.idcEnvoyer = function (form, extras) {
+    var donnees = new FormData(form);
+    if (extras) {
+        Object.keys(extras).forEach(function (k) { donnees.set(k, extras[k]); });
+    }
+    if (!donnees.get('form-name')) {
+        donnees.set('form-name', form.getAttribute('name') || '');
+    }
+
+    var joint = (form.getAttribute('enctype') || '').indexOf('multipart') !== -1;
+    var options = { method: 'POST', body: joint ? donnees : new URLSearchParams(donnees).toString() };
+    if (!joint) {
+        options.headers = { 'Content-Type': 'application/x-www-form-urlencoded' };
+    }
+
+    return fetch('/', options).then(function (r) {
+        if (!r.ok) { throw new Error('Réponse ' + r.status); }
+        return r;
+    });
+};

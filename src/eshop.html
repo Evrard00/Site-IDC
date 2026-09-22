@@ -700,7 +700,14 @@
 
         <div class="modal-part">
             <h3>Vos informations</h3>
-            <form id="quoteForm" novalidate>
+            <form id="quoteForm" novalidate name="devis-eshop" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="devis-eshop">
+                    <p hidden>
+                        <label>Ne pas remplir si vous êtes humain :
+                            <input name="bot-field" tabindex="-1" autocomplete="off">
+                        </label>
+                    </p>
+
                 <div class="form-grid">
                     <div class="field half">
                         <label for="q-societe">Entreprise <span class="req">*</span></label>
@@ -1181,24 +1188,43 @@
         }
         msg.removeAttribute('data-err');
         msg.textContent = '';
-        ecrire('idc-dernier-devis', {
-            societe: $('#q-societe').value.trim(),
-            contact: $('#q-contact').value.trim(),
-            telephone: $('#q-telephone').value.trim(),
-            email: $('#q-email').value.trim(),
-            localisation: $('#q-localisation').value.trim(),
-            message: $('#q-message').value.trim(),
-            produits: panier,
-            date: new Date().toISOString()
-        });
-        corps.hidden = true;
-        fin.hidden = false;
-        pied.hidden = true;
-        form.reset();
-        panier = [];
-        enregistrer();
-        $('#quoteDone').focus();
+
+        // Le panier ne vit que dans le navigateur : sans lui, la demande
+        // arriverait sans indiquer ce qui est commandé.
+        var selection = panier.map(function (a) {
+            return a.nom + ' — ' + a.format + ' × ' + a.quantite;
+        }).join(String.fromCharCode(10));
+
+        var bouton = $('#quoteSend');
+        var libelle = bouton.innerHTML;
+        bouton.disabled = true;
+        bouton.textContent = 'Envoi…';
+
+        window.idcEnvoyer(form, { selection: selection, 'type-client': typeClient() })
+            .then(function () {
+                corps.hidden = true;
+                fin.hidden = false;
+                pied.hidden = true;
+                form.reset();
+                panier = [];
+                enregistrer();
+                $('#quoteDone').focus();
+            })
+            .catch(function () {
+                msg.setAttribute('data-err', '');
+                msg.textContent = "L'envoi n'a pas abouti. Votre sélection est conservée : "
+                                + 'réessayez, ou joignez-nous au +225 20 21 00 00.';
+            })
+            .then(function () {
+                bouton.disabled = false;
+                bouton.innerHTML = libelle;
+            });
     });
+
+    function typeClient() {
+        var r = document.querySelector('input[name="client-type"]:checked');
+        return r ? r.value : 'nouveau';
+    }
 
     [tiroir, detail, devis].forEach(fermerSurLeFond);
 
