@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon panier - IDC e-shop</title>
+    <meta name="description" content="Votre sélection de lubrifiants IDC avant l'envoi de la demande de devis.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A7A39">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+
+    <style>
+.cart-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px;
+                       gap: clamp(26px, 4vw, 52px); align-items: start; }
+
+        .ligne { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto;
+                 gap: 18px; align-items: start;
+                 padding: 22px 0; border-bottom: 1px solid var(--rule-2); }
+        .ligne:first-child { padding-top: 0; }
+        .vignette { width: 64px; height: 64px; display: grid; place-items: center;
+                    background: var(--ground); border: 1px solid var(--rule-2);
+                    border-radius: var(--r); }
+        .vignette svg { width: 28px; height: 28px; color: var(--orange-t); }
+        .ligne h3 { font-size: 18px; }
+        .ligne .cat { font-family: var(--mono); font-size: 11px; letter-spacing: .07em;
+                      text-transform: uppercase; color: var(--ink-3); margin-top: 4px; }
+        .ligne-ctl { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+        .ligne-ctl label { font-size: 12px; color: var(--ink-3); }
+        .ligne-ctl .select { min-height: 42px; padding: 0 30px 0 10px; font-size: 14px; }
+
+        .qty { display: flex; align-items: center; border: 1px solid var(--rule);
+               border-radius: var(--r); overflow: hidden; background: var(--surface); }
+        .qty button { width: 40px; height: 42px; border: 0; background: transparent; cursor: pointer;
+                      font-size: 17px; color: var(--ink-2); font-family: var(--font); }
+        .qty button:hover { background: var(--ground); color: var(--ink); }
+        .qty input { width: 48px; height: 42px; border: 0; border-inline: 1px solid var(--rule);
+                     text-align: center; font-family: var(--mono); font-size: 14px;
+                     color: var(--ink); background: transparent; -moz-appearance: textfield; }
+        .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button {
+            -webkit-appearance: none; margin: 0; }
+
+        .icon-btn { width: 40px; height: 40px; display: grid; place-items: center; flex: none;
+                    border: 1px solid var(--rule-2); border-radius: var(--r); background: transparent;
+                    color: var(--ink-2); cursor: pointer;
+                    transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease); }
+        .icon-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+        .icon-btn svg { width: 17px; height: 17px; }
+
+        .resume { background: var(--surface); border: 1px solid var(--rule-2);
+                  border-radius: var(--r-lg); padding: 26px; position: sticky; top: 96px; }
+        .resume h2 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .13em;
+                     text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+        .resume dl { display: grid; grid-template-columns: 1fr auto; gap: 10px 14px; font-size: 14.5px; }
+        .resume dt { color: var(--ink-2); }
+        .resume dd { text-align: right; font-variant-numeric: tabular-nums; }
+        .resume .btn { width: 100%; justify-content: center; margin-top: 22px; }
+        .resume .note { font-size: 13px; color: var(--ink-2); margin-top: 16px; }
+
+        .vide { display: grid; place-items: center; gap: 12px; text-align: center; padding: 60px 0; }
+        .vide svg { width: 40px; height: 40px; color: var(--ink-3); }
+        .vide p { color: var(--ink-2); }
+
+        @media (max-width: 880px) {
+            .cart-layout { grid-template-columns: minmax(0, 1fr); }
+            .resume { position: static; }
+        }
+        @media (max-width: 520px) {
+            .ligne { grid-template-columns: 48px minmax(0, 1fr) auto; gap: 14px; }
+            .vignette { width: 48px; height: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head" id="tete">
+        <div class="wrap">
+            <div class="bar" id="barre">
+                <a href="index.html" aria-label="IDC, accueil"><img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures"></a>
+
+                <nav aria-label="Navigation principale">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="index.html#apropos">À propos</a>
+                <a href="index.html#activites">Services</a>
+                <a href="actualites.html">Actualités</a>
+                <a href="eshop.html">IDC e-shop</a>
+                <a href="jobs.html">Carrières</a>
+                <a href="contact.html">Nous contacter</a>
+                </nav>
+
+                <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+
+                <button class="burger" id="burger" type="button"
+                        aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+                    <span></span>
+                </button>
+
+                <div class="mobile-nav" id="menu-mobile">
+                <a href="index.html#accueil">Accueil <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#apropos">À propos <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#activites">Services <span class="ar" aria-hidden="true">→</span></a>
+                <a href="actualites.html">Actualités <span class="ar" aria-hidden="true">→</span></a>
+                <a href="eshop.html">IDC e-shop <span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html">Carrières <span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html">Nous contacter <span class="ar" aria-hidden="true">→</span></a>
+                    <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main id="contenu">
+
+    <section class="page-top">
+        <div class="wrap">
+            <p class="mono" style="margin-bottom:22px">IDC e-shop / panier.</p>
+            <div class="split">
+                <h1>Votre <span class="accent">sélection.</span></h1>
+                <p class="lead" style="align-self:end">Vérifiez les formats et les quantités, puis envoyez votre demande : un commercial revient vers vous avec les tarifs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="band band--pale">
+        <div class="wrap">
+            <div class="cart-layout">
+
+                <div>
+                    <h2 class="sr-only">Produits sélectionnés</h2>
+                    <div id="lignes"></div>
+                    <div class="vide" id="vide" hidden>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+                        <h3>Votre panier est vide</h3>
+                        <p>Choisissez des lubrifiants dans le catalogue pour préparer votre demande.</p>
+                        <a class="btn" href="eshop.html" style="margin-top:8px">Voir le catalogue <span class="ar" aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <aside class="resume" id="resume" aria-labelledby="r-titre" hidden>
+                    <h2 id="r-titre">Résumé</h2>
+                    <dl>
+                        <dt>Références</dt><dd id="nbRef">0</dd>
+                        <dt>Articles</dt><dd id="nbArt">0</dd>
+                        <dt>Formats</dt><dd id="nbFmt">—</dd>
+                    </dl>
+                    <button class="btn" type="button" id="versDevis">Demander un devis <span class="ar" aria-hidden="true">&rarr;</span></button>
+                    <p class="note"><strong>Les prix ne sont pas affichés.</strong> Ils dépendent du volume et de la fréquence de livraison.</p>
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <h3>IDC</h3>
+                <p class="about">Ivoirienne d'Hydrocarbures — votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="fsocial">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h3>Nos activités</h3>
+                <ul>
+                    <li><a href="index.html#activites">Carburants</a></li>
+                    <li><a href="index.html#activites">Gaz butane</a></li>
+                    <li><a href="eshop.html">Lubrifiants</a></li>
+                    <li><a href="tpe.html">Carte TPE</a></li>
+                    <li><a href="index.html#stations">Stations &amp; services</a></li>
+                        <li><a href="contact.html?sujet=Soute">Soute maritime</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="index.html#apropos">À propos de nous</a></li>
+                    <li><a href="index.html#stations">Trouver une station</a></li>
+                    <li><a href="client.html">Espace client</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="jobs.html">Carrières</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li><a href="contact.html">Abidjan, Côte d'Ivoire</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fbot">
+            <span>© 2026 IDC — Ivoirienne d'Hydrocarbures. Tous droits réservés.</span>
+            <span>Politique de confidentialité · Mentions légales</span>
+        </div>
+    </div>
+</footer>
+
+<p class="sr-only" id="etat" role="status" aria-live="polite"></p>
+
+    <script src="./_tete.js" defer></script>
+
+<script>
+(function () {
+    'use strict';
+
+    // Même clé que l'e-shop : les deux vues montrent le même panier.
+    var CLE = 'idc-panier';
+    var PRODUITS = {
+        "Rubia TIR": {
+                "famille": "moteur",
+                "categorie": "Huile moteur diesel",
+                "formats": [
+                        "5L",
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Véhicules diesel & flottes"
+        },
+        "Tellus S2 MA": {
+                "famille": "moteur",
+                "categorie": "Huile moteur essence",
+                "formats": [
+                        "5L",
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Véhicules essence & légers"
+        },
+        "Helix Ultra": {
+                "famille": "moteur",
+                "categorie": "Huile moteur synthétique",
+                "formats": [
+                        "1L",
+                        "5L",
+                        "20L"
+                ],
+                "usage": "Moteurs modernes haute performance"
+        },
+        "Tellus S2 MA 46": {
+                "famille": "hydraulique",
+                "categorie": "Huile hydraulique ISO 46",
+                "formats": [
+                        "20L",
+                        "208L",
+                        "1000L"
+                ],
+                "usage": "Systèmes hydrauliques industriels"
+        },
+        "Tellus S2 MA 32": {
+                "famille": "hydraulique",
+                "categorie": "Huile hydraulique ISO 32",
+                "formats": [
+                        "20L",
+                        "208L",
+                        "1000L"
+                ],
+                "usage": "Systèmes de précision légère"
+        },
+        "Tellus S2 VX": {
+                "famille": "industrielle",
+                "categorie": "Huile industrielle multi-usage",
+                "formats": [
+                        "20L",
+                        "208L",
+                        "1000L"
+                ],
+                "usage": "Équipements industriels divers"
+        },
+        "Houghton Hydrolubric": {
+                "famille": "industrielle",
+                "categorie": "Fluide de coupe & usinage",
+                "formats": [
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Machines de précision & usinage"
+        },
+        "Graisse Lithium": {
+                "famille": "graisse",
+                "categorie": "Graisse polyvalente",
+                "formats": [
+                        "0.5kg",
+                        "5kg",
+                        "25kg"
+                ],
+                "usage": "Paliers, roulements généraux"
+        },
+        "Graisse Molybdène": {
+                "famille": "graisse",
+                "categorie": "Graisse extrême pression",
+                "formats": [
+                        "0.5kg",
+                        "5kg",
+                        "25kg"
+                ],
+                "usage": "Chaînes, engrenages haute charge"
+        },
+        "Gear Oil 75W-90": {
+                "famille": "transmission",
+                "categorie": "Huile de transmission & pont",
+                "formats": [
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Boîtes de vitesse manuelles"
+        },
+        "Fluide ATF": {
+                "famille": "transmission",
+                "categorie": "Fluide transmission automatique",
+                "formats": [
+                        "1L",
+                        "5L",
+                        "20L"
+                ],
+                "usage": "Boîtes de vitesse automatiques"
+        }
+};
+
+    var FUT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+              'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+              '<ellipse cx="12" cy="5.4" rx="7" ry="2.6"/>' +
+              '<path d="M5 5.4v13.2c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6V5.4"/>' +
+              '<path d="M5 12c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6"/></svg>';
+
+    function lire() {
+        try { return JSON.parse(localStorage.getItem(CLE)) || []; } catch (e) { return []; }
+    }
+    function ecrire(v) {
+        try { localStorage.setItem(CLE, JSON.stringify(v)); } catch (e) { /* mode privé */ }
+    }
+
+    var panier = lire();
+    var zone   = document.getElementById('lignes');
+    var vide   = document.getElementById('vide');
+    var resume = document.getElementById('resume');
+    var etat   = document.getElementById('etat');
+    var nbRef  = document.getElementById('nbRef');
+    var nbArt  = document.getElementById('nbArt');
+    var nbFmt  = document.getElementById('nbFmt');
+    var aller  = document.getElementById('versDevis');
+
+    function total() {
+        return panier.reduce(function (s, a) { return s + a.quantite; }, 0);
+    }
+
+    function dessiner() {
+        var n = panier.length;
+        vide.hidden = n !== 0;
+        resume.hidden = n === 0;
+        zone.hidden = n === 0;
+        if (n === 0) { zone.innerHTML = ''; return; }
+
+        zone.innerHTML = panier.map(function (a, i) {
+            var info = PRODUITS[a.nom] || {};
+            var formats = info.formats || ['5L', '20L', '208L'];
+            return '<div class="ligne">' +
+                     '<div class="vignette">' + FUT + '</div>' +
+                     '<div>' +
+                       '<h3>' + a.nom + '</h3>' +
+                       '<p class="cat">' + (info.categorie || '') + '</p>' +
+                       '<div class="ligne-ctl">' +
+                         '<div class="field"><label for="fmt-' + i + '">Format</label>' +
+                           '<select class="select" id="fmt-' + i + '" data-fmt="' + i + '">' +
+                             formats.map(function (f) {
+                               return '<option value="' + f + '"' + (a.format === f ? ' selected' : '') + '>' + f + '</option>';
+                             }).join('') +
+                           '</select></div>' +
+                         '<div class="field"><label for="qte-' + i + '">Quantité</label>' +
+                           '<div class="qty">' +
+                             '<button type="button" data-moins="' + i + '" aria-label="Retirer une unité de ' + a.nom + '">&minus;</button>' +
+                             '<input type="number" min="1" max="999" id="qte-' + i + '" value="' + a.quantite + '" data-qte="' + i + '">' +
+                             '<button type="button" data-plus="' + i + '" aria-label="Ajouter une unité de ' + a.nom + '">+</button>' +
+                           '</div></div>' +
+                       '</div>' +
+                     '</div>' +
+                     '<button class="icon-btn" type="button" data-sup="' + i + '" aria-label="Retirer ' + a.nom + ' du panier">' +
+                       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                       '<path d="M4 5h16M9 5V3h6v2M6 5l1 15h10l1-15"/><path d="M10 10v6M14 10v6"/></svg></button>' +
+                   '</div>';
+        }).join('');
+
+        nbRef.textContent = n + (n > 1 ? ' références' : ' référence');
+        nbArt.textContent = total();
+        var fmts = {};
+        panier.forEach(function (a) { fmts[a.format] = (fmts[a.format] || 0) + a.quantite; });
+        nbFmt.textContent = Object.keys(fmts).map(function (f) { return fmts[f] + ' × ' + f; }).join(', ');
+    }
+
+    function enregistrer(annonce) {
+        ecrire(panier);
+        dessiner();
+        if (annonce) { etat.textContent = annonce; }
+    }
+
+    zone.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (!b) { return; }
+        var i;
+        if ((i = b.getAttribute('data-sup')) !== null) {
+            var nom = panier[i].nom;
+            panier.splice(i, 1);
+            enregistrer(nom + ' retiré du panier.');
+        } else if ((i = b.getAttribute('data-plus')) !== null) {
+            panier[i].quantite = Math.min(999, panier[i].quantite + 1);
+            enregistrer();
+        } else if ((i = b.getAttribute('data-moins')) !== null) {
+            panier[i].quantite = Math.max(1, panier[i].quantite - 1);
+            enregistrer();
+        }
+    });
+
+    zone.addEventListener('change', function (e) {
+        var i = e.target.getAttribute('data-fmt');
+        if (i !== null) { panier[i].format = e.target.value; ecrire(panier); dessiner(); return; }
+        i = e.target.getAttribute('data-qte');
+        if (i !== null) {
+            var q = parseInt(e.target.value, 10);
+            panier[i].quantite = (isNaN(q) || q < 1) ? 1 : Math.min(999, q);
+            enregistrer();
+        }
+    });
+
+    aller.addEventListener('click', function () { window.location.href = 'eshop.html#devis'; });
+
+    dessiner();
+})();
+</script>
+
+</body>
+</html>

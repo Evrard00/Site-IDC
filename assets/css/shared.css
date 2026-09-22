@@ -2,7 +2,10 @@
 
 /* HEADER */
 header {
-    background: #E8E8E5;
+    /* shared.css est chargée APRÈS le <style> des pages : c'est cette
+       valeur qui s'applique réellement, les règles `header` en ligne des
+       pages sont sans effet. Le fond suit celui du corps de page. */
+    background: #FFFFFF;
     position: fixed;
     top: 0;
     left: 0;
@@ -72,7 +75,7 @@ header .container {
 }
 
 .header-nav a:hover {
-    color: #E36A13;
+    color: #B1530F;
 }
 
 .dropdown-arrow {
@@ -122,7 +125,7 @@ header .container {
 
 .submenu a:hover {
     background-color: rgba(227, 106, 19, 0.15);
-    color: #E36A13;
+    color: #B1530F;
 }
 
 .header-right {
@@ -142,7 +145,7 @@ header .container {
 }
 
 .header-login:hover {
-    color: #E36A13;
+    color: #B1530F;
 }
 
 .header-search {
@@ -278,6 +281,11 @@ footer .footer-content {
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 18px;
+}
+
+.footer-social a svg {
+    width: 18px;
+    height: 18px;
 }
 
 .footer-social a:hover {
@@ -428,4 +436,97 @@ footer .footer-links a:hover {
     footer .footer-bottom {
         padding: 15px 20px;
     }
+}
+
+/* ==========================================================================
+   Icônes SVG chargées en <img>
+   Les conteneurs d'icônes sont dimensionnés en font-size (hérité de l'époque
+   des polices d'icônes) ; un <img> n'en tient pas compte et s'afficherait à
+   sa taille brute. Ces règles lui donnent une taille par contexte.
+   ========================================================================== */
+
+img[src*="/icon-"] {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+/* Grandes icônes de cartes et de rubriques */
+.solution-icon img,
+.feature-icon img,
+.benefit-icon img,
+.service-icon img {
+    width: 44px;
+    height: 44px;
+}
+
+/* Icônes de statistiques */
+.stat-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Icônes d'accroche en liste */
+.why-icon img {
+    width: 26px;
+    height: 26px;
+}
+
+/* Icônes en ligne dans du texte, des badges et des boutons */
+.card-status img,
+.status-badge img,
+.card-number img,
+.btn img,
+p img[src*="/icon-"],
+strong img[src*="/icon-"] {
+    width: 1em;
+    height: 1em;
+    position: relative;
+    top: -0.06em;
+}
+
+.card-number img {
+    width: 18px;
+    height: 18px;
+    top: -0.1em;
+}
+
+/* ==========================================================================
+   Lien d'évitement — visible uniquement au focus clavier
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -60px;
+    z-index: 2000;
+    padding: 10px 18px;
+    background: #1b7d3a;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 6px 6px;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #E36A13;
+    outline-offset: 2px;
+}
+
+
+/* Un bouton placé dans la barre de navigation héritait de la couleur de
+   texte de « .header-nav a » (spécificité 0,1,1) et s'affichait en noir sur
+   son fond orange. On rétablit le contraste par une règle plus spécifique. */
+.header-nav a.btn-primary,
+.header-nav a.btn.btn-primary {
+    color: #FFFFFF;
+}
+
+/* WCAG 2.1.1 — un conteneur qui défile doit être atteignable au clavier ;
+   il reçoit donc tabindex="0" et un état de focus visible. */
+.table-responsive:focus-visible {
+    outline: 3px solid #E36A13;
+    outline-offset: 2px;
 }

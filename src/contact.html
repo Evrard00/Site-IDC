@@ -4,837 +4,338 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nous Contacter - IDC | Devis, Informations et Support</title>
+    <!-- SEO / partage social -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A7A39">
+    <link rel="canonical" href="https://www.idc.ci/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IDC - Ivoirienne d'Hydrocarbures">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:title" content="Nous Contacter - IDC | Devis, Informations et Support">
+    <meta property="og:description" content="Contactez IDC pour un devis, des informations sur nos produits ou pour toute question. Notre équipe est à votre disposition.">
+    <meta property="og:url" content="https://www.idc.ci/contact.html">
+    <meta property="og:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="IDC - Carburants, gaz, lubrifiants et solutions B2B en Côte d'Ivoire">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nous Contacter - IDC | Devis, Informations et Support">
+    <meta name="twitter:description" content="Contactez IDC pour un devis, des informations sur nos produits ou pour toute question. Notre équipe est à votre disposition.">
+    <meta name="twitter:image" content="https://www.idc.ci/assets/images/og-image.jpg">
     <meta name="description" content="Contactez IDC pour un devis, des informations sur nos produits ou pour toute question. Notre équipe est à votre disposition.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #0B0B0B;
-            background-color: #FFFFFF;
-            line-height: 1.6;
-        }
+        .page-top { padding-block: clamp(118px, 13vw, 160px) clamp(40px, 5vw, 56px); }
+
+        /* cartes-boutons : elles présélectionnent l'objet du formulaire */
+        .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                   gap: 16px; margin-top: 12px; }
+        .options .card { align-items: flex-start; text-align: left; cursor: pointer;
+                         font-family: var(--font); font-size: var(--t-body); }
+        .options .card svg { color: var(--orange-t); }
+        .options .card .lien { margin-top: auto; padding-top: 12px; font-size: var(--t-sm);
+                               font-weight: 600; color: var(--orange-t); display: inline-flex;
+                               align-items: center; gap: 8px; }
+        .options .card .ar { font-family: var(--mono); transition: transform var(--fast) var(--ease); }
+        .options .card:hover .ar, .options .card:focus-visible .ar { transform: translateX(3px); }
+
+        .form-card { background: var(--surface); border: 1px solid var(--rule-2);
+                     border-radius: var(--r-lg); padding: clamp(24px, 3vw, 40px); margin-top: 38px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 
-        :root {
-            --color-primary: #E36A13;
-            --color-secondary: #0F6B32;
-            --color-dark: #0B0B0B;
-            --color-text: #4F4F4F;
-            --color-light: #F4F4F4;
-            --color-white: #FFFFFF;
-            --color-border: #E5E5E5;
-        }
-
-        /* HEADER */
-        header {
-            background: #FFFFFF;
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border: none;
-            border-radius: 0;
-            width: 100%;
-            box-shadow: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        header.scrolled {
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            width: calc(100% - 40px);
-            border-radius: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 40px;
-            gap: 50px;
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-
-        .header-left {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
-        }
-
-        .logo img {
-            height: 48px;
-            width: auto;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 48px;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .header-nav a {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .header-nav a:hover,
-        .header-nav a.active {
-            color: var(--color-primary);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-shrink: 0;
-        }
-
-        .header-login {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            transition: color 0.3s ease;
-        }
-
-        .header-login:hover {
-            color: var(--color-primary);
-        }
-
-        .btn-sm {
-            padding: 11px 32px !important;
-            font-size: 14px !important;
-            border-radius: 16px !important;
-            font-weight: 600 !important;
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 16px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #d45d0a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(227, 106, 19, 0.3);
-        }
-
-        /* CONTAINER */
-        .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* PAGE INTRO */
-        .page-intro {
-            padding-top: 120px;
-            padding-bottom: 30px;
-            background-color: #FFFFFF;
-            text-align: center;
-        }
-
-        .page-intro h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 16px;
-        }
-
-        .page-intro p {
-            font-size: 16px;
-            color: var(--color-text);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* OPTIONS DE CONTACT */
-        .section-contact-options {
-            padding: 40px 0;
-            background-color: #FFFFFF;
-        }
-
-        .contact-options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-top: 20px;
-        }
-
-        .contact-option-card {
-            background: white;
-            border: 2px solid var(--color-border);
-            border-radius: 14px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-option-card:hover {
-            border-color: var(--color-primary);
-            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .contact-option-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-
-        .contact-option-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 12px;
-        }
-
-        .contact-option-card p {
-            font-size: 14px;
-            color: var(--color-text);
-            margin-bottom: 24px;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        .contact-option-card .btn {
-            align-self: flex-start;
-        }
-
-        /* FORMULAIRE */
-        .section-form {
-            padding: 80px 0;
-            background-color: var(--color-light);
-        }
-
-        .form-intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .form-intro h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 16px;
-        }
-
-        .form-intro p {
-            font-size: 16px;
-            color: var(--color-text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .form-wrapper {
-            background: white;
-            border-radius: 14px;
-            padding: 40px;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-        }
-
-        .form-wrapper form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .form-wrapper form .form-group:nth-child(n+5) {
-            grid-column: 1 / -1;
-        }
-
-        .form-group {
-            margin-bottom: 0;
-        }
-
-        .form-group label {
-            display: block;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-dark);
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: var(--color-dark);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-group.half {
-            width: auto;
-            display: block;
-        }
-
-        .form-group.half:nth-child(odd) {
-            margin-right: 0;
-        }
-
-        .required::after {
-            content: " *";
-            color: var(--color-primary);
-        }
-
-        .form-submit {
-            margin-top: 32px;
-            text-align: center;
-            grid-column: 1 / -1;
-        }
-
-        .form-submit .btn {
-            width: 100%;
-            padding: 14px 32px;
-        }
-
-        .form-reassurance {
-            text-align: center;
-            font-size: 13px;
-            color: var(--color-text);
-            margin-top: 16px;
-        }
-
-        /* COORDONNÉES */
-        .section-coordinates {
-            padding: 80px 0;
-            background-color: #FFFFFF;
-        }
-
-        .coordinates-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .coordinates-intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .coordinates-intro h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 16px;
-        }
-
-        .coordinates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-        }
-
-        .coordinate-item {
-            background: var(--color-light);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-
-        .coordinate-icon {
-            font-size: 32px;
-            margin-bottom: 12px;
-            color: var(--color-primary);
-        }
-
-        /* Material Symbols Icons */
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 48px;
-            display: inline-flex;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            vertical-align: middle;
-        }
-
-        .coordinate-label {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-dark);
-            margin-bottom: 8px;
-        }
-
-        .coordinate-value {
-            font-size: 14px;
-            color: var(--color-text);
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--color-dark);
-            color: white;
-            padding: 60px 0 20px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--color-primary);
-        }
-
-        .footer-section a {
-            display: block;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--color-primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            text-align: center;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            header .container {
-                padding: 12px 30px;
-            }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            .form-wrapper {
-                padding: 32px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header .container {
-                padding: 12px 20px;
-            }
-
-            .header-nav {
-                display: none;
-            }
-
-            .page-intro {
-                padding-top: 80px;
-                padding-bottom: 40px;
-            }
-
-            .page-intro h1 {
-                font-size: 32px;
-            }
-
-            .page-intro p {
-                font-size: 14px;
-            }
-
-            .contact-options-grid {
-                gap: 24px;
-            }
-
-            .form-group.half {
-                width: 100%;
-                display: block;
-            }
-
-            .form-group.half:nth-child(odd) {
-                margin-right: 0;
-            }
-
-            .form-wrapper {
-                padding: 24px;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .section-contact-options,
-            .section-form,
-            .section-coordinates {
-                padding: 60px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header .container {
-                padding: 12px 16px;
-                gap: 20px;
-            }
-
-            .page-intro {
-                padding-top: 70px;
-                padding-bottom: 30px;
-            }
-
-            .page-intro h1 {
-                font-size: 24px;
-            }
-
-            .page-intro p {
-                font-size: 13px;
-            }
-
-            .form-wrapper {
-                padding: 16px;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-
-            .contact-option-card {
-                padding: 20px;
-            }
-
-            .form-intro h2,
-            .coordinates-intro h2 {
-                font-size: 28px;
-            }
-        }
     </style>
-    <link rel="stylesheet" href="../assets/css/shared.css">
-    <link rel="stylesheet" href="../assets/css/icons-svg.css">
-    <!-- SVG Icons CSS loaded -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://www.idc.ci/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Nous contacter",
+                "item": "https://www.idc.ci/contact.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <a href="index.html" class="logo">
-                    <img src="../assets/images/logo.png" alt="IDC Logo">
-                </a>
-            </div>
-            
-            <nav id="navbar" class="header-nav">
-                <a href="index.html">Accueil</a>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head" id="tete">
+        <div class="wrap">
+            <div class="bar" id="barre">
+                <a href="index.html" aria-label="IDC, accueil"><img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures"></a>
+
+                <nav aria-label="Navigation principale">
+                <a href="index.html#accueil">Accueil</a>
                 <a href="index.html#apropos">À propos</a>
                 <a href="index.html#activites">Services</a>
                 <a href="actualites.html">Actualités</a>
                 <a href="eshop.html">IDC e-shop</a>
-                <a href="login.html" class="btn btn-primary btn-sm">Espace client</a>
-                <a href="contact.html" class="active">Nous contacter</a>
-            </nav>
+                <a href="jobs.html">Carrières</a>
+                <a href="contact.html" aria-current="page">Nous contacter</a>
+                </nav>
 
-            <div class="header-right">
-                <div class="menu-burger" id="menuBurger">
+                <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+
+                <button class="burger" id="burger" type="button"
+                        aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
                     <span></span>
-                    <span></span>
-                    <span></span>
+                </button>
+
+                <div class="mobile-nav" id="menu-mobile">
+                <a href="index.html#accueil">Accueil <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#apropos">À propos <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#activites">Services <span class="ar" aria-hidden="true">→</span></a>
+                <a href="actualites.html">Actualités <span class="ar" aria-hidden="true">→</span></a>
+                <a href="eshop.html">IDC e-shop <span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html">Carrières <span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html" aria-current="page">Nous contacter <span class="ar" aria-hidden="true">→</span></a>
+                    <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- PAGE INTRO -->
-    <section class="page-intro">
-        <div class="container">
-            <h1>Contactez IDC</h1>
-            <p>Une question, une demande de devis ou un besoin spécifique ? Nos équipes sont à votre disposition pour vous accompagner.</p>
+<main id="contenu">
+
+    <section class="page-top">
+        <div class="wrap">
+            <p class="mono" style="margin-bottom:22px">Contact / réponse sous 48 h.</p>
+            <div class="split">
+                <h1>Parlons de votre <span class="accent">besoin en énergie.</span></h1>
+                <p class="lead" style="align-self:end">Une question, une demande de devis ou un besoin spécifique : nos équipes sont à votre disposition.</p>
+            </div>
         </div>
     </section>
 
-    <!-- OPTIONS DE CONTACT -->
-    <section class="section-contact-options">
-        <div class="container">
-            <div class="contact-options-grid">
-                <div class="contact-option-card">
+    <section class="band" style="padding-top:0">
+        <div class="wrap reveal">
+            <h2 class="sr-only">Choisissez le sujet de votre demande</h2>
+            <div class="options">
+                <button class="card" type="button" data-sujet="Demande de devis">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
                     <h3>Demande commerciale</h3>
-                    <p>Besoin d'un devis ou d'informations sur nos produits ? Contactez notre équipe commerciale pour une réponse adaptée à vos besoins.</p>
-                    <button class="btn btn-primary" onclick="document.getElementById('sujet').value = 'Demande de devis'; document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Faire une demande</button>
-                </div>
-
-                <div class="contact-option-card">
+                    <p>Besoin d'un devis ou d'informations sur nos produits ? Notre équipe commerciale vous répond sous 48 heures.</p>
+                    <span class="lien">Faire une demande <span class="ar" aria-hidden="true">→</span></span>
+                </button>
+                <button class="card" type="button" data-sujet="Stations & services">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" aria-hidden="true"><path d="M4 4h16v2H4z"/><path d="M4 7h16l1 5v2h-1v6H4v-6H3v-2z"/><path d="M6 14h6v4H6z"/></svg>
                     <h3>Stations & services</h3>
-                    <p>Une question liée à nos stations-service ou à nos services ? Nous sommes à votre écoute.</p>
-                    <button class="btn btn-primary" onclick="document.getElementById('sujet').value = 'Stations & services'; document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Nous contacter</button>
-                </div>
-
-                <div class="contact-option-card">
+                    <p>Une question sur nos stations-service, la carte TPE ou la boutique Shop & Go.</p>
+                    <span class="lien">Faire une demande <span class="ar" aria-hidden="true">→</span></span>
+                </button>
+                <button class="card" type="button" data-sujet="">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 21l2-4.9A8.4 8.4 0 0 1 21 11.5z"/></svg>
                     <h3>Autres demandes</h3>
-                    <p>Partenariat, information générale ou assistance ? Envoyez-nous votre message, nous vous répondrons rapidement.</p>
-                    <button class="btn btn-primary" onclick="document.querySelector('.form-wrapper').scrollIntoView({ behavior: 'smooth' });">Envoyer un message</button>
-                </div>
+                    <p>Partenariat, information générale ou assistance : écrivez-nous, nous revenons vers vous rapidement.</p>
+                    <span class="lien">Faire une demande <span class="ar" aria-hidden="true">→</span></span>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- FORMULAIRE DE CONTACT -->
-    <section class="section-form">
-        <div class="container">
-            <div class="form-intro">
-                <h2>Formulaire de contact</h2>
-                <p>Merci de remplir le formulaire ci-dessous. Un membre de l'équipe IDC vous contactera dans les plus brefs délais.</p>
+    <section class="band band--pale" id="devis">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Formulaire.</p>
+            <div class="split">
+                <h2>Écrivez-nous, <span class="accent">un commercial vous répond.</span></h2>
+                <p class="lead" style="align-self:end">Plus votre message est précis — volume, zone, échéance — plus notre réponse le sera.</p>
             </div>
 
-            <div class="form-wrapper">
-                <form id="contactForm">
-                    <div class="form-group half">
-                        <label for="nom" class="required">Nom & prénom</label>
-                        <input type="text" id="nom" name="nom" required>
+            <div class="form-card">
+                <form id="contactForm" novalidate>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="nom">Nom &amp; prénom <span class="req">*</span></label>
+                            <input class="input" id="nom" name="nom" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="entreprise">Entreprise</label>
+                            <input class="input" id="entreprise" name="entreprise" type="text" autocomplete="organization">
+                            <span class="hint">Facultatif si vous êtes un particulier.</span>
+                        </div>
+                        <div class="field">
+                            <label for="telephone">Téléphone <span class="req">*</span></label>
+                            <input class="input" id="telephone" name="telephone" type="tel" autocomplete="tel" placeholder="+225 XX XX XX XX" required>
+                        </div>
+                        <div class="field">
+                            <label for="email">E-mail <span class="req">*</span></label>
+                            <input class="input" id="email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="field wide">
+                            <label for="sujet">Objet de la demande <span class="req">*</span></label>
+                            <select class="select" id="sujet" name="sujet" required>
+                                <option value="">— Sélectionnez un objet —</option>
+                                <option value="Demande de devis">Demande de devis</option>
+                                <option value="Information produits">Information produits</option>
+                                <option value="Stations &amp; services">Stations &amp; services</option>
+                                <option value="Carte TPE">Carte TPE</option>
+                                <option value="Soute">Soute / avitaillement maritime</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="field wide">
+                            <label for="message">Message <span class="req">*</span></label>
+                            <textarea class="textarea" id="message" name="message" required placeholder="Décrivez votre besoin, votre volume et votre zone d'activité."></textarea>
+                        </div>
                     </div>
-
-                    <div class="form-group half">
-                        <label for="entreprise">Entreprise</label>
-                        <input type="text" id="entreprise" name="entreprise">
+                    <div class="form-foot">
+                        <button class="btn" type="submit">Envoyer le message <span class="ar" aria-hidden="true">→</span></button>
+                        <span class="note">Vos informations sont traitées de manière confidentielle.</span>
                     </div>
-
-                    <div class="form-group half">
-                        <label for="telephone" class="required">Téléphone</label>
-                        <input type="tel" id="telephone" name="telephone" required>
-                    </div>
-
-                    <div class="form-group half">
-                        <label for="email" class="required">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="sujet" class="required">Objet de la demande</label>
-                        <select id="sujet" name="sujet" required>
-                            <option value="">-- Sélectionnez un objet --</option>
-                            <option value="Demande de devis">Demande de devis</option>
-                            <option value="Information produits">Information produits</option>
-                            <option value="Stations & services">Stations & services</option>
-                            <option value="Carte TPE">Carte TPE</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" class="required">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                        <div class="form-reassurance">Vos informations sont traitées de manière confidentielle.</div>
-                    </div>
+                    <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- COORDONNÉES -->
-    <section class="section-coordinates">
-        <div class="container">
-            <div class="coordinates-wrapper">
-                <div class="coordinates-intro">
-                    <h2>Nos coordonnées</h2>
-                </div>
-
-                <div class="coordinates-grid">
-                    <div class="coordinate-item">
-                        <span class="material-symbols-outlined coordinate-icon">location_on</span>
-                        <div class="coordinate-label">Adresse</div>
-                        <div class="coordinate-value">Abidjan, Côte d'Ivoire</div>
-                    </div>
-
-                    <div class="coordinate-item">
-                        <span class="material-symbols-outlined coordinate-icon">phone</span>
-                        <div class="coordinate-label">Téléphone</div>
-                        <div class="coordinate-value">+225 20 21 00 00</div>
-                    </div>
-
-                    <div class="coordinate-item">
-                        <span class="material-symbols-outlined coordinate-icon">mail</span>
-                        <div class="coordinate-label">Email</div>
-                        <div class="coordinate-value">contact@idc.ci</div>
-                    </div>
-
-                    <div class="coordinate-item">
-                        <span class="material-symbols-outlined coordinate-icon">schedule</span>
-                        <div class="coordinate-label">Horaires</div>
-                        <div class="coordinate-value">Lun - Ven | 8h - 16h</div>
-                    </div>
-                </div>
+    <section class="band">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Nos coordonnées.</p>
+            <div class="split" style="margin-bottom:38px">
+                <h2>Nous joindre <span class="accent">directement.</span></h2>
+                <p class="lead" style="align-self:end">Pour une demande urgente, le téléphone reste le plus rapide.</p>
+            </div>
+            <div class="values">
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><h3>Adresse</h3><p>Abidjan, Côte d'Ivoire</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><h3>Téléphone</h3><p><a class="lnk" href="tel:+22520210000">+225 20 21 00 00</a></p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><h3>E-mail</h3><p><a class="lnk" href="mailto:contact@idc.ci">contact@idc.ci</a></p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><h3>Horaires</h3><p>Lun – Ven · 8 h – 16 h</p></div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">IDC</div>
-                <p class="footer-description">Ivoirienne d'Hydrocarbures - Votre partenaire de confiance en énergie et distribution de carburants.</p>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com" target="_blank" title="Facebook">f</a>
-                    <a href="https://www.twitter.com" target="_blank" title="Twitter">𝕏</a>
-                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">in</a>
-                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><span class="material-symbols-outlined icon-social">photo_camera</span></a>
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <h3>IDC</h3>
+                <p class="about">Ivoirienne d'Hydrocarbures — votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="fsocial">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
                 </div>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Nos activités</h3>
                 <ul>
                     <li><a href="index.html#activites">Carburants</a></li>
                     <li><a href="index.html#activites">Gaz butane</a></li>
-                    <li><a href="index.html#activites">Lubrifiants</a></li>
+                    <li><a href="eshop.html">Lubrifiants</a></li>
                     <li><a href="tpe.html">Carte TPE</a></li>
-                    <li><a href="index.html#stations">Stations & services</a></li>
+                    <li><a href="index.html#stations">Stations &amp; services</a></li>
+                        <li><a href="contact.html?sujet=Soute">Soute maritime</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Ressources</h3>
                 <ul>
                     <li><a href="index.html#apropos">À propos de nous</a></li>
                     <li><a href="index.html#stations">Trouver une station</a></li>
-                    <li><a href="eshop.html">Boutique en ligne</a></li>
-                    <li><a href="tpe.html">Carte TPE</a></li>
-                    <li><a href="jobs.html">Rejoignez notre équipe</a></li>
-                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li><a href="client.html">Espace client</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="jobs.html">Carrières</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 4px;">mail</span> contact@idc.ci</a></li>
-                    <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li><a href="contact.html">Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="#">Politique de confidentialité</a>
-                <span>•</span>
-                <a href="#">Conditions d'utilisation</a>
-                <span>•</span>
-                <a href="#">Mentions légales</a>
-                <span>•</span>
-                <a href="#">Gestion des cookies</a>
-            </div>
-            <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
+        <div class="fbot">
+            <span>© 2026 IDC — Ivoirienne d'Hydrocarbures. Tous droits réservés.</span>
+            <span>Politique de confidentialité · Mentions légales</span>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        // Header scroll effect
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+    <script src="./_tete.js" defer></script>
+
+<script>
+(function () {
+    'use strict';
+
+    // ── les cartes présélectionnent l'objet puis mènent au formulaire ──
+    var sujet = document.getElementById('sujet');
+    document.querySelectorAll('.options .card').forEach(function (c) {
+        c.addEventListener('click', function () {
+            var v = c.getAttribute('data-sujet');
+            if (v && sujet) { sujet.value = v; }
+            document.getElementById('devis').scrollIntoView({ behavior: 'smooth' });
+            var premier = document.getElementById('nom');
+            if (premier) { window.setTimeout(function () { premier.focus(); }, 420); }
         });
+    });
 
-        // Formulaire
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // ── arrivée depuis un CTA « Demander un devis » ──
+    if (window.location.hash === '#devis' && sujet) { sujet.value = 'Demande de devis'; }
+
+    // ── arrivée depuis une autre page : contact.html?sujet=… ──
+    // La tuile Soute et les liens du pied de page amènent ici avec leur objet ;
+    // sans cela le visiteur devrait le retrouver lui-même dans la liste. On ne
+    // retient que les valeurs déjà présentes dans le menu.
+    var demande = new URLSearchParams(window.location.search).get('sujet');
+    if (demande && sujet) {
+        var connu = Array.prototype.some.call(sujet.options, function (o) { return o.value === demande; });
+        if (connu) {
+            sujet.value = demande;
+            window.setTimeout(function () {
+                document.getElementById('devis').scrollIntoView({ behavior: 'smooth' });
+                var premier = document.getElementById('nom');
+                if (premier) { window.setTimeout(function () { premier.focus(); }, 420); }
+            }, 60);
+        }
+    }
+
+    // ── soumission : validation visible, message annoncé ──
+    var form = document.getElementById('contactForm');
+    var msg  = document.getElementById('formMsg');
+    if (form) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Merci pour votre message ! Nous vous contacterons dans les plus brefs délais.');
-            this.reset();
+            var manquants = [];
+            form.querySelectorAll('[required]').forEach(function (ch) {
+                var vide = !String(ch.value).trim();
+                ch.setAttribute('aria-invalid', vide ? 'true' : 'false');
+                if (vide) { manquants.push(ch); }
+            });
+            if (manquants.length) {
+                msg.textContent = 'Merci de remplir les champs obligatoires.';
+                msg.removeAttribute('data-ok'); msg.setAttribute('data-err', '');
+                manquants[0].focus();
+                return;
+            }
+            msg.textContent = 'Message enregistré. Un commercial IDC vous recontacte sous 48 heures.';
+            msg.removeAttribute('data-err'); msg.setAttribute('data-ok', '');
+            form.reset();
         });
-    </script>
+    }
+})();
+</script>
 
-    <script src="../assets/js/footer-loader.js"><\/script>
-
-    <script src="../assets/js/icon-loader.js"></script>
-    <!-- SVG Icon Loader loaded -->
 </body>
 </html>
-

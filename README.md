@@ -1,171 +1,97 @@
-# Refonte du Site IDC
+# Site IDC — Ivoirienne d'Hydrocarbures
 
-## 📋 Description
-Projet de refonte complète du site internet IDC avec un design responsive, optimisé pour tous les types d'écrans et orienté vers la conversion B2B.
+Site vitrine et e-shop d'IDC : carburants, gaz butane, lubrifiants, carte TPE B2B
+et réseau de stations-service en Côte d'Ivoire.
 
-## 🎯 Objectifs
-- ✅ Responsive design (mobile-first)
-- ✅ Site corporate + e-shop intégré
-- ✅ Optimisé pour la conversion B2B (demandes de devis, carte TPE)
-- ✅ SEO-friendly (pages dédiées par activité/produit)
-- ✅ Performance et accessibilité
+HTML / CSS / JavaScript natifs, sans framework ni dépendance npm.
 
-## 📁 Structure du projet
+## Démarrer
+
+```bash
+npm run dev      # serveur local sur http://127.0.0.1:8000 (Python 3)
+npm run build    # génère public/ pour la mise en ligne
+```
+
+`npm run dev` sert le dépôt tel quel : la racine redirige vers `/src/index.html`.
+Le cache est désactivé, un simple rafraîchissement suffit après une modification.
+
+## Structure
 
 ```
 Site-IDC/
-├── src/                              # Code source du site
-│   ├── index.html                   # Accueil
-│   ├── pages/                       # Pages informatives
-│   │   ├── qui-sommes-nous.html
-│   │   ├── carriere.html
-│   │   ├── contact.html
-│   │   └── devis.html
-│   ├── activites/                   # Pages des activités
-│   │   ├── index.html
-│   │   ├── carburants.html
-│   │   ├── gaz.html
-│   │   ├── lubrifiants.html
-│   │   ├── carte-tpe.html
-│   │   └── stations.html
-│   └── boutique/                    # E-shop
-│       ├── index.html
-│       ├── categories/
-│       └── produits/
-├── assets/                          # Ressources
-│   ├── css/
-│   │   ├── reset.css               # Normalisation
-│   │   ├── variables.css           # Variables CSS
-│   │   └── styles.css              # Styles principaux
-│   ├── js/
-│   │   └── main.js                 # JavaScript interactif
-│   └── images/                      # Images du site
-├── docs/                            # Documentation
-│   ├── SITEMAP.md                  # Sitemap détaillé
-│   ├── SPECIFICATIONS.md           # Spécifications
-│   └── CHANGELOG.md                # Changelog
-├── README.md                        # Ce fichier
-├── package.json                     # Dépendances
-└── .gitignore                      # Fichiers à ignorer
+├── src/                    # les 12 pages du site
+│   ├── index.html          # accueil
+│   ├── tpe.html            # carte TPE (présentation + demande)
+│   ├── eshop.html          # boutique lubrifiants
+│   ├── contact.html        # formulaire de contact
+│   ├── jobs.html           # offres et candidatures
+│   ├── actualites.html     # actualités
+│   ├── login.html          # connexion espace client
+│   ├── client.html         # accueil espace client
+│   ├── dashboard.html      # tableau de bord client
+│   ├── purchases.html      # historique d'achats
+│   ├── cartes-tpe.html     # gestion des cartes TPE
+│   ├── cart-devis.html     # panier / demande de devis
+│   └── components/         # variante React du panier (non intégrée)
+├── assets/
+│   ├── css/                # feuilles partagées (voir ci-dessous)
+│   ├── js/                 # footer-loader.js, main.js, icon-loader.js
+│   ├── html/footer.html    # pied de page commun, injecté en JS
+│   ├── images/             # visuels et icônes SVG
+│   ├── icons/svg/          # 35 icônes SVG (non utilisées actuellement)
+│   └── pdfs/
+├── public/                 # sortie du build — régénéré, jamais édité à la main
+├── build.js                # script de build
+├── serve.py                # serveur de développement
+├── robots.txt / sitemap.xml / favicon.ico
+└── netlify.toml / vercel.json
 ```
 
-## 🚀 Responsive Design
+### Feuilles de style
 
-### Breakpoints
-- **Mobile** : < 576px
-- **Tablette** : 576px - 768px  
-- **Petit écran** : 768px - 992px
-- **Standard** : 992px - 1200px
-- **Grand écran** : > 1200px
+| Fichier | Rôle |
+|---|---|
+| `shared.css` | en-tête, pied de page, lien d'évitement, dimensionnement des icônes — chargé par 11 pages sur 12 |
+| `reset.css`, `variables.css`, `styles.css` | socle, chargé par `index.html` |
+| `theme-idc.css`, `placeholders.css` | thème et blocs de remplacement |
+| `icons.css`, `icons-svg.css` | **inutilisées** — plus aucune classe employée, plus chargées |
 
-### Approche
-- Mobile-first
-- CSS Grid et Flexbox pour les layouts
-- Variables CSS pour la cohérence
-- Menu hamburger adaptatif
+L'essentiel du CSS vit encore dans des balises `<style>` au sein de chaque page.
+Extraire l'en-tête et le pied de page vers `shared.css` reste le principal
+chantier de maintenabilité.
 
-## 🎨 Technologies
+## Déploiement
 
-- **Frontend** : HTML5, CSS3, JavaScript vanilla
-- **Responsive** : Media queries, CSS Grid, Flexbox
-- **Variables** : CSS custom properties
-- **Outils** : VS Code avec Prettier
+Les deux hébergeurs exécutent `node build.js` et publient `public/` :
 
-## 📱 Pages créées
+- **Netlify** — `netlify.toml`
+- **Vercel** — `vercel.json`
 
-### Pages principales ✅
-- Accueil (hero, activités, chiffres, témoignages)
-- Qui sommes-nous (présentation, histoire, valeurs)
-- Nos activités (index + 5 pages détaillées)
-  - Carburants
-  - Gaz Butane
-  - Lubrifiants
-  - Carte TPE B2B
-  - Stations & Services
-- Boutique (accueil e-shop)
-- Carrière (offres d'emploi, candidature)
-- Contact (formulaires, infos, carte)
-- Demande de devis (formulaire B2B)
+Le build purge `public/` à chaque exécution, réécrit les chemins d'assets
+relatifs et copie `robots.txt`, `sitemap.xml` et `favicon.ico` à la racine.
 
-### Pages à créer 📝
-- Mentions légales
-- Politique de confidentialité
-- CGV
-- Catégories e-shop (Lubrifiants, Accessoires, Gaz)
-- Fiches produits
-- Panier et paiement
+## À faire avant la mise en production
 
-## 🎯 Points clés UX/SEO
+- [ ] **Remplacer `https://www.idc.ci`** par le domaine réel dans `robots.txt`,
+      `sitemap.xml` et les balises `canonical` / `og:` des 12 pages.
+- [ ] **Relier les formulaires à un back-end.** Devis TPE, contact et
+      candidatures sont aujourd'hui enregistrés dans le `localStorage` du
+      visiteur : aucune demande n'est transmise à IDC.
+- [ ] **Remplacer l'authentification de démonstration.** `login.html` contient
+      des identifiants en clair et la session n'est pas vérifiée côté serveur.
+- [ ] Vérifier les coordonnées de contact, aujourd'hui fictives.
+- [ ] Rédiger les pages légales (mentions, confidentialité, CGV), liées mais absentes.
 
-### CTA Visibles
-- Chaque page a un appel à l'action clair
-- Priorité conversion B2B (demande de devis, carte TPE)
-- Boutons primaires et secondaires bien différenciés
+## Repères techniques
 
-### Navigation
-- ✅ Menu responsive (hamburger sur mobile)
-- ✅ Header sticky
-- ✅ Footer global avec liens vers toutes les pages
+- **Points de rupture** : 480, 768, 1024, 1200 px.
+- **Couleurs** : vert `#1b7d3a`, orange `#E36A13`, texte `#4F4F4F`, fond `#E8E8E5`.
+- **Polices** : Poppins (titres), Inter (texte).
+- **Images** : dimensionnées à leur taille d'affichage, JPEG progressif ;
+  `loading="lazy"` hors du premier écran.
 
-### SEO
-- ✅ Chaque activité/produit = page dédiée
-- ✅ Meta descriptions pour chaque page
-- ✅ Hiérarchie de titres correcte (H1, H2, H3)
-- ✅ URLs SEO-friendly
+## Outillage
 
-## 🎨 Design System
-
-### Couleurs
-- **Primaire** : #0066cc (bleu)
-- **Secondaire** : #ff6600 (orange)
-- **Texte** : #333333
-- **Fond clair** : #f5f5f5
-- **Bordures** : #e0e0e0
-
-### Typographie
-- **Police** : System fonts (-apple-system, BlinkMacSystemFont, Segoe UI, etc.)
-- **Tailles** : Fluides (clamp) du mobile au desktop
-
-### Espacement
-- Système cohérent en variables CSS (spacing-xs à spacing-2xl)
-- Basé sur 8px unit
-
-## 📦 Installation & Utilisation
-
-### Prérequis
-- Navigateur moderne
-- Éditeur de code (VS Code recommandé)
-
-### Lancer le site
-1. Ouvrir `src/index.html` dans un navigateur
-2. Ou utiliser un serveur local (Live Server VS Code)
-
-## 📝 À compléter
-
-- [ ] Ajouter les contenus spécifiques (textes, images)
-- [ ] Intégrer Google Maps (cartes interactives)
-- [ ] Développer l'e-commerce (panier, paiement)
-- [ ] Créer les pages légales
-- [ ] Optimiser les images
-- [ ] Ajouter Google Analytics
-- [ ] Créer sitemap XML et robots.txt
-
-## 📚 Documentation
-
-Voir `/docs/` pour plus de détails :
-- [SITEMAP.md](docs/SITEMAP.md) - Structure complète du site
-- [SPECIFICATIONS.md](docs/SPECIFICATIONS.md) - Spécifications détaillées
-- [CHANGELOG.md](docs/CHANGELOG.md) - Historique des versions
-
-## 👥 Équipe
-
-_À compléter avec les informations de l'équipe_
-
-## 📞 Support
-
-Pour toute question, contactez [email ou contact]
-
----
-
-**Dernière mise à jour** : 13 janvier 2026  
-**Version** : 2.0.0 (En cours)
+Les scripts Python à la racine (`fix_*.py`, `audit_*.py`, `remove_*.py`…) sont des
+correctifs ponctuels passés en masse sur le code. **Ils ont déjà été appliqués :
+les relancer recasserait le site.** Ils sont conservés à titre d'historique.

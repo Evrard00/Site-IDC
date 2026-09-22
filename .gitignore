@@ -42,3 +42,8 @@ ENV/
 .cache
 .netlify
 .vercel
+
+# Bibliothèque Material Icons vendorisée : 10 950 fichiers, 17 Mo, aucune référence
+# dans le site. Déjà suivie par git — pour la retirer de l'index sans toucher au
+# disque :  git rm -r --cached material-icons-master
+material-icons-master/

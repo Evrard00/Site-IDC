@@ -4,2172 +4,584 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IDC - Carburants, Gaz, Lubrifiants et Solutions B2B. Votre partenaire en énergie depuis plus de 20 ans.">
-    <meta name="keywords" content="carburants, gaz, lubrifiants, énérgie, solutions B2B, IDC">
+    <meta name="keywords" content="carburants, gaz, lubrifiants, énergie, solutions B2B, IDC">
     <title>IDC - Votre partenaire en énergie, carburants et solutions pour entreprises</title>
-    <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="/assets/css/variables.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/icons.css">
+    <!-- SEO / partage social -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A7A39">
+    <link rel="canonical" href="https://www.idc.ci/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IDC - Ivoirienne d'Hydrocarbures">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:title" content="IDC - Votre partenaire en énergie, carburants et solutions pour entreprises">
+    <meta property="og:description" content="IDC - Carburants, Gaz, Lubrifiants et Solutions B2B. Votre partenaire en énergie depuis plus de 20 ans.">
+    <meta property="og:url" content="https://www.idc.ci/">
+    <meta property="og:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="IDC - Carburants, gaz, lubrifiants et solutions B2B en Côte d'Ivoire">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IDC - Votre partenaire en énergie, carburants et solutions pour entreprises">
+    <meta name="twitter:description" content="IDC - Carburants, Gaz, Lubrifiants et Solutions B2B. Votre partenaire en énergie depuis plus de 20 ans.">
+    <meta name="twitter:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+
+<!-- Données structurées : fiche entreprise pour Google -->
+    <script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.idc.ci/#organisation",
+      "name": "IDC - Ivoirienne d'Hydrocarbures",
+      "alternateName": "IDC",
+      "description": "Distribution de carburants, gaz butane et lubrifiants, réseau de stations-service et solutions B2B (carte TPE) en Côte d'Ivoire.",
+      "url": "https://www.idc.ci/",
+      "logo": "https://www.idc.ci/assets/images/logo.webp",
+      "image": "https://www.idc.ci/assets/images/og-image.jpg",
+      "telephone": "+225 20 21 00 00",
+      "email": "contact@idc.ci",
+      "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Abidjan",
+            "addressCountry": "CI"
+      },
+      "areaServed": {
+            "@type": "Country",
+            "name": "Côte d'Ivoire"
+      },
+      "sameAs": [
+            "https://www.facebook.com",
+            "https://www.linkedin.com",
+            "https://www.instagram.com"
+      ],
+      "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Activités IDC",
+            "itemListElement": [
+                  {
+                        "@type": "Offer",
+                        "itemOffered": {
+                              "@type": "Service",
+                              "name": "Carburants"
+                        }
+                  },
+                  {
+                        "@type": "Offer",
+                        "itemOffered": {
+                              "@type": "Service",
+                              "name": "Gaz butane"
+                        }
+                  },
+                  {
+                        "@type": "Offer",
+                        "itemOffered": {
+                              "@type": "Service",
+                              "name": "Lubrifiants"
+                        }
+                  },
+                  {
+                        "@type": "Offer",
+                        "itemOffered": {
+                              "@type": "Service",
+                              "name": "Carte TPE professionnelle"
+                        }
+                  },
+                  {
+                        "@type": "Offer",
+                        "itemOffered": {
+                              "@type": "Service",
+                              "name": "Stations-service"
+                        }
+                  }
+            ]
+      }
+}
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Relevé chiffré. Il occupait une bande à part entre le héros et les
+           services ; il tient maintenant sur une seule ligne au pied de la
+           photo, dans le dégradé existant. La page y gagne une section. */
+        .hero-chiffres { display: flex; flex-wrap: wrap; align-items: baseline;
+                         gap: 10px 26px; margin-top: 26px;
+                         padding-top: 20px; border-top: 1px solid rgba(255,255,255,.22); }
+        .hero-chiffres b { font-weight: 500; font-size: clamp(19px, 1.7vw, 24px);
+                           letter-spacing: -.02em; font-variant-numeric: tabular-nums;
+                           color: #fff; margin-right: 7px; }
+        .hero-chiffres span { display: inline-flex; align-items: baseline;
+                              font-size: var(--t-sm); color: rgba(255,255,255,.78); }
+
+        /* Cinquième activité, en attente d'une photo : aucune image du dépôt ne
+           montre d'avitaillement maritime, et plaquer un cliché d'installation
+           offshore aurait menti sur le service. La tuile prend donc le fond
+           nuit du système et un tracé, au lieu d'une photo approximative. */
+        .tile--plat .tile-fond { position: absolute; inset: 0; display: grid; place-items: center;
+                                 background: var(--night); }
+        .tile--plat .tile-ico { width: 46px; height: 46px; color: var(--green-lo);
+                                transition: transform var(--slow) var(--ease); }
+        .tile--plat:hover .tile-ico, .tile--plat:focus-visible .tile-ico { transform: scale(1.06); }
+
+        /* Réglages propres à l'accueil — le reste vient de _v2.css */
+
+        .hero { position: relative; min-height: clamp(520px, 78vh, 700px);
+                display: flex; align-items: flex-end;
+                background: url('../assets/images/hero.webp') center 42% / cover no-repeat; }
+        /* Voile du héros. Il ne descendait qu'à 28 % d'opacité au tiers de la
+           hauteur, là où passe le titre : sur la route sableuse de la photo,
+           le blanc tombait à 2,1:1 et l'orange à 1,01:1 — illisible.
+           Deux couches maintenant : une latérale qui assombrit la colonne de
+           texte en laissant la station visible à droite, une verticale qui
+           ancre le haut et le pied. Le haut foncé détache aussi la barre de
+           navigation, qui flottait au milieu de la photo sans s'en distinguer. */
+        .hero::after { content: ''; position: absolute; inset: 0;
+            background:
+                linear-gradient(90deg, rgba(8,12,9,.90) 0%, rgba(8,12,9,.80) 44%,
+                                       rgba(8,12,9,.34) 70%, rgba(8,12,9,0) 88%),
+                linear-gradient(180deg, rgba(8,12,9,.72) 0%, rgba(8,12,9,.34) 26%,
+                                        rgba(8,12,9,.30) 62%, rgba(8,12,9,.86) 100%); }
+        /* Le contenu est calé en bas d'un héros à hauteur minimale : sur un
+           écran peu haut il débordait vers le haut et passait sous la barre
+           de navigation flottante. La marge haute réserve sa place. */
+        .hero .wrap { position: relative; z-index: 2; width: 100%;
+                      padding-block: clamp(112px, 12vw, 150px) clamp(44px, 6vw, 76px); }
+        .hero .mono { color: #fff; opacity: .9; margin-bottom: 20px;
+                      text-shadow: 0 1px 6px rgba(8,12,9,.6); }
+        .hero h1 { font-size: var(--t-hero); color: #fff; max-width: 17ch; margin-bottom: 28px; }
+        .hero h1 .accent { color: #F0A05A; }
+        .hero .note { color: rgba(255,255,255,.92); font-size: 15px; max-width: 36ch;
+                      line-height: 1.5; margin-top: 32px; text-shadow: 0 1px 6px rgba(8,12,9,.5); }
+        .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .split .body { color: var(--ink-2); font-size: 15.5px; margin-top: 18px; }
+        .close .row { display: flex; justify-content: space-between; align-items: flex-end;
+                      gap: 40px; flex-wrap: wrap; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #4F4F4F;
-            line-height: 1.6;
-            background: #E8E8E5;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 40px;
-            width: 100%;
-        }
-
-        /* Material Symbols Icons */
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 24px;
-            display: inline-flex;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            vertical-align: middle;
-        }
-
-        /* HEADER */
-        header {
-            background: #E8E8E5;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border: none;
-            border-radius: 0;
-            width: 100%;
-            box-shadow: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        header.scrolled {
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            width: calc(100% - 40px);
-            border-radius: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 40px;
-            gap: 50px;
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-
-        .header-left {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
-        }
-
-        .logo img {
-            height: 48px;
-            width: auto;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 48px;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .header-nav a {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 0.2px;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .header-nav a:hover {
-            color: #E36A13;
-        }
-
-        .dropdown-arrow {
-            display: inline-block;
-            font-size: 10px;
-            margin-left: 6px;
-            vertical-align: middle;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Submenu */
-        .nav-item {
-            position: relative;
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #FFFFFF;
-            min-width: 220px;
-            border-radius: 6px;
-            padding: 12px 0;
-            margin-top: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            z-index: 999;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-item:hover .submenu {
-            display: block;
-        }
-
-        .submenu a {
-            display: block;
-            padding: 10px 18px;
-            color: #0B0B0B;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .submenu a:hover {
-            background-color: rgba(227, 106, 19, 0.15);
-            color: #E36A13;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-shrink: 0;
-        }
-
-        .header-login {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .header-login:hover {
-            color: #E36A13;
-        }
-
-        .btn-sm {
-            padding: 11px 32px !important;
-            font-size: 14px !important;
-            border-radius: 16px !important;
-            font-weight: 600 !important;
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        .header-search {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.3s ease;
-        }
-
-        .header-search:hover {
-            opacity: 0.7;
-        }
-
-        .header-search svg {
-            stroke: #0B0B0B;
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Menu burger */
-        .menu-burger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            z-index: 1001;
-            padding: 8px;
-        }
-
-        .menu-burger span {
-            width: 24px;
-            height: 2.5px;
-            background-color: #0B0B0B;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .menu-burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 9px);
-        }
-
-        .menu-burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .menu-burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(15, 107, 50, 0.3) 50%, rgba(0, 0, 0, 0.4) 100%), url('../assets/images/h.JPG') center/cover no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            position: relative;
-            overflow: hidden;
-            border-radius: 32px 32px 0 0;
-            margin-top: 80px;
-        }
-
-        .hero .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding-top: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 40px;
-            padding-right: 40px;
-            position: relative;
-            z-index: 2;
-            width: 100%;
-        }
-
-        .hero-content {
-            flex: 0 0 auto;
-            max-width: 900px;
-            margin-right: auto;
-        }
-
-        .hero h1 {
-            font-size: clamp(36px, 5.5vw, 54px);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            color: white;
-            line-height: 1.2;
-            margin: 0 0 20px 0;
-            letter-spacing: -0.5px;
-            max-width: 900px;
-        }
-
-        .hero-accent {
-            color: #E36A13;
-            text-shadow: 0 0 20px rgba(227, 106, 19, 0.6), 0 0 40px rgba(227, 106, 19, 0.3);
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 18px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            margin: 0 0 32px 0;
-            max-width: 650px;
-            letter-spacing: 0.3px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-stats {
-            position: absolute;
-            bottom: 90px;
-            right: max(40px, calc((100% - 1200px) / 2 + 40px));
-            display: flex;
-            gap: 80px;
-            align-items: flex-end;
-            z-index: 2;
-        }
-
-        .hero-stat {
-            display: flex;
-            flex-direction: column-reverse;
-            gap: 6px;
-            text-align: right;
-            position: relative;
-        }
-
-        .hero-stat:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 2px;
-            height: 60px;
-            background-color: #E36A13;
-        }
-
-        .stat-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #E36A13;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-primary {
-            background-color: #E36A13;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #d45d0a;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(227, 106, 19, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .btn-secondary:hover {
-            border-color: white;
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* RESPONSIVE HERO */
-        @media (max-width: 1024px) {
-            .hero .container {
-                padding-top: 100px;
-                padding-left: 40px;
-                padding-right: 40px;
-            }
-
-            .hero-stats {
-                bottom: 55px;
-                right: max(40px, calc((100% - 1200px) / 2 + 40px));
-                gap: 60px;
-            }
-
-            .hero-stat:not(:last-child)::after {
-                height: 50px;
-                right: -30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero .container {
-                padding-top: 90px;
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-
-            .hero h1 {
-                font-size: clamp(32px, 6vw, 48px);
-                margin-bottom: 16px;
-            }
-
-            .hero p {
-                font-size: 16px;
-                margin-bottom: 24px;
-            }
-
-            .hero-cta {
-                gap: 12px;
-            }
-
-            .btn {
-                padding: 14px 32px;
-                font-size: 14px;
-            }
-
-            .hero-stats {
-                bottom: 50px;
-                right: max(30px, calc((100% - 1200px) / 2 + 30px));
-                gap: 40px;
-            }
-
-            .stat-number {
-                font-size: 24px;
-            }
-
-            .stat-label {
-                font-size: 12px;
-            }
-
-            .hero-stat:not(:last-child)::after {
-                height: 40px;
-                right: -20px;
-            }
-
-            .raccourcis-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .raccourci-btn {
-                padding: 8px 12px;
-            }
-
-            .raccourci-icon {
-                width: 16px;
-                height: 16px;
-            }
-
-            .raccourci-text {
-                font-size: 11px;
-            }
-
-            .raccourcis-image {
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                height: 100vh;
-            }
-
-            .hero .container {
-                padding-top: 70px;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-
-            .hero h1 {
-                font-size: clamp(24px, 5vw, 36px);
-                margin-bottom: 12px;
-            }
-
-            .hero p {
-                font-size: 14px;
-                margin-bottom: 16px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-                padding: 12px 24px;
-                text-align: center;
-                font-size: 13px;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                bottom: 70px;
-                right: max(20px, calc((100% - 1200px) / 2 + 20px));
-                gap: 20px;
-                align-items: flex-end;
-            }
-
-            .hero-stat {
-                flex-direction: row-reverse;
-                gap: 12px;
-                align-items: center;
-            }
-
-            .hero-stat:not(:last-child)::after {
-                display: none;
-            }
-
-            .stat-number {
-                font-size: 20px;
-                margin-bottom: 0;
-            }
-
-            .stat-label {
-                font-size: 11px;
-                text-align: right;
-            }
-
-            .whatsapp-btn {
-                bottom: 15px;
-                right: 15px;
-                width: 52px;
-                height: 52px;
-            }
-
-            .whatsapp-btn img {
-                width: 24px;
-                height: 24px;
-            }
-        }
-
-        /* SECTIONS */
-        section {
-            padding: 80px 0;
-        }
-
-        section h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 40px;
-            font-weight: 700;
-            color: #0F6B32;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        section p {
-            color: #4F4F4F;
-            line-height: 1.7;
-        }
-
-        /* RACCOURCIS */
-        .section-raccourcis {
-            background: #FFFFFF;
-            padding: 60px 0;
-        }
-
-        .raccourcis-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: stretch;
-        }
-
-        .raccourcis-image-wrapper {
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-        }
-
-        .raccourcis-content h3 {
-            color: #0B0B0B;
-            margin-bottom: 32px;
-            font-size: 28px;
-            font-weight: 700;
-        }
-
-        .raccourcis-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            height: fit-content;
-        }
-
-        .raccourci-btn {
-            background: transparent;
-            border: 1px solid rgba(227, 106, 19, 0.3);
-            border-radius: 6px;
-            padding: 8px 12px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            color: #E36A13;
-            text-align: left;
-        }
-
-        .raccourci-btn:hover {
-            background: rgba(227, 106, 19, 0.1);
-            border-color: var(--color-primary);
-        }
-
-        .raccourci-icon {
-            width: auto;
-            height: auto;
-            flex-shrink: 0;
-            color: var(--color-primary);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .raccourci-text {
-            font-size: 12px;
-            color: var(--color-primary);
-            font-weight: 500;
-            line-height: 1.3;
-        }
-
-        .raccourcis-image {
-            width: 100%;
-            max-width: 500px;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 16px;
-        }
-
-        /* NOS ACTIVITÉS */
-        .section-activites {
-            background-color: #FFFFFF;
-        }
-
-        .services-masonry {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 50px 0;
-        }
-
-        .service-card {
-            background: #FFFFFF;
-            border-radius: 14px;
-            overflow: auto;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.12);
-            transform: translateY(-4px);
-        }
-
-        /* Disposition asymétrique des cartes */
-        .service-card-1 {
-            grid-column: 1;
-        }
-
-        .service-card-2 {
-            grid-column: 2;
-        }
-
-        .service-card-3 {
-            grid-column: 3;
-        }
-
-        .service-card-4 {
-            grid-column: 1;
-        }
-
-        .service-card-5 {
-            grid-column: 2;
-        }
-
-        .service-card-6 {
-            grid-column: 3;
-        }
-
-        .service-image {
-            width: 100%;
-            height: 160px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-image-1 {
-            background-image: url('../assets/images/cab.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-image-2 {
-            background-image: url('../assets/images/gaz.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-image-3 {
-            background-image: url('../assets/images/lub.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-image-4 {
-            background-image: url('../assets/images/tpe.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-image-5 {
-            background-image: url('../assets/images/station.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-image-6 {
-            background-image: url('../assets/images/station.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-info {
-            padding: 16px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-grow: 1;
-        }
-
-        .service-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            color: #0B0B0B;
-            margin: 0;
-        }
-
-        .service-icon-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background-color: #E36A13;
-            border-radius: 50%;
-            color: white;
-            border: none;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            margin-left: 10px;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            transform: rotate(180deg);
-        }
-
-        .service-icon-btn:hover {
-            background-color: #d45d0a;
-            transform: scale(1.1) rotate(180deg);
-        }
-
-        .service-details {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            top: auto;
-            background: linear-gradient(180deg, rgba(244, 244, 244, 0.98), #F4F4F4);
-            backdrop-filter: blur(4px);
-            padding: 0 14px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.4s ease;
-            color: #4F4F4F;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            z-index: 10;
-            border-radius: 14px;
-        }
-
-        .service-details.active {
-            max-height: 600px;
-            padding: 16px 14px;
-        }
-
-        .service-details p {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #4F4F4F;
-            margin: 0 0 12px 0;
-            line-height: 1.6;
-        }
-
-        .service-details ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .service-details ul li {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            color: #0F6B32;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .service-details ul li:before {
-            display: none;
-        }
-
-        .service-details ul li span.material-symbols-outlined {
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-
-        .request-card li span.material-symbols-outlined {
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-
-        .service-icon-btn:hover {
-            background-color: #C95E10;
-            transform: scale(1.12) rotate(180deg);
-        }
-
-        .service-icon-btn.active {
-            transform: scale(1.12) rotate(0deg);
-            background-color: #0F6B32;
-        }
-
-        .service-icon-btn.active:hover {
-            background-color: #0d5229;
-        }
-
-        .activites-content {
-            display: none;
-        }
-
-        /* À PROPOS */
-        .section-apropos {
-            background: transparent;
-            padding: 80px 0;
-        }
-
-        .section-apropos .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .section-apropos h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(36px, 5.5vw, 54px);
-            font-weight: 700;
-            color: #0F6B32;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .apropos-intro {
-            font-size: 16px;
-            color: #4F4F4F;
-            line-height: 1.8;
-            margin: 0 auto 60px;
-            max-width: 800px;
-        }
-
-        .apropos-values {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            margin-bottom: 80px;
-            text-align: left;
-        }
-
-        .apropos-value {
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .apropos-value-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #E36A13 0%, #FF8C42 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            flex-shrink: 0;
-            color: white;
-        }
-
-        .apropos-value-content h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #0B0B0B;
-            margin-bottom: 12px;
-        }
-
-        .apropos-value-content p {
-            font-size: 15px;
-            color: #4F4F4F;
-            line-height: 1.7;
-        }
-
-        .apropos-stats-wrapper {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-        }
-
-        .apropos-stat {
-            text-align: center;
-        }
-
-        .apropos-stat-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: #E36A13;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .apropos-stat-label {
-            font-size: 13px;
-            color: #4F4F4F;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        @media (max-width: 1024px) {
-            .apropos-values {
-                gap: 30px;
-                margin-bottom: 60px;
-            }
-
-            .apropos-value-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .apropos-stats-wrapper {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .apropos-values {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                margin-bottom: 60px;
-            }
-
-            .apropos-value {
-                gap: 15px;
-            }
-
-            .apropos-value-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-            }
-
-            .apropos-value-content h3 {
-                font-size: 18px;
-            }
-
-            .apropos-stats-wrapper {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .apropos-stat-number {
-                font-size: 32px;
-            }
-        }
-
-        /* POURQUOI CHOISIR IDC */
-        .section-pourquoi {
-            background-color: transparent;
-            padding: 80px 0;
-        }
-
-        .pourquoi-wrapper {
-            display: block;
-            text-align: center;
-        }
-
-        .pourquoi-content h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: #0F6B32;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .pourquoi-content > p {
-            font-size: 16px;
-            color: #4F4F4F;
-            text-align: center;
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .pourquoi-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin: 0;
-        }
-
-        .pourquoi-card {
-            background: linear-gradient(135deg, #F5EFE7 0%, #F9F5F0 100%);
-            padding: 40px 28px;
-            border-radius: 8px;
-            border: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            min-height: 320px;
-        }
-
-        .card-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #E36A13;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .pourquoi-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-        }
-
-        .pourquoi-icon {
-            font-size: 48px;
-            margin-top: auto;
-            display: block;
-            color: var(--color-primary);
-        }
-
-        .pourquoi-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: #1F1F1F;
-            margin-bottom: 12px;
-            margin-top: 0;
-            line-height: 1.3;
-        }
-
-        .pourquoi-card p {
-            font-size: 14px;
-            color: #5F5F5F;
-            line-height: 1.6;
-            margin: 0 0 24px 0;
-        }
-
-        @media (max-width: 1024px) {
-            .pourquoi-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pourquoi-content h2 {
-                font-size: 32px;
-                margin-bottom: 16px;
-            }
-
-            .pourquoi-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .pourquoi-card {
-                padding: 24px 20px;
-            }
-        }
-
-        /* STATIONS IDC */
-        .section-stations {
-            background-color: transparent;
-            padding: 80px 0;
-        }
-
-        .section-stations h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: #0F6B32;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: #4F4F4F;
-            text-align: center;
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .stations-wrapper {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        .stations-map {
-            width: 100%;
-            height: 500px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        .station-info {
-            background: linear-gradient(135deg, #F5EFE7 0%, #F9F5F0 100%);
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(227, 106, 19, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .station-info h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #0F6B32;
-            margin: 0 0 16px 0;
-        }
-
-        .station-info p {
-            font-size: 14px;
-            color: #4F4F4F;
-            margin: 0 0 12px 0;
-            line-height: 1.6;
-        }
-
-        .station-details {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .station-detail-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .station-detail-label {
-            font-weight: 600;
-            color: #0F6B32;
-            min-width: 100px;
-            font-size: 13px;
-        }
-
-        .station-detail-value {
-            color: #4F4F4F;
-            font-size: 13px;
-        }
-
-        @media (max-width: 1024px) {
-            .stations-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .stations-map {
-                height: 400px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section-stations h2 {
-                font-size: 32px;
-            }
-
-            .stations-map {
-                height: 350px;
-            }
-
-            .station-info {
-                padding: 24px;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            background: linear-gradient(135deg, #0B0B0B 0%, #1A1A1A 100%);
-            color: #F4F4F4;
-            padding: 60px 20px 30px;
-            margin-top: 80px;
-        }
-
-        footer .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section ul li a {
-            color: #B0B0B0;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #E36A13;
-        }
-
-        .footer-logo {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: #E36A13;
-            margin-bottom: 15px;
-        }
-
-        .footer-description {
-            font-size: 14px;
-            color: #B0B0B0;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .footer-social a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(227, 106, 19, 0.2);
-            border-radius: 50%;
-            color: #E36A13;
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background: #E36A13;
-            color: #FFFFFF;
-            transform: translateY(-3px);
-        }
-
-        footer .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
-            font-size: 13px;
-            color: #808080;
-        }
-
-        footer .footer-bottom p {
-            margin: 10px 0;
-        }
-
-        footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-
-        footer .footer-links a {
-            color: #808080;
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s ease;
-        }
-
-        footer .footer-links a:hover {
-            color: #E36A13;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            section {
-                padding: 50px 0;
-            }
-
-            section h2 {
-                font-size: 28px;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-                margin: 40px 0;
-            }
-
-            .service-card {
-                border-radius: 14px;
-            }
-
-            .service-image {
-                height: 140px;
-            }
-
-            .service-card-3 {
-                grid-column: 1 / 3;
-                grid-row: auto;
-            }
-
-            .service-card-3 .service-image {
-                height: 140px;
-            }
-
-            .service-info {
-                padding: 14px 12px;
-            }
-
-            .service-card h3 {
-                font-size: 13px;
-            }
-
-            .service-icon-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
-                margin-left: 8px;
-            }
-
-            @media (max-width: 480px) {
-                .services-masonry {
-                    grid-template-columns: 1fr;
-                    gap: 12px;
-                    margin: 30px 0;
-                }
-
-                .service-card-1,
-                .service-card-2,
-                .service-card-3,
-                .service-card-4,
-                .service-card-5 {
-                    grid-column: auto;
-                    grid-row: auto;
-                }
-
-                .service-image {
-                    height: 140px;
-                }
-
-                .service-card-3 .service-image {
-                    height: 140px;
-                }
-
-                .service-info {
-                    padding: 12px 10px;
-                }
-
-                .service-card h3 {
-                    font-size: 13px;
-                }
-            }
-
-            .raccourcis-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .raccourci-btn {
-                padding: 8px 12px;
-            }
-
-            .raccourci-icon {
-                width: 16px;
-                height: 16px;
-            }
-
-            .raccourci-text {
-                font-size: 12px;
-            }
-
-            @media (max-width: 480px) {
-                .raccourcis-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .pourquoi-wrapper {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .pourquoi-image {
-                min-height: 300px;
-            }
-
-            .pourquoi-content h2 {
-                font-size: 32px;
-                margin-bottom: 30px;
-            }
-
-            .pourquoi-grid {
-                gap: 20px;
-            }
-
-            .pourquoi-card {
-                padding: 24px;
-            }
-
-            .pourquoi-card h3 {
-                font-size: 16px;
-            }
-
-            .pourquoi-card p {
-                font-size: 13px;
-            }
-
-            .chiffres-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            footer .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-
-            nav {
-                gap: 20px;
-                font-size: 14px;
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(0, 0, 0, 0.95);
-                padding: 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                width: 100%;
-            }
-
-            nav.active {
-                display: flex;
-            }
-
-            nav a {
-                font-size: 15px;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            .menu-burger {
-                display: flex;
-            }
-
-            .submenu {
-                position: static;
-                background: rgba(227, 106, 19, 0.1);
-                margin-top: 10px;
-                border: none;
-            }
-
-            .header-right {
-                display: none !important;
-            }
-
-            .header-nav {
-                display: none;
-            }
-
-            .header-nav.active {
-                display: flex;
-            }
-
-            .hero {
-                min-height: 80vh;
-                padding-top: 70px;
-                padding-bottom: 40px;
-            }
-
-            .hero .container {
-                padding-top: 120px;
-            }
-
-            .hero h1 {
-                font-size: clamp(32px, 6vw, 48px);
-                margin-bottom: 20px;
-                line-height: 1.2;
-            }
-
-            .hero p {
-                font-size: 16px;
-                margin-bottom: 30px;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .hero-stats {
-                bottom: 30px;
-                right: 20px;
-                gap: 40px;
-            }
-
-            .hero-stat:not(:last-child)::after {
-                height: 40px;
-                right: -20px;
-            }
-
-            .stat-number {
-                font-size: 24px;
-            }
-
-            .stat-label {
-                font-size: 12px;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
     </style>
-    <link rel="stylesheet" href="../assets/css/shared.css">
-    <link rel="stylesheet" href="../assets/css/icons-svg.css">
-    <!-- SVG Icons CSS loaded -->
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <a href="index.html" class="logo">
-                    <img src="../assets/images/logo.png" alt="IDC Logo">
-                </a>
-            </div>
-            
-            <nav id="navbar" class="header-nav">
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head" id="tete">
+    <div class="wrap">
+        <div class="bar" id="barre">
+            <a href="index.html" aria-label="IDC, accueil"><img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures"></a>
+
+            <nav aria-label="Navigation principale">
                 <a href="#accueil">Accueil</a>
                 <a href="#apropos">À propos</a>
                 <a href="#activites">Services</a>
                 <a href="actualites.html">Actualités</a>
                 <a href="eshop.html">IDC e-shop</a>
-                <a href="login.html" class="btn btn-primary btn-sm">Espace client</a>
+                <a href="jobs.html">Carrières</a>
                 <a href="contact.html">Nous contacter</a>
             </nav>
 
-            <div class="header-right">
-                <div class="menu-burger" id="menuBurger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </header>
+            <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="accueil">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Votre partenaire en <span class="hero-accent">énergie</span><br>et distribution de carburants</h1>
-                <p>Carburants, gaz domestique, lubrifiants et solutions pour entreprises partout en Côte d'Ivoire.</p>
-                <div class="hero-cta">
-                    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
-                    <a href="eshop.html" class="btn btn-secondary">Accéder à IDC E-Shop</a>
-                </div>
+            <button class="burger" id="burger" type="button"
+                    aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+                <span></span>
+            </button>
+
+            <div class="mobile-nav" id="menu-mobile">
+                <a href="#accueil">Accueil <span class="ar" aria-hidden="true">→</span></a>
+                <a href="#apropos">À propos <span class="ar" aria-hidden="true">→</span></a>
+                <a href="#activites">Services <span class="ar" aria-hidden="true">→</span></a>
+                <a href="actualites.html">Actualités <span class="ar" aria-hidden="true">→</span></a>
+                <a href="eshop.html">IDC e-shop <span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html">Carrières <span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html">Nous contacter <span class="ar" aria-hidden="true">→</span></a>
+                <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
             </div>
         </div>
-        
-        <!-- Hero Stats - Right side -->
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <div class="stat-label">ans d'expérience</div>
-                <div class="stat-number">20+</div>
+    </div>
+</header>
+
+<main id="contenu">
+
+    <section class="hero on-dark" id="accueil">
+        <div class="wrap">
+            <p class="mono">Ivoirienne d'Hydrocarbures.</p>
+            <h1>Votre partenaire en énergie <span class="accent">et distribution de carburants.</span></h1>
+            <div class="cta">
+                <a class="btn btn--light" href="contact.html#devis">Demander un devis <span class="ar" aria-hidden="true">→</span></a>
+                <a class="btn" href="tpe.html">Découvrir la carte TPE <span class="ar" aria-hidden="true">→</span></a>
             </div>
-            <div class="hero-stat hero-stat-center">
-                <div class="stat-label">Réseau national</div>
-                <div class="stat-number">National</div>
+            <p class="note">Carburants, gaz domestique, lubrifiants et solutions pour entreprises partout en Côte d'Ivoire.</p>
+                    <p class="hero-chiffres">
+                        <span><b>20 ans</b> d'expérience</span>
+                        <span><b>11</b> stations</span>
+                        <span><b>100 000+</b> clients servis</span>
+                        <span><b>24/7</b> service client B2B</span>
+                    </p>
+        </div>
+    </section>
+
+    <section class="band" id="raccourcis">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Comment pouvons-nous vous aider.</p>
+            <div class="split" style="margin-bottom:38px">
+                <h2>Quatre points d'entrée, <span class="accent">selon votre besoin.</span></h2>
+                <p class="lead" style="align-self:end">Particulier ou professionnel, chaque demande a son chemin le plus court.</p>
             </div>
-            <div class="hero-stat">
-                <div class="stat-label">Solutions complètes</div>
-                <div class="stat-number">B2B & B2C</div>
+            <div class="quick">
+                <a href="#stations"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Trouver une station</span><span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html#devis"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><span>Demander un devis</span><span class="ar" aria-hidden="true">→</span></a>
+                <a href="tpe.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span>Carte TPE professionnelle</span><span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span>Nous rejoindre</span><span class="ar" aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION RACCOURCIS -->
-    <section class="section-raccourcis" id="raccourcis">
-        <div class="container">
-            <div class="raccourcis-wrapper">
-                <div class="raccourcis-content">
-                    <h3>Comment pouvons-nous vous aider ?</h3>
-                    <div class="raccourcis-grid">
-                        <a href="#stations" class="raccourci-btn">
-                            <span class="material-symbols-outlined raccourci-icon icon-xl icon-primary">location_on</span>
-                            <span class="raccourci-text">Trouver une station</span>
-                        </a>
-                        <a href="tpe.html" class="raccourci-btn">
-                            <span class="material-symbols-outlined raccourci-icon icon-xl icon-primary">credit_card</span>
-                            <span class="raccourci-text">Carte TPE</span>
-                        </a>
-                        <a href="contact.html" class="raccourci-btn">
-                            <span class="material-symbols-outlined raccourci-icon icon-xl icon-primary">phone</span>
-                            <span class="raccourci-text">Nous contacter</span>
-                        </a>
-                        <a href="jobs.html" class="raccourci-btn">
-                            <span class="material-symbols-outlined raccourci-icon icon-xl icon-primary">work</span>
-                            <span class="raccourci-text">Trouver un job</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="raccourcis-image-wrapper">
-                    <img src="../assets/images/2ans.png" alt="20 ans d'expérience IDC" class="raccourcis-image">
-                </div>
+    <section class="band band--pale" id="activites">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Nos services.</p>
+            <div class="split">
+                <h2>Une gamme complète, <span class="accent">du dépôt à la pompe.</span></h2>
+                <p class="lead" style="align-self:end">IDC couvre tous les besoins en carburants, gaz, lubrifiants et services B2B, avec une chaîne d'approvisionnement tenue de bout en bout.</p>
+            </div>
+            <div class="tiles tiles--5">
+                <a class="tile" href="#activites">
+                    <i style="background-image:url('../assets/images/cab.webp')"></i>
+                    <span class="cap"><span class="num">01</span><span class="nom">Carburants</span></span>
+                </a>
+                <a class="tile" href="#activites">
+                    <i style="background-image:url('../assets/images/gaz.webp')"></i>
+                    <span class="cap"><span class="num">02</span><span class="nom">Gaz butane</span></span>
+                </a>
+                <a class="tile" href="eshop.html">
+                    <i style="background-image:url('../assets/images/lub.webp')"></i>
+                    <span class="cap"><span class="num">03</span><span class="nom">Lubrifiants</span></span>
+                </a>
+                <a class="tile" href="#stations">
+                    <i style="background-image:url('../assets/images/station.webp')"></i>
+                    <span class="cap"><span class="num">04</span><span class="nom">Stations &amp; services</span></span>
+                </a>
+                <a class="tile tile--plat" href="contact.html?sujet=Soute">
+                    <span class="tile-fond" aria-hidden="true"><svg class="tile-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18.5c1.6 0 1.6 1.2 3.2 1.2s1.6-1.2 3.2-1.2 1.6 1.2 3.2 1.2 1.6-1.2 3.2-1.2 1.6 1.2 3.2 1.2"/><path d="M4.5 15.5 6 10.2h12l1.5 5.3"/><path d="M12 10.2V5"/><path d="M8.5 5h7"/><path d="M6 13h12"/></svg></span>
+                    <span class="cap"><span class="num">05</span><span class="nom">Soute maritime</span></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- NOS SERVICES -->
-    <section class="section-activites" id="activites">
-        <div class="container">
-            <h2>Nos services</h2>
-            <p style="text-align: center; font-size: 16px; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">IDC offre une gamme complète de solutions énergétiques conçues pour répondre à tous vos besoins en carburants, gaz, lubrifiants et services B2B.</p>
-            
-            <div class="services-masonry">
-                <!-- Service 1: Carburants (taille normale) -->
-                <div class="service-card service-card-1">
-                    <div class="service-image service-image-1"></div>
-                    <div class="service-info">
-                        <h3>Carburants</h3>
-                        <button class="service-icon-btn" data-service="carburants"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
-                    </div>
-                    <div class="service-details">
-                        <p>IDC propose une gamme complète de carburants pour tous types de véhicules et besoins professionnels. Notre priorité : assurer qualité, disponibilité et sécurité.</p>
-                        <ul>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Essence 95 et 98</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Diesel premium</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Disponibilité 24/7</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Normes internationales</li>
-                        </ul>
-                    </div>
+    <section class="band" id="apropos">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">À propos.</p>
+            <div class="split" style="margin-bottom:48px">
+                <h2>Un acteur majeur de la distribution <span class="accent">d'énergie en Côte d'Ivoire.</span></h2>
+                <div>
+                    <p class="lead">Fondée en 2003, IDC fournit des solutions énergétiques fiables et sécurisées, dans le respect des normes de qualité et de sécurité les plus strictes.</p>
+                    <p class="body">Nos équipes accompagnent aussi bien le particulier qui remplit sa <a class="lnk" href="#activites">bouteille de gaz</a> que le <a class="lnk" href="tpe.html">gestionnaire de flotte</a> qui suit sa consommation au litre près.</p>
                 </div>
+            </div>
+            <div class="values">
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><h3>Vision</h3><p>Être le partenaire énergétique le plus fiable pour entreprises et particuliers en Côte d'Ivoire.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><h3>Mission</h3><p>Distribuer carburants, gaz et lubrifiants avec professionnalisme et proximité.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><h3>Valeurs</h3><p>Fiabilité, sécurité, transparence et innovation au cœur de nos opérations.</p></div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Service 2: Gaz butane (taille normale) -->
-                <div class="service-card service-card-2">
-                    <div class="service-image service-image-2"></div>
-                    <div class="service-info">
-                        <h3>Gaz butane</h3>
-                        <button class="service-icon-btn" data-service="gaz"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
-                    </div>
-                    <div class="service-details">
-                        <p>Nous distribuons du gaz butane pour les particuliers et entreprises, dans des emballages sécurisés et conformes aux normes locales. IDC garantit un approvisionnement fiable et rapide.</p>
-                        <ul>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Bouteilles de 3kg, 6kg, 12kg</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Recharge rapide</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Prix compétitifs</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Conformité aux normes</li>
-                        </ul>
-                    </div>
-                </div>
+    <section class="band band--pale" id="pourquoi">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Pourquoi IDC.</p>
+            <div class="split" style="margin-bottom:38px">
+                <h2>Ce qui fait de nous <span class="accent">un partenaire de confiance.</span></h2>
+                <p class="lead" style="align-self:end">Vingt ans d'exploitation continue au service des Ivoiriens.</p>
+            </div>
+            <div class="values">
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><h3>Fiabilité</h3><p>Des produits certifiés et sécurisés, contrôlés à chaque étape de la chaîne.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><h3>Expertise locale</h3><p>Plus de vingt ans d'expérience au service des Ivoiriens.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg><h3>Réseau national</h3><p>Onze stations réparties d&rsquo;Abidjan à San Pédro, sur les axes de transit.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><h3>Service client</h3><p>Une équipe réactive pour vos besoins B2B comme pour les particuliers.</p></div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Service 3: Carte TPE (taille plus grande) -->
-                <div class="service-card service-card-3">
-                    <div class="service-image service-image-4"></div>
-                    <div class="service-info">
-                        <h3>Carte TPE (B2B)</h3>
-                        <button class="service-icon-btn" data-service="carte-tpe"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
-                    </div>
-                    <div class="service-details">
-                        <p>La Carte TPE IDC est la solution idéale pour gérer votre consommation de carburant en entreprise.</p>
-                        <ul>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Paiement simplifié et sécurisé</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Gestion centralisée des véhicules</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Suivi en temps réel des dépenses</li>
-                        </ul>
-                        <a href="tpe.html" class="btn btn-primary btn-sm" style="margin-top: 12px; display: inline-block; font-size: 12px;">Demander une carte</a>
-                    </div>
-                </div>
+    <section class="band" id="stations">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Réseau / 11 stations.</p>
+            <div class="split">
+                <h2>Nos stations dans <span class="accent">toute la Côte d'Ivoire.</span></h2>
+                <p class="lead" style="align-self:end">Un maillage pensé pour la proximité : sur les axes de transit, dans les zones industrielles et au cœur des quartiers.</p>
+            </div>
+            <div class="map-cols">
+                <div id="map" class="map-box"></div>
+                <div class="map-panel" id="stationInfo"></div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Service 4: Lubrifiants (taille normale) -->
-                <div class="service-card service-card-4">
-                    <div class="service-image service-image-3"></div>
-                    <div class="service-info">
-                        <h3>Lubrifiants</h3>
-                        <button class="service-icon-btn" data-service="lubrifiants"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
-                    </div>
-                    <div class="service-details">
-                        <p>Nos lubrifiants sont conçus pour protéger vos moteurs et prolonger leur durée de vie. IDC propose des produits pour véhicules légers, utilitaires et industriels, adaptés à chaque usage.</p>
-                        <ul>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Huiles moteur premium</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Fluides transmission</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Lubrifiants industriels</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Garantie de qualité</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Service 5: Stations (taille normale) -->
-                <div class="service-card service-card-5">
-                    <div class="service-image service-image-5"></div>
-                    <div class="service-info">
-                        <h3>Stations</h3>
-                        <button class="service-icon-btn" data-service="stations"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
-                    </div>
-                    <div class="service-details">
-                        <p>Nos stations sont réparties dans tout le pays pour vous garantir proximité et efficacité. Chaque station propose :</p>
-                        <ul>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Carburants de qualité</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Lubrifiants et accessoires</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Service rapide et professionnel</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Service 6: Shop & Go (taille normale) -->
-                <div class="service-card service-card-6">
-                    <div class="service-image service-image-6"></div>
-                    <div class="service-info">
-                        <h3>Shop & Go</h3>
-                        <button class="service-icon-btn" data-service="shop-go"><span class="material-symbols-outlined icon-primary icon-m">expand_more</span></button>
-                    </div>
-                    <div class="service-details">
-                        <p>Shop & Go est notre boutique intégrée dans nos stations pour vos besoins du quotidien : snacks, boissons, accessoires automobiles et produits d'entretien.</p>
-                        <ul>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Produits de qualité</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Prix compétitifs</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Service rapide</li>
-                            <li><span class="material-symbols-outlined icon-success icon-s">done</span> Disponible 24/7</li>
-                        </ul>
+    <section class="band band--night on-dark" id="tpe">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Vous êtes une entreprise.</p>
+            <div class="split">
+                <h2>Le carburant de votre flotte, <span class="accent">sans avance de trésorerie.</span></h2>
+                <p class="lead" style="align-self:end;color:rgba(255,255,255,.82)">Vos conducteurs règlent directement en station. Vous recevez une facture unique, détaillée par véhicule.</p>
+            </div>
+            <div class="duo">
+                <div class="shot" style="background-image:url('../assets/images/tpe.webp')" role="img" aria-label="Une carte TPE IDC tenue en main"></div>
+                <div>
+                    <ul class="list">
+                        <li><span>01</span> Plafond paramétrable par carte et par conducteur</li>
+                        <li><span>02</span> Relevé détaillé de chaque plein</li>
+                        <li><span>03</span> Acceptée dans les onze stations du réseau</li>
+                        <li><span>04</span> Réponse d'un commercial sous 48 heures</li>
+                    </ul>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px">
+                        <a class="btn btn--light" href="tpe.html">Découvrir la carte TPE <span class="ar" aria-hidden="true">→</span></a>
+                        <a class="btn" href="contact.html#devis">Demander un devis <span class="ar" aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- À PROPOS DE IDC -->
-    <section class="section-apropos" id="apropos">
-        <div class="container">
-            <h2>À propos de IDC</h2>
-            <p class="apropos-intro">
-                Fondée en 2003, IDC (Ivoirienne d'Hydrocarbures) est aujourd'hui un acteur majeur de la distribution d'énergie en Côte d'Ivoire. Notre mission : fournir des solutions énergétiques fiables et sécurisées à nos clients, tout en respectant les normes de qualité et de sécurité les plus strictes.
-            </p>
-
-            <div class="apropos-values">
-                <div class="apropos-value">
-                    <div class="apropos-value-icon">
-                        <span class="material-symbols-outlined icon-primary icon-l">visibility</span>
-                    </div>
-                    <div class="apropos-value-content">
-                        <h3>Vision</h3>
-                        <p>Être le partenaire énergétique le plus fiable pour entreprises et particuliers en Côte d'Ivoire.</p>
-                    </div>
-                </div>
-                <div class="apropos-value">
-                    <div class="apropos-value-icon">
-                        <span class="material-symbols-outlined icon-primary icon-l">public</span>
-                    </div>
-                    <div class="apropos-value-content">
-                        <h3>Mission</h3>
-                        <p>Distribuer carburants, gaz et lubrifiants avec professionnalisme et proximité.</p>
-                    </div>
-                </div>
-                <div class="apropos-value">
-                    <div class="apropos-value-icon">
-                        <span class="material-symbols-outlined icon-primary icon-l">star</span>
-                    </div>
-                    <div class="apropos-value-content">
-                        <h3>Valeurs</h3>
-                        <p>Fiabilité, sécurité, transparence et innovation au cœur de nos opérations.</p>
-                    </div>
-                </div>
+    <section class="band band--pale close">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Parlons-en.</p>
+            <div class="row">
+                <h2 style="max-width:18ch">Un interlocuteur commercial, <span class="accent">pas un formulaire anonyme.</span></h2>
+                <a class="btn" href="contact.html#devis">Demander un devis <span class="ar" aria-hidden="true">→</span></a>
             </div>
-
-            <div class="apropos-stats-wrapper">
-                <div class="apropos-stat">
-                    <div class="apropos-stat-number">20+</div>
-                    <div class="apropos-stat-label">Années d'expérience</div>
-                </div>
-                <div class="apropos-stat">
-                    <div class="apropos-stat-number">50+</div>
-                    <div class="apropos-stat-label">Stations en Côte d'Ivoire</div>
-                </div>
-                <div class="apropos-stat">
-                    <div class="apropos-stat-number">100K+</div>
-                    <div class="apropos-stat-label">Clients satisfaits</div>
-                </div>
-                <div class="apropos-stat">
-                    <div class="apropos-stat-number">24/7</div>
-                    <div class="apropos-stat-label">Service client</div>
-                </div>
-            </div>
+            <p class="muted" style="margin-top:22px">Une question avant de vous engager ?
+                <a class="lnk" href="tel:+22520210000">+225 20 21 00 00</a> ou
+                <a class="lnk" href="mailto:contact@idc.ci">contact@idc.ci</a> — du lundi au vendredi, 8 h à 16 h.</p>
         </div>
     </section>
 
-    <!-- POURQUOI CHOISIR IDC -->
-    <section class="section-pourquoi" id="pourquoi">
-        <div class="container">
-            <div class="pourquoi-wrapper">
-                <div class="pourquoi-content">
-                    <h2>Pourquoi choisir IDC</h2>
-                    <p>Découvrez les avantages qui font de IDC le partenaire de confiance des Ivoiriens depuis plus de 20 ans.</p>
-                    <div class="pourquoi-grid">
-                        <div class="pourquoi-card">
-                            <div class="card-number">01</div>
-                            <h3>Fiabilité</h3>
-                            <p>Des produits certifiés et sécurisés pour votre tranquillité.</p>
-                            <div class="pourquoi-icon">
-                                <span class="material-symbols-outlined icon-primary icon-l">lock</span>
-                            </div>
-                        </div>
-                        <div class="pourquoi-card">
-                            <div class="card-number">02</div>
-                            <h3>Expertise locale</h3>
-                            <p>Plus de 20 ans d'expérience au service des Ivoiriens.</p>
-                            <div class="pourquoi-icon">
-                                <span class="material-symbols-outlined icon-primary icon-l">public</span>
-                            </div>
-                        </div>
-                        <div class="pourquoi-card">
-                            <div class="card-number">03</div>
-                            <h3>Réseau étendu</h3>
-                            <p>Stations et points de vente dans tout le pays.</p>
-                            <div class="pourquoi-icon">🗺️</div>
-                        </div>
-                        <div class="pourquoi-card">
-                            <div class="card-number">04</div>
-                            <h3>Service client</h3>
-                            <p>Équipe réactive pour vos besoins B2B et particuliers.</p>
-                            <div class="pourquoi-icon">
-                                <span class="material-symbols-outlined icon-primary icon-l">people</span>
-                            </div>
-                        </div>
-                    </div>
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <h3>IDC</h3>
+                <p class="about">Ivoirienne d'Hydrocarbures — votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="fsocial">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- STATIONS IDC -->
-    <section class="section-stations" id="stations">
-        <div class="container">
-            <h2>Nos stations dans toute la Côte d'Ivoire</h2>
-            <p class="section-subtitle">Découvrez nos 50+ stations réparties dans tout le pays pour vous servir au mieux.</p>
-            
-            <div class="stations-wrapper">
-                <div id="map" class="stations-map"></div>
-                <div class="station-info" id="stationInfo">
-                    <h3>Sélectionnez une station</h3>
-                    <p>Cliquez sur une localisation sur la carte pour voir les détails.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">IDC</div>
-                <p class="footer-description">Ivoirienne d'Hydrocarbures - Votre partenaire de confiance en énergie et distribution de carburants.</p>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com" target="_blank" title="Facebook">f</a>
-                    <a href="https://www.twitter.com" target="_blank" title="Twitter">𝕏</a>
-                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">in</a>
-                    <a href="https://www.instagram.com" target="_blank" title="Instagram">📷</a>
-                </div>
-            </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Nos activités</h3>
                 <ul>
                     <li><a href="#activites">Carburants</a></li>
                     <li><a href="#activites">Gaz butane</a></li>
-                    <li><a href="#activites">Lubrifiants</a></li>
-                    <li><a href="#activites">Carte TPE</a></li>
-                    <li><a href="#stations">Stations & services</a></li>
+                    <li><a href="eshop.html">Lubrifiants</a></li>
+                    <li><a href="tpe.html">Carte TPE</a></li>
+                    <li><a href="#stations">Stations &amp; services</a></li>
+                        <li><a href="contact.html?sujet=Soute">Soute maritime</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Ressources</h3>
                 <ul>
                     <li><a href="#apropos">À propos de nous</a></li>
                     <li><a href="#stations">Trouver une station</a></li>
-                    <li><a href="eshop.html">Boutique en ligne</a></li>
-                    <li><a href="jobs.html">Rejoignez notre équipe</a></li>
-                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li><a href="client.html">Espace client</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="jobs.html">Carrières</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000">📞 +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 4px;">mail</span> contact@idc.ci</a></li>
-                    <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li><a href="contact.html">Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="#">Politique de confidentialité</a>
-                <span>•</span>
-                <a href="#">Conditions d'utilisation</a>
-                <span>•</span>
-                <a href="#">Mentions légales</a>
-                <span>•</span>
-                <a href="#">Gestion des cookies</a>
-            </div>
-            <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
+        <div class="fbot">
+            <span>© 2026 IDC — Ivoirienne d'Hydrocarbures. Tous droits réservés.</span>
+            <span>Politique de confidentialité · Mentions légales</span>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        // Stations data
-        const stations = [
-            { name: 'Station Abidjan Centre', lat: 5.3364, lng: -4.0383, address: 'Boulevard de la République', phone: '+225 20 21 00 00', hours: '24h/24' },
-            { name: 'Station Treichville', lat: 5.3200, lng: -4.0100, address: 'Rue de Commerce', phone: '+225 20 22 00 00', hours: '24h/24' },
-            { name: 'Station Plateau', lat: 5.3450, lng: -4.0050, address: 'Avenue Chardy', phone: '+225 20 23 00 00', hours: '06h-22h' },
-            { name: 'Station Yopougon', lat: 5.3550, lng: -4.1200, address: 'Boulevard Giscard d\'Estaing', phone: '+225 20 24 00 00', hours: '24h/24' },
-            { name: 'Station Cocody', lat: 5.3800, lng: -3.9700, address: 'Rue du Docteur Jamot', phone: '+225 20 25 00 00', hours: '06h-23h' },
-            { name: 'Station Marcory', lat: 5.3150, lng: -3.9600, address: 'Route de Bassam', phone: '+225 20 26 00 00', hours: '24h/24' },
-            { name: 'Station Koumassi', lat: 5.2800, lng: -4.0300, address: 'Rue de la Paix', phone: '+225 20 27 00 00', hours: '06h-21h' },
-            { name: 'Station Adjamé', lat: 5.3900, lng: -4.0500, address: 'Avenue de la République', phone: '+225 20 28 00 00', hours: '24h/24' },
-            { name: 'Station Yamoussoukro', lat: 6.8271, lng: -5.2893, address: 'Boulevard de la Paix', phone: '+225 30 64 00 00', hours: '06h-22h' },
-            { name: 'Station Bouaké', lat: 7.6977, lng: -5.0303, address: 'Rue du Commerce', phone: '+225 31 63 00 00', hours: '06h-22h' },
-            { name: 'Station San Pédro', lat: 4.7467, lng: -6.6289, address: 'Port Autonome', phone: '+225 34 77 00 00', hours: '24h/24' },
-            { name: 'Station Daloa', lat: 6.8783, lng: -6.4497, address: 'Boulevard de l\'Indépendance', phone: '+225 32 76 00 00', hours: '06h-22h' }
+    <script src="./_tete.js" defer></script>
+
+<script>
+(function () {
+    'use strict';
+
+    // Leaflet n'est demandé qu'à l'approche de la section : sa feuille, son
+    // script et ses tuiles représentaient 780 Ko chargés d'emblée pour une
+    // carte située à 3 400 px du haut de la page.
+    var CSS = { href: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css', integrity: 'sha384-c6Rcwz4e4CITMbu/NBmnNS8yN2sC3cUElMEMfP3vqqKFp7GOYaaBBCqmaWBjmkjb' };
+    var JS  = { src: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',  integrity: 'sha384-NElt3Op+9NBMCYaef5HxeJmU4Xeard/Lku8ek6hoPTvYkQPh3zLIrJP7KiRocsxO' };
+
+    var section = document.getElementById('stations');
+    var lance = false;
+
+    function charger() {
+        if (lance) { return; }
+        lance = true;
+
+        var lien = document.createElement('link');
+        lien.rel = 'stylesheet';
+        lien.href = CSS.href;
+        lien.integrity = CSS.integrity;
+        lien.crossOrigin = 'anonymous';
+        lien.referrerPolicy = 'no-referrer';
+        document.head.appendChild(lien);
+
+        var script = document.createElement('script');
+        script.src = JS.src;
+        script.integrity = JS.integrity;
+        script.crossOrigin = 'anonymous';
+        script.referrerPolicy = 'no-referrer';
+        script.onload = dessiner;
+        document.head.appendChild(script);
+    }
+
+    function dessiner() {
+
+        // ══ Carte des stations — repris tel quel de la version précédente ══
+    const stations = [
+            { name: "Station Sococé II Plateaux", locality: "Cocody, Abidjan", lat: 5.3897, lng: -3.9958 },
+            { name: "Station Williamsville", locality: "Adjamé, Abidjan", lat: 5.3617, lng: -4.0206 },
+            { name: "Station N'Douci", locality: "Agnéby-Tiassa", lat: 6.1936, lng: -4.6708 },
+            { name: "Station Bayota", locality: "Gôh, près de Gagnoa", lat: 6.2833, lng: -5.9333 },
+            { name: "Station Tarato", locality: "Gôh", lat: 6.2, lng: -5.85 },
+            { name: "Station Dianra", locality: "Béré, nord-ouest", lat: 8.7167, lng: -6.2833 },
+            { name: "Station Daloa", locality: "Haut-Sassandra", lat: 6.877, lng: -6.4502 },
+            { name: "Station Guézon", locality: "Guémon, près de Duékoué", lat: 6.75, lng: -7.2 },
+            { name: "Station Zouan-Hounien", locality: "Tonkpi, ouest", lat: 6.9167, lng: -7.9833 },
+            { name: "Station Bouna", locality: "Bounkani, nord-est", lat: 9.2667, lng: -2.9833 },
+            { name: "Station Man", locality: "Tonkpi, ouest", lat: 7.4, lng: -7.55 }
         ];
 
-        // Initialize map
-        const map = L.map('map').setView([7.0, -5.5], 7);
 
-        // Add tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
-            maxZoom: 19
-        }).addTo(map);
+            // Initialize map
+            const map = L.map('map').setView([7.0, -5.5], 7);
 
-        // Custom icon for stations
-        const stationIcon = L.icon({
-            iconUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAzMiA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHN0eWxlPiAuYSB7IGZpbGw6ICNFMzZBMTM7IH0gPC9zdHlsZT4KPHN0eWxlPiAuYiB7IGZpbGw6IHdoaXRlOyB9IDwvc3R5bGU+Cjxwb2x5Z29uIGNsYXNzPSJhIiBwb2ludHM9IjE2LDAgMzIsMzIgMTYsNDggMCwzMiIgLz4KPGNPCG1lIGNsYXNzPSJiIiBjeD0iMTYiIGN5PSIxNiIgcj0iNiIgLz4KPC9zdmc+',
-            iconSize: [32, 48],
-            iconAnchor: [16, 48],
-            popupAnchor: [0, -48]
-        });
+        // Le cadrage était figé sur un point et un zoom choisis pour les
+        // douze stations fictives. Il épouse maintenant les stations réelles,
+        // qui s'étendent de Bouna au nord-est à Zouan-Hounien à l'ouest.
+        function cadrerTout() {
+            const bornes = L.latLngBounds(stations.map(st => [st.lat, st.lng]));
+            map.fitBounds(bornes, { padding: [38, 38], maxZoom: 9, animate: false });
+        }
 
-        // Add markers for each station
-        stations.forEach(station => {
-            const marker = L.marker([station.lat, station.lng], { icon: stationIcon }).addTo(map);
-            
-            marker.addEventListener('click', () => {
-                const infoDiv = document.getElementById('stationInfo');
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Custom icon for stations
+            const stationIcon = L.icon({
+                iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSI0NCIgdmlld0JveD0iMCAwIDMyIDQ0Ij48cGF0aCBkPSJNMTYgMEM3LjE2IDAgMCA3LjE2IDAgMTZjMCAxMSAxNiAyOCAxNiAyOHMxNi0xNyAxNi0yOGMwLTguODQtNy4xNi0xNi0xNi0xNnoiIGZpbGw9IiNCQzUxMDgiLz48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSI2IiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+',
+                iconSize: [32, 44],
+                iconAnchor: [16, 44],
+                popupAnchor: [0, -44]
+            });
+
+            // Panneau des stations
+            // Au repos il affichait « Sélectionnez une station » et rien d'autre :
+            // une grande zone vide à côté de la carte. Il liste désormais les
+            // stations, et la sélection fonctionne dans les deux sens.
+            const infoDiv = document.getElementById('stationInfo');
+            const markers = {};
+
+            function escapeHtml(v) {
+                return String(v).replace(/[&<>"']/g, c => ({
+                    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+                })[c]);
+            }
+
+            function renderList() {
                 infoDiv.innerHTML = `
-                    <h3>${station.name}</h3>
+                    <h3>Nos stations</h3>
+                    <p class="station-hint">${stations.length} stations en Côte d'Ivoire. Choisissez-en une, ou cliquez sur un repère.</p>
+                    <ul class="station-list">
+                        ${stations.map((st, i) => `
+                            <li>
+                                <button type="button" class="station-list-btn" data-i="${i}">
+                                    <span class="station-list-name">${escapeHtml(st.name)}</span>
+                                    <span class="station-list-hours">${escapeHtml(st.locality)}</span>
+                                </button>
+                            </li>`).join('')}
+                    </ul>
+                `;
+                infoDiv.querySelectorAll('.station-list-btn').forEach(btn => {
+                    btn.addEventListener('click', () => select(+btn.dataset.i, true));
+                });
+            }
+
+            function renderDetail(st) {
+                infoDiv.innerHTML = `
+                    <button type="button" class="station-back">&#8592; Toutes les stations</button>
+                    <h3>${escapeHtml(st.name)}</h3>
                     <div class="station-details">
                         <div class="station-detail-item">
-                            <span class="station-detail-label">📍 Adresse:</span>
-                            <span class="station-detail-value">${station.address}</span>
+                            <span class="station-detail-label">Localité</span>
+                            <span class="station-detail-value">${escapeHtml(st.locality)}</span>
                         </div>
                         <div class="station-detail-item">
-                            <span class="station-detail-label">📞 Téléphone:</span>
-                            <span class="station-detail-value">${station.phone}</span>
-                        </div>
-                        <div class="station-detail-item">
-                            <span class="station-detail-label">⏰ Horaires:</span>
-                            <span class="station-detail-value">${station.hours}</span>
+                            <span class="station-detail-label">Renseignements</span>
+                            <span class="station-detail-value">
+                                <a href="tel:+2252021000000">+225 20 21 00 00</a>
+                            </span>
                         </div>
                     </div>
                 `;
-            });
-        });
-
-        // Menu burger
-        const menuBurger = document.getElementById('menuBurger');
-        const navbar = document.getElementById('navbar');
-        const header = document.querySelector('header');
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        menuBurger.addEventListener('click', () => {
-            menuBurger.classList.toggle('active');
-            navbar.classList.toggle('active');
-        });
-
-        // Fermer le menu quand on clique sur un lien
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuBurger.classList.remove('active');
-                navbar.classList.remove('active');
-            });
-        });
-
-        // Smooth scroll links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Service card expansion/collapse functionality
-        document.querySelectorAll('.service-icon-btn').forEach(button => {
-            button.addEventListener('click', function (e) {
-                e.preventDefault();
-                const serviceCard = this.closest('.service-card');
-                const serviceDetails = serviceCard.querySelector('.service-details');
-                
-                // Toggle active class on button
-                this.classList.toggle('active');
-                
-                // Change button icon between expand_more and expand_less
-                if (this.classList.contains('active')) {
-                    this.innerHTML = '<span class="material-symbols-outlined icon-primary icon-m">expand_less</span>';
-                } else {
-                    this.innerHTML = '<span class="material-symbols-outlined icon-primary icon-m">expand_more</span>';
-                }
-                
-                // Toggle active class on details
-                serviceDetails.classList.toggle('active');
-                
-                // Close other open cards
-                document.querySelectorAll('.service-card').forEach(card => {
-                    if (card !== serviceCard) {
-                        const otherBtn = card.querySelector('.service-icon-btn');
-                        const otherDetails = card.querySelector('.service-details');
-                        otherBtn.classList.remove('active');
-                        otherBtn.innerHTML = '<span class="material-symbols-outlined icon-primary icon-m">expand_more</span>';
-                        otherDetails.classList.remove('active');
-                    }
+                infoDiv.querySelector('.station-back').addEventListener('click', () => {
+                    renderList();
+                    // sans cela on revenait à la liste en gardant la carte
+                    // zoomée sur la dernière station consultée
+                    map.flyToBounds(L.latLngBounds(stations.map(st => [st.lat, st.lng])),
+                                    { padding: [38, 38], maxZoom: 9, duration: .7 });
                 });
+            }
+
+            function select(i, recentrer) {
+                const st = stations[i];
+                renderDetail(st);
+                if (recentrer) map.flyTo([st.lat, st.lng], 13, { duration: 0.8 });
+                if (markers[i]) markers[i].openPopup?.();
+            }
+
+            stations.forEach((station, i) => {
+                // WCAG 4.1.2 — sans `alt`, Leaflet nomme chaque repère « Marker » :
+                // les 12 stations étaient annoncées à l'identique.
+                const marker = L.marker([station.lat, station.lng],
+                    { icon: stationIcon, alt: station.name, keyboard: true }).addTo(map);
+                marker.on('click', () => select(i, false));
+                markers[i] = marker;
             });
-        });
-    </script>
 
+            cadrerTout();
+        renderList();
 
+    }
 
-    <script src="../assets/js/footer-loader.js"></script>
+    // Sans IntersectionObserver — ou sans la section — on charge tout de suite :
+    // mieux vaut une page plus lourde qu'une carte absente.
+    if (!section || !('IntersectionObserver' in window)) {
+        charger();
+    } else {
+        var oeil = new IntersectionObserver(function (entrees) {
+            if (entrees.some(function (e) { return e.isIntersecting; })) {
+                oeil.disconnect();
+                charger();
+            }
+        }, { rootMargin: '600px 0px' });
+        oeil.observe(section);
+    }
+})();
+</script>
 
-    <script src="../assets/js/icon-loader.js"></script>
-    <!-- SVG Icon Loader loaded -->
 </body>
 </html>
-

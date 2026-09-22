@@ -1,0 +1,15 @@
+# robots.txt — IDC (Ivoirienne d'Hydrocarbures)
+# ATTENTION : remplacer www.idc.ci par le domaine réel avant mise en production.
+
+User-agent: *
+Allow: /
+
+# Espace client et pages applicatives : sans intérêt pour l'indexation
+Disallow: /login.html
+Disallow: /dashboard.html
+Disallow: /client.html
+Disallow: /purchases.html
+Disallow: /cartes-tpe.html
+Disallow: /cart-devis.html
+
+Sitemap: https://www.idc.ci/sitemap.xml

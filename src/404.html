@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page introuvable - IDC</title>
+    <meta name="description" content="Cette page n'existe pas ou a été déplacée.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A7A39">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+
+    <style>
+        .erreur { padding-block: clamp(150px, 18vw, 230px) clamp(70px, 8vw, 110px); }
+        .erreur .code { font-family: var(--mono); font-size: 11px; font-weight: 500;
+                        letter-spacing: .14em; text-transform: uppercase;
+                        color: var(--orange-t); margin-bottom: 22px; }
+        .erreur h1 { font-size: clamp(36px, 4.4vw, 58px); margin-bottom: 18px; }
+        .erreur .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+        .erreur .pistes { margin-top: 54px; }
+    </style>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head" id="tete">
+        <div class="wrap">
+            <div class="bar" id="barre">
+                <a href="index.html" aria-label="IDC, accueil"><img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures"></a>
+
+                <nav aria-label="Navigation principale">
+                <a href="index.html#accueil">Accueil</a>
+                <a href="index.html#apropos">À propos</a>
+                <a href="index.html#activites">Services</a>
+                <a href="actualites.html">Actualités</a>
+                <a href="eshop.html">IDC e-shop</a>
+                <a href="jobs.html">Carrières</a>
+                <a href="contact.html">Nous contacter</a>
+                </nav>
+
+                <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+
+                <button class="burger" id="burger" type="button"
+                        aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+                    <span></span>
+                </button>
+
+                <div class="mobile-nav" id="menu-mobile">
+                <a href="index.html#accueil">Accueil <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#apropos">À propos <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#activites">Services <span class="ar" aria-hidden="true">→</span></a>
+                <a href="actualites.html">Actualités <span class="ar" aria-hidden="true">→</span></a>
+                <a href="eshop.html">IDC e-shop <span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html">Carrières <span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html">Nous contacter <span class="ar" aria-hidden="true">→</span></a>
+                    <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<main class="erreur" id="contenu">
+    <div class="wrap">
+        <p class="code">Erreur 404.</p>
+        <div class="split">
+            <h1>Cette page <span class="accent">n&rsquo;existe pas.</span></h1>
+            <div style="align-self:end">
+                <p class="lead">L&rsquo;adresse est peut-être mal orthographiée, ou la page a été déplacée depuis votre dernière visite.</p>
+                <div class="cta">
+                    <a class="btn" href="index.html">Revenir à l&rsquo;accueil <span class="ar" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn btn--ghost" href="contact.html">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pistes">
+            <h2 class="mono" style="margin-bottom:22px">Où vouliez-vous aller ?</h2>
+            <ul class="list list--detail" style="max-width:860px">
+                <li><span>01</span> <span><strong><a class="lnk" href="index.html#activites">Nos services</a></strong><span class="muted">Carburants, gaz butane, lubrifiants, stations et soute maritime.</span></span></li>
+                <li><span>02</span> <span><strong><a class="lnk" href="eshop.html">IDC e-shop</a></strong><span class="muted">Le catalogue lubrifiants et la demande de devis.</span></span></li>
+                <li><span>03</span> <span><strong><a class="lnk" href="tpe.html">Carte TPE</a></strong><span class="muted">Le carburant de votre flotte, sans avance de trésorerie.</span></span></li>
+                <li><span>04</span> <span><strong><a class="lnk" href="index.html#stations">Nos stations</a></strong><span class="muted">Les onze stations du réseau, sur la carte.</span></span></li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <h3>IDC</h3>
+                <p class="about">Ivoirienne d'Hydrocarbures — votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="fsocial">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h3>Nos activités</h3>
+                <ul>
+                    <li><a href="index.html#activites">Carburants</a></li>
+                    <li><a href="index.html#activites">Gaz butane</a></li>
+                    <li><a href="eshop.html">Lubrifiants</a></li>
+                    <li><a href="tpe.html">Carte TPE</a></li>
+                    <li><a href="index.html#stations">Stations &amp; services</a></li>
+                        <li><a href="contact.html?sujet=Soute">Soute maritime</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="index.html#apropos">À propos de nous</a></li>
+                    <li><a href="index.html#stations">Trouver une station</a></li>
+                    <li><a href="client.html">Espace client</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="jobs.html">Carrières</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li><a href="contact.html">Abidjan, Côte d'Ivoire</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fbot">
+            <span>© 2026 IDC — Ivoirienne d'Hydrocarbures. Tous droits réservés.</span>
+            <span>Politique de confidentialité · Mentions légales</span>
+        </div>
+    </div>
+</footer>
+
+<script src="./_tete.js" defer></script>
+
+</body>
+</html>

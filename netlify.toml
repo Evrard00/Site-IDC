@@ -2,10 +2,11 @@
   command = "node build.js"
   publish = "public"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Pas de redirection attrape-tout ici : c'est une règle d'application à page
+# unique. Sur un site multipage elle renvoie l'accueil avec un code 200 pour
+# toute adresse inconnue — un « faux 404 » que les moteurs indexent comme une
+# page valide. Netlify sert 404.html de lui-même quand aucun fichier ne
+# correspond, ce qui est le comportement attendu.
 
 [context.production.environment]
   NODE_VERSION = "18"

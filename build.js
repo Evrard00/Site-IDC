@@ -1,62 +1,135 @@
 const fs = require('fs');
 const path = require('path');
 
-// Script de build pour copier les fichiers vers le dossier public
-console.log('Building for Vercel...');
+// Script de build : génère le dossier public/ servi par Vercel / Netlify
+console.log('Building for production...');
 
-const srcDir = path.join(__dirname, 'src');
-const assetsDir = path.join(__dirname, 'assets');
-const publicDir = path.join(__dirname, 'public');
+const rootDir = __dirname;
+const srcDir = path.join(rootDir, 'src');
+const assetsDir = path.join(rootDir, 'assets');
+const publicDir = path.join(rootDir, 'public');
 
-// Créer le dossier public s'il n'existe pas
-if (!fs.existsSync(publicDir)) {
-    fs.mkdirSync(publicDir, { recursive: true });
+// Fichiers statiques présents à la racine du dépôt et attendus à la racine du site
+const ROOT_FILES = ['robots.txt', 'sitemap.xml', 'favicon.ico'];
+
+// Purge du dossier de sortie.
+// Sans cette étape, une page supprimée de src/ restait en ligne indéfiniment
+// (about.html, services.html et news.html ont ainsi survécu à plusieurs déploiements).
+if (fs.existsSync(publicDir)) {
+    fs.rmSync(publicDir, { recursive: true, force: true });
+    console.log('✓ Cleaned public/');
 }
+fs.mkdirSync(publicDir, { recursive: true });
 
-// Fonction récursive pour copier les répertoires
+// Copie récursive d'un répertoire
 function copyDirRecursive(src, dest) {
-    if (!fs.existsSync(dest)) {
-        fs.mkdirSync(dest, { recursive: true });
-    }
-    
-    const files = fs.readdirSync(src);
-    files.forEach(file => {
-        const srcPath = path.join(src, file);
-        const destPath = path.join(dest, file);
-        const stat = fs.statSync(srcPath);
-        
-        if (stat.isDirectory()) {
+    fs.mkdirSync(dest, { recursive: true });
+    for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+        const srcPath = path.join(src, entry.name);
+        const destPath = path.join(dest, entry.name);
+        if (entry.isDirectory()) {
             copyDirRecursive(srcPath, destPath);
         } else {
             fs.copyFileSync(srcPath, destPath);
-            console.log(`✓ Copied ${file}`);
         }
-    });
-}
-
-// Copier et corriger les fichiers HTML de src/
-const files = fs.readdirSync(srcDir);
-files.forEach(file => {
-    if (file.endsWith('.html')) {
-        let content = fs.readFileSync(path.join(srcDir, file), 'utf8');
-        
-        // Remplacer les chemins relatifs des assets
-        // ../assets/ → assets/
-        content = content.replace(/\.\.\/assets\//g, 'assets/');
-        
-        // Écrire dans le dossier public
-        fs.writeFileSync(path.join(publicDir, file), content);
-        console.log(`✓ Processed HTML: ${file}`);
     }
-});
-
-// Copier les assets/
-if (fs.existsSync(assetsDir)) {
-    const publicAssetsDir = path.join(publicDir, 'assets');
-    copyDirRecursive(assetsDir, publicAssetsDir);
-    console.log('✓ Copied assets directory');
 }
 
-console.log('✓ Build completed!');
+// Pages HTML : src/*.html → public/*.html, chemins d'assets réécrits
+let pageCount = 0;
+const sorties = [];   // ce qui est publié, pour savoir ensuite quelles images servent
+for (const file of fs.readdirSync(srcDir)) {
+    const srcPath = path.join(srcDir, file);
+    if (!fs.statSync(srcPath).isFile()) continue;
 
+    // Les fichiers préfixés d'un « _ » sont des références internes
+    // (page de composants du design system) : pas des pages du site.
+    if (file.startsWith('_') && file.endsWith('.html')) continue;
 
+    if (file.endsWith('.html')) {
+        let content = fs.readFileSync(srcPath, 'utf8');
+
+        // En production les pages sont à la racine : ../assets/ et ../../assets/
+        // doivent tous deux devenir assets/.
+        content = content.replace(/\.\.\/\.\.\/assets\//g, 'assets/');
+        content = content.replace(/\.\.\/assets\//g, 'assets/');
+
+        fs.writeFileSync(path.join(publicDir, file), content);
+        sorties.push(content);
+        pageCount++;
+    } else {
+        // CSS/JS propres à une page (ex. _v2.css, _app.css)
+        fs.copyFileSync(srcPath, path.join(publicDir, file));
+        if (/\.(css|js)$/.test(file)) sorties.push(fs.readFileSync(srcPath, 'utf8'));
+    }
+}
+console.log(`✓ ${pageCount} pages HTML traitées`);
+
+// Ressources partagées.
+// assets/images/ pèse 16 Mo dont 15 que plus aucune page ne charge : les
+// grandes photos de héros écartées et les icônes matricielles remplacées par
+// des tracés SVG en ligne. On ne publie que ce qui est réellement référencé ;
+// les fichiers restent dans le dépôt, ils ne partent simplement plus en ligne.
+if (fs.existsSync(assetsDir)) {
+    const imagesDir = path.join(assetsDir, 'images');
+    const referencees = new Set();
+    for (const texte of sorties) {
+        for (const m of texte.matchAll(/assets\/images\/([\w.\-]+)/g)) referencees.add(m[1]);
+    }
+
+    // Les feuilles et scripts hérités (assets/css, assets/js, assets/html) ne
+    // sont plus chargés par aucune page depuis la refonte : le style vit dans
+    // src/_v2.css et src/_app.css. On les laisse dans le dépôt sans les publier.
+    const ecartes = [];
+    for (const entry of fs.readdirSync(assetsDir, { withFileTypes: true })) {
+        const from = path.join(assetsDir, entry.name);
+        const to = path.join(publicDir, 'assets', entry.name);
+        if (entry.name === 'images' && entry.isDirectory()) continue;
+
+        if (entry.isDirectory()) {
+            const fichiers = fs.readdirSync(from, { recursive: true, withFileTypes: true })
+                .filter((f) => f.isFile()).map((f) => f.name);
+            const sert = fichiers.some((nom) => sorties.some((t) => t.includes(nom)));
+            if (fichiers.length && !sert) { ecartes.push(entry.name); continue; }
+            copyDirRecursive(from, to);
+        } else {
+            fs.mkdirSync(path.dirname(to), { recursive: true });
+            fs.copyFileSync(from, to);
+        }
+    }
+    if (ecartes.length) console.log(`  · dossiers non référencés écartés : ${ecartes.join(', ')}`);
+
+    if (fs.existsSync(imagesDir)) {
+        const dest = path.join(publicDir, 'assets', 'images');
+        fs.mkdirSync(dest, { recursive: true });
+        let gardees = 0, ecartees = 0, octetsEcartes = 0;
+        for (const entry of fs.readdirSync(imagesDir, { withFileTypes: true })) {
+            const from = path.join(imagesDir, entry.name);
+            if (entry.isDirectory()) { copyDirRecursive(from, path.join(dest, entry.name)); continue; }
+            if (referencees.has(entry.name)) {
+                fs.copyFileSync(from, path.join(dest, entry.name));
+                gardees++;
+            } else {
+                octetsEcartes += fs.statSync(from).size;
+                ecartees++;
+            }
+        }
+        console.log(`✓ assets/ copié — ${gardees} images publiées, ` +
+                    `${ecartees} non référencées écartées (${(octetsEcartes / 1048576).toFixed(1)} Mo)`);
+    } else {
+        console.log('✓ assets/ copié');
+    }
+}
+
+// Fichiers racine (référencement, favicon)
+for (const file of ROOT_FILES) {
+    const from = path.join(rootDir, file);
+    if (fs.existsSync(from)) {
+        fs.copyFileSync(from, path.join(publicDir, file));
+        console.log(`✓ ${file}`);
+    } else {
+        console.warn(`! ${file} absent — ignoré`);
+    }
+}
+
+console.log('✓ Build terminé.');

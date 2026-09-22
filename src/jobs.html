@@ -3,911 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trouver un Job - IDC | Rejoignez notre équipe</title>
-    <meta name="description" content="Rejoignez IDC, un acteur dynamique du secteur de l'énergie. Consultez nos offres d'emploi et postulez maintenant.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    
-    <link rel="stylesheet" href="../assets/css/icons.css">
-    
+    <title>Carrières - IDC | Rejoignez notre équipe</title>
+    <!-- SEO / partage social -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A7A39">
+    <link rel="canonical" href="https://www.idc.ci/jobs.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IDC - Ivoirienne d'Hydrocarbures">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:title" content="Carrières - IDC | Rejoignez notre équipe">
+    <meta property="og:description" content="Rejoignez IDC, un acteur dynamique du secteur de l&#x27;énergie. Consultez nos offres d&#x27;emploi et postulez maintenant.">
+    <meta property="og:url" content="https://www.idc.ci/jobs.html">
+    <meta property="og:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="IDC - Carburants, gaz, lubrifiants et solutions B2B en Côte d'Ivoire">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Carrières - IDC | Rejoignez notre équipe">
+    <meta name="twitter:description" content="Rejoignez IDC, un acteur dynamique du secteur de l&#x27;énergie. Consultez nos offres d&#x27;emploi et postulez maintenant.">
+    <meta name="twitter:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+    <meta name="description" content="Rejoignez IDC, Ivoirienne d'Hydrocarbures. Découvrez les profils recherchés et déposez votre candidature en ligne.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #0B0B0B;
-            background-color: #FFFFFF;
-            line-height: 1.6;
-        }
+        .form-card { background: var(--surface); border: 1px solid var(--rule-2);
+                     border-radius: var(--r-lg); padding: clamp(24px, 3vw, 40px); margin-top: 38px; }
+        /* grille explicite : en auto-fit, « Localisation » restait seule sur sa
+           rangée avec trois colonnes vides. Ici elle partage la rangée avec le CV. */
+        .form-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+
+        /* champ fichier : le contrôle natif est illisible, on l'habille */
+        .file-zone { display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+                     padding: 14px 16px; border: 1px dashed var(--rule); border-radius: var(--r);
+                     background: var(--ground); }
+        .file-zone input[type=file] { font-family: var(--font); font-size: 14px; max-width: 100%; }
+        .file-zone .hint { font-size: 13px; color: var(--ink-3); }
 
-        :root {
-            --color-primary: #E36A13;
-            --color-secondary: #0F6B32;
-            --color-dark: #0B0B0B;
-            --color-text: #4F4F4F;
-            --color-light: #F4F4F4;
-            --color-white: #FFFFFF;
-            --color-border: #E5E5E5;
-        }
-
-        /* Material Symbols Icons */
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 24px;
-            display: inline-flex;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            vertical-align: middle;
-        }
-
-        /* HEADER */
-        header {
-            background: #FFFFFF;
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border: none;
-            border-radius: 0;
-            width: 100%;
-            box-shadow: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        header.scrolled {
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            width: calc(100% - 40px);
-            border-radius: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 40px;
-            gap: 50px;
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-
-        .header-left {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
-        }
-
-        .logo img {
-            height: 48px;
-            width: auto;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 48px;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .header-nav a {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .header-nav a:hover,
-        .header-nav a.active {
-            color: var(--color-primary);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-shrink: 0;
-        }
-
-        .header-login {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            transition: color 0.3s ease;
-        }
-
-        .header-login:hover {
-            color: var(--color-primary);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 16px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #d45d0a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(227, 106, 19, 0.3);
-        }
-
-        .btn-sm {
-            padding: 11px 32px !important;
-            font-size: 14px !important;
-            border-radius: 16px !important;
-            font-weight: 600 !important;
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        /* CONTAINER */
-        .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* PAGE INTRO */
-        .page-intro {
-            padding-top: 120px;
-            padding-bottom: 20px;
-            background-color: #FFFFFF;
-            text-align: center;
-        }
-
-        .page-intro h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 16px;
-        }
-
-        .page-intro p {
-            font-size: 16px;
-            color: var(--color-text);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* POURQUOI REJOINDRE */
-        .section-why-join {
-            padding: 40px 0;
-            background-color: #FFFFFF;
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            margin-bottom: 30px;
-        }
-
-        .why-card {
-            background: white;
-            border: 2px solid var(--color-border);
-            border-radius: 14px;
-            padding: 32px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .why-card:hover {
-            border-color: var(--color-primary);
-            box-shadow: 0 12px 32px rgba(227, 106, 19, 0.1);
-            transform: translateY(-4px);
-        }
-
-        .why-icon {
-            font-size: 28px;
-            color: var(--color-primary);
-            flex-shrink: 0;
-        }
-
-        .why-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--color-dark);
-            line-height: 1.5;
-        }
-
-        /* PROFILS RECHERCHÉS */
-        .section-profiles {
-            padding: 40px 0;
-            background-color: #FFFFFF;
-        }
-
-        .profiles-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .profiles-intro {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .profiles-intro p {
-            font-size: 16px;
-            color: var(--color-text);
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-
-        .profiles-list {
-            background: white;
-            border-radius: 12px;
-            padding: 32px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .profiles-list ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .profiles-list li {
-            padding: 16px 0;
-            border-bottom: 1px solid var(--color-border);
-            font-size: 16px;
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .profiles-list li:last-child {
-            border-bottom: none;
-        }
-
-        .profiles-list li:before {
-            content: '▸';
-            color: var(--color-primary);
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .profiles-note {
-            text-align: center;
-            font-size: 13px;
-            color: var(--color-text);
-            margin-top: 24px;
-            font-style: italic;
-        }
-
-        /* COMMENT POSTULER */
-        .section-how-apply {
-            padding: 40px 0;
-            background-color: #FFFFFF;
-        }
-
-        .how-apply-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .how-apply-content p {
-            font-size: 16px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        /* FORMULAIRE DE CANDIDATURE */
-        .section-form {
-            padding: 40px 0;
-            background-color: var(--color-light);
-        }
-
-        .form-intro {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .form-intro h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 16px;
-        }
-
-        .form-intro p {
-            font-size: 16px;
-            color: var(--color-text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .form-wrapper {
-            background: white;
-            border-radius: 14px;
-            padding: 40px;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-        }
-
-        .form-wrapper form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        .form-wrapper form .form-group:nth-child(n+5) {
-            grid-column: 1 / -1;
-        }
-
-        .form-group {
-            margin-bottom: 0;
-        }
-
-        .form-group label {
-            display: block;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-dark);
-            margin-bottom: 8px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: var(--color-dark);
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group.half {
-            width: auto;
-            display: block;
-        }
-
-        .form-group.half:nth-child(odd) {
-            margin-right: 0;
-        }
-
-        .form-file-label {
-            display: block;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-dark);
-            margin-bottom: 8px;
-        }
-
-        .form-file-input {
-            display: block;
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px dashed var(--color-border);
-            border-radius: 8px;
-            background-color: #FAFAFA;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            color: var(--color-text);
-        }
-
-        .form-file-input:hover {
-            border-color: var(--color-primary);
-            background-color: rgba(227, 106, 19, 0.05);
-        }
-
-        .required::after {
-            content: " *";
-            color: var(--color-primary);
-        }
-
-        .form-submit {
-            margin-top: 0;
-            text-align: center;
-            grid-column: 1 / -1;
-        }
-
-        .form-submit .btn {
-            width: 100%;
-            padding: 14px 32px;
-        }
-
-        .form-reassurance {
-            text-align: center;
-            font-size: 13px;
-            color: var(--color-text);
-            margin-top: 16px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: linear-gradient(135deg, #0B0B0B 0%, #1A1A1A 100%);
-            color: #F4F4F4;
-            padding: 60px 20px 30px;
-            margin-top: 80px;
-        }
-
-        footer .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section ul li a {
-            color: #B0B0B0;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            color: #E36A13;
-        }
-
-        footer .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
-            font-size: 13px;
-            color: #808080;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            header .container {
-                padding: 12px 30px;
-            }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-wrapper {
-                padding: 32px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header .container {
-                padding: 12px 20px;
-            }
-
-            .header-nav {
-                display: none;
-            }
-
-            .page-intro {
-                padding-top: 80px;
-                padding-bottom: 20px;
-            }
-
-            .page-intro h1 {
-                font-size: 32px;
-            }
-
-            .section-title {
-                font-size: 32px;
-                margin-bottom: 30px;
-            }
-
-            .why-grid {
-                gap: 16px;
-            }
-
-            .why-card {
-                padding: 24px;
-            }
-
-            .form-wrapper {
-                padding: 24px;
-            }
-
-            .form-wrapper form {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header .container {
-                padding: 12px 16px;
-                gap: 20px;
-            }
-
-            .page-intro {
-                padding-top: 70px;
-                padding-bottom: 15px;
-            }
-
-            .page-intro h1 {
-                font-size: 24px;
-            }
-
-            .page-intro p {
-                font-size: 14px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .form-wrapper {
-                padding: 16px;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-        }
     </style>
-    <link rel="stylesheet" href="../assets/css/shared.css">
-    <link rel="stylesheet" href="../assets/css/icons-svg.css">
-    <!-- SVG Icons CSS loaded -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://www.idc.ci/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Carrières",
+                "item": "https://www.idc.ci/jobs.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <a href="index.html" class="logo">
-                    <img src="../assets/images/logo.png" alt="IDC Logo">
-                </a>
-            </div>
-            
-            <nav id="navbar" class="header-nav">
-                <a href="index.html">Accueil</a>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head" id="tete">
+        <div class="wrap">
+            <div class="bar" id="barre">
+                <a href="index.html" aria-label="IDC, accueil"><img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures"></a>
+
+                <nav aria-label="Navigation principale">
+                <a href="index.html#accueil">Accueil</a>
                 <a href="index.html#apropos">À propos</a>
                 <a href="index.html#activites">Services</a>
                 <a href="actualites.html">Actualités</a>
                 <a href="eshop.html">IDC e-shop</a>
-                <a href="login.html" class="btn btn-primary btn-sm">Espace client</a>
+                <a href="jobs.html" aria-current="page">Carrières</a>
                 <a href="contact.html">Nous contacter</a>
-            </nav>
+                </nav>
 
-            <div class="header-right">
-                <div class="menu-burger" id="menuBurger">
+                <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+
+                <button class="burger" id="burger" type="button"
+                        aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
                     <span></span>
-                    <span></span>
-                    <span></span>
+                </button>
+
+                <div class="mobile-nav" id="menu-mobile">
+                <a href="index.html#accueil">Accueil <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#apropos">À propos <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#activites">Services <span class="ar" aria-hidden="true">→</span></a>
+                <a href="actualites.html">Actualités <span class="ar" aria-hidden="true">→</span></a>
+                <a href="eshop.html">IDC e-shop <span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html" aria-current="page">Carrières <span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html">Nous contacter <span class="ar" aria-hidden="true">→</span></a>
+                    <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- PAGE INTRO -->
-    <section class="page-intro">
-        <div class="container">
-            <h1>Trouver un job chez IDC</h1>
-            <p>Vous souhaitez rejoindre un acteur dynamique du secteur de l'énergie ? IDC recrute régulièrement des profils engagés pour accompagner son développement.</p>
-        </div>
-    </section>
+<main id="contenu">
 
-    <!-- POURQUOI REJOINDRE IDC -->
-    <section class="section-why-join">
-        <div class="container">
-            <h2 class="section-title">Pourquoi rejoindre IDC ?</h2>
-            
-            <div class="why-grid">
-                <div class="why-card">
-                    <span class="why-icon"><img src="../assets/images/icon-check.svg" alt="" /></span>
-                    <span class="why-text">Un environnement professionnel structuré</span>
-                </div>
-
-                <div class="why-card">
-                    <span class="why-icon"><img src="../assets/images/icon-check.svg" alt="" /></span>
-                    <span class="why-text">Des opportunités dans le secteur de l'énergie</span>
-                </div>
-
-                <div class="why-card">
-                    <span class="why-icon"><img src="../assets/images/icon-check.svg" alt="" /></span>
-                    <span class="why-text">Des missions utiles et concrètes</span>
-                </div>
-
-                <div class="why-card">
-                    <span class="why-icon"><img src="../assets/images/icon-check.svg" alt="" /></span>
-                    <span class="why-text">Une équipe engagée et en croissance</span>
+    <section class="page-top">
+        <div class="wrap">
+            <p class="mono" style="margin-bottom:22px">Carrières / candidature spontanée.</p>
+            <div class="split">
+                <h1>Rejoignez un acteur <span class="accent">de l'énergie ivoirienne.</span></h1>
+                <div style="align-self:end">
+                    <p class="lead">IDC recrute régulièrement des profils engagés pour accompagner son développement, en station comme au siège.</p>
+                    <div class="cta">
+                        <a class="btn" href="#candidature">Déposer ma candidature <span class="ar" aria-hidden="true">→</span></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROFILS RECHERCHÉS -->
-    <section class="section-profiles">
-        <div class="container">
-            <div class="profiles-content">
-                <h2 class="section-title">Profils régulièrement recherchés</h2>
-                
-                <div class="profiles-intro">
-                    <p>Selon nos besoins, nous recrutons notamment :</p>
-                </div>
-
-                <div class="profiles-list">
-                    <ul>
-                        <li>Opérateurs de station-service</li>
-                        <li>Chauffeurs / logisticiens</li>
-                        <li>Commerciaux terrain</li>
-                        <li>Techniciens</li>
-                        <li>Profils administratifs</li>
-                    </ul>
-                </div>
-
-                <div class="profiles-note">
-                    <span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">info</span> Cette liste est non exhaustive. D'autres profils peuvent nous intéresser.
-                </div>
+    <section class="band band--pale">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Pourquoi nous rejoindre.</p>
+            <div class="split" style="margin-bottom:38px">
+                <h2>Ce que vous trouverez <span class="accent">chez IDC.</span></h2>
+                <p class="lead" style="align-self:end">Un secteur en croissance, des missions concrètes et des équipes encadrées.</p>
+            </div>
+            <div class="values">
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg><h3>Un environnement professionnel structuré</h3><p>Des procédures claires, des équipes encadrées et des standards de sécurité tenus.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><h3>Des opportunités dans le secteur de l'énergie</h3><p>Un secteur en croissance continue en Côte d'Ivoire, avec de vrais parcours d'évolution.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg><h3>Des missions utiles et concrètes</h3><p>Approvisionner les foyers, les stations et les flottes du pays, chaque jour.</p></div>
+                <div class="v"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg><h3>Une équipe engagée et en croissance</h3><p>Plus de vingt ans d'exploitation, et un réseau qui continue de s'étendre.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- COMMENT POSTULER -->
-    <section class="section-how-apply">
-        <div class="container">
-            <div class="how-apply-content">
-                <h2 class="section-title">Comment postuler ?</h2>
-                <p>Pour postuler, merci de remplir le formulaire ci-dessous et de joindre votre CV. Nos équipes étudieront votre candidature avec attention.</p>
+    <section class="band">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Profils / 05 familles.</p>
+            <div class="split" style="margin-bottom:34px">
+                <h2>Les profils que <span class="accent">nous recherchons.</span></h2>
+                <p class="lead" style="align-self:end">Cette liste n'est pas exhaustive : d'autres profils peuvent nous intéresser.</p>
             </div>
+            <ul class="list list--detail" style="max-width:860px">
+                <li><span>01</span> <span><strong>Opérateurs de station-service</strong><span class="muted">Accueil, service à la pompe, tenue de la boutique.</span></span></li>
+                <li><span>02</span> <span><strong>Chauffeurs / logisticiens</strong><span class="muted">Livraison de carburants et de gaz sur le territoire.</span></span></li>
+                <li><span>03</span> <span><strong>Commerciaux terrain</strong><span class="muted">Développement du portefeuille B2B et suivi des flottes.</span></span></li>
+                <li><span>04</span> <span><strong>Techniciens</strong><span class="muted">Maintenance des installations et des équipements de station.</span></span></li>
+                <li><span>05</span> <span><strong>Profils administratifs</strong><span class="muted">Comptabilité, ressources humaines, achats, support.</span></span></li>
+            </ul>
         </div>
     </section>
 
-    <!-- FORMULAIRE DE CANDIDATURE -->
-    <section class="section-form">
-        <div class="container">
-            <div class="form-intro">
-                <h2>Formulaire de candidature</h2>
+    <section class="band band--pale">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Comment postuler / 4 étapes.</p>
+            <div class="split" style="margin-bottom:34px">
+                <h2>De votre candidature <span class="accent">à notre réponse.</span></h2>
+                <p class="lead" style="align-self:end">Chaque dossier est examiné par nos équipes.</p>
+            </div>
+            <ul class="list list--detail" style="max-width:860px">
+                <li><span>01</span> <span><strong>Remplissez le formulaire</strong><span class="muted">Vos coordonnées, le poste visé et votre zone.</span></span></li>
+                <li><span>02</span> <span><strong>Joignez votre CV</strong><span class="muted">Au format PDF ou Word, 5 Mo maximum.</span></span></li>
+                <li><span>03</span> <span><strong>Nous étudions votre dossier</strong><span class="muted">Nos équipes examinent chaque candidature.</span></span></li>
+                <li><span>04</span> <span><strong>Nous vous recontactons</strong><span class="muted">Si votre profil correspond à un besoin en cours.</span></span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="band" id="candidature">
+        <div class="wrap reveal">
+            <p class="mono" style="margin-bottom:26px">Candidature.</p>
+            <div class="split">
+                <h2>Déposez <span class="accent">votre dossier.</span></h2>
+                <p class="lead" style="align-self:end">Renseignez vos coordonnées et joignez votre CV : nous revenons vers vous si votre profil correspond à un besoin en cours.</p>
             </div>
 
-            <div class="form-wrapper">
-                <form id="applicationForm">
-                    <div class="form-group half">
-                        <label for="nom" class="required">Nom & prénom</label>
-                        <input type="text" id="nom" name="nom" required>
+            <div class="form-card">
+                <form id="applicationForm" novalidate>
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="j-nom">Nom &amp; prénom <span class="req">*</span></label>
+                            <input class="input" id="j-nom" name="nom" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="j-telephone">Téléphone <span class="req">*</span></label>
+                            <input class="input" id="j-telephone" name="telephone" type="tel" autocomplete="tel" placeholder="+225 XX XX XX XX" required>
+                        </div>
+                        <div class="field">
+                            <label for="j-email">E-mail <span class="req">*</span></label>
+                            <input class="input" id="j-email" name="email" type="email" autocomplete="email" required>
+                        </div>
+                        <div class="field">
+                            <label for="j-poste">Poste visé <span class="req">*</span></label>
+                            <input class="input" id="j-poste" name="poste" type="text" placeholder="Ex : commercial terrain" required>
+                        </div>
+                        <div class="field half">
+                            <label for="j-localisation">Localisation</label>
+                            <input class="input" id="j-localisation" name="localisation" type="text" autocomplete="address-level2" placeholder="Abidjan, Bouaké…">
+                        </div>
+                        <div class="field half">
+                            <label for="j-cv">Joindre votre CV <span class="req">*</span></label>
+                            <div class="file-zone">
+                                <input id="j-cv" name="cv" type="file" accept=".pdf,.doc,.docx" required>
+                                <span class="hint">PDF ou Word, 5 Mo maximum.</span>
+                            </div>
+                        </div>
+                        <div class="field wide">
+                            <label for="j-message">Message</label>
+                            <textarea class="textarea" id="j-message" name="message" placeholder="Présentez-vous en quelques lignes : parcours, disponibilité, motivation."></textarea>
+                        </div>
                     </div>
-
-                    <div class="form-group half">
-                        <label for="telephone" class="required">Téléphone</label>
-                        <input type="tel" id="telephone" name="telephone" required>
+                    <div class="form-foot">
+                        <button class="btn" type="submit">Envoyer ma candidature <span class="ar" aria-hidden="true">→</span></button>
+                        <span class="note">Vos données sont traitées de manière confidentielle.</span>
                     </div>
-
-                    <div class="form-group half">
-                        <label for="email" class="required">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group half">
-                        <label for="poste">Poste recherché</label>
-                        <input type="text" id="poste" name="poste" placeholder="Ex: Chauffeur logistique">
-                    </div>
-
-                    <div class="form-group half">
-                        <label for="localisation">Localisation</label>
-                        <input type="text" id="localisation" name="localisation" placeholder="Ville/région">
-                    </div>
-
-                    <div class="form-group half">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message (optionnel)</label>
-                        <textarea id="message" name="message" placeholder="Parlez-nous de votre expérience, vos motivations..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-file-label required">Joindre votre CV</label>
-                        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" class="form-file-input" required>
-                        <small style="display: block; margin-top: 8px; color: #999; font-size: 12px;">PDF ou Word uniquement</small>
-                    </div>
-
-                    <div class="form-submit">
-                        <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
-                        <div class="form-reassurance">Les candidatures sont traitées de manière confidentielle.</div>
-                    </div>
+                    <p class="form-msg" id="jobMsg" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">IDC</div>
-                <p class="footer-description">Ivoirienne d'Hydrocarbures - Votre partenaire de confiance en énergie et distribution de carburants.</p>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com" target="_blank" title="Facebook">f</a>
-                    <a href="https://www.twitter.com" target="_blank" title="Twitter">𝕏</a>
-                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">in</a>
-                    <a href="https://www.instagram.com" target="_blank" title="Instagram"><span class="material-symbols-outlined icon-social">photo_camera</span></a>
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <h3>IDC</h3>
+                <p class="about">Ivoirienne d'Hydrocarbures — votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="fsocial">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
                 </div>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Nos activités</h3>
                 <ul>
-                    <li><a href="#activites">Carburants</a></li>
-                    <li><a href="#activites">Gaz butane</a></li>
-                    <li><a href="#activites">Lubrifiants</a></li>
-                    <li><a href="#activites">Carte TPE</a></li>
-                    <li><a href="#stations">Stations & services</a></li>
+                    <li><a href="index.html#activites">Carburants</a></li>
+                    <li><a href="index.html#activites">Gaz butane</a></li>
+                    <li><a href="eshop.html">Lubrifiants</a></li>
+                    <li><a href="tpe.html">Carte TPE</a></li>
+                    <li><a href="index.html#stations">Stations &amp; services</a></li>
+                        <li><a href="contact.html?sujet=Soute">Soute maritime</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Ressources</h3>
                 <ul>
                     <li><a href="index.html#apropos">À propos de nous</a></li>
                     <li><a href="index.html#stations">Trouver une station</a></li>
-                    <li><a href="eshop.html">Boutique en ligne</a></li>
-                    <li><a href="jobs.html">Rejoignez notre équipe</a></li>
-                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li><a href="client.html">Espace client</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="jobs.html">Carrières</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">phone</span> +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">mail</span> contact@idc.ci</a></li>
-                    <li><a href="#">📍 Abidjan, Côte d'Ivoire</a></li>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li><a href="contact.html">Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="#">Politique de confidentialité</a>
-                <span>•</span>
-                <a href="#">Conditions d'utilisation</a>
-                <span>•</span>
-                <a href="#">Mentions légales</a>
-                <span>•</span>
-                <a href="#">Gestion des cookies</a>
-            </div>
-            <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
+        <div class="fbot">
+            <span>© 2026 IDC — Ivoirienne d'Hydrocarbures. Tous droits réservés.</span>
+            <span>Politique de confidentialité · Mentions légales</span>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        // Scroll animation pour le header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+    <script src="./_tete.js" defer></script>
+
+<script>
+(function () {
+    'use strict';
+    var form = document.getElementById('applicationForm');
+    var msg  = document.getElementById('jobMsg');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var manquants = [];
+        form.querySelectorAll('[required]').forEach(function (ch) {
+            var vide = ch.type === 'file' ? !ch.files.length : !String(ch.value).trim();
+            ch.setAttribute('aria-invalid', vide ? 'true' : 'false');
+            if (vide) { manquants.push(ch); }
         });
-
-        // Menu burger
-        const menuBurger = document.getElementById('menuBurger');
-        const navbar = document.getElementById('navbar');
-        
-        if (menuBurger) {
-            menuBurger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                navbar.classList.toggle('active');
-            });
+        if (manquants.length) {
+            msg.textContent = 'Merci de remplir les champs obligatoires et de joindre votre CV.';
+            msg.removeAttribute('data-ok'); msg.setAttribute('data-err', '');
+            manquants[0].focus();
+            return;
         }
+        msg.textContent = 'Candidature enregistrée. Nous revenons vers vous si votre profil correspond à un besoin en cours.';
+        msg.removeAttribute('data-err'); msg.setAttribute('data-ok', '');
+        form.reset();
+    });
+})();
+</script>
 
-        // Gestion du formulaire
-        const applicationForm = document.getElementById('applicationForm');
-        if (applicationForm) {
-            applicationForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Merci pour votre candidature!\nSi votre profil correspond à nos besoins, nous vous contacterons rapidement.');
-                this.reset();
-            });
-        }
-    </script>
-
-    <script src="../assets/js/footer-loader.js"><\/script>
-
-    <script src="../assets/js/icon-loader.js"></script>
-    <!-- SVG Icon Loader loaded -->
 </body>
 </html>

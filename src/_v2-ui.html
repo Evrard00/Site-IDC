@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDC — composants v2</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./_v2.css">
+<style>
+    /* mise en page propre à cette page de revue */
+    .page { max-width: 1100px; margin-inline: auto; padding: 56px var(--gut) 100px; }
+    .sec { padding-block: 40px; border-top: 1px solid var(--rule); }
+    .sec:first-of-type { border-top: none; }
+    .sec > .mono { margin-bottom: 8px; }
+    .sec > h2 { font-size: 26px; margin-bottom: 6px; }
+    .sec > .muted { font-size: 14.5px; max-width: 58ch; margin-bottom: 26px; }
+    .demo { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .sw { border-radius: var(--r); overflow: hidden; border: 1px solid var(--rule-2); background: var(--surface); }
+    .sw .chip { height: 56px; }
+    .sw .meta { padding: 10px 12px; font-family: var(--mono); font-size: 11px; line-height: 1.5; }
+    .sw .meta b { display: block; font-weight: 500; color: var(--ink); }
+    .sw .meta span { color: var(--ink-3); }
+    .note { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3);
+            letter-spacing: .04em; margin-top: 14px; }
+    .panel { background: var(--night); border-radius: var(--r-lg); padding: 28px; }
+    .scale li { list-style: none; display: flex; align-items: baseline; gap: 18px;
+                padding-block: 10px; border-bottom: 1px solid var(--rule-2); }
+    .scale li em { font-family: var(--mono); font-size: 11px; font-style: normal;
+                   color: var(--ink-3); min-width: 88px; }
+    .formdemo { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 18px; max-width: 760px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+    <p class="mono">IDC — système visuel v2.</p>
+    <h1 style="font-size:clamp(32px,4vw,52px);margin:10px 0 14px">Composants et états</h1>
+    <p class="muted" style="max-width:62ch">Chaque état de survol a son équivalent au clavier. Passe la souris, puis refais le parcours en tabulation : le rendu doit être identique.</p>
+
+    <!-- ══════════ COULEURS ══════════ -->
+    <section class="sec">
+        <p class="mono">Palette.</p>
+        <h2>Couleurs et rôles</h2>
+        <p class="muted">Deux couleurs de marque, deux rôles distincts : le vert porte la typographie, l'orange porte l'action. Chaque valeur a été calculée avant d'être écrite.</p>
+        <div class="swatches">
+            <div class="sw"><div class="chip" style="background:#ECEEE9"></div><div class="meta"><b>#ECEEE9</b><span>fond de page</span></div></div>
+            <div class="sw"><div class="chip" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #E6E8E3"></div><div class="meta"><b>#FFFFFF</b><span>surfaces</span></div></div>
+            <div class="sw"><div class="chip" style="background:#15171A"></div><div class="meta"><b>#15171A</b><span>encre — 15,4:1</span></div></div>
+            <div class="sw"><div class="chip" style="background:#1A7A39"></div><div class="meta"><b>#1A7A39</b><span>vert typographique — 4,6:1</span></div></div>
+            <div class="sw"><div class="chip" style="background:#BC5810"></div><div class="meta"><b>#BC5810</b><span>orange d'action — blanc 4,6:1</span></div></div>
+            <div class="sw"><div class="chip" style="background:#AA500E"></div><div class="meta"><b>#AA500E</b><span>orange en texte — 4,7:1</span></div></div>
+        </div>
+    </section>
+
+    <!-- ══════════ TYPOGRAPHIE ══════════ -->
+    <section class="sec">
+        <p class="mono">Typographie.</p>
+        <h2>Une échelle, sept crans</h2>
+        <p class="muted">Contre les 14 tailles mesurées sur le site actuel. Bricolage Grotesque pour le texte, IBM Plex Mono pour les repères techniques.</p>
+        <ul class="scale">
+            <li><em>hero / 67</em><span style="font-size:clamp(30px,4vw,50px);font-weight:500;letter-spacing:-.028em">Partenaire en énergie</span></li>
+            <li><em>h2 / 52</em><span style="font-size:clamp(26px,3vw,40px);font-weight:500;letter-spacing:-.028em">Quatre métiers</span></li>
+            <li><em>h3 / 26</em><span style="font-size:24px;font-weight:500">Carte TPE professionnelle</span></li>
+            <li><em>lead / 22</em><span class="lead">Un réseau de cinquante stations sur le territoire.</span></li>
+            <li><em>corps / 16</em><span>Carburants, gaz butane et lubrifiants depuis 2003.</span></li>
+            <li><em>petit / 14,5</em><span style="font-size:14.5px" class="muted">Réponse d'un commercial sous 48 heures.</span></li>
+            <li><em>mono / 12</em><span class="mono">Réseau — 50 stations.</span></li>
+        </ul>
+    </section>
+
+    <!-- ══════════ BOUTONS ══════════ -->
+    <section class="sec">
+        <p class="mono">Boutons.</p>
+        <h2>Quatre variantes, cinq états</h2>
+        <p class="muted">La flèche glisse au survol : le mouvement indique la direction de l'action plutôt que de décorer. Hauteur minimale de 48 px partout.</p>
+
+        <div class="demo">
+            <a class="btn" href="#">Demander un devis <span class="ar" aria-hidden="true">→</span></a>
+            <a class="btn btn--line" href="#">Découvrir la carte TPE <span class="ar" aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost" href="#">Voir le réseau</a>
+            <button class="btn btn--sm" type="button">Filtrer</button>
+            <button class="btn" type="button" data-busy>Envoi en cours</button>
+            <button class="btn" type="button" disabled>Indisponible</button>
+        </div>
+        <p class="note">Survole, puis reviens au clavier : la flèche bouge aussi au focus.</p>
+
+        <div class="panel" style="margin-top:26px">
+            <p class="mono on-dark" style="color:#F0A05A;margin-bottom:14px">Sur fond sombre.</p>
+            <div class="demo">
+                <a class="btn btn--light" href="#">Découvrir la carte TPE <span class="ar" aria-hidden="true">→</span></a>
+                <a class="btn" href="#">Demander un devis <span class="ar" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ LIENS ══════════ -->
+    <section class="sec">
+        <p class="mono">Liens.</p>
+        <h2>Le soulignement se trace</h2>
+        <p class="muted">Depuis la gauche, en 0,45 s. Le lien reste identifiable avant le survol : c'est le mouvement qui s'ajoute, pas le repère qui apparaît.</p>
+        <p style="font-size:18px">Nos équipes accompagnent le <a class="lnk" href="#">gestionnaire de flotte</a> comme le particulier qui remplit sa <a class="lnk" href="#">bouteille de gaz</a>.</p>
+    </section>
+
+    <!-- ══════════ CARTES ══════════ -->
+    <section class="sec">
+        <p class="mono">Cartes.</p>
+        <h2>Deux familles</h2>
+        <p class="muted">La carte de contenu se soulève légèrement. La vignette image agrandit sa photo et révèle une flèche. Les deux réagissent au clavier comme à la souris.</p>
+
+        <div class="grid3">
+            <a class="card" href="#">
+                <span class="mono">01</span>
+                <h3>Carburants</h3>
+                <p>Essence 95 et 98, diesel premium. Livraison sur site ou retrait en station.</p>
+            </a>
+            <a class="card" href="#">
+                <span class="mono">02</span>
+                <h3>Gaz butane</h3>
+                <p>Bouteilles conformes pour les particuliers et les professionnels.</p>
+            </a>
+            <a class="card" href="#">
+                <span class="mono">03</span>
+                <h3>Lubrifiants</h3>
+                <p>Huiles moteur, hydrauliques et graisses industrielles.</p>
+            </a>
+        </div>
+
+        <div class="tiles" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+            <a class="tile" href="#"><i style="background-image:url('../assets/images/cab.webp')"></i>
+                <span class="cap"><span class="num">01</span><span class="nom">Carburants</span></span></a>
+            <a class="tile" href="#"><i style="background-image:url('../assets/images/gaz.webp')"></i>
+                <span class="cap"><span class="num">02</span><span class="nom">Gaz butane</span></span></a>
+            <a class="tile" href="#"><i style="background-image:url('../assets/images/lub.webp')"></i>
+                <span class="cap"><span class="num">03</span><span class="nom">Lubrifiants</span></span></a>
+            <a class="tile" href="#"><i style="background-image:url('../assets/images/station.webp')"></i>
+                <span class="cap"><span class="num">04</span><span class="nom">Stations</span></span></a>
+        </div>
+    </section>
+
+    <!-- ══════════ LISTES ══════════ -->
+    <section class="sec">
+        <p class="mono">Listes.</p>
+        <h2>Données et rangées cliquables</h2>
+        <p class="muted">La rangée cliquable se décale légèrement et sa flèche apparaît — le décalage indique qu'il se passe quelque chose sans changer la hauteur de la ligne.</p>
+
+        <div class="grid3" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+            <ul class="list">
+                <li><span>Abidjan</span> Centre · Plateau · Treichville</li>
+                <li><span>Yamoussoukro</span> Boulevard de la Paix</li>
+                <li><span>San Pédro</span> Port autonome</li>
+            </ul>
+            <div>
+                <a class="list-row" href="#"><span><span class="mono">01</span> &nbsp;Plafond par conducteur</span><span class="ar" aria-hidden="true">→</span></a>
+                <a class="list-row" href="#"><span><span class="mono">02</span> &nbsp;Relevé détaillé de chaque plein</span><span class="ar" aria-hidden="true">→</span></a>
+                <a class="list-row" href="#"><span><span class="mono">03</span> &nbsp;Acceptée dans 50 stations</span><span class="ar" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════ ÉTIQUETTES ══════════ -->
+    <section class="sec">
+        <p class="mono">États.</p>
+        <h2>Étiquettes</h2>
+        <p class="muted">Toujours accompagnées d'un mot. La couleur seule ne porte jamais l'information — c'est inutilisable pour une partie des visiteurs.</p>
+        <div class="demo">
+            <span class="tag tag--ok">Active</span>
+            <span class="tag tag--wait">En attente</span>
+            <span class="tag tag--off">Expirée</span>
+        </div>
+    </section>
+
+    <!-- ══════════ FORMULAIRES ══════════ -->
+    <section class="sec">
+        <p class="mono">Formulaires.</p>
+        <h2>Champs</h2>
+        <p class="muted">Texte à 16 px : en dessous, iOS zoome automatiquement au focus et casse la mise en page. Chaque champ a son étiquette associée.</p>
+        <div class="formdemo">
+            <div class="field">
+                <label for="d-nom">Nom &amp; prénom <span class="req">*</span></label>
+                <input class="input" id="d-nom" type="text" placeholder="Koffi Adama">
+            </div>
+            <div class="field">
+                <label for="d-ent">Entreprise</label>
+                <input class="input" id="d-ent" type="text" placeholder="Nom de votre entreprise">
+                <span class="hint">Facultatif pour un particulier.</span>
+            </div>
+            <div class="field">
+                <label for="d-obj">Objet de la demande <span class="req">*</span></label>
+                <select class="select" id="d-obj">
+                    <option>Demande de devis</option>
+                    <option>Carte TPE</option>
+                    <option>Information produits</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="d-mail">E-mail <span class="req">*</span></label>
+                <input class="input" id="d-mail" type="email" value="adresse-invalide" aria-invalid="true">
+                <span class="err">Format d'adresse non reconnu.</span>
+            </div>
+            <div class="field" style="grid-column:1/-1">
+                <label for="d-msg">Message</label>
+                <textarea class="textarea" id="d-msg" placeholder="Décrivez votre besoin, votre volume et votre zone d'activité."></textarea>
+            </div>
+        </div>
+        <div class="demo" style="margin-top:18px">
+            <button class="btn" type="button">Envoyer la demande <span class="ar" aria-hidden="true">→</span></button>
+            <button class="btn btn--ghost" type="button">Annuler</button>
+        </div>
+    </section>
+
+    <!-- ══════════ MOUVEMENT ══════════ -->
+    <section class="sec">
+        <p class="mono">Mouvement.</p>
+        <h2>Ce que le site anime — et ce qu'il n'anime pas</h2>
+        <p class="muted">Trois règles tenues partout.</p>
+        <ul class="list" style="max-width:720px">
+            <li><span>01</span> Aucune animation ne masque du contenu au repos : sans script ni timeline, la page reste complète</li>
+            <li><span>02</span> En « mouvement réduit », toutes les transitions tombent à 0,01 ms</li>
+            <li><span>03</span> Chaque état de survol existe aussi au clavier</li>
+        </ul>
+        <p class="note">Active « réduire les animations » dans ton système, recharge : tout doit rester lisible et utilisable.</p>
+    </section>
+
+</div>
+</body>
+</html>

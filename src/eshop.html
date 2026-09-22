@@ -3,3260 +3,1240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDC E-Shop - Lubrifiants Professionnels | Boutique en ligne</title>
-    <meta name="description" content="Boutique en ligne IDC - Lubrifiants professionnels pour véhicules, industries et équipements.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    
-    <link rel="stylesheet" href="../assets/css/icons.css">
-    
+    <title>IDC e-shop | Lubrifiants professionnels</title>
+    <!-- SEO / partage social -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#1A7A39">
+    <link rel="canonical" href="https://www.idc.ci/eshop.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IDC - Ivoirienne d'Hydrocarbures">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:title" content="IDC E-Shop - Lubrifiants Professionnels | Boutique en ligne">
+    <meta property="og:description" content="Boutique en ligne IDC - Lubrifiants professionnels pour véhicules, industries et équipements.">
+    <meta property="og:url" content="https://www.idc.ci/eshop.html">
+    <meta property="og:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="IDC - Carburants, gaz, lubrifiants et solutions B2B en Côte d'Ivoire">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IDC E-Shop - Lubrifiants Professionnels | Boutique en ligne">
+    <meta name="twitter:description" content="Boutique en ligne IDC - Lubrifiants professionnels pour véhicules, industries et équipements.">
+    <meta name="twitter:image" content="https://www.idc.ci/assets/images/og-image.jpg">
+    <meta name="description" content="Huiles moteur, hydrauliques, industrielles, graisses et fluides de transmission. Composez votre sélection et demandez un devis en ligne.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #0B0B0B;
-            background-color: #FFFFFF;
-            line-height: 1.6;
-        }
-
-        :root {
-            --color-primary: #E36A13;
-            --color-secondary: #0F6B32;
-            --color-dark: #0B0B0B;
-            --color-text: #4F4F4F;
-            --color-light: #F4F4F4;
-            --color-white: #FFFFFF;
-            --color-border: #E5E5E5;
-        }
-
-        /* Material Symbols Icons */
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined';
-            font-weight: normal;
-            font-style: normal;
-            font-size: 24px;
-            display: inline-flex;
-            line-height: 1;
-            text-transform: none;
-            letter-spacing: normal;
-            word-wrap: normal;
-            white-space: nowrap;
-            direction: ltr;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            vertical-align: middle;
-            vertical-align: -0.125em;
-        }
-
-        /* HEADER */
-        header {
-            background: #E8E8E5;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            border: none;
-            border-radius: 0;
-            width: 100%;
-            box-shadow: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        header.scrolled {
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            width: calc(100% - 40px);
-            border-radius: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 40px;
-            gap: 50px;
-            max-width: 1320px;
-            margin: 0 auto;
-        }
-
-        .header-left {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            text-decoration: none;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .logo:hover {
-            opacity: 0.8;
-        }
-
-        .logo img {
-            height: 48px;
-            width: auto;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 48px;
-            align-items: center;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .header-nav a {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 0.2px;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .header-nav a:hover,
-        .header-nav a.active {
-            color: var(--color-primary);
-        }
-
-        .dropdown-arrow {
-            display: inline-block;
-            font-size: 10px;
-            margin-left: 6px;
-            vertical-align: middle;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-item:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Submenu */
-        .nav-item {
-            position: relative;
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #FFFFFF;
-            min-width: 220px;
-            border-radius: 6px;
-            padding: 12px 0;
-            margin-top: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            z-index: 999;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-item:hover .submenu {
-            display: block;
-        }
-
-        .submenu a {
-            display: block;
-            padding: 10px 18px;
-            color: #0B0B0B;
-            text-decoration: none;
-            font-size: 13px;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .submenu a:hover {
-            background-color: rgba(227, 106, 19, 0.15);
-            color: #E36A13;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-shrink: 0;
-        }
-
-        .header-login {
-            color: #0B0B0B;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            transition: color 0.3s ease;
-        }
-
-        .header-login:hover {
-            color: var(--color-primary);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            border-radius: 16px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #d45d0a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(227, 106, 19, 0.3);
-        }
-
-        .btn-sm {
-            padding: 11px 32px !important;
-            font-size: 14px !important;
-            border-radius: 16px !important;
-            font-weight: 600 !important;
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-        }
-
-        /* CONTAINER */
-        .container {
-            max-width: 1320px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        /* PAGE INTRO - HERO */
-        .page-intro {
-            margin-top: 72px;
-            padding-top: 72px;
-            padding-bottom: 80px;
-            background-color: #E8E8E5;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(15, 107, 50, 0.2) 50%, rgba(0, 0, 0, 0.3) 100%), url('../assets/images/hero4.jpg') center/cover no-repeat;
-            background-attachment: fixed;
-            color: white;
-            border-radius: 32px 32px 0 0;
-        }
-
-        .page-intro h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: clamp(36px, 7vw, 56px);
-            font-weight: 700;
-            color: white;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .page-intro h1 .highlight {
-            color: var(--color-primary);
-        }
-
-        .page-intro p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            line-height: 1.6;
-        }
-
-        /* SECTION COMMENT ÇA MARCHE */
-        .how-it-works {
-            background: var(--color-primary);
-            padding: 60px 40px;
-            margin: 0 40px 60px 40px;
-            border-radius: 16px;
-            color: white;
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .how-it-works-icon {
-            font-size: 56px;
-            flex-shrink: 0;
-        }
-
-        .how-it-works-content h2 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: white;
-        }
-
-        .how-it-works-content p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.95);
-            margin: 0;
-        }
-
-        /* SECTION COMMENT ÇA MARCHE - ESHOP */
-        .how-it-works-eshop {
-            background: white;
-            padding: 16px 40px;
-            margin: 20px 0;
-        }
-
-        .how-it-works-eshop .how-it-works-content {
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
-            padding: 20px 24px;
-            border-radius: 16px;
-            color: white;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .how-it-works-eshop .how-it-works-icon {
-            font-size: 40px;
-            flex-shrink: 0;
-        }
-
-        .how-it-works-eshop .how-it-works-text h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            margin: 0 0 6px 0;
-            color: white;
-        }
-
-        .how-it-works-eshop .how-it-works-text p {
-            font-size: 13px;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.95);
-            margin: 0;
-        }
-
-        /* FILTRES */
-        .filters-wrapper {
-            position: sticky;
-            top: 72px;
-            background: white;
-            padding: 20px 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--color-border);
-            margin-bottom: 40px;
-        }
-
-        .filters-container {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding-bottom: 8px;
-        }
-
-        .filters-container::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .filters-container::-webkit-scrollbar-track {
-            background: var(--color-light);
-        }
-
-        .filters-container::-webkit-scrollbar-thumb {
-            background: var(--color-primary);
-            border-radius: 4px;
-        }
-
-        .filter-btn {
-            padding: 10px 16px;
-            border: none;
-            background: transparent;
-            color: var(--color-text);
-            border-bottom: 2px solid transparent;
-            border-radius: 0;
-            font-weight: 500;
-            font-size: 13px;
-            cursor: pointer;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .filter-btn:hover {
-            color: var(--color-primary);
-            border-bottom-color: rgba(227, 106, 19, 0.3);
-        }
-
-        .filter-btn.active {
-            color: var(--color-primary);
-            border-bottom-color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 12px;
-        }
-
-        .btn-devis {
-            flex: 1;
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
-            color: white;
-            border: none;
-            padding: 13px 16px;
-            font-size: 14px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .btn-devis:hover {
-            background: linear-gradient(135deg, #d45d0a, #c04d08);
-            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
-        }
-
-        .btn-cart {
-            background: white;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-            padding: 11px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex: 0 0 auto;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-cart svg {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
-        }
-
-        .btn-cart:hover {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .btn-cart:hover svg {
-            stroke: white;
-        }
-
-        /* PRODUITS GRILLE */
-        .products-section {
-            padding-bottom: 80px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 32px;
-        }
-
-        .product-card {
-            background: white;
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-favorite {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            z-index: 10;
-            font-size: 24px;
-            cursor: pointer;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .product-favorite:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(227, 106, 19, 0.2);
-        }
-
-        .product-favorite.active {
-            color: #FFD700;
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 64px;
-            border-bottom: 1px solid var(--color-border);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .product-image:hover {
-            background: linear-gradient(135deg, #f0f0f0 0%, #d0d0d0 100%);
-        }
-
-        .product-eye-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            z-index: 5;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .product-eye-icon img {
-            width: 48px;
-            height: 48px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-        }
-
-        .eye-tooltip {
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            white-space: nowrap;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-image:hover .product-eye-icon {
-            opacity: 1;
-        }
-
-        /* ==================== MODAL DÉTAILS PRODUIT ==================== */
-        .product-details-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
-
-        .product-details-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-        }
-
-        .product-details-content {
-            position: relative;
-            background: #ffffff;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
+        .skip { position: absolute; left: 12px; top: -60px; z-index: 200; padding: 10px 18px;
+                background: var(--ink); color: #fff; font-weight: 600; text-decoration: none;
+                border-radius: 0 0 6px 6px; transition: top .2s var(--ease); }
+        .skip:focus { top: 0; }
+
+        /* ── barre de filtres ────────────────────────────────────────────
+           Elle ne colle plus à la page entière mais au seul bloc catalogue :
+           elle arrive avec les produits et repart avec eux, au lieu de doubler
+           l'en-tête sur toute la hauteur du site.
+
+           Le décalage vient de --tete-bas, mesuré sur l'en-tête réel. La
+           valeur codée en dur (72 px) faisait glisser la barre sous l'en-tête
+           de 10 à 18 px selon la largeur, celui-ci descendant à 82-90 px. */
+        .shop-bar { position: sticky; top: var(--tete-bas, 92px); z-index: 40;
+                    margin-bottom: 30px;
+                    /* le fond reprend celui de la bande : au repos la barre ne
+                       se voit pas comme un bloc rapporté. Il reste opaque pour
+                       que le catalogue ne transparaisse pas derrière une fois
+                       la barre collée. */
+                    background: var(--ground); }
+
+        /* filet et ombre seulement une fois collée, là où ils servent
+           réellement à décoller la barre du contenu qui passe dessous */
+        .shop-bar::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+                           height: 1px; background: var(--rule-2);
+                           opacity: 0; transition: opacity var(--fast) var(--ease); }
+        .shop-bar[data-collee]::after { opacity: 1; }
+        .shop-bar[data-collee] { box-shadow: 0 6px 16px -12px rgba(21,23,26,.35); }
+        .shop-bar > .wrap { display: flex; align-items: center; gap: 18px;
+                            padding-block: 11px; padding-inline: 0; }
+        .filters-container { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: thin;
+                             flex: 1; padding-bottom: 2px; }
+        /* Quand la rangée dépasse, la dernière puce se retrouvait tranchée net
+           au bord : on ne voyait pas qu'il y en avait d'autres. Un fondu le dit,
+           et il s'efface une fois la piste défilée jusqu'au bout. */
+        .filters-container[data-suite] {
+            -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
+                    mask-image: linear-gradient(to right, #000 calc(100% - 34px), transparent);
+        }
+        /* les puces défilent sous l'en-tête : un dégradé signale qu'il en reste */
+        .filters-container::-webkit-scrollbar { height: 4px; }
+        .filters-container::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 4px; }
+        .filter-btn { flex: none; min-height: 40px; padding: 0 10px; border-radius: 999px;
+                      border: 1px solid var(--rule); background: var(--surface);
+                      font-family: var(--font); font-size: 13px; color: var(--ink-2); cursor: pointer;
+                      transition: border-color var(--fast) var(--ease), background var(--fast) var(--ease),
+                                  color var(--fast) var(--ease); }
+        .filter-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+        .filter-btn.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+        .fnb { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3);
+               font-variant-numeric: tabular-nums; }
+        .filter-btn:hover .fnb { color: var(--ink-2); }
+        .filter-btn.active .fnb { color: rgba(255,255,255,.72); }
+
+        .cart-open-btn { flex: none; display: inline-flex; align-items: center; gap: 9px;
+                         min-height: 44px; padding: 0 18px; border: 0; border-radius: var(--r);
+                         background: var(--orange); color: #fff; cursor: pointer;
+                         font-family: var(--font); font-size: 14px; font-weight: 600;
+                         transition: background var(--fast) var(--ease); }
+        .cart-open-btn:hover { background: var(--orange-d); }
+        .cart-count { display: inline-flex; align-items: center; justify-content: center;
+                      min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px;
+                      background: rgba(255,255,255,.22); font-family: var(--mono); font-size: 11.5px; }
+
+        /* ── grille produits ─────────────────────────────────────────── */
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; }
+        .product-card { display: flex; flex-direction: column;
+                        background: var(--surface); border: 1px solid var(--rule-2);
+                        border-radius: var(--r-lg); overflow: hidden;
+                        transition: border-color var(--fast) var(--ease), transform var(--fast) var(--ease); }
+        .product-card:hover { border-color: var(--rule); transform: translateY(-2px); }
+        .product-card[hidden] { display: none; }
+
+        .product-image { position: relative; display: grid; place-items: center; height: 132px;
+                         background: var(--ground); border-bottom: 1px solid var(--rule-2); }
+        .product-icon { width: 46px; height: 46px; color: var(--orange-t); }
+        .product-favorite { position: absolute; top: 10px; right: 10px;
+                            width: 36px; height: 36px; display: grid; place-items: center;
+                            border: 1px solid var(--rule-2); border-radius: 50%;
+                            background: var(--surface); color: var(--ink-3); cursor: pointer;
+                            transition: color var(--fast) var(--ease), border-color var(--fast) var(--ease); }
+        .product-favorite:hover { color: var(--orange-t); border-color: var(--orange-lo); }
+        .product-favorite[aria-pressed="true"] { color: var(--orange); border-color: var(--orange-lo); }
+        .product-favorite[aria-pressed="true"] svg { fill: currentColor; }
+        .product-favorite svg { fill: none; }
+
+        .product-content { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 20px; }
+        .product-name { font-size: 18px; line-height: 1.2; }
+        .product-category { font-family: var(--mono); font-size: 11px; letter-spacing: .07em;
+                            text-transform: uppercase; color: var(--ink-3); }
+        .product-details { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px;
+                           font-size: 13.5px; flex: 1; align-content: start; }
+        .product-details dt { font-weight: 600; color: var(--ink-2); }
+        .product-details dd { color: var(--ink-2); }
+        .product-actions { display: flex; gap: 8px; align-items: center; }
+        .btn-detail { min-height: 40px; padding: 0 14px; border-radius: var(--r);
+                      border: 1px solid var(--rule); background: transparent;
+                      font-family: var(--font); font-size: 13.5px; color: var(--ink-2); cursor: pointer;
+                      transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease); }
+        .btn-detail:hover { border-color: var(--ink-3); color: var(--ink); }
+        .shop-vide { padding: 48px 0; color: var(--ink-2); }
+        .shop-vide[hidden] { display: none; }
+
+        /* ── tiroir panier et fenêtres modales ───────────────────────── */
+        dialog { border: 0; padding: 0; color: var(--ink); background: var(--surface); }
+        dialog::backdrop { background: rgba(10,12,14,.5); }
+
+        /* Le tiroir s'ouvrait et se refermait d'un coup : rien ne reliait le
+           bouton au panneau. Il glisse maintenant depuis le bord droit, dans
+           les deux sens. Là où allow-discrete n'existe pas, l'affichage reste
+           instantané — c'est le comportement d'avant, pas une régression. */
+        .drawer { margin: 0 0 0 auto; height: 100%; max-height: 100%; width: min(420px, 100%);
+                  display: flex; flex-direction: column; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .drawer {
+                transform: translateX(100%);
+                transition: transform .3s var(--ease),
+                            overlay .3s var(--ease) allow-discrete,
+                            display .3s var(--ease) allow-discrete;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .drawer[open] { transform: translateX(0); }
+            @starting-style { .drawer[open] { transform: translateX(100%); } }
+
+            .modal {
+                opacity: 0; transform: translateY(8px) scale(.99);
+                transition: opacity .22s var(--ease), transform .22s var(--ease),
+                            overlay .22s var(--ease) allow-discrete,
+                            display .22s var(--ease) allow-discrete;
             }
-        }
-
-        .product-details-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .product-details-header h2 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-            color: #0B0B0B;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .product-details-close {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #4F4F4F;
-            transition: color 0.2s ease;
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-details-close:hover {
-            color: #E36A13;
-        }
-
-        .product-details-body {
-            padding: 24px;
-        }
-
-        .product-details-item {
-            margin-bottom: 16px;
-            font-size: 14px;
-            color: #4F4F4F;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        .product-details-item strong {
-            color: #0B0B0B;
-            font-weight: 600;
-            display: inline-block;
-            min-width: 140px;
-        }
-
-        .product-details-footer {
-            padding: 20px 24px;
-            border-top: 1px solid #f0f0f0;
-            display: flex;
-            gap: 12px;
-        }
-
-        .product-details-footer .btn {
-            flex: 1;
-        }
-
-        .product-details-footer .btn-secondary {
-            background-color: #f5f5f5;
-            color: var(--color-dark);
-            border: 1px solid var(--color-border);
-        }
-
-        .product-details-footer .btn-secondary:hover {
-            background-color: #efefef;
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        .product-content {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-details {
-            font-size: 13px;
-            color: var(--color-text);
-            margin-bottom: 16px;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        .product-details strong {
-            color: var(--color-dark);
-            font-weight: 600;
-        }
-
-        .product-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-        }
-
-        .product-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 8px;
-        }
-
-        .product-category {
-            font-size: 13px;
-            color: var(--color-text);
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .product-formats {
-            font-size: 13px;
-            color: var(--color-text);
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .product-formats strong {
-            color: var(--color-dark);
-            font-weight: 600;
-        }
-
-        .product-usage {
-            font-size: 13px;
-            color: var(--color-text);
-            margin-bottom: 24px;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        .product-usage strong {
-            color: var(--color-dark);
-            font-weight: 600;
-        }
-
-        .product-card .btn {
-            width: 100%;
-            text-align: center;
-            padding: 10px 12px;
-            font-size: 13px;
-        }
-
-        /* EMPTY STATE */
-        .no-products {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--color-text);
-        }
-
-        .no-products p {
-            font-size: 16px;
-        }
-
-        /* NOTIFICATIONS/TOAST */
-        .notification-container {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 450px;
-            pointer-events: none;
-            align-items: center;
-        }
-
-        .notification {
-            background: var(--color-primary);
-            border-radius: 8px;
-            padding: 16px 20px;
-            box-shadow: 0 4px 16px rgba(227, 106, 19, 0.25);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
-            color: white;
-            animation: slideIn 0.3s ease forwards;
-            pointer-events: auto;
-            min-width: 300px;
-            font-weight: 500;
-        }
-
-        .notification.success {
-            background: var(--color-primary);
-        }
-
-        .notification.error {
-            background: var(--color-primary);
-        }
-
-        .notification.info {
-            background: var(--color-primary);
-        }
-
-        .notification-message {
-            flex: 1;
-        }
-
-        .notification-close {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: white;
-            font-size: 16px;
-            padding: 0;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .notification-close:hover {
-            opacity: 1;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideOut {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-        }
-
-        .notification.removing {
-            animation: slideOut 0.3s ease forwards;
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: var(--color-dark);
-            color: white;
-            padding: 60px 0 20px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--color-primary);
-        }
-
-        .footer-section a {
-            display: block;
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--color-primary);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            text-align: center;
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* PANIER - CART ICON */
-        .cart-icon-btn {
-            position: relative;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-            padding: 6px 4px;
-            transition: transform 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            flex-shrink: 0;
-        }
-
-        .cart-icon-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            background: var(--color-primary);
-            color: white;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* DRAWER */
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 400px;
-            height: 100vh;
-            background: white;
-            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
-            z-index: 2000;
-            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .cart-drawer.open {
-            right: 0;
-        }
-
-        .cart-drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px;
-            border-bottom: 1px solid var(--color-border);
-            background: #FAFAFA;
-        }
-
-        .cart-drawer-header h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--color-dark);
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .close-drawer {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--color-dark);
-        }
-
-        .cart-drawer-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 24px;
-        }
-
-        .cart-drawer-content::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .cart-drawer-content::-webkit-scrollbar-track {
-            background: var(--color-light);
-        }
-
-        .cart-drawer-content::-webkit-scrollbar-thumb {
-            background: var(--color-primary);
-            border-radius: 3px;
-        }
-
-        .cart-empty {
-            text-align: center;
-            padding: 60px 0;
-            color: var(--color-text);
-        }
-
-        .cart-empty p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .cart-item {
-            background: var(--color-light);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            border-left: 4px solid var(--color-primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 600;
-            color: var(--color-dark);
-            font-size: 14px;
-            margin-bottom: 4px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .cart-item-category {
-            font-size: 12px;
-            color: var(--color-text);
-            margin-bottom: 6px;
-        }
-
-        .cart-item-format {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 4px;
-        }
-
-        .cart-item-qty {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .cart-item-remove {
-            background: white;
-            border: 1px solid #ddd;
-            color: #d32f2f;
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-        }
-
-        .cart-item-remove:hover {
-            background: #d32f2f;
-            color: white;
-            border-color: #d32f2f;
-        }
-
-        .cart-drawer-footer {
-            padding: 20px 24px;
-            border-top: 1px solid var(--color-border);
-            background: #FAFAFA;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .cart-reassurance {
-            background: #F0F7FF;
-            border-left: 4px solid var(--color-primary);
-            padding: 12px 16px;
-            border-radius: 6px;
-        }
-
-        .cart-reassurance p {
-            font-size: 12px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .cart-reassurance strong {
-            color: var(--color-dark);
-            font-weight: 600;
-        }
-
-        .btn-devis-panier {
-            width: 100%;
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
-            color: white;
-            border: none;
-            padding: 16px 24px;
-            font-size: 15px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .btn-devis-panier:hover {
-            background: linear-gradient(135deg, #d45d0a, #c04d08);
-            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
-        }
-
-        .btn-devis-panier:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .cart-footer-links {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .cart-footer-link {
-            font-size: 12px;
-            color: var(--color-primary);
-            text-decoration: none;
-            padding: 8px 12px;
-            border: 1px solid rgba(227, 106, 19, 0.3);
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .cart-footer-link:hover {
-            background: rgba(227, 106, 19, 0.1);
-            border-color: var(--color-primary);
-        }
-
-        /* CART HEADER */
-        .cart-drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px;
-            border-bottom: 1px solid var(--color-border);
-            background: #FAFAFA;
-        }
-
-        .cart-drawer-title-group h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--color-dark);
-            margin: 0 0 4px 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .cart-drawer-subtitle {
-            font-size: 12px;
-            color: var(--color-text);
-            margin: 0;
-        }
-
-        .cart-drawer-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .cart-clear-btn {
-            background: none;
-            border: 1px solid var(--color-border);
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: none;
-        }
-
-        .cart-clear-btn:hover {
-            background: #FFE5E5;
-            border-color: #d32f2f;
-        }
-
-        .close-drawer {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--color-dark);
-        }
-
-        /* CART ITEM */
-        .cart-item {
-            background: white;
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-        }
-
-        .cart-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 600;
-            color: var(--color-dark);
-            font-size: 15px;
-            margin-bottom: 4px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .cart-item-category {
-            font-size: 12px;
-            color: var(--color-text);
-        }
-
-        .cart-item-remove {
-            background: white;
-            border: 1px solid #ddd;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cart-item-remove:hover {
-            background: #FFE5E5;
-            border-color: #d32f2f;
-        }
-
-        .cart-item-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
-        .cart-item-format-selector,
-        .cart-item-qty-selector {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .cart-item-format-selector label,
-        .cart-item-qty-selector label {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-dark);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .format-select {
-            padding: 8px 12px;
-            border: 1px solid var(--color-border);
-            border-radius: 6px;
-            font-size: 13px;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .format-select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
-        }
-
-        .qty-controls {
-            display: flex;
-            gap: 6px;
-            align-items: center;
-        }
-
-        .qty-btn {
-            background: white;
-            border: 1px solid var(--color-border);
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .qty-btn:hover {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        .qty-input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid var(--color-border);
-            border-radius: 6px;
-            font-size: 13px;
-            text-align: center;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .qty-input:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
-        }
-
-        /* CART EMPTY STATE */
-        .cart-empty {
-            text-align: center;
-            padding: 40px 24px;
-            color: var(--color-text);
-        }
-
-        .cart-empty-icon {
-            font-size: 48px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .cart-empty h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--color-dark);
-            margin: 0 0 8px 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .cart-empty p {
-            font-size: 14px;
-            color: var(--color-text);
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .btn-view-products {
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .btn-view-products:hover {
-            box-shadow: 0 6px 16px rgba(227, 106, 19, 0.3);
-        }
-
-        /* TOAST NOTIFICATIONS */
-        .toast {
-            position: fixed;
-            bottom: 24px;
-            left: 24px;
-            background: var(--color-dark);
-            color: white;
-            padding: 16px 24px;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-            z-index: 3000;
-            font-size: 14px;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-            animation: toastSlideIn 0.3s ease forwards;
-        }
-
-        .toast.success {
-            background: var(--color-secondary);
-        }
-
-        @keyframes toastSlideIn {
-            from {
-                transform: translateY(120px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes toastSlideOut {
-            from {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(120px);
-                opacity: 0;
-            }
-        }
-
-        /* DRAWER OVERLAY */
-        .cart-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            z-index: 1999;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .cart-overlay.open {
-            background: rgba(0, 0, 0, 0.4);
-            opacity: 1;
-            pointer-events: all;
-        }
-
-        /* MODAL FORMULAIRE */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2500;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.open {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 16px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.4s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(40px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            padding: 32px 32px 24px;
-            border-bottom: 1px solid var(--color-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0;
-            color: var(--color-dark);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 32px;
-            cursor: pointer;
-            color: var(--color-text);
-            padding: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-body {
-            padding: 32px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--color-dark);
-            font-size: 14px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(227, 106, 19, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        .modal-footer {
-            padding: 32px;
-            border-top: 1px solid var(--color-border);
-            display: flex;
-            gap: 12px;
-            background: #FAFAFA;
-        }
-
-        .btn-cancel,
-        .btn-submit {
-            flex: 1;
-            padding: 14px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .btn-cancel {
-            background: var(--color-light);
-            color: var(--color-dark);
-        }
-
-        .btn-cancel:hover {
-            background: #ddd;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, var(--color-primary), #d45d0a);
-            color: white;
-        }
-
-        .btn-submit:hover {
-            box-shadow: 0 8px 20px rgba(227, 106, 19, 0.35);
-        }
-
-        /* QUOTE MODAL STYLES */
-        .quote-modal-section {
-            margin-bottom: 28px;
-            padding-bottom: 28px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .quote-modal-section:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .quote-modal-section h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--color-dark);
-            margin-bottom: 16px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .quote-cart-items {
-            background: var(--color-light);
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 12px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .quote-cart-item {
-            background: white;
-            border-radius: 6px;
-            padding: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            border-left: 3px solid var(--color-primary);
-        }
-
-        .quote-cart-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .quote-cart-item-name {
-            font-weight: 600;
-            color: var(--color-dark);
-            min-width: 100px;
-        }
-
-        .quote-cart-item-controls {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .quote-format-select {
-            padding: 6px 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 12px;
-            background: white;
-            cursor: pointer;
-        }
-
-        .quote-qty-controls {
-            display: flex;
-            gap: 4px;
-            align-items: center;
-        }
-
-        .quote-qty-controls .qty-btn {
-            width: 28px;
-            height: 28px;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: 600;
-            color: var(--color-dark);
-        }
-
-        .quote-qty-controls .qty-input {
-            width: 40px;
-            height: 28px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        .btn-remove-item {
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 0;
-        }
-
-        .btn-modify-cart {
-            width: 100%;
-            padding: 10px 12px;
-            background: white;
-            border: 1px solid var(--color-primary);
-            color: var(--color-primary);
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-modify-cart:hover {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        /* LOGIN OPTIONS */
-        .login-options {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-
-        .login-option {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .login-option input[type="radio"] {
-            cursor: pointer;
-        }
-
-        .login-option.active {
-            border-color: var(--color-primary);
-            background: rgba(227, 106, 19, 0.05);
-        }
-
-        .login-option label {
-            cursor: pointer;
-            margin: 0;
-        }
-
-        .login-content {
-            margin-top: 12px;
-        }
-
-        .new-client-form {
-            min-height: 20px;
-        }
-
-        .existing-client-form {
-            background: #f9f9f9;
-            border-radius: 8px;
-            padding: 16px;
-        }
-
-        .existing-client-form .form-group {
-            margin-bottom: 12px;
-        }
-
-        .existing-client-form .form-group:last-of-type {
-            margin-bottom: 16px;
-        }
-
-        .btn-login {
-            width: 100%;
-            padding: 10px 12px;
-            background: var(--color-primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-login:hover {
-            box-shadow: 0 4px 12px rgba(227, 106, 19, 0.25);
-        }
-
-        .login-message {
-            margin-top: 8px;
-            padding: 8px 10px;
-            border-radius: 4px;
-            font-size: 13px;
-            text-align: center;
-        }
-
-        .login-message.error {
-            background: #fef5f5;
-            color: #d32f2f;
-        }
-
-        .login-message.success {
-            background: #f1f8f4;
-            color: #0F6B32;
-        }
-
-        .confirmation-message {
-            text-align: center;
-            padding: 60px 32px;
-        }
-
-        .confirmation-message .icon {
-            font-size: 64px;
-            margin-bottom: 24px;
-        }
-
-        .confirmation-message h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 12px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .confirmation-message p {
-            font-size: 15px;
-            color: var(--color-text);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        /* RESPONSIVE DRAWER */
-        @media (max-width: 768px) {
-            .cart-drawer {
-                width: 100%;
-                right: -100%;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-content {
-                max-height: 100vh;
-                border-radius: 16px 16px 0 0;
-            }
-
-            .how-it-works-eshop {
-                padding: 30px 20px;
-                margin: 30px 0;
-            }
-
-            .how-it-works-eshop .how-it-works-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 16px;
-                padding: 24px 20px;
-            }
-
-            .how-it-works-eshop .how-it-works-text h3 {
-                font-size: 24px;
-            }
-
-            .how-it-works-eshop .how-it-works-text p {
-                font-size: 15px;
-            }
-
-            .how-it-works-eshop {
-                padding: 40px 20px;
-            }
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            header .container {
-                padding: 12px 30px;
-            }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-                gap: 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header .container {
-                padding: 12px 20px;
-            }
-
-            .header-nav {
-                display: none;
-            }
-
-            .page-intro {
-                padding-top: 80px;
-                padding-bottom: 40px;
-            }
-
-            .page-intro h1 {
-                font-size: 28px;
-            }
-
-            .page-intro p {
-                font-size: 14px;
-            }
-
-            .how-it-works {
-                margin: 0 20px 40px 20px;
-                padding: 40px 20px;
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .how-it-works-icon {
-                font-size: 48px;
-            }
-
-            .how-it-works-content h2 {
-                font-size: 20px;
-            }
-
-            .page-intro h1 {
-                font-size: 32px;
-            }
-
-            .page-intro p {
-                font-size: 14px;
-            }
-
-            .filters-wrapper {
-                top: 56px;
-                padding: 16px 0;
-                margin-bottom: 30px;
-            }
-
-            .filters-container {
-                gap: 10px;
-            }
-
-            .filter-btn {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .product-card {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header .container {
-                padding: 12px 16px;
-                gap: 20px;
-            }
-
-            .page-intro {
-                padding-top: 70px;
-                padding-bottom: 30px;
-            }
-
-            .page-intro h1 {
-                font-size: 24px;
-            }
-
-            .page-intro p {
-                font-size: 13px;
-            }
-
-            .filters-wrapper {
-                top: 50px;
-                padding: 12px 0;
-                margin-bottom: 20px;
-            }
-
-            .product-card {
-                padding: 16px;
-            }
-
-            .product-name {
-                font-size: 16px;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
+            .modal[open] { opacity: 1; transform: none; }
+            @starting-style { .modal[open] { opacity: 0; transform: translateY(8px) scale(.99); } }
+
+            dialog::backdrop { opacity: 0;
+                transition: opacity .25s var(--ease), overlay .25s allow-discrete, display .25s allow-discrete; }
+            dialog[open]::backdrop { opacity: 1; }
+            @starting-style { dialog[open]::backdrop { opacity: 0; } }
+        }
+        .drawer-head { display: flex; align-items: flex-start; justify-content: space-between;
+                       gap: 16px; padding: 24px; border-bottom: 1px solid var(--rule-2); }
+        .drawer-head h2 { font-size: 24px; }
+        .drawer-head p { font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+                         text-transform: uppercase; color: var(--ink-3); margin-top: 6px; }
+        .drawer-body { flex: 1; overflow-y: auto; padding: 20px 24px; }
+        .drawer-foot { padding: 20px 24px; border-top: 1px solid var(--rule-2); background: var(--ground); }
+        .drawer-foot .note { font-size: 13px; color: var(--ink-2); margin-bottom: 14px; }
+
+        .icon-btn { width: 40px; height: 40px; display: grid; place-items: center; flex: none;
+                    border: 1px solid var(--rule-2); border-radius: var(--r); background: transparent;
+                    color: var(--ink-2); cursor: pointer; font-size: 20px; line-height: 1;
+                    transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease); }
+        .icon-btn:hover { border-color: var(--ink-3); color: var(--ink); }
+        .drawer-actions { display: flex; gap: 8px; }
+
+        .cart-item { padding: 16px 0; border-bottom: 1px solid var(--rule-2); }
+        .cart-item:first-child { padding-top: 0; }
+        .cart-item-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+        .cart-item-name { font-weight: 600; font-size: 15px; }
+        .cart-item-cat { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+        .cart-item-ctl { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+        .cart-item-ctl .field { gap: 5px; }
+        .cart-item-ctl label { font-size: 12px; color: var(--ink-3); }
+        .cart-item-ctl .select { min-height: 40px; padding: 0 30px 0 10px; font-size: 14px; }
+
+        .qty { display: flex; align-items: center; border: 1px solid var(--rule); border-radius: var(--r);
+               overflow: hidden; background: var(--surface); }
+        .qty button { width: 38px; height: 40px; border: 0; background: transparent; cursor: pointer;
+                      font-size: 17px; color: var(--ink-2); font-family: var(--font); }
+        .qty button:hover { background: var(--ground); color: var(--ink); }
+        .qty input { width: 46px; height: 40px; border: 0; border-inline: 1px solid var(--rule);
+                     text-align: center; font-family: var(--mono); font-size: 14px; color: var(--ink);
+                     background: transparent; -moz-appearance: textfield; }
+        .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button {
+            -webkit-appearance: none; margin: 0; }
+
+        .cart-empty { display: grid; place-items: center; gap: 10px; text-align: center; padding: 48px 0; }
+        .cart-empty svg { width: 38px; height: 38px; color: var(--ink-3); }
+        .cart-empty p { font-size: var(--t-sm); color: var(--ink-2); }
+
+        .modal { margin: auto; width: min(760px, calc(100% - 32px)); max-height: calc(100vh - 48px);
+                 border-radius: var(--r-lg); display: flex; flex-direction: column; }
+        .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 16px;
+                      padding: 22px 26px; border-bottom: 1px solid var(--rule-2); }
+        .modal-head h2 { font-size: 24px; }
+        .modal-body { padding: 26px; overflow-y: auto; }
+        .modal-foot { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap;
+                      padding: 18px 26px; border-top: 1px solid var(--rule-2); background: var(--ground); }
+        .modal-part + .modal-part { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--rule-2); }
+        .modal-part > h3 { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .13em;
+                           text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; }
+
+        .recap-item { display: flex; align-items: center; justify-content: space-between; gap: 14px;
+                      flex-wrap: wrap; padding: 12px 0; border-bottom: 1px solid var(--rule-2); }
+        .recap-item .nom { font-weight: 600; font-size: 15px; }
+        .recap-item .qte { font-family: var(--mono); font-size: 13px; color: var(--ink-2); }
+
+        .choix { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+        .choix label { display: inline-flex; align-items: center; gap: 9px; min-height: 44px;
+                       padding: 0 16px; border: 1px solid var(--rule); border-radius: var(--r);
+                       font-size: 14px; cursor: pointer; background: var(--surface);
+                       transition: border-color var(--fast) var(--ease); }
+        .choix label:hover { border-color: var(--ink-3); }
+        .choix input { accent-color: var(--green); width: 17px; height: 17px; }
+        .choix input:checked + span { font-weight: 600; }
+
+        .confirm { display: grid; place-items: center; gap: 12px; text-align: center; padding: 42px 10px; }
+        .confirm svg { width: 46px; height: 46px; color: var(--green); }
+        .confirm p { color: var(--ink-2); max-width: 46ch; }
+
+        /* ── notifications ───────────────────────────────────────────── */
+        .toasts { position: fixed; right: 16px; bottom: 16px; z-index: 300;
+                  display: flex; flex-direction: column; gap: 10px; max-width: calc(100% - 32px); }
+        .toast { display: flex; align-items: center; gap: 12px; padding: 13px 16px;
+                 border-radius: var(--r); background: var(--night); color: #fff;
+                 font-size: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+        .toast[data-type="ok"] { background: #14602E; }
+
+        /* En mobile la barre passait à deux lignes (130 px) : avec l'en-tête,
+           deux bandeaux occupaient 210 px d'un écran de 844. Elle tient
+           maintenant sur une ligne, le libellé du bouton cédant la place au
+           seul pictogramme et au compteur. */
+        /* Le libellé du bouton cède la place au seul pictogramme dès que la
+           rangée de puces en a besoin : c'est ce qui la fait tenir entière
+           jusqu'à 820 px au lieu de 900. */
+        @media (max-width: 900px) {
+            .shop-bar > .wrap { gap: 10px; }
+            .cart-open-btn { padding: 0 13px; gap: 7px; }
+            .cart-open-btn .lib { display: none; }
+        }
+        @media (max-width: 620px) {
+            .drawer { width: 100%; }
         }
     </style>
-    <link rel="stylesheet" href="../assets/css/shared.css">
-    <link rel="stylesheet" href="../assets/css/icons-svg.css">
-    <!-- SVG Icons CSS loaded -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://www.idc.ci/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "IDC e-shop",
+                "item": "https://www.idc.ci/eshop.html"
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
-    <!-- NOTIFICATION CONTAINER -->
-    <div class="notification-container" id="notificationContainer"></div>
 
-    <!-- HEADER -->
-    <header>
-        <div class="container">
-            <div class="header-left">
-                <a href="index.html" class="logo">
-                    <img src="../assets/images/logo.png" alt="IDC Logo">
-                </a>
-            </div>
-            
-            <nav id="navbar" class="header-nav">
-                <a href="index.html">Accueil</a>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-head" id="tete">
+        <div class="wrap">
+            <div class="bar" id="barre">
+                <a href="index.html" aria-label="IDC, accueil"><img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures"></a>
+
+                <nav aria-label="Navigation principale">
+                <a href="index.html#accueil">Accueil</a>
                 <a href="index.html#apropos">À propos</a>
                 <a href="index.html#activites">Services</a>
                 <a href="actualites.html">Actualités</a>
-                <a href="eshop.html">IDC e-shop</a>
-                <a href="login.html" class="btn btn-primary btn-sm">Espace client</a>
+                <a href="eshop.html" aria-current="page">IDC e-shop</a>
+                <a href="jobs.html">Carrières</a>
                 <a href="contact.html">Nous contacter</a>
-            </nav>
+                </nav>
 
-            <div class="header-right">
-                <button id="cartBtn" class="cart-icon-btn" title="Voir le panier">
-                    <span class="cart-icon">🛒</span>
-                    <span class="cart-badge" id="cartBadge">0</span>
+                <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
+
+                <button class="burger" id="burger" type="button"
+                        aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu">
+                    <span></span>
                 </button>
-                <div class="menu-burger" id="menuBurger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+                <div class="mobile-nav" id="menu-mobile">
+                <a href="index.html#accueil">Accueil <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#apropos">À propos <span class="ar" aria-hidden="true">→</span></a>
+                <a href="index.html#activites">Services <span class="ar" aria-hidden="true">→</span></a>
+                <a href="actualites.html">Actualités <span class="ar" aria-hidden="true">→</span></a>
+                <a href="eshop.html" aria-current="page">IDC e-shop <span class="ar" aria-hidden="true">→</span></a>
+                <a href="jobs.html">Carrières <span class="ar" aria-hidden="true">→</span></a>
+                <a href="contact.html">Nous contacter <span class="ar" aria-hidden="true">→</span></a>
+                    <a class="btn" href="login.html">Espace client <span class="ar" aria-hidden="true">→</span></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- PAGE INTRO -->
-    <section class="page-intro">
-        <div class="container">
-            <h1>Boutique <span class="highlight">lubrifiants</span> IDC</h1>
-            <p>Une gamme complète de lubrifiants professionnels pour véhicules, industries et équipements. Découvrez nos huiles moteur, hydrauliques, industrielles, graisses et fluides de transmission adaptés à tous vos besoins.</p>
+<main id="contenu">
+
+    <section class="page-top">
+        <div class="wrap">
+            <p class="mono" style="margin-bottom:22px">IDC e-shop / 11 références.</p>
+            <div class="split">
+                <h1>Lubrifiants <span class="accent">professionnels.</span></h1>
+                <p class="lead" style="align-self:end">Huiles moteur, hydrauliques et industrielles, graisses et fluides de transmission. Composez votre sélection, nous revenons vers vous avec une proposition tarifaire.</p>
+            </div>
         </div>
     </section>
 
-    <!-- FILTRES STICKY -->
-    <div class="filters-wrapper">
-        <div class="container">
-            <div class="filters-container">
-                <button class="filter-btn active" data-filter="all">Tous les produits</button>
-                <button class="filter-btn" data-filter="moteur">Huiles moteur</button>
-                <button class="filter-btn" data-filter="hydraulique">Huiles hydrauliques</button>
-                <button class="filter-btn" data-filter="industrielle">Huiles industrielles</button>
-                <button class="filter-btn" data-filter="graisse">Graisses</button>
-                <button class="filter-btn" data-filter="transmission">Transmission & pont</button>
+    <section class="band band--pale">
+        <div class="wrap">
+            <div class="split" style="margin-bottom:34px">
+                <h2>Commander <span class="accent">en trois temps.</span></h2>
+                <p class="lead" style="align-self:end">Les prix ne sont pas affichés en ligne : ils dépendent du volume et de la fréquence de livraison. Un commercial vous répond sous 24 heures ouvrées.</p>
             </div>
+            <ul class="list list--detail" style="max-width:860px">
+                <li><span>01</span> <span><strong>Composez votre sélection</strong><span class="muted">Ajoutez les références au panier et choisissez les formats.</span></span></li>
+                <li><span>02</span> <span><strong>Envoyez la demande</strong><span class="muted">Vos coordonnées, votre localisation et vos volumes.</span></span></li>
+                <li><span>03</span> <span><strong>Recevez votre proposition</strong><span class="muted">Un commercial revient vers vous avec les tarifs et les modalités.</span></span></li>
+            </ul>
         </div>
-    </div>
+    </section>
 
-    <!-- COMMENT ÇA MARCHE - INFO SECTION -->
-    <section class="how-it-works-eshop">
-        <div class="container">
-            <div class="how-it-works-content">
-                <div class="how-it-works-text">
-                    <h3>Comment ça marche ?</h3>
-                    <p>Sélectionnez vos lubrifiants et envoyez votre demande. Nos équipes vous contacteront rapidement pour finaliser votre commande.</p>
+    <section class="band">
+        <div class="wrap">
+            <h2 style="margin-bottom:30px">Notre <span class="accent">catalogue.</span></h2>
+
+            <!-- Le décompte quitte l'écran mais pas la page : il reste annoncé
+                 aux lecteurs d'écran, sans quoi rien ne signalerait le
+                 résultat d'un changement de filtre. -->
+            <p class="sr-only" id="shopCompte" role="status" aria-live="polite">11 produits affichés</p>
+
+            <div class="shop-bar">
+                <div class="wrap">
+                    <div class="filters-container" role="group" aria-label="Filtrer par famille de produits">
+                <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tous <span class="fnb">(11)</span></button>
+                <button class="filter-btn" type="button" data-filter="moteur" aria-pressed="false">Moteur <span class="fnb">(3)</span></button>
+                <button class="filter-btn" type="button" data-filter="hydraulique" aria-pressed="false">Hydrauliques <span class="fnb">(2)</span></button>
+                <button class="filter-btn" type="button" data-filter="industrielle" aria-pressed="false">Industrielles <span class="fnb">(2)</span></button>
+                <button class="filter-btn" type="button" data-filter="graisse" aria-pressed="false">Graisses <span class="fnb">(2)</span></button>
+                <button class="filter-btn" type="button" data-filter="transmission" aria-pressed="false">Transmission <span class="fnb">(2)</span></button>
+                    </div>
+                    <button class="cart-open-btn" type="button" id="cartOpen">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"/></svg> <span class="lib">Panier</span> <span class="cart-count" id="cartCount">0</span>
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- PRODUITS -->
-    <section class="products-section">
-        <div class="container">
             <div class="products-grid" id="productsGrid">
-                <!-- Huiles moteur -->
-                <div class="product-card" data-category="moteur">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                <article class="product-card" data-category="moteur" data-product="Rubia TIR">
                     <div class="product-image">
-                        🛢️
-                        <div class="product-eye-icon" data-product="Rubia TIR">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.4" rx="7" ry="2.6"/><path d="M5 5.4v13.2c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6V5.4"/><path d="M5 12c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6"/></svg>
+                        <button class="product-favorite" type="button" data-product="Rubia TIR" aria-pressed="false" aria-label="Ajouter Rubia TIR aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Rubia TIR</div>
-                        <div class="product-category">Huile moteur diesel</div>
-                        <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules diesel & flottes</div>
+                        <h3 class="product-name">Rubia TIR</h3>
+                        <p class="product-category">Huile moteur diesel</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>5L · 20L · 208L</dd>
+                            <dt>Usage</dt><dd>Véhicules diesel &amp; flottes</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Rubia TIR">Commander</button>
-                            <button class="btn-cart" data-product="Rubia TIR" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Rubia TIR">Ajouter <span class="sr-only">Rubia TIR au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Rubia TIR" aria-label="Détails de Rubia TIR">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="product-card" data-category="moteur">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="moteur" data-product="Tellus S2 MA">
                     <div class="product-image">
-                        🛢️
-                        <div class="product-eye-icon" data-product="Tellus S2 MA">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.4" rx="7" ry="2.6"/><path d="M5 5.4v13.2c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6V5.4"/><path d="M5 12c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6"/></svg>
+                        <button class="product-favorite" type="button" data-product="Tellus S2 MA" aria-pressed="false" aria-label="Ajouter Tellus S2 MA aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Tellus S2 MA</div>
-                        <div class="product-category">Huile moteur essence</div>
-                        <div class="product-details"><strong>Formats :</strong> 5L · 20L · 208L<br><strong>Usage :</strong> Véhicules essence & légers</div>
+                        <h3 class="product-name">Tellus S2 MA</h3>
+                        <p class="product-category">Huile moteur essence</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>5L · 20L · 208L</dd>
+                            <dt>Usage</dt><dd>Véhicules essence &amp; légers</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 MA">Commander</button>
-                            <button class="btn-cart" data-product="Tellus S2 MA" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Tellus S2 MA">Ajouter <span class="sr-only">Tellus S2 MA au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Tellus S2 MA" aria-label="Détails de Tellus S2 MA">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="product-card" data-category="moteur">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="moteur" data-product="Helix Ultra">
                     <div class="product-image">
-                        🛢️
-                        <div class="product-eye-icon" data-product="Helix Ultra">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.4" rx="7" ry="2.6"/><path d="M5 5.4v13.2c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6V5.4"/><path d="M5 12c0 1.44 3.13 2.6 7 2.6s7-1.16 7-2.6"/></svg>
+                        <button class="product-favorite" type="button" data-product="Helix Ultra" aria-pressed="false" aria-label="Ajouter Helix Ultra aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Helix Ultra</div>
-                        <div class="product-category">Huile moteur synthétique</div>
-                        <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Moteurs modernes haute performance</div>
+                        <h3 class="product-name">Helix Ultra</h3>
+                        <p class="product-category">Huile moteur synthétique</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>1L · 5L · 20L</dd>
+                            <dt>Usage</dt><dd>Moteurs modernes haute performance</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Helix Ultra">Commander</button>
-                            <button class="btn-cart" data-product="Helix Ultra" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Helix Ultra">Ajouter <span class="sr-only">Helix Ultra au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Helix Ultra" aria-label="Détails de Helix Ultra">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Huiles hydrauliques -->
-                <div class="product-card" data-category="hydraulique">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="hydraulique" data-product="Tellus S2 MA 46">
                     <div class="product-image">
-                        <img src="../assets/images/icon-settings.svg" alt="" />
-                        <div class="product-eye-icon" data-product="Tellus S2 MA 46">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5 5.5 5 9a5 5 0 0 1-10 0c0-3.5 5-9 5-9z"/><path d="M12 17v4"/><path d="M9 21h6"/></svg>
+                        <button class="product-favorite" type="button" data-product="Tellus S2 MA 46" aria-pressed="false" aria-label="Ajouter Tellus S2 MA 46 aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Tellus S2 MA 46</div>
-                        <div class="product-category">Huile hydraulique ISO 46</div>
-                        <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes hydrauliques industriels</div>
+                        <h3 class="product-name">Tellus S2 MA 46</h3>
+                        <p class="product-category">Huile hydraulique ISO 46</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>20L · 208L · 1000L</dd>
+                            <dt>Usage</dt><dd>Systèmes hydrauliques industriels</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 MA 46">Commander</button>
-                            <button class="btn-cart" data-product="Tellus S2 MA 46" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Tellus S2 MA 46">Ajouter <span class="sr-only">Tellus S2 MA 46 au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Tellus S2 MA 46" aria-label="Détails de Tellus S2 MA 46">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="product-card" data-category="hydraulique">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="hydraulique" data-product="Tellus S2 MA 32">
                     <div class="product-image">
-                        <img src="../assets/images/icon-settings.svg" alt="" />
-                        <div class="product-eye-icon" data-product="Tellus S2 MA 32">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5 5.5 5 9a5 5 0 0 1-10 0c0-3.5 5-9 5-9z"/><path d="M12 17v4"/><path d="M9 21h6"/></svg>
+                        <button class="product-favorite" type="button" data-product="Tellus S2 MA 32" aria-pressed="false" aria-label="Ajouter Tellus S2 MA 32 aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Tellus S2 MA 32</div>
-                        <div class="product-category">Huile hydraulique ISO 32</div>
-                        <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Systèmes de précision légère</div>
+                        <h3 class="product-name">Tellus S2 MA 32</h3>
+                        <p class="product-category">Huile hydraulique ISO 32</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>20L · 208L · 1000L</dd>
+                            <dt>Usage</dt><dd>Systèmes de précision légère</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 MA 32">Commander</button>
-                            <button class="btn-cart" data-product="Tellus S2 MA 32" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Tellus S2 MA 32">Ajouter <span class="sr-only">Tellus S2 MA 32 au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Tellus S2 MA 32" aria-label="Détails de Tellus S2 MA 32">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Huiles industrielles -->
-                        🏭
-                        <div class="product-eye-icon" data-product="Tellus S2 VX">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
-                    
-                <div class="product-card" data-category="industrielle">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
-                    <div class="product-image">🏭</div>
-                    <div class="product-content">
-                        <div class="product-name">Tellus S2 VX</div>
-                        <div class="product-category">Huile industrielle multi-usage</div>
-                        <div class="product-details"><strong>Formats :</strong> 20L · 208L · 1000L<br><strong>Usage :</strong> Équipements industriels divers</div>
-                        <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Tellus S2 VX">Commander</button>
-                            <button class="btn-cart" data-product="Tellus S2 VX" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card" data-category="industrielle">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="industrielle" data-product="Tellus S2 VX">
                     <div class="product-image">
-                        🏭
-                        <div class="product-eye-icon" data-product="Houghton Hydrolubric">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M4 21V10l5 3V10l5 3V7l6 3v11"/><path d="M9 21v-4h4v4"/></svg>
+                        <button class="product-favorite" type="button" data-product="Tellus S2 VX" aria-pressed="false" aria-label="Ajouter Tellus S2 VX aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Houghton Hydrolubric</div>
-                        <div class="product-category">Fluide de coupe & usinage</div>
-                        <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Machines de précision & usinage</div>
+                        <h3 class="product-name">Tellus S2 VX</h3>
+                        <p class="product-category">Huile industrielle multi-usage</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>20L · 208L · 1000L</dd>
+                            <dt>Usage</dt><dd>Équipements industriels divers</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Houghton Hydrolubric">Commander</button>
-                            <button class="btn-cart" data-product="Houghton Hydrolubric" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Tellus S2 VX">Ajouter <span class="sr-only">Tellus S2 VX au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Tellus S2 VX" aria-label="Détails de Tellus S2 VX">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Graisses -->
-                <div class="product-card" data-category="graisse">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="industrielle" data-product="Houghton Hydrolubric">
                     <div class="product-image">
-                        🧈
-                        <div class="product-eye-icon" data-product="Graisse Lithium">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M4 21V10l5 3V10l5 3V7l6 3v11"/><path d="M9 21v-4h4v4"/></svg>
+                        <button class="product-favorite" type="button" data-product="Houghton Hydrolubric" aria-pressed="false" aria-label="Ajouter Houghton Hydrolubric aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Graisse Lithium</div>
-                        <div class="product-category">Graisse polyvalente</div>
-                        <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Paliers, roulements généraux</div>
+                        <h3 class="product-name">Houghton Hydrolubric</h3>
+                        <p class="product-category">Fluide de coupe &amp; usinage</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>20L · 208L</dd>
+                            <dt>Usage</dt><dd>Machines de précision &amp; usinage</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Graisse Lithium">Commander</button>
-                            <button class="btn-cart" data-product="Graisse Lithium" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Houghton Hydrolubric">Ajouter <span class="sr-only">Houghton Hydrolubric au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Houghton Hydrolubric" aria-label="Détails de Houghton Hydrolubric">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="product-card" data-category="graisse">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="graisse" data-product="Graisse Lithium">
                     <div class="product-image">
-                        🧈
-                        <div class="product-eye-icon" data-product="Graisse Molybdène">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+                        <button class="product-favorite" type="button" data-product="Graisse Lithium" aria-pressed="false" aria-label="Ajouter Graisse Lithium aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Graisse Molybdène</div>
-                        <div class="product-category">Graisse extrême pression</div>
-                        <div class="product-details"><strong>Formats :</strong> 0.5kg · 5kg · 25kg<br><strong>Usage :</strong> Chaînes, engrenages haute charge</div>
+                        <h3 class="product-name">Graisse Lithium</h3>
+                        <p class="product-category">Graisse polyvalente</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>0.5kg · 5kg · 25kg</dd>
+                            <dt>Usage</dt><dd>Paliers, roulements généraux</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Graisse Molybdène">Commander</button>
-                            <button class="btn-cart" data-product="Graisse Molybdène" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Graisse Lithium">Ajouter <span class="sr-only">Graisse Lithium au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Graisse Lithium" aria-label="Détails de Graisse Lithium">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Transmission & pont -->
-                <div class="product-card" data-category="transmission">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="graisse" data-product="Graisse Molybdène">
                     <div class="product-image">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h12M6 18h12M8 4h8c1 0 2 1 2 2v12c0 1-1 2-2 2H8c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/></svg>
-                        <div class="product-eye-icon" data-product="Gear Oil 75W-90">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+                        <button class="product-favorite" type="button" data-product="Graisse Molybdène" aria-pressed="false" aria-label="Ajouter Graisse Molybdène aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Gear Oil 75W-90</div>
-                        <div class="product-category">Huile de transmission & pont</div>
-                        <div class="product-details"><strong>Formats :</strong> 20L · 208L<br><strong>Usage :</strong> Boîtes de vitesse manuelles</div>
+                        <h3 class="product-name">Graisse Molybdène</h3>
+                        <p class="product-category">Graisse extrême pression</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>0.5kg · 5kg · 25kg</dd>
+                            <dt>Usage</dt><dd>Chaînes, engrenages haute charge</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Gear Oil 75W-90">Commander</button>
-                            <button class="btn-cart" data-product="Gear Oil 75W-90" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Graisse Molybdène">Ajouter <span class="sr-only">Graisse Molybdène au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Graisse Molybdène" aria-label="Détails de Graisse Molybdène">Détails</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="product-card" data-category="transmission">
-                    <button class="product-favorite" title="Ajouter aux favoris">☆</button>
+                </article>
+                <article class="product-card" data-category="transmission" data-product="Gear Oil 75W-90">
                     <div class="product-image">
-                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 6h12M6 18h12M8 4h8c1 0 2 1 2 2v12c0 1-1 2-2 2H8c-1 0-2-1-2-2V6c0-1 1-2 2-2z"/></svg>
-                        <div class="product-eye-icon" data-product="Fluide ATF">
-                            <img src="../assets/images/show.png" alt="Voir plus">
-                            <span class="eye-tooltip">Voir plus</span>
-                        </div>
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M10 7h4a3 3 0 0 1 3 3v4"/><path d="M14 17h-4a3 3 0 0 1-3-3v-4"/></svg>
+                        <button class="product-favorite" type="button" data-product="Gear Oil 75W-90" aria-pressed="false" aria-label="Ajouter Gear Oil 75W-90 aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
                     </div>
                     <div class="product-content">
-                        <div class="product-name">Fluide ATF</div>
-                        <div class="product-category">Fluide transmission automatique</div>
-                        <div class="product-details"><strong>Formats :</strong> 1L · 5L · 20L<br><strong>Usage :</strong> Boîtes de vitesse automatiques</div>
+                        <h3 class="product-name">Gear Oil 75W-90</h3>
+                        <p class="product-category">Huile de transmission &amp; pont</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>20L · 208L</dd>
+                            <dt>Usage</dt><dd>Boîtes de vitesse manuelles</dd>
+                        </dl>
                         <div class="product-actions">
-                            <button class="btn btn-devis" data-product="Fluide ATF">Commander</button>
-                            <button class="btn-cart" data-product="Fluide ATF" title="Ajouter au panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Gear Oil 75W-90">Ajouter <span class="sr-only">Gear Oil 75W-90 au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Gear Oil 75W-90" aria-label="Détails de Gear Oil 75W-90">Détails</button>
                         </div>
                     </div>
-                </div>
+                </article>
+                <article class="product-card" data-category="transmission" data-product="Fluide ATF">
+                    <div class="product-image">
+                        <svg class="product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="7" r="3"/><circle cx="17" cy="17" r="3"/><path d="M10 7h4a3 3 0 0 1 3 3v4"/><path d="M14 17h-4a3 3 0 0 1-3-3v-4"/></svg>
+                        <button class="product-favorite" type="button" data-product="Fluide ATF" aria-pressed="false" aria-label="Ajouter Fluide ATF aux favoris"><svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><polygon points="12 3 14.9 9.2 21.5 10 16.7 14.7 17.9 21.3 12 18.2 6.1 21.3 7.3 14.7 2.5 10 9.1 9.2"/></svg></button>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-name">Fluide ATF</h3>
+                        <p class="product-category">Fluide transmission automatique</p>
+                        <dl class="product-details">
+                            <dt>Formats</dt><dd>1L · 5L · 20L</dd>
+                            <dt>Usage</dt><dd>Boîtes de vitesse automatiques</dd>
+                        </dl>
+                        <div class="product-actions">
+                            <button class="btn btn--sm btn-cart" type="button" data-product="Fluide ATF">Ajouter <span class="sr-only">Fluide ATF au panier</span></button>
+                            <button class="btn-detail" type="button" data-product="Fluide ATF" aria-label="Détails de Fluide ATF">Détails</button>
+                        </div>
+                    </div>
+                </article>
             </div>
+            <p class="shop-vide" id="shopVide" hidden>Aucun produit dans cette famille.</p>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">IDC</div>
-                <p class="footer-description">Ivoirienne d'Hydrocarbures - Votre partenaire de confiance en énergie et distribution de carburants.</p>
-                <div class="footer-social">
-                    <a href="https://www.facebook.com" target="_blank" title="Facebook">f</a>
-                    <a href="https://www.twitter.com" target="_blank" title="Twitter">𝕏</a>
-                    <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">in</a>
-                    <a href="https://www.instagram.com" target="_blank" title="Instagram">📷</a>
+</main>
+
+<footer>
+    <div class="wrap">
+        <div class="fgrid">
+            <div>
+                <h3>IDC</h3>
+                <p class="about">Ivoirienne d'Hydrocarbures — votre partenaire de confiance en énergie et distribution de carburants.</p>
+                <div class="fsocial">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="IDC sur Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
                 </div>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Nos activités</h3>
                 <ul>
-                    <li><a href="#activites">Carburants</a></li>
-                    <li><a href="#activites">Gaz butane</a></li>
-                    <li><a href="#activites">Lubrifiants</a></li>
-                    <li><a href="#activites">Carte TPE</a></li>
-                    <li><a href="#stations">Stations & services</a></li>
+                    <li><a href="index.html#activites">Carburants</a></li>
+                    <li><a href="index.html#activites">Gaz butane</a></li>
+                    <li><a href="eshop.html">Lubrifiants</a></li>
+                    <li><a href="tpe.html">Carte TPE</a></li>
+                    <li><a href="index.html#stations">Stations &amp; services</a></li>
+                        <li><a href="contact.html?sujet=Soute">Soute maritime</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Ressources</h3>
                 <ul>
                     <li><a href="index.html#apropos">À propos de nous</a></li>
                     <li><a href="index.html#stations">Trouver une station</a></li>
-                    <li><a href="eshop.html">Boutique en ligne</a></li>
-                    <li><a href="jobs.html">Rejoignez notre équipe</a></li>
-                    <li><a href="contact.html">Nous contacter</a></li>
+                    <li><a href="client.html">Espace client</a></li>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="jobs.html">Carrières</a></li>
                 </ul>
             </div>
-
-            <div class="footer-section">
+            <div>
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="tel:+22520210000"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">phone</span> +225 20 21 00 00</a></li>
-                    <li><a href="mailto:contact@idc.ci"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">mail</span> contact@idc.ci</a></li>
-                    <li><a href="#"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">location_on</span> Abidjan, Côte d'Ivoire</a></li>
+                    <li><a href="tel:+22520210000">+225 20 21 00 00</a></li>
+                    <li><a href="mailto:contact@idc.ci">contact@idc.ci</a></li>
+                    <li><a href="contact.html">Abidjan, Côte d'Ivoire</a></li>
                 </ul>
             </div>
         </div>
-
-        <div class="footer-bottom">
-            <div class="footer-links">
-                <a href="#">Politique de confidentialité</a>
-                <span>•</span>
-                <a href="#">Conditions d'utilisation</a>
-                <span>•</span>
-                <a href="#">Mentions légales</a>
-                <span>•</span>
-                <a href="#">Gestion des cookies</a>
-            </div>
-            <p>&copy; 2026 IDC - Ivoirienne d'Hydrocarbures. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize cart and favorites from localStorage
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-        // Header scroll effect
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Initialize favorite buttons on page load
-        document.querySelectorAll('.product-favorite').forEach(btn => {
-            const card = btn.closest('.product-card');
-            const productName = card.querySelector('.product-name').textContent;
-            
-            if (favorites.includes(productName)) {
-                btn.classList.add('active');
-                btn.textContent = '★';
-            }
-        });
-
-        // Favorite button functionality
-        document.querySelectorAll('.product-favorite').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const card = this.closest('.product-card');
-                const productName = card.querySelector('.product-name').textContent;
-                
-                this.classList.toggle('active');
-                
-                if (this.classList.contains('active')) {
-                    this.textContent = '★';
-                    if (!favorites.includes(productName)) {
-                        favorites.push(productName);
-                    }
-                } else {
-                    this.textContent = '☆';
-                    favorites = favorites.filter(fav => fav !== productName);
-                }
-                
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-            });
-        });
-
-        // Filters functionality
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const filter = btn.getAttribute('data-filter');
-
-                // Remove active from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // Add active to clicked button
-                btn.classList.add('active');
-
-                // Filter products
-                productCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
-                    if (filter === 'all' || category === filter) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-
-            // Double-click to deselect
-            btn.addEventListener('dblclick', (e) => {
-                e.preventDefault();
-                
-                // Remove active from all buttons
-                filterBtns.forEach(b => b.classList.remove('active'));
-                
-                // Show all products
-                productCards.forEach(card => {
-                    card.style.display = 'flex';
-                });
-            });
-        });
-    </script>
-
-    <!-- CART DRAWER -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-drawer-header">
-            <div class="cart-drawer-title-group">
-                <h2><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -2px; margin-right: 8px;">margin-right: 8px; vertical-align: -2px;</span>Panier</h2>
-                <p class="cart-drawer-subtitle">Demande de devis</p>
-            </div>
-            <div class="cart-drawer-actions">
-                <button class="cart-clear-btn" id="clearCartBtn" title="Vider le panier"><span class="material-symbols-outlined">delete</span></button>
-                <button class="close-drawer" id="closeDrawer">&times;</button>
-            </div>
-        </div>
-        <div class="cart-drawer-content" id="cartContent">
-            <!-- Contenu injecté par JavaScript -->
-        </div>
-        <div class="cart-drawer-footer">
-            <div class="cart-reassurance">
-                <p><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">info</span> <strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contactera pour définir les tarifs et modalités de paiement.</p>
-            </div>
-            <button class="btn-devis-panier" id="sendQuoteBtn" disabled>Commander</button>
-            <div class="cart-footer-links">
-                <a href="#contact" class="cart-footer-link"><span class="material-symbols-outlined icon-neutral" style=" vertical-align: -4px; margin-right: 8px;">help_outline</span> Besoin d'aide ?</a>
-                <a href="#" class="cart-footer-link"><img src="../assets/images/icon-briefcase.svg" alt="" /> Commande entreprise</a>
-            </div>
+        <div class="fbot">
+            <span>© 2026 IDC — Ivoirienne d'Hydrocarbures. Tous droits réservés.</span>
+            <span>Politique de confidentialité · Mentions légales</span>
         </div>
     </div>
+</footer>
 
-    <!-- MODAL FORMULAIRE DEVIS -->
-    <div class="modal-overlay" id="quoteModal">
-        <div class="modal-content" id="modalContent">
-            <!-- Contenu injecté par JavaScript -->
+<!-- ══ tiroir panier ══ -->
+<dialog class="drawer" id="cartDrawer" aria-labelledby="drawerTitre">
+    <div class="drawer-head">
+        <div>
+            <h2 id="drawerTitre">Votre panier</h2>
+            <p>Demande de devis</p>
+        </div>
+        <div class="drawer-actions">
+            <button class="icon-btn" type="button" id="clearCartBtn" aria-label="Vider le panier" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/><path d="M10 11v5M14 11v5"/></svg></button>
+            <button class="icon-btn" type="button" id="cartClose" aria-label="Fermer le panier">&times;</button>
         </div>
     </div>
+    <div class="drawer-body" id="cartContent"></div>
+    <div class="drawer-foot">
+        <p class="note"><strong>Les prix ne sont pas affichés.</strong> Un commercial IDC vous contacte pour fixer les tarifs et les modalités de paiement.</p>
+        <button class="btn" type="button" id="sendQuoteBtn" style="width:100%;justify-content:center" disabled>Demander un devis <span class="ar" aria-hidden="true">&rarr;</span></button>
+        <p style="text-align:center;margin-top:14px"><a class="lnk" href="cart-devis.html" style="font-size:13.5px">Voir le panier en pleine page</a></p>
+    </div>
+</dialog>
 
-    <script>
-        // ==================== GESTION DU PANIER COMPLET ====================
+<!-- ══ détails produit ══ -->
+<dialog class="modal" id="detailModal" aria-labelledby="detailTitre">
+    <div class="modal-head">
+        <h2 id="detailTitre">Détails du produit</h2>
+        <button class="icon-btn" type="button" id="detailClose" aria-label="Fermer">&times;</button>
+    </div>
+    <div class="modal-body" id="detailCorps"></div>
+    <div class="modal-foot">
+        <button class="btn btn--ghost" type="button" id="detailFiche">Fiche technique</button>
+        <button class="btn" type="button" id="detailAjout">Ajouter au panier</button>
+    </div>
+</dialog>
 
-        cart = JSON.parse(localStorage.getItem('cart')) || [];
-        favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        let formStep = 'form'; // 'form' ou 'confirmation'
+<!-- ══ demande de devis ══ -->
+<dialog class="modal" id="quoteModal" aria-labelledby="quoteTitre">
+    <div class="modal-head">
+        <h2 id="quoteTitre">Demande de devis</h2>
+        <button class="icon-btn" type="button" id="quoteClose" aria-label="Fermer">&times;</button>
+    </div>
 
-        // Produits mapping avec leurs catégories
-        const productData = {
-            'Rubia TIR': { category: 'Huile moteur diesel', formats: ['5L', '20L', '208L'], usage: 'Véhicules diesel & flottes' },
-            'Tellus S2 MA': { category: 'Huile hydraulique général', formats: ['5L', '20L', '208L'], usage: 'Véhicules essence & légers' },
-            'Helix Ultra': { category: 'Huile moteur essence', formats: ['5L', '20L', '208L'], usage: 'Moteurs essence modernes' },
-            'Tellus S2 MA 46': { category: 'Huile hydraulique 46', formats: ['20L', '208L', '1000L'], usage: 'Systèmes hydrauliques industriels' },
-            'Tellus S2 MA 32': { category: 'Huile hydraulique 32', formats: ['20L', '208L', '1000L'], usage: 'Systèmes de précision légère' },
-            'Tellus S2 VX': { category: 'Huile hydraulique VX', formats: ['20L', '208L', '1000L'], usage: 'Équipements industriels divers' },
-            'Houghton Hydrolubric': { category: 'Huile industrielle', formats: ['20L', '208L'], usage: 'Machines de précision & usinage' },
-            'Graisse Lithium': { category: 'Graisse multi-usages', formats: ['0.5kg', '5kg', '25kg'], usage: 'Paliers, roulements généraux' },
-            'Graisse Molybdène': { category: 'Graisse haute performance', formats: ['0.5kg', '5kg', '25kg'], usage: 'Chaînes, engrenages haute charge' },
-            'Gear Oil 75W-90': { category: 'Huile transmission', formats: ['20L', '208L'], usage: 'Boîtes de vitesse manuelles' },
-            'Fluide ATF': { category: 'Fluide transmission auto', formats: ['1L', '5L', '20L'], usage: 'Boîtes de vitesse automatiques' }
-        };
+    <div class="modal-body" id="quoteCorps">
+        <div class="modal-part">
+            <h3>Votre sélection</h3>
+            <div id="quoteRecap"></div>
+        </div>
 
-        // Fonction pour télécharger la fiche technique
-        function downloadProductSheet(productName) {
-            const product = productData[productName];
-            if (!product) return;
-
-            // Créer le contenu de la fiche technique
-            const sheetContent = `
-FICHE TECHNIQUE - IDC
-${'='.repeat(60)}
-
-PRODUIT: ${productName}
-CATÉGORIE: ${product.category}
-
-DESCRIPTION:
-- Usage principal: ${product.usage}
-- Formats disponibles: ${product.formats.join(', ')}
-
-AVANTAGES:
-- Qualité supérieure conforme aux normes internationales
-- Performance optimale pour toutes conditions
-- Respectueux de l'environnement
-- Compatibilité étendue
-
-SPÉCIFICATIONS TECHNIQUES:
-Consulter la documentation complète auprès de notre service client
-Téléphone: +225 20 21 00 00
-Email: contact@idc.ci
-
-${'='.repeat(60)}
-Document généré par IDC - ${new Date().toLocaleDateString('fr-FR')}
-            `;
-
-            // Créer un blob et un lien de téléchargement
-            const blob = new Blob([sheetContent], { type: 'text/plain;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = `Fiche_Technique_${productName.replace(/\s+/g, '_')}.txt`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(link.href);
-        }
-
-        // ==================== MODAL DÉTAILS PRODUIT ====================
-        function showProductDetails(productName) {
-            const product = productData[productName];
-            if (!product) return;
-
-            const modal = document.createElement('div');
-            modal.className = 'product-details-modal';
-            modal.innerHTML = `
-                <div class="product-details-overlay"></div>
-                <div class="product-details-content">
-                    <div class="product-details-header">
-                        <h2>${productName}</h2>
-                        <button class="product-details-close">&times;</button>
+        <div class="modal-part">
+            <h3>Identification</h3>
+            <div class="choix" role="radiogroup" aria-label="Type de client">
+                <label><input type="radio" name="client-type" value="nouveau" checked> <span>Nouveau client</span></label>
+                <label><input type="radio" name="client-type" value="existant"> <span>Je suis client IDC</span></label>
+            </div>
+            <div id="blocConnexion" hidden>
+                <div class="form-grid">
+                    <div class="field half">
+                        <label for="q-compte">E-mail du compte</label>
+                        <input class="input" id="q-compte" type="email" autocomplete="email">
                     </div>
-                    <div class="product-details-body">
-                        <div class="product-details-item">
-                            <strong>Catégorie :</strong> ${product.category}
-                        </div>
-                        <div class="product-details-item">
-                            <strong>Usage :</strong> ${product.usage}
-                        </div>
-                        <div class="product-details-item">
-                            <strong>Formats disponibles :</strong> ${product.formats.join(', ')}
-                        </div>
-                    </div>
-                    <div class="product-details-footer">
-                        <button class="btn btn-secondary" onclick="downloadProductSheet('${productName}');">Fiche technique</button>
-                        <button class="btn btn-primary" onclick="document.querySelector('.product-details-modal').remove(); document.querySelector('[data-product=\\\'${productName}\\\']').closest('.product-card').querySelector('.btn-devis').click();">Commander</button>
+                    <div class="field half">
+                        <label for="q-mdp">Mot de passe</label>
+                        <input class="input" id="q-mdp" type="password" autocomplete="current-password">
                     </div>
                 </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            modal.querySelector('.product-details-close').addEventListener('click', () => modal.remove());
-            modal.querySelector('.product-details-overlay').addEventListener('click', () => modal.remove());
-        }
+            </div>
+        </div>
 
-        // Ajouter les event listeners aux icônes d'oeil
-        document.querySelectorAll('.product-eye-icon').forEach(eye => {
-            eye.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const productName = eye.getAttribute('data-product');
-                showProductDetails(productName);
-            });
+        <div class="modal-part">
+            <h3>Vos informations</h3>
+            <form id="quoteForm" novalidate>
+                <div class="form-grid">
+                    <div class="field half">
+                        <label for="q-societe">Entreprise <span class="req">*</span></label>
+                        <input class="input" id="q-societe" name="societe" type="text" autocomplete="organization" required>
+                    </div>
+                    <div class="field half">
+                        <label for="q-contact">Nom du contact <span class="req">*</span></label>
+                        <input class="input" id="q-contact" name="contact" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="field half">
+                        <label for="q-telephone">Téléphone <span class="req">*</span></label>
+                        <input class="input" id="q-telephone" name="telephone" type="tel" autocomplete="tel" placeholder="+225 XX XX XX XX" required>
+                    </div>
+                    <div class="field half">
+                        <label for="q-email">E-mail <span class="req">*</span></label>
+                        <input class="input" id="q-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="field wide">
+                        <label for="q-localisation">Localisation <span class="req">*</span></label>
+                        <input class="input" id="q-localisation" name="localisation" type="text" autocomplete="address-level2" placeholder="Abidjan, Bouaké…" required>
+                    </div>
+                    <div class="field wide">
+                        <label for="q-message">Message</label>
+                        <textarea class="textarea" id="q-message" name="message" rows="3" placeholder="Volumes, fréquence de livraison, délais…"></textarea>
+                    </div>
+                </div>
+                <p class="form-msg" id="quoteMsg" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="confirm" id="quoteFin" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12.5 2.6 2.6L16 9.7"/></svg>
+        <h3 style="font-size:24px">Demande envoyée</h3>
+        <p>Un commercial IDC vous contacte sous 24 heures ouvrées pour les tarifs et les modalités de livraison.</p>
+        <button class="btn" type="button" id="quoteDone" style="margin-top:8px">Fermer</button>
+    </div>
+
+    <div class="modal-foot" id="quotePied">
+        <button class="btn btn--ghost" type="button" id="quoteCancel">Annuler</button>
+        <button class="btn" type="button" id="quoteSend">Envoyer la demande <span class="ar" aria-hidden="true">&rarr;</span></button>
+    </div>
+</dialog>
+
+<div class="toasts" id="toasts"></div>
+<p class="sr-only" id="cartEtat" role="status" aria-live="polite"></p>
+
+    <script src="./_tete.js" defer></script>
+
+<script>
+(function () {
+    'use strict';
+
+    var PRODUITS = {
+        "Rubia TIR": {
+                "famille": "moteur",
+                "categorie": "Huile moteur diesel",
+                "formats": [
+                        "5L",
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Véhicules diesel & flottes"
+        },
+        "Tellus S2 MA": {
+                "famille": "moteur",
+                "categorie": "Huile moteur essence",
+                "formats": [
+                        "5L",
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Véhicules essence & légers"
+        },
+        "Helix Ultra": {
+                "famille": "moteur",
+                "categorie": "Huile moteur synthétique",
+                "formats": [
+                        "1L",
+                        "5L",
+                        "20L"
+                ],
+                "usage": "Moteurs modernes haute performance"
+        },
+        "Tellus S2 MA 46": {
+                "famille": "hydraulique",
+                "categorie": "Huile hydraulique ISO 46",
+                "formats": [
+                        "20L",
+                        "208L",
+                        "1000L"
+                ],
+                "usage": "Systèmes hydrauliques industriels"
+        },
+        "Tellus S2 MA 32": {
+                "famille": "hydraulique",
+                "categorie": "Huile hydraulique ISO 32",
+                "formats": [
+                        "20L",
+                        "208L",
+                        "1000L"
+                ],
+                "usage": "Systèmes de précision légère"
+        },
+        "Tellus S2 VX": {
+                "famille": "industrielle",
+                "categorie": "Huile industrielle multi-usage",
+                "formats": [
+                        "20L",
+                        "208L",
+                        "1000L"
+                ],
+                "usage": "Équipements industriels divers"
+        },
+        "Houghton Hydrolubric": {
+                "famille": "industrielle",
+                "categorie": "Fluide de coupe & usinage",
+                "formats": [
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Machines de précision & usinage"
+        },
+        "Graisse Lithium": {
+                "famille": "graisse",
+                "categorie": "Graisse polyvalente",
+                "formats": [
+                        "0.5kg",
+                        "5kg",
+                        "25kg"
+                ],
+                "usage": "Paliers, roulements généraux"
+        },
+        "Graisse Molybdène": {
+                "famille": "graisse",
+                "categorie": "Graisse extrême pression",
+                "formats": [
+                        "0.5kg",
+                        "5kg",
+                        "25kg"
+                ],
+                "usage": "Chaînes, engrenages haute charge"
+        },
+        "Gear Oil 75W-90": {
+                "famille": "transmission",
+                "categorie": "Huile de transmission & pont",
+                "formats": [
+                        "20L",
+                        "208L"
+                ],
+                "usage": "Boîtes de vitesse manuelles"
+        },
+        "Fluide ATF": {
+                "famille": "transmission",
+                "categorie": "Fluide transmission automatique",
+                "formats": [
+                        "1L",
+                        "5L",
+                        "20L"
+                ],
+                "usage": "Boîtes de vitesse automatiques"
+        }
+};
+
+    var $  = function (s, r) { return (r || document).querySelector(s); };
+    var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+    function lire(cle, defaut) {
+        try { return JSON.parse(localStorage.getItem(cle)) || defaut; }
+        catch (e) { return defaut; }
+    }
+    function ecrire(cle, val) {
+        try { localStorage.setItem(cle, JSON.stringify(val)); } catch (e) { /* mode privé */ }
+    }
+
+    var panier   = lire('idc-panier', []);
+    var favoris  = lire('idc-favoris', []);
+
+    // ── notifications ────────────────────────────────────────────────
+    var zone = $('#toasts');
+    function notifier(texte, type) {
+        var t = document.createElement('div');
+        t.className = 'toast';
+        if (type) { t.setAttribute('data-type', type); }
+        t.textContent = texte;
+        zone.appendChild(t);
+        setTimeout(function () { t.remove(); }, 3600);
+    }
+
+    // ── filtres ──────────────────────────────────────────────────────
+    var boutons = $$('.filter-btn');
+    var fiches  = $$('.product-card');
+    var vide    = $('#shopVide');
+    var compte  = $('#shopCompte');
+
+    function filtrer(cle) {
+        var n = 0;
+        fiches.forEach(function (f) {
+            var ok = cle === 'all' || f.getAttribute('data-category') === cle;
+            f.hidden = !ok;
+            if (ok) { n++; }
         });
+        boutons.forEach(function (b) {
+            var actif = b.getAttribute('data-filter') === cle;
+            b.classList.toggle('active', actif);
+            b.setAttribute('aria-pressed', String(actif));
+        });
+        compte.textContent = n + (n > 1 ? ' produits affichés' : ' produit affiché');
+        vide.hidden = n !== 0;
+    }
+    boutons.forEach(function (b) {
+        b.addEventListener('click', function () { filtrer(b.getAttribute('data-filter')); });
+    });
 
+    // ── favoris ──────────────────────────────────────────────────────
+    function majFavori(btn) {
+        var nom = btn.getAttribute('data-product');
+        var actif = favoris.indexOf(nom) !== -1;
+        btn.setAttribute('aria-pressed', String(actif));
+        btn.setAttribute('aria-label', (actif ? 'Retirer ' : 'Ajouter ') + nom +
+                                       (actif ? ' des favoris' : ' aux favoris'));
+    }
+    $$('.product-favorite').forEach(function (btn) {
+        majFavori(btn);
+        btn.addEventListener('click', function () {
+            var nom = btn.getAttribute('data-product');
+            var i = favoris.indexOf(nom);
+            if (i === -1) { favoris.push(nom); } else { favoris.splice(i, 1); }
+            ecrire('idc-favoris', favoris);
+            majFavori(btn);
+            notifier(i === -1 ? nom + ' ajouté aux favoris' : nom + ' retiré des favoris', 'ok');
+        });
+    });
 
-        // Mise à jour du badge
-        function updateCartBadge() {
-            const badge = document.getElementById('cartBadge');
-            const total = cart.reduce((sum, item) => sum + item.quantity, 0);
-            if (badge) {
-                badge.textContent = total;
-                console.log('Badge mis à jour:', total);
-            } else {
-                console.error('Élément #cartBadge non trouvé');
-            }
+    // ── panier ───────────────────────────────────────────────────────
+    var tiroir   = $('#cartDrawer');
+    var contenu  = $('#cartContent');
+    var pastille = $('#cartCount');
+    var envoyer  = $('#sendQuoteBtn');
+    var vider    = $('#clearCartBtn');
+    var etat     = $('#cartEtat');
+
+    function total() {
+        return panier.reduce(function (s, a) { return s + a.quantite; }, 0);
+    }
+
+    function majPastille() {
+        var t = total();
+        pastille.textContent = t;
+        pastille.closest('.cart-open-btn').setAttribute(
+            'aria-label', t === 0 ? 'Panier, vide' : 'Panier, ' + t + (t > 1 ? ' articles' : ' article'));
+    }
+
+    function dessinerPanier() {
+        if (panier.length === 0) {
+            contenu.innerHTML =
+                '<div class="cart-empty">' +
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                '<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/>' +
+                '<path d="M2 3h3l2.4 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 7H6"/></svg>' +
+                '<h3>Votre panier est vide</h3>' +
+                '<p>Choisissez des lubrifiants pour préparer votre demande.</p></div>';
+            envoyer.disabled = true;
+            vider.hidden = true;
+            return;
         }
+        envoyer.disabled = false;
+        vider.hidden = false;
 
-        // Affichage du panier
-        function renderCart() {
-            const cartContent = document.getElementById('cartContent');
-            
-            if (cart.length === 0) {
-                cartContent.innerHTML = `
-                    <div class="cart-empty">
-                        <div class="cart-empty-icon"><span class="material-symbols-outlined icon-primary icon-xl">delete</span></div>
-                        <h3>Votre panier est vide</h3>
-                        <p>Sélectionnez des lubrifiants pour commander.</p>
-                        <button class="btn-view-products" onclick="closeCartAndScroll()">Voir les produits</button>
-                    </div>
-                `;
-                document.getElementById('sendQuoteBtn').disabled = true;
-                document.getElementById('clearCartBtn').style.display = 'none';
-                return;
-            }
+        contenu.innerHTML = panier.map(function (a, i) {
+            var info = PRODUITS[a.nom] || {};
+            var formats = info.formats || ['5L', '20L', '208L'];
+            // Un identifiant par ligne : l'ancienne version posait id="format"
+            // sur chaque <select>, et autant d'étiquettes pointant au même endroit.
+            return '<div class="cart-item">' +
+                     '<div class="cart-item-head">' +
+                       '<div><div class="cart-item-name">' + a.nom + '</div>' +
+                       '<div class="cart-item-cat">' + (info.categorie || '') + '</div></div>' +
+                       '<button class="icon-btn" type="button" data-sup="' + i + '" aria-label="Retirer ' + a.nom + ' du panier">&times;</button>' +
+                     '</div>' +
+                     '<div class="cart-item-ctl">' +
+                       '<div class="field"><label for="fmt-' + i + '">Format</label>' +
+                         '<select class="select" id="fmt-' + i + '" data-fmt="' + i + '">' +
+                           formats.map(function (f) {
+                             return '<option value="' + f + '"' + (a.format === f ? ' selected' : '') + '>' + f + '</option>';
+                           }).join('') +
+                         '</select></div>' +
+                       '<div class="field"><label for="qte-' + i + '">Quantité</label>' +
+                         '<div class="qty">' +
+                           '<button type="button" data-moins="' + i + '" aria-label="Retirer une unité de ' + a.nom + '">&minus;</button>' +
+                           '<input type="number" min="1" max="999" id="qte-' + i + '" value="' + a.quantite + '" data-qte="' + i + '">' +
+                           '<button type="button" data-plus="' + i + '" aria-label="Ajouter une unité de ' + a.nom + '">+</button>' +
+                         '</div></div>' +
+                     '</div>' +
+                   '</div>';
+        }).join('');
+    }
 
-            document.getElementById('clearCartBtn').style.display = 'block';
+    function enregistrer() {
+        ecrire('idc-panier', panier);
+        majPastille();
+        dessinerPanier();
+    }
 
-            let html = '';
-            cart.forEach((item, index) => {
-                const info = productData[item.name] || {};
-                const formats = info.formats || ['5L', '20L', '208L'];
-                
-                html += `
-                    <div class="cart-item">
-                        <div class="cart-item-header">
-                            <div class="cart-item-info">
-                                <div class="cart-item-name">${item.name}</div>
-                                <div class="cart-item-category">${info.category || ''}</div>
-                            </div>
-                            <button class="cart-item-remove" onclick="removeFromCart(${index})" title="Supprimer">🗑️</button>
-                        </div>
-                        <div class="cart-item-details">
-                            <div class="cart-item-format-selector">
-                                <label>Format:</label>
-                                <select class="format-select" onchange="updateFormat(${index}, this.value)">
-                                    ${formats.map(fmt => `<option value="${fmt}" ${item.format === fmt ? 'selected' : ''}>${fmt}</option>`).join('')}
-                                </select>
-                            </div>
-                            <div class="cart-item-qty-selector">
-                                <label>Quantité:</label>
-                                <div class="qty-controls">
-                                    <button class="qty-btn" onclick="decreaseQty(${index})">−</button>
-                                    <input type="number" min="1" value="${item.quantity}" onchange="updateQty(${index}, this.value)" class="qty-input">
-                                    <button class="qty-btn" onclick="increaseQty(${index})">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
+    function ajouter(nom) {
+        var info = PRODUITS[nom];
+        if (!info) { return; }
+        var ligne = panier.filter(function (a) { return a.nom === nom; })[0];
+        if (ligne) { ligne.quantite += 1; }
+        else { panier.push({ nom: nom, format: info.formats[0], quantite: 1 }); }
+        enregistrer();
+        etat.textContent = nom + ' ajouté au panier. Panier : ' + total() + ' article(s).';
+        notifier(nom + ' ajouté au panier', 'ok');
+    }
 
-            cartContent.innerHTML = html;
-            document.getElementById('sendQuoteBtn').disabled = false;
+    $$('.btn-cart').forEach(function (b) {
+        b.addEventListener('click', function () { ajouter(b.getAttribute('data-product')); });
+    });
+
+    contenu.addEventListener('click', function (e) {
+        var b = e.target.closest('button');
+        if (!b) { return; }
+        var i;
+        if ((i = b.getAttribute('data-sup')) !== null) {
+            var nom = panier[i].nom;
+            panier.splice(i, 1);
+            enregistrer();
+            etat.textContent = nom + ' retiré du panier.';
+        } else if ((i = b.getAttribute('data-plus')) !== null) {
+            panier[i].quantite = Math.min(999, panier[i].quantite + 1);
+            enregistrer();
+        } else if ((i = b.getAttribute('data-moins')) !== null) {
+            panier[i].quantite = Math.max(1, panier[i].quantite - 1);
+            enregistrer();
         }
-
-        // Suppression du panier
-        function removeFromCart(index) {
-            const productName = cart[index].name;
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartBadge();
-            renderCart();
-            showToast(`${productName} supprimé du panier`, 'success');
+    });
+    contenu.addEventListener('change', function (e) {
+        var i = e.target.getAttribute('data-fmt');
+        if (i !== null) { panier[i].format = e.target.value; ecrire('idc-panier', panier); return; }
+        i = e.target.getAttribute('data-qte');
+        if (i !== null) {
+            var n = parseInt(e.target.value, 10);
+            panier[i].quantite = (isNaN(n) || n < 1) ? 1 : Math.min(999, n);
+            enregistrer();
         }
+    });
 
-        // Vider le panier
-        function clearCart() {
-            if (cart.length === 0) return;
-            if (confirm('Êtes-vous sûr de vouloir vider le panier ?')) {
-                cart = [];
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartBadge();
-                renderCart();
-                showToast('Panier vidé', 'success');
-            }
+    vider.addEventListener('click', function () {
+        if (panier.length === 0) { return; }
+        panier = [];
+        enregistrer();
+        etat.textContent = 'Panier vidé.';
+        notifier('Panier vidé', 'ok');
+    });
+
+    $('#cartOpen').addEventListener('click', function () { tiroir.showModal(); });
+    $('#cartClose').addEventListener('click', function () { tiroir.close(); });
+
+    // Un <dialog> ne se ferme pas quand on clique à côté : il fallait viser la
+    // croix ou presser Échap. Pour un tiroir, cliquer sur le fond assombri est
+    // pourtant le geste attendu. Le clic sur l'arrière-plan a le <dialog> pour
+    // cible ; on vérifie en plus qu'il tombe hors du panneau, pour ne pas
+    // fermer sur un clic relâché à l'intérieur.
+    function fermerSurLeFond(boite) {
+        boite.addEventListener('click', function (e) {
+            if (e.target !== boite) { return; }
+            var r = boite.getBoundingClientRect();
+            var dedans = e.clientX >= r.left && e.clientX <= r.right &&
+                         e.clientY >= r.top  && e.clientY <= r.bottom;
+            if (!dedans) { boite.close(); }
+        });
+    }
+
+    // ── détails produit ──────────────────────────────────────────────
+    var detail = $('#detailModal');
+    $$('.btn-detail').forEach(function (b) {
+        b.addEventListener('click', function () {
+            var nom = b.getAttribute('data-product');
+            var info = PRODUITS[nom];
+            if (!info) { return; }
+            $('#detailTitre').textContent = nom;
+            $('#detailCorps').innerHTML =
+                '<dl class="product-details" style="font-size:15px;gap:10px 18px">' +
+                '<dt>Catégorie</dt><dd>' + info.categorie + '</dd>' +
+                '<dt>Usage</dt><dd>' + info.usage + '</dd>' +
+                '<dt>Formats</dt><dd>' + info.formats.join(' · ') + '</dd></dl>';
+            $('#detailFiche').setAttribute('data-product', nom);
+            $('#detailAjout').setAttribute('data-product', nom);
+            detail.showModal();
+        });
+    });
+    $('#detailClose').addEventListener('click', function () { detail.close(); });
+    $('#detailAjout').addEventListener('click', function () {
+        ajouter(this.getAttribute('data-product'));
+        detail.close();
+    });
+    $('#detailFiche').addEventListener('click', function () {
+        var nom = this.getAttribute('data-product');
+        var info = PRODUITS[nom];
+        if (!info) { return; }
+        var texte = [
+            'FICHE TECHNIQUE — IDC, Ivoirienne d\'Hydrocarbures',
+            '============================================================',
+            '',
+            'Produit   : ' + nom,
+            'Catégorie : ' + info.categorie,
+            'Usage     : ' + info.usage,
+            'Formats   : ' + info.formats.join(', '),
+            '',
+            'Spécifications complètes sur demande auprès du service client :',
+            'Téléphone : +225 20 21 00 00',
+            'E-mail    : contact@idc.ci',
+            '',
+            'Document généré le ' + new Date().toLocaleDateString('fr-FR')
+        ].join('\n');
+        var lien = document.createElement('a');
+        lien.href = URL.createObjectURL(new Blob([texte], { type: 'text/plain;charset=utf-8' }));
+        lien.download = 'Fiche_technique_' + nom.replace(/\s+/g, '_') + '.txt';
+        document.body.appendChild(lien);
+        lien.click();
+        lien.remove();
+        URL.revokeObjectURL(lien.href);
+    });
+
+    // ── demande de devis ─────────────────────────────────────────────
+    var devis  = $('#quoteModal');
+    var recap  = $('#quoteRecap');
+    var form   = $('#quoteForm');
+    var corps  = $('#quoteCorps');
+    var fin    = $('#quoteFin');
+    var msg    = $('#quoteMsg');
+    var pied   = $('#quotePied');
+
+    function dessinerRecap() {
+        recap.innerHTML = panier.map(function (a) {
+            return '<div class="recap-item"><span class="nom">' + a.nom + '</span>' +
+                   '<span class="qte">' + a.format + ' × ' + a.quantite + '</span></div>';
+        }).join('');
+    }
+
+    envoyer.addEventListener('click', function () {
+        if (panier.length === 0) { return; }
+        dessinerRecap();
+        corps.hidden = false;
+        fin.hidden = true;
+        pied.hidden = false;
+        msg.textContent = '';
+        msg.removeAttribute('data-err');
+        tiroir.close();
+        devis.showModal();
+    });
+    $('#quoteClose').addEventListener('click', function () { devis.close(); });
+    $('#quoteCancel').addEventListener('click', function () { devis.close(); });
+    $('#quoteDone').addEventListener('click', function () { devis.close(); });
+
+    $$('input[name="client-type"]').forEach(function (r) {
+        r.addEventListener('change', function () {
+            $('#blocConnexion').hidden = r.value !== 'existant';
+        });
+    });
+
+    var OBLIGATOIRES = ['q-societe', 'q-contact', 'q-telephone', 'q-email', 'q-localisation'];
+
+    $('#quoteSend').addEventListener('click', function () {
+        var manquants = [];
+        OBLIGATOIRES.forEach(function (id) {
+            var c = $('#' + id);
+            var ok = c.value.trim() !== '' &&
+                     (c.type !== 'email' || /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(c.value.trim()));
+            c.setAttribute('aria-invalid', ok ? 'false' : 'true');
+            if (!ok) { manquants.push(c); }
+        });
+        if (manquants.length) {
+            msg.setAttribute('data-err', '');
+            msg.textContent = 'Merci de compléter les champs obligatoires.';
+            manquants[0].focus();
+            return;
         }
+        msg.removeAttribute('data-err');
+        msg.textContent = '';
+        ecrire('idc-dernier-devis', {
+            societe: $('#q-societe').value.trim(),
+            contact: $('#q-contact').value.trim(),
+            telephone: $('#q-telephone').value.trim(),
+            email: $('#q-email').value.trim(),
+            localisation: $('#q-localisation').value.trim(),
+            message: $('#q-message').value.trim(),
+            produits: panier,
+            date: new Date().toISOString()
+        });
+        corps.hidden = true;
+        fin.hidden = false;
+        pied.hidden = true;
+        form.reset();
+        panier = [];
+        enregistrer();
+        $('#quoteDone').focus();
+    });
 
-        // Augmenter quantité
-        function increaseQty(index) {
-            if (cart[index]) {
-                cart[index].quantity++;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartBadge();
-                renderCart();
-            }
-        }
+    [tiroir, detail, devis].forEach(fermerSurLeFond);
 
-        // Diminuer quantité
-        function decreaseQty(index) {
-            if (cart[index] && cart[index].quantity > 1) {
-                cart[index].quantity--;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartBadge();
-                renderCart();
-            }
-        }
+    // ── état « collée » de la barre de filtres ───────────────────────
+    // Sans fond blanc, plus rien ne distingue la barre au repos : on ne pose
+    // le filet et l'ombre qu'au moment où elle se colle sous l'en-tête.
+    var barreFiltres = $('.shop-bar');
+    var ticBarre = false;
+    function majBarre() {
+        var haut = parseFloat(getComputedStyle(barreFiltres).top) || 0;
+        var collee = barreFiltres.getBoundingClientRect().top <= haut + 1;
+        if (collee) { barreFiltres.setAttribute('data-collee', ''); }
+        else { barreFiltres.removeAttribute('data-collee'); }
+        ticBarre = false;
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticBarre) { window.requestAnimationFrame(majBarre); ticBarre = true; }
+    }, { passive: true });
+    window.addEventListener('resize', majBarre, { passive: true });
+    majBarre();
 
-        // Mettre à jour quantité
-        function updateQty(index, newQty) {
-            const qty = parseInt(newQty, 10);
-            if (cart[index] && qty > 0) {
-                cart[index].quantity = qty;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartBadge();
-                renderCart();
-            }
-        }
+    // ── suite de la rangée de puces ──────────────────────────────────
+    var piste = $('.filters-container');
+    function majPiste() {
+        var reste = piste.scrollWidth - piste.clientWidth - piste.scrollLeft;
+        if (reste > 2) { piste.setAttribute('data-suite', ''); }
+        else { piste.removeAttribute('data-suite'); }
+    }
+    piste.addEventListener('scroll', majPiste, { passive: true });
+    window.addEventListener('resize', majPiste, { passive: true });
+    majPiste();
 
-        // Mettre à jour format
-        function updateFormat(index, newFormat) {
-            if (cart[index]) {
-                cart[index].format = newFormat;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCart();
-            }
-        }
+    // ── démarrage ────────────────────────────────────────────────────
+    majPastille();
+    dessinerPanier();
+    filtrer('all');
+})();
+</script>
 
-        // Fermer panier et scroller vers les produits
-        function closeCartAndScroll() {
-            toggleCart();
-            setTimeout(() => {
-                document.querySelector('.products-section')?.scrollIntoView({ behavior: 'smooth' });
-            }, 400);
-        }
-
-        // Toggle drawer
-        function toggleCart(e) {
-            if (e) e.stopPropagation();
-            const drawer = document.getElementById('cartDrawer');
-            const overlay = document.getElementById('cartOverlay');
-            if (drawer && overlay) {
-                drawer.classList.toggle('open');
-                overlay.classList.toggle('open');
-                renderCart();
-            }
-        }
-
-        // Ajouter au panier avec format
-        function addToCart(productName, format = null) {
-            let cartItem = cart.find(item => item.name === productName && item.format === format);
-            
-            if (cartItem) {
-                cartItem.quantity++;
-            } else {
-                const info = productData[productName] || {};
-                const defaultFormat = format || (info.formats ? info.formats[0] : '5L');
-                cart.push({ 
-                    name: productName, 
-                    quantity: 1, 
-                    format: defaultFormat
-                });
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartBadge();
-            showToast(`✅ ${productName} ajouté au panier`, 'success');
-            
-            // Ouvrir le drawer et mettre à jour le contenu
-            const drawer = document.getElementById('cartDrawer');
-            const overlay = document.getElementById('cartOverlay');
-            
-            // Ouvrir si pas déjà ouvert
-            if (!drawer.classList.contains('open')) {
-                drawer.classList.add('open');
-                overlay.classList.add('open');
-            }
-            
-            // Toujours rafraîchir le contenu du panier
-            renderCart();
-        }
-
-        // Toast notifications améliorées
-        function showNotification(message, type = 'info') {
-            const container = document.getElementById('notificationContainer');
-            
-            // Vérifier que le conteneur existe
-            if (!container) {
-                console.error('Conteneur de notification non trouvé!');
-                return;
-            }
-            
-            // Icônes par type
-            const icons = {
-                success: '✅',
-                error: '❌',
-                info: 'ℹ️',
-                warning: '<span class="material-symbols-outlined icon-neutral" style=" margin-right: 4px;">margin-right: 4px;</span>'
-            };
-            
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                <span class="notification-message">${message}</span>
-                <button class="notification-close" onclick="this.parentElement.classList.add('removing'); setTimeout(() => this.parentElement.remove(), 300)">×</button>
-            `;
-            
-            container.appendChild(notification);
-            
-            // Auto-remove après 4 secondes
-            const timeout = setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.classList.add('removing');
-                    setTimeout(() => {
-                        if (notification.parentElement) {
-                            notification.remove();
-                        }
-                    }, 300);
-                }
-            }, 4000);
-            
-            // Garder une référence du timeout pour pouvoir l'annuler
-            notification.dataset.timeout = timeout;
-            
-            return notification;
-        }
-
-        // Alias pour compatibilité
-        function showToast(message, type = 'info') {
-            return showNotification(message, type);
-        }
-
-        // Ouverture du formulaire de devis
-        function openQuoteForm() {
-            if (cart.length === 0) {
-                showToast('Veuillez ajouter des produits au panier', 'info');
-                return;
-            }
-            
-            formStep = 'form';
-            renderQuoteForm();
-            document.getElementById('quoteModal').classList.add('open');
-        }
-
-        // Rendu du formulaire
-        function renderQuoteForm() {
-            const modalContent = document.getElementById('modalContent');
-            
-            if (formStep === 'form') {
-                // Générer l'affichage du panier
-                let cartHTML = '';
-                cart.forEach((item, index) => {
-                    const info = productData[item.name] || {};
-                    const formats = info.formats || ['5L', '20L', '208L'];
-                    cartHTML += `
-                        <div class="quote-cart-item">
-                            <div class="quote-cart-item-name">${item.name}</div>
-                            <div class="quote-cart-item-controls">
-                                <select class="quote-format-select" onchange="updateFormat(${index}, this.value)">
-                                    ${formats.map(fmt => `<option value="${fmt}" ${item.format === fmt ? 'selected' : ''}>${fmt}</option>`).join('')}
-                                </select>
-                                <div class="quote-qty-controls">
-                                    <button type="button" class="qty-btn" onclick="decreaseQty(${index})">−</button>
-                                    <input type="number" min="1" value="${item.quantity}" onchange="updateQty(${index}, this.value)" class="qty-input">
-                                    <button type="button" class="qty-btn" onclick="increaseQty(${index})">+</button>
-                                </div>
-                                <button type="button" class="btn-remove-item" onclick="removeFromCart(${index})" title="Supprimer">🗑️</button>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                modalContent.innerHTML = `
-                    <div class="modal-header">
-                        <h2><img src="../assets/images/icon-list.svg" alt="" /> Demande de devis</h2>
-                        <button class="modal-close" onclick="closeQuoteForm()">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- PANIER RÉCAPITULATIF -->
-                        <div class="quote-modal-section">
-                            <h3>Votre sélection</h3>
-                            <div class="quote-cart-items">
-                                ${cartHTML}
-                            </div>
-                            <button type="button" class="btn-modify-cart" onclick="toggleCart(); setTimeout(() => document.getElementById('quoteModal').classList.remove('open'), 400)">+ Modifier le panier</button>
-                        </div>
-
-                        <!-- SECTION CONNEXION -->
-                        <div class="quote-modal-section">
-                            <h3>Identification</h3>
-                            <div class="login-options">
-                                <div class="login-option active" id="newClientOption" onclick="toggleLoginMode('new')">
-                                    <input type="radio" name="client-type" value="new" checked>
-                                    <label>Nouveau client</label>
-                                </div>
-                                <div class="login-option" id="existingClientOption" onclick="toggleLoginMode('existing')">
-                                    <input type="radio" name="client-type" value="existing">
-                                    <label>Je suis client IDC</label>
-                                </div>
-                            </div>
-                            
-                            <!-- Nouvelle saisie ou login -->
-                            <div id="loginContent" class="login-content">
-                                <div id="newClientForm" class="new-client-form">
-                                    <!-- Les champs de formulaire seront en dessous -->
-                                </div>
-                                <div id="existingClientForm" class="existing-client-form" style="display: none;">
-                                    <div class="form-group">
-                                        <label for="loginEmail">Email de compte *</label>
-                                        <input type="email" id="loginEmail" name="loginEmail" placeholder="votre@email.com">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="loginPassword">Mot de passe *</label>
-                                        <input type="password" id="loginPassword" name="loginPassword" placeholder="••••••••">
-                                    </div>
-                                    <button type="button" class="btn-login" onclick="loginExistingClient()">Se connecter</button>
-                                    <div id="loginMessage" class="login-message"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FORMULAIRE PRINCIPAL -->
-                        <div class="quote-modal-section">
-                            <h3>Vos informations</h3>
-                            <form id="quoteForm">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="company">Nom entreprise *</label>
-                                        <input type="text" id="company" name="company" required placeholder="IDC SARL">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="contact">Nom contact *</label>
-                                        <input type="text" id="contact" name="contact" required placeholder="Jean Dupont">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="phone">Téléphone *</label>
-                                        <input type="tel" id="phone" name="phone" required placeholder="+243 123 456 789">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email *</label>
-                                        <input type="email" id="email" name="email" required placeholder="contact@idclubrifiants.com">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group full">
-                                    <label for="location">Localisation *</label>
-                                    <input type="text" id="location" name="location" required placeholder="Province, Ville">
-                                </div>
-                                
-                                <div class="form-group full">
-                                    <label for="message">Message commercial</label>
-                                    <textarea id="message" name="message" placeholder="Volume requis, fréquence de livraison, urgences..."></textarea>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn-cancel" onclick="closeQuoteForm()">Annuler</button>
-                        <button class="btn-submit" onclick="submitQuote()">Envoyer la demande</button>
-                    </div>
-                `;
-            } else if (formStep === 'confirmation') {
-                modalContent.innerHTML = `
-                    <div class="confirmation-message">
-                        <div class="icon">✅</div>
-                        <h2>Merci !</h2>
-                        <p>Votre demande de devis a été envoyée avec succès.</p>
-                        <p>Un commercial IDC vous contactera sous peu pour discuter des conditions et modalités de paiement.</p>
-                        <br>
-                        <button class="btn-submit" onclick="closeQuoteForm()" style="width: 200px; margin: 0 auto;">Fermer</button>
-                    </div>
-                `;
-            }
-        }
-
-        // Envoi du formulaire
-        function submitQuote() {
-            const form = document.getElementById('quoteForm');
-            
-            // Validation simple
-            if (!form.checkValidity()) {
-                showToast('Veuillez remplir tous les champs obligatoires', 'info');
-                form.reportValidity();
-                return;
-            }
-            
-            // Récupération des données
-            const formData = {
-                company: document.getElementById('company').value,
-                contact: document.getElementById('contact').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                location: document.getElementById('location').value,
-                message: document.getElementById('message').value,
-                products: cart,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Sauvegarde dans localStorage pour démonstration
-            localStorage.setItem('lastQuote', JSON.stringify(formData));
-            
-            // Log pour débogage
-            console.log('Demande de devis:', formData);
-            
-            // Afficher la confirmation
-            formStep = 'confirmation';
-            renderQuoteForm();
-            
-            // Vider le panier après confirmation
-            setTimeout(() => {
-                cart = [];
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartBadge();
-            }, 2000);
-        }
-
-        // Fermeture du formulaire
-        function closeQuoteForm() {
-            document.getElementById('quoteModal').classList.remove('open');
-            document.getElementById('cartDrawer').classList.remove('open');
-            document.getElementById('cartOverlay').classList.remove('open');
-        }
-
-        // Basculer entre mode nouveau client et client existant
-        function toggleLoginMode(mode) {
-            const newClientForm = document.getElementById('newClientForm');
-            const existingClientForm = document.getElementById('existingClientForm');
-            const newClientOption = document.getElementById('newClientOption');
-            const existingClientOption = document.getElementById('existingClientOption');
-
-            if (mode === 'new') {
-                newClientForm.style.display = 'block';
-                existingClientForm.style.display = 'none';
-                newClientOption.classList.add('active');
-                existingClientOption.classList.remove('active');
-                document.querySelector('input[value="new"]').checked = true;
-            } else {
-                newClientForm.style.display = 'none';
-                existingClientForm.style.display = 'block';
-                newClientOption.classList.remove('active');
-                existingClientOption.classList.add('active');
-                document.querySelector('input[value="existing"]').checked = true;
-            }
-        }
-
-        // Connexion client existant
-        function loginExistingClient() {
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            const loginMessage = document.getElementById('loginMessage');
-
-            if (!email || !password) {
-                loginMessage.textContent = 'Veuillez remplir email et mot de passe';
-                loginMessage.className = 'login-message error';
-                return;
-            }
-
-            // Simulation de connexion - à remplacer par une vraie API
-            // Sauvegarde du token/session
-            localStorage.setItem('loggedInUser', JSON.stringify({
-                email: email,
-                loggedInAt: new Date().toISOString()
-            }));
-
-            loginMessage.textContent = '✅ Connecté ! Les informations seront remplies automatiquement.';
-            loginMessage.className = 'login-message success';
-
-            // Remplir les champs avec les données du compte (simulé)
-            document.getElementById('company').value = 'Votre entreprise';
-            document.getElementById('contact').value = email.split('@')[0];
-            document.getElementById('email').value = email;
-
-            setTimeout(() => {
-                toggleLoginMode('new');
-            }, 1500);
-        }
-
-        // ==================== INITIALISATION DES EVENT LISTENERS ====================
-        function initializeEventListeners() {
-            // Event listeners pour le panier
-            const cartBtn = document.getElementById('cartBtn');
-            const closeDrawer = document.getElementById('closeDrawer');
-            const clearCartBtn = document.getElementById('clearCartBtn');
-            const cartOverlay = document.getElementById('cartOverlay');
-            const sendQuoteBtn = document.getElementById('sendQuoteBtn');
-
-            console.log('Initialisation des listeners - cartBtn existe:', !!cartBtn);
-
-            if (cartBtn) {
-                cartBtn.addEventListener('click', function(e) {
-                    console.log('Panier cliqué !');
-                    toggleCart();
-                });
-            } else {
-                console.error('cartBtn non trouvé !');
-            }
-            
-            if (closeDrawer) {
-                closeDrawer.addEventListener('click', function(e) {
-                    toggleCart();
-                });
-            }
-            if (clearCartBtn) clearCartBtn.addEventListener('click', clearCart);
-            // Overlay ne ferme plus le panier - seulement le bouton X
-            // Si vous voulez que le clic sur l'overlay ferme le panier, décommentez la ligne suivante:
-            // if (cartOverlay) {
-            //     cartOverlay.addEventListener('click', function(e) {
-            //         toggleCart();
-            //     });
-            // }
-            if (sendQuoteBtn) sendQuoteBtn.addEventListener('click', openQuoteForm);
-
-            // Fermeture au clic sur X modal
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeQuoteForm();
-                }
-            });
-        }
-
-        // Initialisation au chargement
-        updateCartBadge();
-
-        // ==================== COMPATIBILITÉ AVEC ANCIENS BOUTONS ====================
-        // Attendre que le DOM soit prêt
-        function initializeCartListeners() {
-            // Initialisation: Update favorite buttons UI
-            document.querySelectorAll('.product-favorite').forEach(btn => {
-                const card = btn.closest('.product-card');
-                const productName = card.querySelector('.product-name').textContent;
-                
-                if (favorites.includes(productName)) {
-                    btn.classList.add('active');
-                    btn.textContent = '★';
-                }
-            });
-
-            // Favorite button functionality
-            document.querySelectorAll('.product-favorite').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const card = this.closest('.product-card');
-                    const productName = card.querySelector('.product-name').textContent;
-                    
-                    this.classList.toggle('active');
-                    
-                    if (this.classList.contains('active')) {
-                        this.textContent = '★';
-                        if (!favorites.includes(productName)) {
-                            favorites.push(productName);
-                        }
-                    } else {
-                        this.textContent = '☆';
-                        favorites = favorites.filter(fav => fav !== productName);
-                        showNotification(`❌ ${productName} supprimé des favoris`, 'info');
-                    }
-                    
-                    if (this.classList.contains('active')) {
-                        showNotification(`<img src="../assets/images/icon-star.svg" alt="" /> ${productName} ajouté aux favoris`, 'success');
-                    }
-                    
-                    localStorage.setItem('favorites', JSON.stringify(favorites));
-                });
-            });
-
-            // Cart button functionality - NOUVELLE IMPLÉMENTATION
-            document.querySelectorAll('.btn-cart').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const productName = this.getAttribute('data-product');
-                    addToCart(productName);
-                });
-            });
-
-            // Devis button functionality
-            document.querySelectorAll('.btn-devis').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const productName = this.getAttribute('data-product');
-                    addToCart(productName);
-                });
-            });
-
-            // Filters functionality
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const productCards = document.querySelectorAll('.product-card');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.getAttribute('data-filter');
-
-                    // Remove active from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Add active to clicked button
-                    btn.classList.add('active');
-
-                    // Filter products
-                    productCards.forEach(card => {
-                        const category = card.getAttribute('data-category');
-                        if (filter === 'all' || category === filter) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-
-                // Double-click to deselect
-                btn.addEventListener('dblclick', (e) => {
-                    e.preventDefault();
-                    
-                    // Remove active from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    
-                    // Show all products
-                    productCards.forEach(card => {
-                        card.style.display = 'flex';
-                    });
-                });
-            });
-        }
-
-        // Appeler les fonctions au chargement du DOM
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                initializeCartListeners();
-                initializeEventListeners();
-            });
-        } else {
-            initializeCartListeners();
-            initializeEventListeners();
-        }
-    </script>
-
-    <script src="../assets/js/footer-loader.js"></script>
-
-    <script src="../assets/js/icon-loader.js"></script>
-    <!-- SVG Icon Loader loaded -->
 </body>
 </html>
