@@ -36,6 +36,7 @@ Site-IDC/
 ├── assets/images/          # seules les images référencées sont publiées
 ├── build.js                # génère public/
 ├── serve.py                # serveur de développement
+├── index.html              # redirection de confort vers src/, jamais publiée
 ├── robots.txt · sitemap.xml · favicon.ico
 └── netlify.toml · vercel.json
 ```
