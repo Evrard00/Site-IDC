@@ -114,6 +114,31 @@ version antérieure ignorerait en silence.
 Pas de redirection attrape-tout : `404.html` est servi par l'hébergeur quand
 aucun fichier ne correspond.
 
+### Empreinte et cache
+
+Chaque image publiée reçoit une **empreinte de son contenu** dans son nom —
+`hero.webp` devient `hero.4943194d.webp`, et les pages sont écrites en dernier
+pour porter la nouvelle adresse. Une image modifiée change donc d'adresse.
+
+C'est la condition de la politique de cache :
+
+| Ce qui est servi | Cache-Control | Pourquoi |
+|---|---|---|
+| `/assets/*` | `max-age=31536000, immutable` | le nom change avec le contenu |
+| tout le reste | `max-age=0, must-revalidate` | servi après un 304, jamais sans demander |
+
+**Ne jamais déclarer un cache long sans empreinte.** C'est exactement ce qui
+était en place : un an sur `/assets/*` avec des noms fixes, et une heure sèche
+sur `/*.html`. Une image remplacée sous le même nom restait un an chez qui
+l'avait déjà vue, une page une heure — tandis que le CSS, lui, n'avait aucune
+règle et se mettait à jour aussitôt. Les déploiements paraissaient n'arriver
+qu'à moitié.
+
+La règle `/*.html` avait un second défaut : elle ne s'appliquait qu'aux
+adresses finissant par `.html`. Avec les URL propres, `/eshop` y échappait et
+`/eshop.html` non : deux visiteurs de la même page pouvaient voir deux
+versions.
+
 ## Formulaires
 
 Cinq formulaires passent par **Netlify Forms** — `contact`, `carte-tpe`,

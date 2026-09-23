@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // Script de build : génère le dossier public/ servi par Vercel / Netlify
 console.log('Building for production...');
@@ -38,6 +39,8 @@ function copyDirRecursive(src, dest) {
 // Pages HTML : src/*.html → public/*.html, chemins d'assets réécrits
 let pageCount = 0;
 const sorties = [];   // ce qui est publié, pour savoir ensuite quelles images servent
+const pages = [];     // écrites en dernier : elles doivent porter les noms empreints
+const empreintes = new Map();   // nom d'origine -> nom empreint
 for (const file of fs.readdirSync(srcDir)) {
     const srcPath = path.join(srcDir, file);
     if (!fs.statSync(srcPath).isFile()) continue;
@@ -54,7 +57,7 @@ for (const file of fs.readdirSync(srcDir)) {
         content = content.replace(/\.\.\/\.\.\/assets\//g, 'assets/');
         content = content.replace(/\.\.\/assets\//g, 'assets/');
 
-        fs.writeFileSync(path.join(publicDir, file), content);
+        pages.push({ file, content });
         sorties.push(content);
         pageCount++;
     } else {
@@ -107,7 +110,16 @@ if (fs.existsSync(assetsDir)) {
             const from = path.join(imagesDir, entry.name);
             if (entry.isDirectory()) { copyDirRecursive(from, path.join(dest, entry.name)); continue; }
             if (referencees.has(entry.name)) {
-                fs.copyFileSync(from, path.join(dest, entry.name));
+                // Empreinte de contenu. Sans elle, une image remplacée sous le
+                // même nom garde son adresse : le cache d'un an déclaré dans
+                // netlify.toml la sert encore un an. Un nom qui change à chaque
+                // modification rend ce cache sûr — et immédiat.
+                const donnees = fs.readFileSync(from);
+                const ext = path.extname(entry.name);
+                const nom = path.basename(entry.name, ext) + '.'
+                          + crypto.createHash('sha256').update(donnees).digest('hex').slice(0, 8) + ext;
+                fs.writeFileSync(path.join(dest, nom), donnees);
+                empreintes.set(entry.name, nom);
                 gardees++;
             } else {
                 octetsEcartes += fs.statSync(from).size;
@@ -120,6 +132,20 @@ if (fs.existsSync(assetsDir)) {
         console.log('✓ assets/ copié');
     }
 }
+
+// Les pages partent maintenant, avec les adresses d'images empreintes.
+// Remplacement littéral plutôt qu'expression régulière : pas d'échappement à
+// tenir. Les noms les plus longs d'abord, au cas où l'un serait le préfixe
+// d'un autre (« hero.webp » dans « hero.webp.map »).
+const parLongueur = [...empreintes].sort((a, b) => b[0].length - a[0].length);
+for (const { file, content } of pages) {
+    let sortie = content;
+    for (const [avant, apres] of parLongueur) {
+        sortie = sortie.split('assets/images/' + avant).join('assets/images/' + apres);
+    }
+    fs.writeFileSync(path.join(publicDir, file), sortie);
+}
+if (empreintes.size) console.log(`\u2713 ${empreintes.size} images empreintes`);
 
 // Fichiers racine (référencement, favicon)
 for (const file of ROOT_FILES) {

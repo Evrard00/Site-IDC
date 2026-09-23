@@ -20,12 +20,21 @@
   # version par défaut de Netlify.
   NODE_VERSION = "20"
 
+# Un an de cache, et « immutable » pour éviter jusqu'à la revalidation.
+# Ce n'est sûr que parce que build.js appose une empreinte de contenu sur
+# chaque image publiée : une image modifiée change de nom, donc d'adresse,
+# et personne ne peut se voir servir l'ancienne. Sans cette empreinte, la
+# règle ci-dessous gelait pour un an toute image remplacée sous le même nom.
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
+# Pas de règle pour le HTML : le défaut de Netlify est
+# « public, max-age=0, must-revalidate », exactement ce qu'il faut. La page
+# est servie depuis le cache après un 304, mais jamais sans demander.
+#
+# La règle précédente, for = "/*.html", donnait une heure de cache sec — et
+# ne s'appliquait qu'aux adresses finissant par .html : « /eshop » y
+# échappait, « /eshop.html » non. Deux visiteurs de la même page pouvaient
+# voir deux versions différentes.
