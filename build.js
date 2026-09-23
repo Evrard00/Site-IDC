@@ -11,6 +11,9 @@ const assetsDir = path.join(rootDir, 'assets');
 const publicDir = path.join(rootDir, 'public');
 
 // Fichiers statiques présents à la racine du dépôt et attendus à la racine du site
+// Ce qui compte comme une image publiable.
+const EXT_IMAGE = /\.(webp|png|jpe?g|gif|svg|avif|ico)$/i;
+
 const ROOT_FILES = ['robots.txt', 'sitemap.xml', 'favicon.ico'];
 
 // Purge du dossier de sortie.
@@ -23,9 +26,10 @@ if (fs.existsSync(publicDir)) {
 fs.mkdirSync(publicDir, { recursive: true });
 
 // Copie récursive d'un répertoire
-function copyDirRecursive(src, dest) {
+function copyDirRecursive(src, dest, filtre) {
     fs.mkdirSync(dest, { recursive: true });
     for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+        if (filtre && entry.isFile() && !filtre.test(entry.name)) continue;
         const srcPath = path.join(src, entry.name);
         const destPath = path.join(dest, entry.name);
         if (entry.isDirectory()) {
@@ -108,7 +112,13 @@ if (fs.existsSync(assetsDir)) {
         let gardees = 0, ecartees = 0, octetsEcartes = 0;
         for (const entry of fs.readdirSync(imagesDir, { withFileTypes: true })) {
             const from = path.join(imagesDir, entry.name);
-            if (entry.isDirectory()) { copyDirRecursive(from, path.join(dest, entry.name)); continue; }
+            // Les sous-dossiers sont copiés tels quels, mais filtrés : un
+            // README expliquant où ranger les photos produit n'a rien à faire
+            // en production — il y partait jusqu'ici.
+            if (entry.isDirectory()) {
+                copyDirRecursive(from, path.join(dest, entry.name), EXT_IMAGE);
+                continue;
+            }
             if (referencees.has(entry.name)) {
                 // Empreinte de contenu. Sans elle, une image remplacée sous le
                 // même nom garde son adresse : le cache d'un an déclaré dans
