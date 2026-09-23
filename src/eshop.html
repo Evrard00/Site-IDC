@@ -101,6 +101,8 @@
                       background: rgba(255,255,255,.22); font-family: var(--mono); font-size: 11.5px; }
 
         /* ── grille produits ─────────────────────────────────────────── */
+        .note-prix { font-size: var(--t-sm); color: var(--ink-2); max-width: 62ch;
+                     margin-bottom: 26px; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 22px; }
         .product-card { display: flex; flex-direction: column;
                         background: var(--surface); border: 1px solid var(--rule-2);
@@ -357,23 +359,14 @@
         </div>
     </section>
 
-    <section class="band band--pale">
-        <div class="wrap">
-            <div class="split" style="margin-bottom:34px">
-                <h2>Commander <span class="accent">en trois temps.</span></h2>
-                <p class="lead" style="align-self:end">Les prix ne sont pas affichés en ligne : ils dépendent du volume et de la fréquence de livraison. Un commercial vous répond sous 24 heures ouvrées.</p>
-            </div>
-            <ul class="list list--detail" style="max-width:860px">
-                <li><span>01</span> <span><strong>Composez votre sélection</strong><span class="muted">Ajoutez les références au panier et choisissez les formats.</span></span></li>
-                <li><span>02</span> <span><strong>Envoyez la demande</strong><span class="muted">Vos coordonnées, votre localisation et vos volumes.</span></span></li>
-                <li><span>03</span> <span><strong>Recevez votre proposition</strong><span class="muted">Un commercial revient vers vous avec les tarifs et les modalités.</span></span></li>
-            </ul>
-        </div>
-    </section>
 
     <section class="band">
         <div class="wrap">
-            <h2 style="margin-bottom:30px">Notre <span class="accent">catalogue.</span></h2>
+            <h2 style="margin-bottom:10px">Notre <span class="accent">catalogue.</span></h2>
+            <!-- L'explication de l'absence de prix vivait dans le bloc descendu
+                 sous le catalogue. Sans elle ici, le visiteur découvre onze
+                 références sans tarif et sans savoir pourquoi. -->
+            <p class="note-prix">Les prix dépendent du volume et de la fréquence de livraison : composez votre sélection, un commercial vous répond sous 24 heures ouvrées.</p>
 
             <!-- Le décompte quitte l'écran mais pas la page : il reste annoncé
                  aux lecteurs d'écran, sans quoi rien ne signalerait le
@@ -384,6 +377,7 @@
                 <div class="wrap">
                     <div class="filters-container" role="group" aria-label="Filtrer par famille de produits">
                 <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">Tous <span class="fnb">(11)</span></button>
+                <button class="filter-btn filter-btn--fav" type="button" data-filter="fav" aria-pressed="false">Favoris <span class="fnb" id="favNb">(0)</span></button>
                 <button class="filter-btn" type="button" data-filter="moteur" aria-pressed="false">Moteur <span class="fnb">(3)</span></button>
                 <button class="filter-btn" type="button" data-filter="hydraulique" aria-pressed="false">Hydrauliques <span class="fnb">(2)</span></button>
                 <button class="filter-btn" type="button" data-filter="industrielle" aria-pressed="false">Industrielles <span class="fnb">(2)</span></button>
@@ -600,7 +594,22 @@
         </div>
     </section>
 
+    <section class="band band--pale">
+        <div class="wrap">
+            <div class="split" style="margin-bottom:34px">
+                <h2>Commander <span class="accent">en trois temps.</span></h2>
+                <p class="lead" style="align-self:end">Les prix ne sont pas affichés en ligne : ils dépendent du volume et de la fréquence de livraison. Un commercial vous répond sous 24 heures ouvrées.</p>
+            </div>
+            <ul class="list list--detail" style="max-width:860px">
+                <li><span>01</span> <span><strong>Composez votre sélection</strong><span class="muted">Ajoutez les références au panier et choisissez les formats.</span></span></li>
+                <li><span>02</span> <span><strong>Envoyez la demande</strong><span class="muted">Vos coordonnées, votre localisation et vos volumes.</span></span></li>
+                <li><span>03</span> <span><strong>Recevez votre proposition</strong><span class="muted">Un commercial revient vers vous avec les tarifs et les modalités.</span></span></li>
+            </ul>
+        </div>
+    </section>
+
 </main>
+
 
 <footer>
     <div class="wrap">
@@ -922,10 +931,19 @@
     var vide    = $('#shopVide');
     var compte  = $('#shopCompte');
 
+    var favNb = $('#favNb');
+    var filtreCourant = 'all';
+
+    function majCompteFavoris() {
+        if (favNb) { favNb.textContent = '(' + favoris.length + ')'; }
+    }
+
     function filtrer(cle) {
         var n = 0;
         fiches.forEach(function (f) {
-            var ok = cle === 'all' || f.getAttribute('data-category') === cle;
+            var ok = cle === 'all'
+                  || (cle === 'fav' ? favoris.indexOf(f.getAttribute('data-product')) !== -1
+                                    : f.getAttribute('data-category') === cle);
             f.hidden = !ok;
             if (ok) { n++; }
         });
@@ -935,7 +953,13 @@
             b.setAttribute('aria-pressed', String(actif));
         });
         compte.textContent = n + (n > 1 ? ' produits affichés' : ' produit affiché');
+        // « Aucun produit dans cette famille » n'a pas de sens sous le filtre
+        // Favoris : on y dit quoi faire pour en avoir.
+        vide.textContent = cle === 'fav'
+            ? 'Aucun favori pour l’instant. Touchez l’étoile d’un produit pour le retrouver ici.'
+            : 'Aucun produit dans cette famille.';
         vide.hidden = n !== 0;
+        filtreCourant = cle;
     }
     boutons.forEach(function (b) {
         b.addEventListener('click', function () { filtrer(b.getAttribute('data-filter')); });
@@ -957,6 +981,10 @@
             if (i === -1) { favoris.push(nom); } else { favoris.splice(i, 1); }
             ecrire('idc-favoris', favoris);
             majFavori(btn);
+            majCompteFavoris();
+            // Sous le filtre Favoris, une fiche déchue doit disparaître tout
+            // de suite : sans cela elle reste affichée, étoile éteinte.
+            if (filtreCourant === 'fav') { filtrer('fav'); }
             notifier(i === -1 ? nom + ' ajouté aux favoris' : nom + ' retiré des favoris', 'ok');
         });
     });
@@ -1279,6 +1307,7 @@
     // ── démarrage ────────────────────────────────────────────────────
     majPastille();
     dessinerPanier();
+    majCompteFavoris();
     filtrer('all');
 })();
 </script>
