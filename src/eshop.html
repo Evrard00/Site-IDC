@@ -81,7 +81,11 @@
                                   color var(--fast) var(--ease); }
         .filter-btn:hover { border-color: var(--ink-3); color: var(--ink); }
         .filter-btn.active { background: var(--ink); border-color: var(--ink); color: #fff; }
-        .fnb { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3);
+        /* 12 px et non 10,5 : le compteur est lu à chaque filtre, et 10,5 px
+           ne figure nulle part ailleurs dans le système — dont le plancher pour
+           les micro-libellés est 11 px. La rangée défile dans son conteneur, le
+           gain de largeur ne coûte donc aucune puce. */
+        .fnb { font-family: var(--mono); font-size: 12px; color: var(--ink-3);
                font-variant-numeric: tabular-nums; }
         .filter-btn:hover .fnb { color: var(--ink-2); }
         .filter-btn.active .fnb { color: rgba(255,255,255,.72); }
