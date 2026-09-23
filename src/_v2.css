@@ -472,8 +472,12 @@ a.list-row:hover .ar, a.list-row:focus-visible .ar { opacity: 1; transform: tran
     transform: scaleX(0); transform-origin: left;
     transition: transform var(--fast) var(--ease);
 }
+/* aria-current vaut « page » sur le lien de la page courante, posé dans le
+   balisage, et « true » sur la section à l'écran, posé au défilement par
+   _tete.js. Les deux se soulignent : le sélecteur ne distingue pas la
+   valeur, il exige seulement qu'elle ne soit pas « false ». */
 .bar nav a:hover::after, .bar nav a:focus-visible::after,
-.bar nav a[aria-current="page"]::after { transform: scaleX(1); }
+.bar nav a[aria-current]:not([aria-current="false"])::after { transform: scaleX(1); }
 .bar .btn { margin-left: auto; }
 
 /* menu mobile — masqué par défaut à TOUTES les largeurs, révélé
@@ -594,6 +598,10 @@ html:has(dialog[open]) { overflow: hidden; }
         text-decoration: none; font-size: 16px; font-weight: 500;
     }
     .mobile-nav a .ar { font-family: var(--mono); color: var(--ink-3); }
+    /* Sans cette règle, le suivi de section ne se verrait que sur grand
+       écran : le panneau mobile n'avait aucun marquage du lien courant. */
+    .mobile-nav a[aria-current]:not([aria-current="false"]) { color: var(--orange-t); }
+    .mobile-nav a[aria-current]:not([aria-current="false"]) .ar { color: var(--orange-t); }
     .mobile-nav .btn { width: 100%; margin-top: 14px; }
 }
 

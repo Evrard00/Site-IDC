@@ -23,7 +23,7 @@ Site-IDC/
 ├── src/
 │   ├── _v2.css             # le système visuel — jetons, composants, interactions
 │   ├── _app.css            # coquille de l'espace client (colonne + tableaux)
-│   ├── _tete.js            # en-tête, menu mobile, envoi des formulaires
+│   ├── _tete.js            # en-tête, menu mobile, section active, envoi des formulaires
 │   ├── _v2-ui.html         # page de composants, référence interne, non publiée
 │   ├── index.html          # accueil
 │   ├── tpe.html            # carte TPE

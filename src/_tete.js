@@ -65,6 +65,64 @@
         cache = true; tete.setAttribute('data-hidden', ''); publier();
     }
 
+    // ── section active ───────────────────────────────────────────────
+    // Les liens d'ancre de la barre ne disaient pas où l'on se trouve : sur
+    // l'accueil, « Accueil », « À propos » et « Services » mènent à trois
+    // sections de la même page, et aucune n'était jamais marquée.
+    //
+    // On ne retient que les ancres de la barre — pas les boutons d'appel du
+    // corps de page, qui pointent eux aussi vers des ancres sans être des
+    // éléments de navigation.
+    var ancres = [];
+    (function () {
+        var vus = {};
+        var liens = tete.querySelectorAll('nav a[href^="#"], .mobile-nav a[href^="#"]');
+        Array.prototype.forEach.call(liens, function (a) {
+            // aria-current="page" désigne la page courante : sens différent,
+            // posé dans le balisage, on n'y touche pas.
+            if (a.getAttribute('aria-current') === 'page') { return; }
+            var id = a.getAttribute('href').slice(1);
+            var cible = id && document.getElementById(id);
+            if (!cible) { return; }
+            if (!vus[id]) { vus[id] = { cible: cible, liens: [] }; ancres.push(vus[id]); }
+            vus[id].liens.push(a);
+        });
+    }());
+
+    var sectionActive = null;
+    function majSection() {
+        if (!ancres.length) { return; }
+
+        // La ligne de lecture est celle où scroll-padding-top dépose une ancre
+        // cliquée : la section marquée est donc bien celle qu'on voit.
+        //
+        // On retient la section dont le haut est le plus bas tout en restant
+        // au-dessus de cette ligne — autrement dit la dernière franchie. Le
+        // calcul ne suppose aucun ordre : celui des liens dans la barre n'est
+        // pas celui des sections dans la page.
+        var ligne = window.scrollY + plein + 20;
+        var choisie = null, meilleur = -Infinity, dernier = null, bas = -Infinity;
+        for (var i = 0; i < ancres.length; i++) {
+            var haut = ancres[i].cible.getBoundingClientRect().top + window.scrollY;
+            if (haut > bas) { bas = haut; dernier = ancres[i]; }
+            if (haut <= ligne + 1 && haut > meilleur) { meilleur = haut; choisie = ancres[i]; }
+        }
+        // En bas de page, une dernière section plus courte que l'écran ne
+        // franchit jamais la ligne : on la marque quand même.
+        if (window.innerHeight + window.scrollY >= racine.scrollHeight - 2) {
+            choisie = dernier;
+        }
+
+        if (choisie === sectionActive) { return; }
+        if (sectionActive) {
+            sectionActive.liens.forEach(function (a) { a.removeAttribute('aria-current'); });
+        }
+        sectionActive = choisie;
+        if (choisie) {
+            choisie.liens.forEach(function (a) { a.setAttribute('aria-current', 'true'); });
+        }
+    }
+
     function majTete() {
         var y = window.scrollY;
         if (y > 24) { tete.setAttribute('data-scrolled', ''); }
@@ -79,13 +137,16 @@
             montrer();
         }
         if (Math.abs(delta) > SEUIL_MVT || y <= SEUIL_HAUT) { dernier = y; }
+        majSection();
         tic = false;
     }
 
     window.addEventListener('scroll', function () {
         if (!tic) { window.requestAnimationFrame(majTete); tic = true; }
     }, { passive: true });
-    window.addEventListener('resize', mesurer, { passive: true });
+    window.addEventListener('resize', function () { mesurer(); majSection(); },
+                            { passive: true });
+    majSection();
 
     // Clavier. Deux cas opposés :
     //  · le focus entre dans la barre — il faut la montrer, sinon on tabule
