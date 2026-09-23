@@ -277,8 +277,13 @@ h3 { font-size: var(--t-h3); }
     isolation: isolate;
     transition: box-shadow var(--fast) var(--ease), transform var(--fast) var(--ease);
 }
-.tile i {
-    position: absolute; inset: 0;
+/* Deux formes acceptées. <img loading="lazy"> sur les pages publiées : un
+   fond CSS se charge dès que l'élément est posé, même hors écran, et les
+   cinq tuiles pesaient 89 Ko chargés pendant qu'on ne voyait que le héros.
+   La forme <i> reste pour _v2-ui.html, la page de composants interne. */
+.tile i, .tile > img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
     background-size: cover; background-position: center;
     transform: scale(1.001);
     transition: transform var(--slow) var(--ease);
@@ -298,7 +303,8 @@ h3 { font-size: var(--t-h3); }
     transition: opacity var(--fast) var(--ease);
 }
 .tile:hover, .tile:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-3); }
-.tile:hover i, .tile:focus-visible i { transform: scale(1.06); }
+.tile:hover i, .tile:focus-visible i,
+.tile:hover > img, .tile:focus-visible > img { transform: scale(1.06); }
 
 .tile .cap { position: absolute; left: 18px; right: 18px; bottom: 16px; z-index: 2; color: #fff; }
 .tile .num {
@@ -537,6 +543,8 @@ html:has(dialog[open]) { overflow: hidden; }
 .duo   { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); gap: clamp(28px,5vw,70px);
          align-items: center; margin-top: 42px; }
 .duo .shot { aspect-ratio: 4/3; border-radius: var(--r-lg); background-size: cover; background-position: center; }
+/* la même boîte, en <img> différée */
+.duo img.shot { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .tiles { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 44px; }
 /* Variante à cinq activités. Les tuiles sont au format portrait 3/4 : moins de
    colonnes veut dire des tuiles plus larges, donc bien plus hautes. Le palier
