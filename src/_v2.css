@@ -322,6 +322,15 @@ h3 { font-size: var(--t-h3); }
    LISTES DE DONNÉES
    ══════════════════════════════════════════════════════════════════ */
 
+/* space-between convient à une table de spécifications — libellé à gauche,
+   valeur à droite. Il ne convient PAS à une liste numérotée : le contenu est
+   plaqué contre le bord droit et, les rangées n'ayant pas la même longueur,
+   leurs bords gauches se décalent en escalier. Deux listes ont vécu ainsi
+   jusqu'à ce qu'on les remarque, l'une avec 134 px d'écart entre rangées.
+
+   Toute liste « numéro + texte » prend donc .list--detail, plus bas. À ce
+   jour les quinze listes du site l'emploient : si vous en ajoutez une sans,
+   c'est probablement une erreur. */
 .list { list-style: none; border-top: 1px solid var(--rule); }
 .list li {
     display: flex; justify-content: space-between; align-items: center; gap: 18px;
