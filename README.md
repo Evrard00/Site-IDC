@@ -184,14 +184,32 @@ Forms stockerait les mots de passe en clair.
       Tarato, Dianra, Guézon. Les fiches n'ont ni adresse ni horaires.
 - [ ] Treize boutons désactivés dans l'espace client (Rapports, Mon entreprise,
       Paramètres, Support) : les brancher ou les retirer.
-- [ ] Quatorze fichiers du dépôt ne sont plus référencés — CSS hérité,
-      `assets/js/`, `cart-devis.css` et `.js`. Ils ne sont plus publiés, mais
-      encombrent encore.
 
-## Outillage hérité
+## Ce qui a été retiré
 
-Les scripts Python à la racine (`convert_to_outline.py`, `remove_*.py`,
-`sync_corrections.py`…) sont des correctifs ponctuels passés en masse sur
-l'ancienne version du code. **Ils ont déjà été appliqués et ne correspondent plus
-à la structure actuelle : les relancer casserait le site.** Conservés à titre
-d'historique.
+Le dépôt portait **11 059 fichiers sans emploi**, dont `material-icons-master/`
+— une bibliothèque d'icônes extraite en double, 10 960 fichiers, que plus aucune
+page ne chargeait. Sont partis avec elle les feuilles de style héritées
+(`assets/css/`), les icônes en fichiers remplacées par des tracés SVG en ligne
+(`assets/icons/`), les scripts de l'ancien site (`assets/js/`), deux composants
+React dans un site sans framework (`src/components/`), une vingtaine de
+correctifs Python passés une fois en masse, les rapports d'un audit d'icônes
+sans objet, et `build.sh` — un script d'avant `build.js` qui copiait `src/*.html`
+à la racine du dépôt.
+
+`cart-devis.css` et `cart-devis.js` sont partis aussi : la page ne les chargeait
+plus depuis la refonte, mais `build.js` les publiait encore.
+
+Tout cela reste dans l'historique git et se récupère par `git show`.
+
+**Ce qui a été gardé** : les originaux des images publiées — `gaz.png`,
+`station.jpg`, `tpe.jpg`, `cab.jpg`, `lub.jpg`, `soute.jpg`, `logo.png`. Ce sont
+les fichiers sources à réexporter quand il faut une autre taille ou un autre
+cadrage. `build.js` ne les publie pas.
+
+Quelques scripts Python non suivis par git subsistent à la racine
+(`convert_to_outline.py`, `remove_*.py`, `replace_with_outline.py`,
+`sync_corrections.py`) ainsi que `CART_DEVIS_README.md`. Ce sont des correctifs
+ponctuels déjà appliqués à l'ancienne structure : **les relancer casserait le
+site.** N'étant pas dans git, ils ne sont récupérables nulle part — d'où leur
+maintien en place.
