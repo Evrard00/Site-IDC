@@ -168,16 +168,31 @@ Forms stockerait les mots de passe en clair.
       prévenir personne.
 - [ ] Rédiger les pages légales — mentions, confidentialité, CGV — liées mais absentes.
 
-**Contradictions à trancher** — les mêmes chiffres ne s'accordent pas d'une page
-à l'autre :
+**À trancher**
 
-- [ ] **Délai de réponse** : « 24/7 », « sous 48 heures » et « sous 24 heures
-      ouvrées » coexistent.
-- [ ] **Horaires** : l'accueil annonce « 24/7 » en héros et « lundi au vendredi,
-      8 h à 16 h » en pied.
-- [ ] **Clients** : 100 000+ sur l'accueil, 10 000+ sur l'espace client.
+- [ ] **Horaires** : l'accueil annonce « 24/7 service client B2B » dans sa ligne
+      de chiffres, et « du lundi au vendredi, 8 h à 16 h » à côté du téléphone et
+      de l'adresse électronique. Les deux décrivent le même canal B2B. Un client
+      qui lit les deux ne sait pas quand appeler.
 - [ ] **Réseaux sociaux** : les trois icônes mènent aux accueils de Facebook,
-      LinkedIn et Instagram, pas aux comptes IDC.
+      LinkedIn et Instagram, pas aux comptes IDC. S'il n'y a pas de comptes,
+      retirer les icônes vaut mieux que les laisser pointer dans le vide.
+- [ ] **Domaine** : `https://www.idc.ci` est un substitut. Il figure dans
+      `robots.txt`, `sitemap.xml`, les `canonical`, les balises `og:` et le
+      JSON-LD de huit pages.
+
+**Deux fausses contradictions, écartées après examen.** Elles figuraient ici et
+n'avaient pas lieu d'y être :
+
+- Le **délai de réponse** décrit deux canaux, pas un seul. « Sous 48 heures »
+  pour le commercial et la carte TPE (contact, accueil, TPE) ; « sous 24 heures
+  ouvrées » pour l'e-shop et la commande de produits (e-shop, actualités).
+  Appliqué sans exception de part et d'autre. « 24/7 » ne relève pas du délai
+  de réponse mais de la disponibilité du service — voir l'horaire ci-dessus.
+- Le **nombre de clients** compte deux populations. L'accueil dit « 100 000+
+  clients **servis** », l'espace client « 10 000+ clients **professionnels**
+  accompagnés. » Reste à confirmer les chiffres eux-mêmes, mais ils ne se
+  contredisent pas.
 
 **Confort**
 
