@@ -734,7 +734,12 @@ html:has(dialog[open]) { overflow: hidden; }
                transition: color var(--fast) var(--ease); }
     .fgrid a:hover, .fgrid a:focus-visible { color: #fff; }
     .fgrid .about { font-size: var(--t-sm); max-width: 32ch; }
-    .fsocial { display: flex; gap: 10px; margin-top: 16px; }
+    /* Conservé alors que plus aucune page ne l'emploie : les comptes sociaux
+   d'IDC sont en cours de création, et le balisage reviendra tel quel dans
+   le pied de page — trois <a> portant chacun un aria-label « IDC sur … ».
+   Pensez alors à rétablir aussi le champ sameAs du JSON-LD de l'accueil,
+   c'est lui qui relie le site aux comptes pour les moteurs. */
+.fsocial { display: flex; gap: 10px; margin-top: 16px; }
     .fsocial a { width: 38px; height: 38px; min-height: 38px; justify-content: center;
                  border-radius: 50%; background: rgba(255,255,255,.10); }
     .fsocial a:hover { background: var(--orange); }

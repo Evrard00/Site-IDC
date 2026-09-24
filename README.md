@@ -170,16 +170,30 @@ Forms stockerait les mots de passe en clair.
 
 **À trancher**
 
-- [ ] **Horaires** : l'accueil annonce « 24/7 service client B2B » dans sa ligne
-      de chiffres, et « du lundi au vendredi, 8 h à 16 h » à côté du téléphone et
-      de l'adresse électronique. Les deux décrivent le même canal B2B. Un client
-      qui lit les deux ne sait pas quand appeler.
-- [ ] **Réseaux sociaux** : les trois icônes mènent aux accueils de Facebook,
-      LinkedIn et Instagram, pas aux comptes IDC. S'il n'y a pas de comptes,
-      retirer les icônes vaut mieux que les laisser pointer dans le vide.
-- [ ] **Domaine** : `https://www.idc.ci` est un substitut. Il figure dans
-      `robots.txt`, `sitemap.xml`, les `canonical`, les balises `og:` et le
-      JSON-LD de huit pages.
+- [ ] **Domaine** : `https://www.idc.ci` est un substitut, et le domaine réel
+      n'est pas arrêté. Il figure dans `robots.txt`, `sitemap.xml`, les
+      `canonical`, les balises `og:` et le JSON-LD de huit pages. Un `canonical`
+      qui désigne un domaine inexistant empêche l'indexation : c'est un bloquant,
+      pas un détail.
+
+**Tranché le 2026-09-24**
+
+- **Horaires.** Ce sont les stations qui sont ouvertes en continu, pas le service
+  client : celui-ci répond du lundi au vendredi, de 8 h à 16 h. La ligne de
+  chiffres de l'accueil annonce donc « 24/7 stations ouvertes » et non plus
+  « 24/7 service client B2B ». Les deux données coexistent désormais sans se
+  contredire.
+- **Réseaux sociaux.** Les comptes IDC sont en cours de création. Les trois
+  icônes du pied de page et le champ `sameAs` du JSON-LD ont été retirés : un
+  lien vers l'accueil de Facebook égare le visiteur, et `sameAs` déclarait à
+  Google des comptes qui ne sont pas ceux d'IDC.
+
+  **Pour les remettre** : rétablir un bloc `<div class="fsocial">` dans le pied
+  de page — ses styles sont restés dans `_v2.css` — avec un `<a>` par réseau
+  portant `target="_blank"`, `rel="noopener noreferrer"` et un `aria-label`
+  « IDC sur … ». Le pied étant recopié dans les dix pages, la modification est à
+  répéter. Rétablir aussi `"sameAs": [...]` dans le JSON-LD de `index.html` :
+  c'est lui qui relie le site aux comptes pour les moteurs.
 
 **Deux fausses contradictions, écartées après examen.** Elles figuraient ici et
 n'avaient pas lieu d'y être :
