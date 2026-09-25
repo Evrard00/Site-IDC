@@ -139,3 +139,19 @@ table.data .num { font-variant-numeric: tabular-nums; }
     .side-nav a span:not(.sr-only), .side-nav button span:not(.sr-only) { white-space: nowrap; }
     .side-sep { margin-top: 0; padding-top: 0; border-top: 0; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   ÉTAT VIDE
+   Pour un panneau dont la donnée n'existe pas encore. Mieux vaut le
+   dire et proposer la voie de contournement que d'inventer des lignes :
+   l'historique des passages attend l'import des transactions, et le
+   relevé rend le même service en attendant.
+   Même construction que .cart-empty de l'e-shop, à l'échelle d'un panneau.
+   ══════════════════════════════════════════════════════════════════ */
+
+.vide { display: grid; place-items: center; gap: 12px; text-align: center;
+        padding: 44px 24px 40px; }
+.vide svg { width: 34px; height: 34px; color: var(--ink-3); }
+.vide h3 { font-size: 17px; font-weight: 600; }
+.vide p { font-size: var(--t-sm); color: var(--ink-2); max-width: 54ch; line-height: 1.5; }
+.vide .btn { margin-top: 4px; }
