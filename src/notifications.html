@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes cartes TPE - Espace client IDC</title>
-    <meta name="description" content="Vos cartes TPE : transactions, plafonds et répartition par station.">
+    <title>Notifications - Espace client IDC</title>
+    <meta name="description" content="Vos notifications : commandes, devis à approuver, cartes à recharger et relevés.">
     <meta name="robots" content="noindex, nofollow">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
@@ -41,11 +41,11 @@
             <h2 id="nav-espace">Navigation</h2>
             <nav class="side-nav" aria-labelledby="nav-espace">
                 <a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Tableau de bord</span></a>
-                <a href="cartes-tpe.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg><span>Mes cartes TPE</span></a>
+                <a href="cartes-tpe.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg><span>Mes cartes TPE</span></a>
                 <a href="purchases.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 14h6"/></svg><span>Mes commandes</span></a>
                 <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Mes relevés</span><span class="sr-only">— bientôt disponible</span></button>
                 <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S6 9.6 6 13.8a6 6 0 0 0 12 0C18 9.6 12 2.7 12 2.7z"/></svg><span>Lubrifiants (devis)</span><span class="tag tag--wait">Bientôt</span><span class="sr-only">— bientôt disponible</span></button>
-                <a href="notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
+                <a href="notifications.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
             </nav>
         </div>
 
@@ -64,13 +64,11 @@
 
         <div class="app-head">
             <div>
-                <h1>Mes cartes TPE</h1>
-                <p class="sub">Gestion et suivi de votre flotte de cartes payantes.</p>
+                <h1>Notifications</h1>
+                <p class="sub">4 notifications · 2 nouvelles.</p>
             </div>
             <div class="app-actions">
-                    <a class="btn btn--line btn--sm" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Exporter (CSV)</a>
-                    <a class="btn btn--sm" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M17 17h4M19 15v4"/></svg>Demander une carte</a>
-
+                <a class="btn btn--line btn--sm" href="#">Tout marquer comme lu</a>
                 <div class="who">
                     <span class="who-av" id="whoAvatar" aria-hidden="true">–</span>
                     <div>
@@ -81,69 +79,27 @@
             </div>
         </div>
 
-        <h2 class="sr-only">Chiffres clés</h2>
-        <section class="filters" aria-labelledby="f-titre">
-            <h2 id="f-titre">Filtres</h2>
-            <div class="filters-grid">
-                <div class="field">
-                    <label for="c-statut">Statut</label>
-                    <select class="select" id="c-statut">
-                        <option>Tous les statuts</option><option>Active</option><option>Inactive</option>
-                        <option>Expirée</option><option>Perdue</option><option>Bloquée</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label for="c-recherche">Rechercher</label>
-                    <input class="input" id="c-recherche" type="search" placeholder="Numéro, titulaire, immatriculation…">
-                </div>
-            </div>
-        </section>
+        <nav class="onglets" aria-label="Filtrer les notifications">
+            <a href="notifications.html" aria-current="page">Toutes <span class="nb">(4)</span></a>
+            <a href="notifications.html?tab=non-lues">Non lues <span class="nb">(2)</span></a>
+        </nav>
 
-        <div class="kpis">
-            <div class="kpi kpi--accent">
-                <div class="kpi-top"><span class="kpi-lab">Cartes actives</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg></div>
-                <p class="kpi-val">12</p>
-                <p class="kpi-sub">Sur 13 cartes rattachées</p>
-            </div>
-            <div class="kpi">
-                <div class="kpi-top"><span class="kpi-lab">Solde total</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 6 5.5 9.6a5.5 5.5 0 0 1-11 0C6.5 9 12 3 12 3z"/></svg></div>
-                <p class="kpi-val">1.284.500</p>
-                <p class="kpi-sub up">FCFA répartis sur vos cartes</p>
-            </div>
-            <div class="kpi">
-                <div class="kpi-top"><span class="kpi-lab">Cartes inactives</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg></div>
-                <p class="kpi-val">1</p>
-                <p class="kpi-sub">Inactive, perdue, bloquée ou expirée</p>
-            </div>
-            <div class="kpi">
-                <div class="kpi-top"><span class="kpi-lab">Total cartes</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
-                <p class="kpi-val">13</p>
-                <p class="kpi-sub">Rattachées à votre compte</p>
-            </div>
-        </div>
-
-                <section class="panel" aria-labelledby="p-cartes">
-            <div class="panel-head">
-                <h2 id="p-cartes">Vos cartes</h2>
-                <a class="lnk" href="#">Demander une carte <span class="ar" aria-hidden="true">&rarr;</span></a>
-            </div>
+        <section class="panel" aria-labelledby="p-notif">
+            <div class="panel-head"><h2 id="p-notif">Vos notifications</h2></div>
             <div class="tbl-scroll" tabindex="0">
                 <table class="data">
-                    <thead><tr><th scope="col">Numéro de carte</th><th scope="col">Titulaire</th><th scope="col">Immatriculation</th><th scope="col">Solde (FCFA)</th><th scope="col">Produits autorisés</th><th scope="col">Statut</th><th scope="col">Validité</th></tr></thead>
+                    <thead><tr><th scope="col">Objet</th><th scope="col">Reçue le</th><th scope="col">État</th></tr></thead>
                     <tbody>
-                        <tr><td><span class="ref">TPE-0012-CA</span></td><td>Ahmed Traoré</td><td>1854 CI 01</td><td class="num">812.400</td><td>Gasoil · Super</td><td><span class="badge badge--ok">Active</span></td><td class="num">28/02/2027</td></tr>
-                        <tr><td><span class="ref">TPE-0018-CA</span></td><td>Yvette Kassi</td><td>2207 CI 02</td><td class="num">468.900</td><td>Gasoil · Lubrifiant</td><td><span class="badge badge--ok">Active</span></td><td class="num">28/02/2027</td></tr>
-                        <tr><td><span class="ref">TPE-0025-CA</span></td><td>Kofi Mensah</td><td>3391 CI 01</td><td class="num">2.150</td><td>Gasoil</td><td><span class="badge badge--ok">Active</span></td><td class="num">31/12/2026</td></tr>
-                        <tr><td><span class="ref">TPE-0031-CA</span></td><td>Réserve de flotte</td><td>—</td><td class="num">350</td><td>Gasoil · Super · Gaz</td><td><span class="badge badge--alerte">Inactive</span></td><td class="num">28/03/2027</td></tr>
+                        <tr><td><strong>Commande CMD-2026-045 livrée</strong><br><span class="muted">Recharge de la carte TPE-0012-CA, 1.200.000 FCFA.</span></td><td class="num">05/02/2026 09:12</td><td><span class="badge badge--attente">Non lue</span></td></tr>
+                        <tr><td><strong>Devis à approuver — CMD-2026-044</strong><br><span class="muted">Rubia TIR × 2, Tellus S2 MA 46 × 1, 890.000 FCFA.</span></td><td class="num">04/02/2026 16:40</td><td><span class="badge badge--attente">Non lue</span></td></tr>
+                        <tr><td><strong>Carte TPE-0025-CA sous le seuil</strong><br><span class="muted">Solde de 2.150 FCFA, sous les 2.500 FCFA.</span></td><td class="num">03/02/2026 08:05</td><td><span class="badge badge--neutre">Lue</span></td></tr>
+                        <tr><td><strong>Relevé disponible</strong><br><span class="muted">Période du 01/01 au 31/01/2026, carte TPE-0018-CA.</span></td><td class="num">01/02/2026 11:22</td><td><span class="badge badge--neutre">Lue</span></td></tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <p class="note-bas"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
-            Besoin de l'historique des transactions de vos cartes ? <a class="lnk" href="#">Demandez un relevé</a>.        </p>
-
-        </main>
+    </main>
 </div>
 
 <script>
@@ -190,5 +146,40 @@
 })();
 </script>
 
+
+<script>
+(function () {
+    'use strict';
+    var table  = document.querySelector('#p-hist');
+    var lignes = Array.prototype.slice.call(document.querySelectorAll('.panel table.data tbody tr'));
+    var statut = document.getElementById('f-statut');
+    var type   = document.getElementById('f-type');
+    var texte  = document.getElementById('f-recherche');
+    var compte = document.getElementById('f-compte');
+
+    function appliquer() {
+        var st = statut.selectedIndex === 0 ? '' : statut.value.toLowerCase();
+        var ty = type.selectedIndex === 0 ? '' : type.value.toLowerCase();
+        var tx = texte.value.trim().toLowerCase();
+        var n = 0;
+        lignes.forEach(function (tr) {
+            var contenu = tr.textContent.toLowerCase();
+            var badge = tr.querySelector('.badge');
+            var libelle = badge ? badge.textContent.toLowerCase() : '';
+            var ok = (!st || libelle.indexOf(st) !== -1) &&
+                     (!ty || contenu.indexOf(ty) !== -1) &&
+                     (!tx || contenu.indexOf(tx) !== -1);
+            tr.hidden = !ok;
+            if (ok) { n++; }
+        });
+        compte.textContent = n === 0 ? 'Aucune ligne ne correspond aux filtres'
+                           : n === 1 ? '1 ligne affichée' : n + ' lignes affichées';
+    }
+
+    [statut, type].forEach(function (c) { c.addEventListener('change', appliquer); });
+    texte.addEventListener('input', appliquer);
+    appliquer();
+})();
+</script>
 </body>
 </html>

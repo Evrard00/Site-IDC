@@ -276,3 +276,19 @@ table.data .num { font-variant-numeric: tabular-nums; }
     [data-menu-reduit] .side-nav a,
     [data-menu-reduit] .side-nav button { justify-content: center; padding-inline: 0; }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   NOTE DE BAS DE PAGE
+   Une ligne pour renvoyer ailleurs — l'historique des transactions vers
+   la demande de relevé. Elle remplace le grand bloc d'attente que
+   j'avais posé : leur page dit la même chose en une phrase, et un
+   panneau entier pour une information de renvoi pèse trop lourd.
+   ══════════════════════════════════════════════════════════════════ */
+
+.note-bas {
+    display: flex; align-items: center; gap: 13px;
+    padding: 16px 20px; margin-bottom: 24px;
+    background: var(--surface); border: 1px solid var(--rule-2); border-radius: var(--r-lg);
+    font-size: var(--t-sm); color: var(--ink-2); line-height: 1.5;
+}
+.note-bas svg { flex: none; color: var(--ink-3); }

@@ -45,7 +45,7 @@
                 <a href="purchases.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 14h6"/></svg><span>Mes commandes</span></a>
                 <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Mes relevés</span><span class="sr-only">— bientôt disponible</span></button>
                 <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S6 9.6 6 13.8a6 6 0 0 0 12 0C18 9.6 12 2.7 12 2.7z"/></svg><span>Lubrifiants (devis)</span><span class="tag tag--wait">Bientôt</span><span class="sr-only">— bientôt disponible</span></button>
-                <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span><span class="sr-only">— bientôt disponible</span></button>
+                <a href="notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
             </nav>
         </div>
 
@@ -65,9 +65,11 @@
         <div class="app-head">
             <div>
                 <h1>Mes commandes</h1>
-                <p class="sub">Vos demandes de devis et vos commandes, du dépôt à la livraison.</p>
+                <p class="sub">Suivi de vos commandes de cartes, recharges, duplicatas et devis lubrifiants.</p>
             </div>
             <div class="app-actions">
+                    <a class="btn btn--sm" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Nouvelle commande</a>
+
                 <div class="who">
                     <span class="who-av" id="whoAvatar" aria-hidden="true">–</span>
                     <div>
@@ -133,7 +135,7 @@
                 <p class="kpi-sub">Soumises, en traitement ou devis à approuver</p>
             </div>
             <div class="kpi">
-                <div class="kpi-top"><span class="kpi-lab">Rejetées</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 6 5.5 9.6a5.5 5.5 0 0 1-11 0C6.5 9 12 3 12 3z"/></svg></div>
+                <div class="kpi-top"><span class="kpi-lab">Rejetées / annulées</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s5.5 6 5.5 9.6a5.5 5.5 0 0 1-11 0C6.5 9 12 3 12 3z"/></svg></div>
                 <p class="kpi-val">1</p>
                 <p class="kpi-sub">Motif communiqué à la demande</p>
             </div>
@@ -141,7 +143,7 @@
 
         <section class="panel" aria-labelledby="p-hist">
             <div class="panel-head">
-                <h2 id="p-hist">Historique des achats</h2>
+                <h2 id="p-hist">Historique des commandes</h2>
                 <p class="kpi-lab" id="f-compte" role="status" aria-live="polite"></p>
                 <a class="lnk" href="eshop.html">Nouvelle sélection <span class="ar" aria-hidden="true">&rarr;</span></a>
             </div>
