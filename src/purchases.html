@@ -14,11 +14,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>try{if(localStorage.getItem('idc-menu-reduit')==='1')document.documentElement.setAttribute('data-menu-reduit','');}catch(e){}</script>
     <link rel="stylesheet" href="./_v2.css">
     <link rel="stylesheet" href="./_app.css">
 
     <style>
     </style>
+    <script src="./_app.js" defer></script>
 </head>
 <body>
 
@@ -30,6 +32,10 @@
         <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
             <img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures">
         </a>
+        <button class="side-bascule" type="button" id="basculeMenu"
+                aria-expanded="true" aria-label="Réduire le menu de navigation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
 
         <div class="side-group">
             <h2 id="nav-espace">Navigation</h2>

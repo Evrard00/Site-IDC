@@ -40,6 +40,12 @@
 .side-nav button:disabled:hover { background: transparent; color: inherit; }
 .side-nav svg { width: 18px; height: 18px; flex: none; }
 .side-sep { margin-top: 8px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.14); }
+/* Les autres entrées sont des enfants directs du conteneur flex et
+   s'étirent seules. Celle-ci est enveloppée d'un <div> : en contexte
+   bloc, un <button> se rétracte sur son contenu. Son survol était donc
+   plus étroit que les autres, et son icône se décalait de 13 px une
+   fois la colonne réduite. */
+.side-sep button { width: 100%; }
 
 /* ── zone de travail ────────────────────────────────────────────── */
 .app-main { padding: clamp(22px, 3vw, 40px); background: var(--ground); }
@@ -181,27 +187,34 @@ table.data .num { font-variant-numeric: tabular-nums; }
 
 /* ══════════════════════════════════════════════════════════════════
    ACTIONS RAPIDES
-   La rangée de raccourcis du tableau de bord. Ce ne sont pas des
-   décorations : ce sont les quatre demandes qu'un client passe depuis
-   son espace — recharge, nouvelle carte, duplicata, relevé — soit trois
-   des cinq valeurs d'OrderType plus la demande de relevé.
+   Les quatre demandes qu'un client passe depuis son espace : recharge,
+   nouvelle carte, duplicata, relevé — trois des cinq valeurs d'OrderType
+   plus la demande de relevé.
 
-   Elles s'empilent sous 560 px : quatre boutons sur une ligne de
-   téléphone donneraient des cibles trop étroites.
+   Ce furent des tuiles, et c'était une erreur : elles reprenaient les
+   trois propriétés de .kpi et .panel — surface, bordure, rayon large —
+   donc le vocabulaire des conteneurs. On voyait huit objets de même
+   nature, et rien ne disait que quatre se cliquaient.
+
+   Ce sont maintenant des .btn : dimensionnés par leur contenu et non
+   étirés sur une grille, sans bordure, rayon de 6 px. Un seul accent, le
+   vert de la recharge ; les trois autres portent l'anneau de .btn--line.
+
+   La rangée passe à la ligne d'elle-même : pas de point de rupture à
+   tenir, chaque bouton fait la largeur de son libellé.
    ══════════════════════════════════════════════════════════════════ */
 
-.actions-rapides { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-                   gap: 12px; margin-bottom: 28px; }
-.actions-rapides .btn { width: 100%; justify-content: center; text-align: center; }
+.actions-rapides { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+.actions-rapides .btn { flex: 0 1 auto; }
 
-@media (max-width: 900px) { .actions-rapides { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .actions-rapides { grid-template-columns: minmax(0, 1fr); } }
+/* Le vert IDC en variante de bouton, comme .btn--light : on change les
+   jetons, jamais les propriétés — le survol et l'appui restent ceux du
+   système. */
+.btn--vert { --btn-bg: var(--green); --btn-fg: #fff; --btn-bg-hover: #15632F; }
 
-/* Vert IDC pour l'action principale, comme dans l'application : la
-   recharge est le geste le plus fréquent, et il se distingue de
-   l'orange des autres demandes. */
-.btn--vert { background: var(--green); color: #fff; }
-.btn--vert:hover, .btn--vert:focus-visible { background: #15632F; color: #fff; }
+@media (max-width: 460px) {
+    .actions-rapides { display: grid; grid-template-columns: minmax(0, 1fr); }
+}
 
 /* Pastille « Bientôt » d'une entrée pas encore ouverte. Sans ces règles
    elle chevauchait le libellé : « Lubrifiants (devis) » passe sur deux
@@ -213,3 +226,53 @@ table.data .num { font-variant-numeric: tabular-nums; }
 .side-nav button > span:not(.sr-only):not(.tag) { flex: 1 1 auto; min-width: 0; }
 .side-nav .tag { flex: none; margin-left: auto; font-size: 9.5px; padding: 0 7px; height: 19px; }
 .side-nav .tag::before { width: 5px; height: 5px; }
+
+/* ══════════════════════════════════════════════════════════════════
+   COLONNE RÉDUCTIBLE
+   La colonne se replie sur ses icônes pour rendre 184 px au contenu.
+   L'attribut est posé sur <html> par un fragment en tête de page, avant
+   le premier rendu : sur .app il arriverait trop tard et la colonne se
+   replierait sous les yeux du visiteur.
+
+   Les libellés ne sont pas supprimés mais masqués comme .sr-only : un
+   lecteur d'écran continue de les annoncer, et _app.js pose un title
+   pour que la souris ait aussi de quoi lire.
+
+   Rien de tout cela sous 900 px : la colonne y est déjà une barre
+   horizontale, et le bouton disparaît.
+   ══════════════════════════════════════════════════════════════════ */
+
+.side-bascule {
+    display: none; align-items: center; justify-content: center;
+    width: 34px; height: 34px; margin-top: -6px; flex: none;
+    border: 0; border-radius: var(--r); cursor: pointer;
+    background: rgba(255,255,255,.07); color: rgba(255,255,255,.72);
+    transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+.side-bascule svg { width: 17px; height: 17px; }
+.side-bascule:hover { background: rgba(255,255,255,.14); color: #fff; }
+
+@media (min-width: 901px) {
+    .side-bascule { display: inline-flex; }
+
+    [data-menu-reduit] .app { grid-template-columns: 68px minmax(0, 1fr); }
+    [data-menu-reduit] .side { padding-inline: 12px; align-items: center; }
+    /* 40 px d'image plus 24 px de fond laissaient 2 px de chaque côté :
+       le bloc blanc touchait presque les bords. */
+    [data-menu-reduit] .side-logo { align-self: center; padding: 7px 9px; }
+    [data-menu-reduit] .side-logo img { width: 32px; height: auto; }
+    [data-menu-reduit] .side-group { width: 100%; }
+
+    /* libellés et intertitres : masqués à l'œil, conservés à l'oreille */
+    [data-menu-reduit] .side-group h2,
+    [data-menu-reduit] .side-nav a > span:not(.sr-only),
+    [data-menu-reduit] .side-nav button > span:not(.sr-only) {
+        position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+        overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+    }
+    /* la pastille « Bientôt » n'a plus de place : elle part avec le libellé */
+    [data-menu-reduit] .side-nav .tag { display: none; }
+
+    [data-menu-reduit] .side-nav a,
+    [data-menu-reduit] .side-nav button { justify-content: center; padding-inline: 0; }
+}

@@ -14,11 +14,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>try{if(localStorage.getItem('idc-menu-reduit')==='1')document.documentElement.setAttribute('data-menu-reduit','');}catch(e){}</script>
     <link rel="stylesheet" href="./_v2.css">
     <link rel="stylesheet" href="./_app.css">
 
     <style>
     </style>
+    <script src="./_app.js" defer></script>
 </head>
 <body>
 
@@ -30,6 +32,10 @@
         <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
             <img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures">
         </a>
+        <button class="side-bascule" type="button" id="basculeMenu"
+                aria-expanded="true" aria-label="Réduire le menu de navigation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
 
         <div class="side-group">
             <h2 id="nav-espace">Navigation</h2>
@@ -95,12 +101,12 @@
             </div>
         </div>
 
-        <div class="actions-rapides">
-            <a class="btn btn--vert" href="#">Recharger une carte</a>
-            <a class="btn" href="#">Nouvelle carte</a>
-            <a class="btn btn--line" href="#">Duplicata</a>
-            <a class="btn btn--line" href="#">Demander un relevé</a>
-        </div>
+        <nav class="actions-rapides" aria-label="Demandes courantes">
+            <a class="btn btn--vert" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M17 17h4M19 15v4"/></svg>Recharger une carte</a>
+            <a class="btn btn--line" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>Nouvelle carte</a>
+            <a class="btn btn--line" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Duplicata</a>
+            <a class="btn btn--line" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>Demander un relevé</a>
+        </nav>
 
         <section class="panel" aria-labelledby="p-cmd">
             <div class="panel-head">
