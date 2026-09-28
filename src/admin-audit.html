@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal d'audit — Back-office IDC</title>
+    <meta name="description" content="Journal d'audit du back-office IDC : actions du personnel, horodatées et tracées.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#14181B">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+    <link rel="stylesheet" href="./_app.css">
+
+    <style>
+    </style>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<div class="app">
+
+    <aside class="side">
+        <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
+            <img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures">
+        </a>
+
+        <div class="side-group">
+            <h2 id="grp-0">Pilotage</h2>
+            <nav class="side-nav" aria-labelledby="grp-0">
+                <a href="admin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Tableau de bord</span></a>
+                <a href="admin-imports.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><span>Import Total</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-1">Commandes</h2>
+            <nav class="side-nav" aria-labelledby="grp-1">
+                <a href="admin-commandes.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H4z"/><path d="M4 15l2 4h12l2-4"/><path d="M9 9h6"/></svg><span>Commandes</span></a>
+                <a href="admin-commandes.html?tab=mes-taches"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l2 2 4-4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4"/></svg><span>Mes tâches</span></a>
+                <a href="admin-notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
+                <a href="admin-releves.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Relevés</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-2">Référentiel</h2>
+            <nav class="side-nav" aria-labelledby="grp-2">
+                <a href="admin-clients.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Clients</span></a>
+                <a href="admin-cartes.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg><span>Cartes TPE</span></a>
+                <a href="admin-audit.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Journal d'audit</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-3">Compte</h2>
+            <nav class="side-nav" aria-labelledby="grp-3">
+                <a href="admin-profil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Mon profil</span></a>
+                <div class="side-sep">
+                    <button type="button" id="deconnexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg><span>Se déconnecter</span></button>
+                </div>
+            </nav>
+        </div>
+
+    </aside>
+
+    <main class="app-main" id="contenu">
+
+        <div class="app-head">
+            <div>
+                <h1>Journal d'audit</h1>
+                <p class="sub">Qui a fait quoi, quand, et sur quoi.</p>
+            </div>
+            <div class="app-actions">
+                <div class="who">
+                    <span class="who-av" id="whoAvatar" aria-hidden="true">–</span>
+                    <div>
+                        <p class="who-nom" id="whoNom">Administration IDC</p>
+                        <p class="who-mail" id="whoMail"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="panel">
+            <div class="panel-head"><h2 id="p-f">Filtrer</h2></div>
+            <div class="filters-grid">
+                <div class="filters">
+                    <label for="a-action">Action</label>
+                    <select class="select" id="a-action">
+                        <option>Toutes les actions</option><option>Connexion</option>
+                        <option>Prise en charge</option><option>Validation</option><option>Rejet</option>
+                        <option>Création de compte</option><option>Import</option>
+                    </select>
+                </div>
+                <div class="filters">
+                    <label for="a-acteur">Acteur</label>
+                    <input class="input" id="a-acteur" type="search" placeholder="Nom ou identifiant…">
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head">
+                <h2>Événements</h2>
+            </div>
+            <div class="tbl-scroll" tabindex="0">
+                <table class="data">
+                    <thead><tr><th scope="col">Date</th><th scope="col">Acteur</th><th scope="col">Action</th><th scope="col">Cible</th><th scope="col">Détails</th></tr></thead>
+                    <tbody>
+                        <tr><td class="num">24/09/2026 09:14</td><td>Adama Keita</td><td>Prise en charge</td><td><span class="ref">CMD-2026-114</span></td><td>Statut Soumise → En traitement</td></tr>
+                        <tr><td class="num">24/09/2026 08:02</td><td>Adama Keita</td><td>Connexion</td><td>—</td><td>Depuis Abidjan</td></tr>
+                        <tr><td class="num">23/09/2026 17:31</td><td>Yvette Kassi</td><td>Validation</td><td><span class="ref">CMD-2026-111</span></td><td>Montant 2.480.000 FCFA</td></tr>
+                        <tr><td class="num">23/09/2026 16:38</td><td>Système</td><td>Import</td><td><span class="ref">total-2026-09-23.csv</span></td><td>Conservé en attente</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    // Session posée par login.html. La clé était « loggedInUser » côté
+    // espace client et « idc-session » côté connexion : personne n'était
+    // jamais reconnu.
+    var brut = null;
+    try { brut = localStorage.getItem('idc-session'); } catch (e) { /* stockage bloqué */ }
+
+    if (!brut) {
+        window.location.replace('login.html');
+        return;
+    }
+
+    var session = {};
+    try { session = JSON.parse(brut) || {}; } catch (e) { session = {}; }
+
+    var nom  = session.nom || 'Administration IDC';
+    var mail = session.email || '';
+
+    var elNom = document.getElementById('whoNom');
+    var elMail = document.getElementById('whoMail');
+    var elAv  = document.getElementById('whoAvatar');
+    if (elNom) { elNom.textContent = nom; }
+    if (elMail) { elMail.textContent = mail; }
+    if (elAv) {
+        elAv.textContent = nom.split(/\s+/).map(function (m) { return m.charAt(0); })
+                              .join('').toUpperCase().slice(0, 2);
+    }
+
+    var sortie = document.getElementById('deconnexion');
+    if (sortie) {
+        sortie.addEventListener('click', function () {
+            try { localStorage.removeItem('idc-session'); } catch (e) { /* rien */ }
+            window.location.href = 'login.html';
+        });
+    }
+})();
+</script>
+
+</body>
+</html>

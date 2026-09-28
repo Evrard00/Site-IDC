@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord — Back-office IDC</title>
+    <meta name="description" content="Pilotage du back-office IDC : commandes à traiter, inscriptions, relevés et parc de cartes.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#14181B">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+    <link rel="stylesheet" href="./_app.css">
+
+    <style>
+    </style>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<div class="app">
+
+    <aside class="side">
+        <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
+            <img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures">
+        </a>
+
+        <div class="side-group">
+            <h2 id="grp-0">Pilotage</h2>
+            <nav class="side-nav" aria-labelledby="grp-0">
+                <a href="admin.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Tableau de bord</span></a>
+                <a href="admin-imports.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><span>Import Total</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-1">Commandes</h2>
+            <nav class="side-nav" aria-labelledby="grp-1">
+                <a href="admin-commandes.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H4z"/><path d="M4 15l2 4h12l2-4"/><path d="M9 9h6"/></svg><span>Commandes</span></a>
+                <a href="admin-commandes.html?tab=mes-taches"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l2 2 4-4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4"/></svg><span>Mes tâches</span></a>
+                <a href="admin-notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
+                <a href="admin-releves.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Relevés</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-2">Référentiel</h2>
+            <nav class="side-nav" aria-labelledby="grp-2">
+                <a href="admin-clients.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Clients</span></a>
+                <a href="admin-cartes.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg><span>Cartes TPE</span></a>
+                <a href="admin-audit.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Journal d'audit</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-3">Compte</h2>
+            <nav class="side-nav" aria-labelledby="grp-3">
+                <a href="admin-profil.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Mon profil</span></a>
+                <div class="side-sep">
+                    <button type="button" id="deconnexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg><span>Se déconnecter</span></button>
+                </div>
+            </nav>
+        </div>
+
+    </aside>
+
+    <main class="app-main" id="contenu">
+
+        <div class="app-head">
+            <div>
+                <h1>Tableau de bord</h1>
+                <p class="sub">L'activité du réseau : demandes à traiter, relevés à livrer, parc de cartes.</p>
+            </div>
+            <div class="app-actions">
+                <div class="who">
+                    <span class="who-av" id="whoAvatar" aria-hidden="true">–</span>
+                    <div>
+                        <p class="who-nom" id="whoNom">Administration IDC</p>
+                        <p class="who-mail" id="whoMail"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="kpis">
+            <div class="kpi kpi--accent">
+                <div class="kpi-top"><span class="kpi-lab">En attente</span></div>
+                <p class="kpi-val">7</p>
+                <p class="kpi-sub">Commandes soumises, non prises en charge</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">En traitement</span></div>
+                <p class="kpi-val">3</p>
+                <p class="kpi-sub">Prises en charge, non validées</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">Mes tâches</span></div>
+                <p class="kpi-val">4</p>
+                <p class="kpi-sub">Commandes qui vous sont assignées</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">Demandes d'inscription</span></div>
+                <p class="kpi-val">2</p>
+                <p class="kpi-sub">Comptes à ouvrir ou à refuser</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">Relevés à livrer</span></div>
+                <p class="kpi-val">5</p>
+                <p class="kpi-sub">Demandes reçues, document non fourni</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">Validées</span></div>
+                <p class="kpi-val">12</p>
+                <p class="kpi-sub">Sur les trente derniers jours</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">Clients actifs</span></div>
+                <p class="kpi-val">48</p>
+                <p class="kpi-sub">Comptes ouverts et non bloqués</p>
+            </div>
+            <div class="kpi">
+                <div class="kpi-top"><span class="kpi-lab">Cartes actives</span></div>
+                <p class="kpi-val">213</p>
+                <p class="kpi-sub">Sur 227 cartes du parc</p>
+            </div>
+        </div>
+
+        <nav class="onglets" aria-label="Filtrer par état">
+            <a href="admin-commandes.html" aria-current="page">En attente <span class="nb">(7)</span></a>
+            <a href="admin-commandes.html?tab=mes-taches">Mes tâches <span class="nb">(4)</span></a>
+            <a href="admin-commandes.html?tab=traitement">En traitement <span class="nb">(3)</span></a>
+            <a href="admin-commandes.html?tab=validees">Validées <span class="nb">(12)</span></a>
+        </nav>
+
+        <section class="panel" aria-labelledby="p-cmd">
+            <div class="panel-head">
+                <h2 id="p-cmd">Commandes à traiter</h2>
+                <a class="lnk" href="#">Toutes les commandes <span class="ar" aria-hidden="true">&rarr;</span></a>
+            </div>
+            <div class="tbl-scroll" tabindex="0">
+                <table class="data">
+                    <thead><tr><th scope="col">Référence</th><th scope="col">Client</th><th scope="col">Type</th><th scope="col">Montant (FCFA)</th><th scope="col">Statut</th><th scope="col">Date</th></tr></thead>
+                    <tbody>
+                        <tr><td><span class="ref">CMD-2026-114</span></td><td>Transports Abidjan SA</td><td>Recharge de carte</td><td class="num">1.250.000</td><td><span class="badge badge--attente">Soumise</span></td><td class="num">24/09/2026</td></tr>
+                        <tr><td><span class="ref">CMD-2026-113</span></td><td>Bâtir CI</td><td>Devis lubrifiants</td><td class="num">980.000</td><td><span class="badge badge--attente">Devis à approuver</span></td><td class="num">23/09/2026</td></tr>
+                        <tr><td><span class="ref">CMD-2026-112</span></td><td>Flotte Guézon</td><td>Nouvelle carte</td><td class="num">45.000</td><td><span class="badge badge--attente">En traitement</span></td><td class="num">23/09/2026</td></tr>
+                        <tr><td><span class="ref">CMD-2026-111</span></td><td>Sococé Distribution</td><td>Achat de produits</td><td class="num">2.480.000</td><td><span class="badge badge--ok">Validée</span></td><td class="num">22/09/2026</td></tr>
+                        <tr><td><span class="ref">CMD-2026-110</span></td><td>Coopérative Bayota</td><td>Duplicata de carte</td><td class="num">15.000</td><td><span class="badge badge--alerte">Rejetée</span></td><td class="num">21/09/2026</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    // Session posée par login.html. La clé était « loggedInUser » côté
+    // espace client et « idc-session » côté connexion : personne n'était
+    // jamais reconnu.
+    var brut = null;
+    try { brut = localStorage.getItem('idc-session'); } catch (e) { /* stockage bloqué */ }
+
+    if (!brut) {
+        window.location.replace('login.html');
+        return;
+    }
+
+    var session = {};
+    try { session = JSON.parse(brut) || {}; } catch (e) { session = {}; }
+
+    var nom  = session.nom || 'Administration IDC';
+    var mail = session.email || '';
+
+    var elNom = document.getElementById('whoNom');
+    var elMail = document.getElementById('whoMail');
+    var elAv  = document.getElementById('whoAvatar');
+    if (elNom) { elNom.textContent = nom; }
+    if (elMail) { elMail.textContent = mail; }
+    if (elAv) {
+        elAv.textContent = nom.split(/\s+/).map(function (m) { return m.charAt(0); })
+                              .join('').toUpperCase().slice(0, 2);
+    }
+
+    var sortie = document.getElementById('deconnexion');
+    if (sortie) {
+        sortie.addEventListener('click', function () {
+            try { localStorage.removeItem('idc-session'); } catch (e) { /* rien */ }
+            window.location.href = 'login.html';
+        });
+    }
+})();
+</script>
+
+</body>
+</html>

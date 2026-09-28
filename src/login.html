@@ -203,7 +203,7 @@
     // réelle. À remplacer par un appel serveur le jour où il existera.
     var COMPTES = {
         'demo@idc.ci':    { motdepasse: 'demo123',  nom: 'Client de démonstration' },
-        'info@idc-ci.com': { motdepasse: 'admin123', nom: 'Administration IDC' }
+        'info@idc-ci.com': { motdepasse: 'admin123', nom: 'Administration IDC', admin: true }
     };
 
     var form  = document.getElementById('loginForm');
@@ -246,10 +246,14 @@
         msg.textContent = 'Connexion réussie, ouverture de votre espace…';
         try {
             localStorage.setItem('idc-session', JSON.stringify({
-                email: id, nom: compte.nom, depuis: new Date().toISOString()
+                email: id, nom: compte.nom, admin: !!compte.admin,
+                depuis: new Date().toISOString()
             }));
         } catch (err) { /* stockage indisponible */ }
-        setTimeout(function () { window.location.href = 'dashboard.html'; }, 700);
+        // Deux destinations : le back-office et l espace client. Router selon le
+        // compte, sinon l administration atterrit sur le tableau de bord client.
+        var cible = compte.admin ? 'admin.html' : 'dashboard.html';
+        setTimeout(function () { window.location.href = cible; }, 700);
     });
 })();
 </script>

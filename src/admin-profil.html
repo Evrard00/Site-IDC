@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil — Back-office IDC</title>
+    <meta name="description" content="Profil du compte d'administration IDC : coordonnées et mot de passe.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/assets/images/favicon-512.png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#14181B">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./_v2.css">
+    <link rel="stylesheet" href="./_app.css">
+
+    <style>
+    </style>
+</head>
+<body>
+
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<div class="app">
+
+    <aside class="side">
+        <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
+            <img src="../assets/images/logo.webp" width="72" height="30" alt="IDC — Ivoirienne d'Hydrocarbures">
+        </a>
+
+        <div class="side-group">
+            <h2 id="grp-0">Pilotage</h2>
+            <nav class="side-nav" aria-labelledby="grp-0">
+                <a href="admin.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Tableau de bord</span></a>
+                <a href="admin-imports.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg><span>Import Total</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-1">Commandes</h2>
+            <nav class="side-nav" aria-labelledby="grp-1">
+                <a href="admin-commandes.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v10H4z"/><path d="M4 15l2 4h12l2-4"/><path d="M9 9h6"/></svg><span>Commandes</span></a>
+                <a href="admin-commandes.html?tab=mes-taches"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l2 2 4-4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4"/></svg><span>Mes tâches</span></a>
+                <a href="admin-notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
+                <a href="admin-releves.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Relevés</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-2">Référentiel</h2>
+            <nav class="side-nav" aria-labelledby="grp-2">
+                <a href="admin-clients.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Clients</span></a>
+                <a href="admin-cartes.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg><span>Cartes TPE</span></a>
+                <a href="admin-audit.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Journal d'audit</span></a>
+            </nav>
+        </div>
+
+        <div class="side-group">
+            <h2 id="grp-3">Compte</h2>
+            <nav class="side-nav" aria-labelledby="grp-3">
+                <a href="admin-profil.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Mon profil</span></a>
+                <div class="side-sep">
+                    <button type="button" id="deconnexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg><span>Se déconnecter</span></button>
+                </div>
+            </nav>
+        </div>
+
+    </aside>
+
+    <main class="app-main" id="contenu">
+
+        <div class="app-head">
+            <div>
+                <h1>Mon profil</h1>
+                <p class="sub">Vos coordonnées et votre mot de passe.</p>
+            </div>
+            <div class="app-actions">
+                <div class="who">
+                    <span class="who-av" id="whoAvatar" aria-hidden="true">–</span>
+                    <div>
+                        <p class="who-nom" id="whoNom">Administration IDC</p>
+                        <p class="who-mail" id="whoMail"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="panel">
+            <div class="panel-head"><h2>Coordonnées</h2></div>
+            <div class="filters-grid">
+                <div class="filters"><label for="p-nom">Nom</label><input class="input" id="p-nom" type="text" value="Adama Keita"></div>
+                <div class="filters"><label for="p-mail">Adresse électronique</label><input class="input" id="p-mail" type="email" value="info@idc-ci.com"></div>
+                <div class="filters"><label for="p-tel">Téléphone</label><input class="input" id="p-tel" type="tel" value="+225 27 21 25 87 70"></div>
+                <div class="filters"><label for="p-role">Rôle</label><input class="input" id="p-role" type="text" value="Gestionnaire" readonly></div>
+            </div>
+            <p style="margin-top:20px"><button class="btn btn--sm" type="button">Enregistrer <span class="ar" aria-hidden="true">&rarr;</span></button></p>
+        </section>
+
+        <section class="panel">
+            <div class="panel-head"><h2>Changer le mot de passe</h2></div>
+            <div class="filters-grid">
+                <div class="filters"><label for="p-actuel">Mot de passe actuel</label><input class="input" id="p-actuel" type="password" autocomplete="current-password"></div>
+                <div class="filters"><label for="p-neuf">Nouveau mot de passe</label><input class="input" id="p-neuf" type="password" autocomplete="new-password"></div>
+                <div class="filters"><label for="p-conf">Confirmer</label><input class="input" id="p-conf" type="password" autocomplete="new-password"></div>
+            </div>
+            <p style="margin-top:20px"><button class="btn btn--sm" type="button">Changer le mot de passe <span class="ar" aria-hidden="true">&rarr;</span></button></p>
+        </section>
+
+    </main>
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    // Session posée par login.html. La clé était « loggedInUser » côté
+    // espace client et « idc-session » côté connexion : personne n'était
+    // jamais reconnu.
+    var brut = null;
+    try { brut = localStorage.getItem('idc-session'); } catch (e) { /* stockage bloqué */ }
+
+    if (!brut) {
+        window.location.replace('login.html');
+        return;
+    }
+
+    var session = {};
+    try { session = JSON.parse(brut) || {}; } catch (e) { session = {}; }
+
+    var nom  = session.nom || 'Administration IDC';
+    var mail = session.email || '';
+
+    var elNom = document.getElementById('whoNom');
+    var elMail = document.getElementById('whoMail');
+    var elAv  = document.getElementById('whoAvatar');
+    if (elNom) { elNom.textContent = nom; }
+    if (elMail) { elMail.textContent = mail; }
+    if (elAv) {
+        elAv.textContent = nom.split(/\s+/).map(function (m) { return m.charAt(0); })
+                              .join('').toUpperCase().slice(0, 2);
+    }
+
+    var sortie = document.getElementById('deconnexion');
+    if (sortie) {
+        sortie.addEventListener('click', function () {
+            try { localStorage.removeItem('idc-session'); } catch (e) { /* rien */ }
+            window.location.href = 'login.html';
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
