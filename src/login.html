@@ -202,7 +202,7 @@
     // Démonstration : deux comptes codés en dur, aucune authentification
     // réelle. À remplacer par un appel serveur le jour où il existera.
     var COMPTES = {
-        'demo@idc.ci':    { motdepasse: 'demo123',  nom: 'Client de démonstration' },
+        'demo@idc.ci':    { motdepasse: 'demo123',  nom: 'Client de démonstration', paiement: 'CREDIT' },
         'info@idc-ci.com': { motdepasse: 'admin123', nom: 'Administration IDC', admin: true }
     };
 
@@ -246,7 +246,7 @@
         msg.textContent = 'Connexion réussie, ouverture de votre espace…';
         try {
             localStorage.setItem('idc-session', JSON.stringify({
-                email: id, nom: compte.nom, admin: !!compte.admin,
+                email: id, nom: compte.nom, admin: !!compte.admin, paiement: compte.paiement || 'CASH',
                 depuis: new Date().toISOString()
             }));
         } catch (err) { /* stockage indisponible */ }
