@@ -26,7 +26,7 @@
 
 <a class="skip" href="#contenu">Aller au contenu</a>
 
-<div class="app">
+<div class="app" data-espace="client">
 
     <aside class="side">
         <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
@@ -43,8 +43,8 @@
                 <a href="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><span>Tableau de bord</span></a>
                 <a href="cartes-tpe.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg><span>Mes cartes TPE</span></a>
                 <a href="purchases.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 14h6"/></svg><span>Mes commandes</span></a>
-                <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Mes relevés</span><span class="sr-only">— bientôt disponible</span></button>
-                <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S6 9.6 6 13.8a6 6 0 0 0 12 0C18 9.6 12 2.7 12 2.7z"/></svg><span>Lubrifiants (devis)</span><span class="tag tag--wait">Bientôt</span><span class="sr-only">— bientôt disponible</span></button>
+                <button type="button" disabled title="Mes relevés — bientôt disponible"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg><span>Mes relevés</span><span class="sr-only">— bientôt disponible</span></button>
+                <button type="button" disabled title="Lubrifiants sur devis — bientôt disponible"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S6 9.6 6 13.8a6 6 0 0 0 12 0C18 9.6 12 2.7 12 2.7z"/></svg><span>Lubrifiants</span><span class="sr-only">sur devis</span><span class="tag tag--wait">Bientôt</span></button>
                 <a href="notifications.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span>Notifications</span></a>
             </nav>
         </div>
@@ -52,7 +52,7 @@
         <div class="side-group">
             <h2 id="nav-compte">Compte</h2>
             <nav class="side-nav" aria-labelledby="nav-compte">
-                <button type="button" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Mon profil</span><span class="sr-only">— bientôt disponible</span></button>
+                <button type="button" disabled title="Mon profil — bientôt disponible"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Mon profil</span><span class="sr-only">— bientôt disponible</span></button>
                 <div class="side-sep">
                     <button type="button" id="deconnexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg><span>Se déconnecter</span></button>
                 </div>
@@ -165,84 +165,7 @@
     </main>
 </div>
 
-<script>
-(function () {
-    'use strict';
-
-    // Session posée par login.html. La clé était « loggedInUser » côté
-    // espace client et « idc-session » côté connexion : personne n'était
-    // jamais reconnu.
-    var brut = null;
-    try { brut = localStorage.getItem('idc-session'); } catch (e) { /* stockage bloqué */ }
-
-    if (!brut) {
-        window.location.replace('login.html');
-        return;
-    }
-
-    var session = {};
-    try { session = JSON.parse(brut) || {}; } catch (e) { session = {}; }
-
-    var nom  = session.nom || 'Client IDC';
-    // Leur en-tête montre le mode de facturation sous le nom, non l'adresse :
-    // c'est ce qu'un client a besoin de voir. Libellés repris de PAYMENT_LABEL.
-    var PAIEMENT = { CASH: 'Comptant', CREDIT: 'Crédit', ACCOUNT: 'Compte' };
-    var mail = PAIEMENT[session.paiement] || 'Comptant';
-
-    var elNom = document.getElementById('whoNom');
-    var elMail = document.getElementById('whoMail');
-    var elAv  = document.getElementById('whoAvatar');
-    if (elNom) { elNom.textContent = nom; }
-    if (elMail) { elMail.textContent = mail; }
-    if (elAv) {
-        elAv.textContent = nom.split(/\s+/).map(function (m) { return m.charAt(0); })
-                              .join('').toUpperCase().slice(0, 2);
-    }
-
-    var sortie = document.getElementById('deconnexion');
-    if (sortie) {
-        sortie.addEventListener('click', function () {
-            try { localStorage.removeItem('idc-session'); } catch (e) { /* rien */ }
-            window.location.href = 'login.html';
-        });
-    }
-})();
-</script>
 
 
-<script>
-(function () {
-    'use strict';
-    var table  = document.querySelector('#p-hist');
-    var lignes = Array.prototype.slice.call(document.querySelectorAll('.panel table.data tbody tr'));
-    var statut = document.getElementById('f-statut');
-    var type   = document.getElementById('f-type');
-    var texte  = document.getElementById('f-recherche');
-    var compte = document.getElementById('f-compte');
-
-    function appliquer() {
-        var st = statut.selectedIndex === 0 ? '' : statut.value.toLowerCase();
-        var ty = type.selectedIndex === 0 ? '' : type.value.toLowerCase();
-        var tx = texte.value.trim().toLowerCase();
-        var n = 0;
-        lignes.forEach(function (tr) {
-            var contenu = tr.textContent.toLowerCase();
-            var badge = tr.querySelector('.badge');
-            var libelle = badge ? badge.textContent.toLowerCase() : '';
-            var ok = (!st || libelle.indexOf(st) !== -1) &&
-                     (!ty || contenu.indexOf(ty) !== -1) &&
-                     (!tx || contenu.indexOf(tx) !== -1);
-            tr.hidden = !ok;
-            if (ok) { n++; }
-        });
-        compte.textContent = n === 0 ? 'Aucune ligne ne correspond aux filtres'
-                           : n === 1 ? '1 ligne affichée' : n + ' lignes affichées';
-    }
-
-    [statut, type].forEach(function (c) { c.addEventListener('change', appliquer); });
-    texte.addEventListener('input', appliquer);
-    appliquer();
-})();
-</script>
 </body>
 </html>

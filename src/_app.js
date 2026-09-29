@@ -58,3 +58,108 @@
         if (etiquette) { e.setAttribute('title', etiquette.textContent.trim()); }
     });
 }());
+
+
+/* ══════════════════════════════════════════════════════════════════
+   SESSION
+   Ce bloc était recopié dans les treize pages connectées : neuf du
+   back-office, quatre de l'espace client. Seize kilo-octets, et treize
+   endroits à modifier pour un seul correctif.
+
+   Les deux variantes ne différaient que par le nom de repli et la
+   seconde ligne de l'en-tête — l'adresse côté back-office, le mode de
+   facturation côté client, comme le fait leur application. L'attribut
+   data-espace porté par .app les distingue.
+   ══════════════════════════════════════════════════════════════════ */
+(function () {
+    'use strict';
+
+    var app = document.querySelector('.app');
+    if (!app) { return; }
+    var admin = app.getAttribute('data-espace') === 'admin';
+
+    var brut = null;
+    try { brut = localStorage.getItem('idc-session'); } catch (e) { /* stockage bloqué */ }
+    if (!brut) { window.location.replace('login.html'); return; }
+
+    var session = {};
+    try { session = JSON.parse(brut) || {}; } catch (e) { session = {}; }
+
+    var PAIEMENT = { CASH: 'Comptant', CREDIT: 'Crédit', ACCOUNT: 'Compte' };
+    var nom = session.nom || (admin ? 'Administration IDC' : 'Client IDC');
+    var seconde = admin ? (session.email || '')
+                        : (PAIEMENT[session.paiement] || 'Comptant');
+
+    var elNom = document.getElementById('whoNom');
+    var elMail = document.getElementById('whoMail');
+    var elAv = document.getElementById('whoAvatar');
+    if (elNom) { elNom.textContent = nom; }
+    if (elMail) { elMail.textContent = seconde; }
+    if (elAv) {
+        elAv.textContent = nom.split(/\s+/).map(function (m) { return m.charAt(0); })
+                              .join('').toUpperCase().slice(0, 2);
+    }
+
+    var sortie = document.getElementById('deconnexion');
+    if (sortie) {
+        sortie.addEventListener('click', function () {
+            try { localStorage.removeItem('idc-session'); } catch (e) { /* rien */ }
+            window.location.replace('login.html');
+        });
+    }
+}());
+
+
+/* ══════════════════════════════════════════════════════════════════
+   FILTRES DE LISTE
+   Le filtrage vivait dans un script recopié par page, couplé à des
+   identifiants : #f-statut, #f-type, #f-recherche. Deux conséquences.
+   Les filtres que j'ai ajoutés à Cartes TPE, nommés #c-…, n'avaient
+   aucune logique derrière et ne faisaient rien. Et notifications.html,
+   engendrée depuis purchases.html, exécutait ce script sur des éléments
+   absents : « Cannot read properties of null ».
+
+   Celui-ci ne connaît aucun identifiant. Il prend les contrôles du bloc
+   .filters et les applique au premier tableau qui suit. Sans bloc
+   .filters, il ne fait rien — c'est le cas sur les vingt autres pages.
+   ══════════════════════════════════════════════════════════════════ */
+(function () {
+    'use strict';
+
+    var bloc = document.querySelector('.filters');
+    if (!bloc) { return; }
+
+    var table = document.querySelector('.panel table.data');
+    if (!table) { return; }
+
+    var lignes = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
+    var listes = Array.prototype.slice.call(bloc.querySelectorAll('select'));
+    var cherche = bloc.querySelector('input[type="search"]');
+    var compte = document.getElementById('f-compte');
+
+    function appliquer() {
+        var criteres = listes
+            .filter(function (l) { return l.selectedIndex > 0; })
+            .map(function (l) { return l.value.toLowerCase(); });
+        var texte = cherche ? cherche.value.trim().toLowerCase() : '';
+        var n = 0;
+
+        lignes.forEach(function (tr) {
+            var contenu = tr.textContent.toLowerCase();
+            var ok = criteres.every(function (c) { return contenu.indexOf(c) !== -1; })
+                  && (!texte || contenu.indexOf(texte) !== -1);
+            tr.hidden = !ok;
+            if (ok) { n += 1; }
+        });
+
+        if (compte) {
+            compte.textContent = n === 0 ? 'Aucune ligne ne correspond aux filtres'
+                               : n === 1 ? '1 ligne affichée'
+                               : n + ' lignes affichées';
+        }
+    }
+
+    listes.forEach(function (l) { l.addEventListener('change', appliquer); });
+    if (cherche) { cherche.addEventListener('input', appliquer); }
+    appliquer();
+}());

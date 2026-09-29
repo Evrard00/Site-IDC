@@ -26,7 +26,7 @@
 
 <a class="skip" href="#contenu">Aller au contenu</a>
 
-<div class="app">
+<div class="app" data-espace="admin">
 
     <aside class="side">
         <a class="side-logo" href="index.html" aria-label="IDC, accueil du site">
@@ -138,46 +138,6 @@
     </main>
 </div>
 
-<script>
-(function () {
-    'use strict';
-
-    // Session posée par login.html. La clé était « loggedInUser » côté
-    // espace client et « idc-session » côté connexion : personne n'était
-    // jamais reconnu.
-    var brut = null;
-    try { brut = localStorage.getItem('idc-session'); } catch (e) { /* stockage bloqué */ }
-
-    if (!brut) {
-        window.location.replace('login.html');
-        return;
-    }
-
-    var session = {};
-    try { session = JSON.parse(brut) || {}; } catch (e) { session = {}; }
-
-    var nom  = session.nom || 'Administration IDC';
-    var mail = session.email || '';
-
-    var elNom = document.getElementById('whoNom');
-    var elMail = document.getElementById('whoMail');
-    var elAv  = document.getElementById('whoAvatar');
-    if (elNom) { elNom.textContent = nom; }
-    if (elMail) { elMail.textContent = mail; }
-    if (elAv) {
-        elAv.textContent = nom.split(/\s+/).map(function (m) { return m.charAt(0); })
-                              .join('').toUpperCase().slice(0, 2);
-    }
-
-    var sortie = document.getElementById('deconnexion');
-    if (sortie) {
-        sortie.addEventListener('click', function () {
-            try { localStorage.removeItem('idc-session'); } catch (e) { /* rien */ }
-            window.location.href = 'login.html';
-        });
-    }
-})();
-</script>
 
 </body>
 </html>

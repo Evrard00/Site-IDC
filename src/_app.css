@@ -26,7 +26,13 @@
 }
 .side-nav { display: flex; flex-direction: column; gap: 2px; }
 .side-nav a, .side-nav button {
-    display: flex; align-items: center; gap: 11px; flex-wrap: wrap;
+    /* position:relative n'est pas décoratif. Les .sr-only que portent les
+       entrées désactivées sont en position:absolute ; sans ancêtre positionné
+       leur bloc conteneur est le viewport, l'overflow-x de .side ne les rogne
+       pas, et le dernier se posait à 886 px — la page défilait de 496 px en
+       390 px de large. Ancrée sur son bouton, l'étiquette reste rognée. */
+    position: relative;
+    display: flex; align-items: center; gap: 11px;
     min-height: 44px; padding: 0 10px; border: 0; border-radius: var(--r);
     background: transparent; color: inherit; cursor: pointer;
     font-family: var(--font); font-size: 14.5px; text-align: left; text-decoration: none;
@@ -35,9 +41,15 @@
 .side-nav a:hover, .side-nav button:hover,
 .side-nav a:focus-visible, .side-nav button:focus-visible { background: rgba(255,255,255,.09); color: #fff; }
 .side-nav a[aria-current="page"] { background: rgba(255,255,255,.13); color: #fff; font-weight: 600; }
-/* une entrée désactivée doit se lire comme telle, pas seulement au curseur */
-.side-nav button:disabled { opacity: .42; cursor: default; }
-.side-nav button:disabled:hover { background: transparent; color: inherit; }
+/* Une entrée désactivée doit se lire comme telle, pas seulement au
+   curseur. Par une couleur et non par opacity : l'opacité éteignait
+   aussi la pastille « Bientôt », qui est justement ce qui explique
+   pourquoi l'entrée est éteinte. */
+/* .40 ne donnait que 3,80:1 sur la colonne nuit. .46 tient le 4,5:1 de
+   l'AA tout en restant bien en retrait des entrées actives, à 9,59:1. */
+.side-nav button:disabled { color: rgba(255,255,255,.46); cursor: default; }
+.side-nav button:disabled svg { opacity: .6; }
+.side-nav button:disabled:hover { background: transparent; color: rgba(255,255,255,.46); }
 .side-nav svg { width: 18px; height: 18px; flex: none; }
 .side-sep { margin-top: 8px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.14); }
 /* Les autres entrées sont des enfants directs du conteneur flex et
@@ -216,16 +228,29 @@ table.data .num { font-variant-numeric: tabular-nums; }
     .actions-rapides { display: grid; grid-template-columns: minmax(0, 1fr); }
 }
 
-/* Pastille « Bientôt » d'une entrée pas encore ouverte. Sans ces règles
-   elle chevauchait le libellé : « Lubrifiants (devis) » passe sur deux
-   lignes dans la colonne, et la pastille se posait par-dessus.
-   L'icône garde sa largeur, le libellé prend la place restante, la
-   pastille passe à la ligne plutôt que de pousser. */
+/* Pastille « Bientôt » d'une entrée pas encore ouverte.
+
+   Elle partait à la ligne, seule et alignée à droite : une huitième
+   rangée orpheline au milieu de sept entrées d'une ligne. La colonne
+   fait 252 px, dont 156 pour le libellé et la pastille ; il fallait
+   rendre de la place des deux côtés. La pastille perd sa puce — le mot
+   « Bientôt » se suffit — et le libellé perd sa parenthèse, passée en
+   infobulle et au lecteur d'écran.
+
+   Et ses couleurs sont refaites : celles du site sont calculées pour le
+   fond clair, et #99480D sur la colonne nuit tombait sous 2:1. */
 .side-nav svg { flex: none; }
 .side-nav a > span:not(.sr-only):not(.tag),
-.side-nav button > span:not(.sr-only):not(.tag) { flex: 1 1 auto; min-width: 0; }
-.side-nav .tag { flex: none; margin-left: auto; font-size: 9.5px; padding: 0 7px; height: 19px; }
-.side-nav .tag::before { width: 5px; height: 5px; }
+.side-nav button > span:not(.sr-only):not(.tag) {
+    flex: 1 1 auto; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.side-nav .tag {
+    flex: none; margin-left: auto;
+    font-size: 10.5px; padding: 0 7px; height: 19px; letter-spacing: .05em;
+}
+.side-nav .tag::before { display: none; }
+.side-nav .tag--wait { background: rgba(243,166,80,.15); color: #F0B473; }
 
 /* ══════════════════════════════════════════════════════════════════
    COLONNE RÉDUCTIBLE
