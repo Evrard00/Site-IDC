@@ -126,15 +126,26 @@
 (function () {
     'use strict';
 
-    var bloc = document.querySelector('.filters');
-    if (!bloc) { return; }
+    // Tous les blocs .filters et non le premier. La classe a été employée
+    // à tort comme enveloppe de champ sur trois pages du back-office : il y
+    // en avait un par champ, le script n'en lisait qu'un, et « Type de
+    // commande » comme la recherche ne filtraient rien — sans la moindre
+    // erreur pour le signaler. Le balisage est corrigé ; le script ne
+    // repose plus sur sa forme.
+    var blocs = Array.prototype.slice.call(document.querySelectorAll('.filters'));
+    if (!blocs.length) { return; }
 
     var table = document.querySelector('.panel table.data');
     if (!table) { return; }
 
+    var listes = [];
+    var cherche = null;
+    blocs.forEach(function (bloc) {
+        Array.prototype.push.apply(listes, bloc.querySelectorAll('select'));
+        cherche = cherche || bloc.querySelector('input[type="search"]');
+    });
+
     var lignes = Array.prototype.slice.call(table.querySelectorAll('tbody tr'));
-    var listes = Array.prototype.slice.call(bloc.querySelectorAll('select'));
-    var cherche = bloc.querySelector('input[type="search"]');
     var compte = document.getElementById('f-compte');
 
     function appliquer() {

@@ -94,10 +94,10 @@
             </div>
         </div>
 
-        <section class="panel">
-            <div class="panel-head"><h2 id="p-f">Filtrer</h2></div>
+        <section class="filters" aria-labelledby="p-f">
+            <h2 id="p-f">Filtrer</h2>
             <div class="filters-grid">
-                <div class="filters">
+                <div class="field">
                     <label for="a-action">Action</label>
                     <select class="select" id="a-action">
                         <option>Toutes les actions</option><option>Connexion</option>
@@ -105,7 +105,7 @@
                         <option>Création de compte</option><option>Import</option>
                     </select>
                 </div>
-                <div class="filters">
+                <div class="field">
                     <label for="a-acteur">Acteur</label>
                     <input class="input" id="a-acteur" type="search" placeholder="Nom ou identifiant…">
                 </div>
@@ -115,6 +115,7 @@
         <section class="panel">
             <div class="panel-head">
                 <h2>Événements</h2>
+                <p class="kpi-lab" id="f-compte" role="status" aria-live="polite"></p>
             </div>
             <div class="tbl-scroll" tabindex="0">
                 <table class="data">

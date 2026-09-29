@@ -101,10 +101,10 @@
             <a href="admin-commandes.html?tab=validees">Validées <span class="nb">(12)</span></a>
         </nav>
 
-        <section class="panel">
-            <div class="panel-head"><h2 id="p-filtres">Filtrer</h2></div>
+        <section class="filters" aria-labelledby="p-filtres">
+            <h2 id="p-filtres">Filtrer</h2>
             <div class="filters-grid">
-                <div class="filters">
+                <div class="field">
                     <label for="a-statut">Statut</label>
                     <select class="select" id="a-statut">
                         <option>Tous les statuts</option><option>Brouillon</option><option>Soumise</option>
@@ -113,7 +113,7 @@
                         <option>Rejetée</option><option>Annulée</option>
                     </select>
                 </div>
-                <div class="filters">
+                <div class="field">
                     <label for="a-type">Type de commande</label>
                     <select class="select" id="a-type">
                         <option>Tous les types</option><option>Achat de produits</option>
@@ -121,7 +121,7 @@
                         <option>Nouvelle carte</option><option>Duplicata de carte</option>
                     </select>
                 </div>
-                <div class="filters">
+                <div class="field">
                     <label for="a-recherche">Rechercher</label>
                     <input class="input" id="a-recherche" type="search" placeholder="Référence, client…">
                 </div>
@@ -131,6 +131,7 @@
         <section class="panel" aria-labelledby="p-cmd">
             <div class="panel-head">
                 <h2 id="p-cmd">Commandes</h2>
+                <p class="kpi-lab" id="f-compte" role="status" aria-live="polite"></p>
             </div>
             <div class="tbl-scroll" tabindex="0">
                 <table class="data">
